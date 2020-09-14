@@ -1,0 +1,6 @@
+header.php
+    content_navbar.php
+        content_jumbotron.php OR content_carousel.php
+        content_main.php
+    content_footer.php
+footer.php

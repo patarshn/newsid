@@ -1,0 +1,277 @@
+create TABLE tbl_form_izinusaha(
+	id_form_izinusaha int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama_usaha varchar(100),
+    jenis_usaha varchar(100),
+    alamat_usaha varchar(100),
+    pengajuan_date datetime,
+    gambar text
+	);
+	
+
+CREATE TABLE tbl_form_kk(
+	id_form_kk int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama varchar(100),
+    alamat varchar(100),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    agama varchar (10),
+    jenis_kelamin varchar(1),
+    golongan_darah varchar(3),
+    kebangsaan varchar(20),
+    pekerjaan varchar(20),
+    pendidikan varchar(20),
+    status_kawin varchar(20),
+    nama_ayah varchar(100),
+    nama_ibu varchar(100),
+    id_rt int(3),
+    id_rw int(3),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+
+CREATE TABLE tbl_form_ktp(
+	id_form_kk int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16) UNIQUE KEY,
+	nama_kk varchar(100),
+    alamat varchar(100),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    agama varchar (10),
+    jenis_kelamin varchar(1),
+    golongan_darah varchar(3),
+    kebangsaan varchar(20),
+    pekerjaan varchar(20),
+    pendidikan varchar(20),
+    status_kawin varchar(20),
+    id_rt int(3),
+    id_rw int(3),
+	tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+
+	
+CREATE TABLE tbl_form_kelahiran(
+	id_form_kelahiran int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nkk varchar(16),
+    nama varchar(100),
+    alamat varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    jenis_kelamin varchar(1),
+    nama_ayah varchar(100),
+    nama_ibu varchar(100),
+    anak_ke int(2),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_kematian(
+	id_form_kematian int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama varchar(100),
+    alamat varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    agama varchar(10),
+    jenis_kelamin varchar(3),
+    pekerjaan varchar(20),
+    tanggal_kematian date,
+    tempat_kematian varchar(100),
+    peyebab varchar(100),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_kettidakmampu(
+	id_form_kettidakmampu int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama varchar(100),
+    alamat varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    agama varchar(10),
+    jenis_kelamin varchar(1),
+    pekerjaan varchar(20),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_ketbelummenikah(
+	id_form_ketbelummenikah int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama varchar(100),
+    alamat varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    agama varchar(10),
+    jenis_kelamin varchar(1),
+    pekerjaan varchar(20),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_ketsudahmenikah(
+	id_form_ketsudahmenikah int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(100),
+    nama varchar(100),
+    alamat varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    agama varchar(10),
+    pekerjaan varchar(20),
+    nama_perempuan varchar(100),
+    alamat_perempuan varchar(100),
+    tanggal_lahir_perempuan date,
+    tempat_lahir_perempuan varchar(100),
+    agama_perempuan varchar(10),
+    pekerjaan_perempuan varchar(20),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_ketdomisili(
+	id_form_domisili int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama varchar(100),
+    alamat varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    tanggal_lahir date,
+    tempat_lahir varchar(100),
+    jenis_kelamin varchar(1),
+    pekerjaan varchar(20),
+	tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_ketjualbeli(
+	id_form_ketjualbeli int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama_penjual varchar(100),
+    umur_penjual int(3),
+    pekerjaan_penjual varchar(20),
+    alamat_penjual varchar(100),
+    nama_pembeli varchar(100),
+    umur_pembeli int(3),
+    pekerjaan_pembeli varchar(20),
+    alamat_pembeli varchar(100),
+    tanggal datetime,
+    id_rt int(3),
+    id_rw int(3),
+    dijual varchar(100),
+    nominal int,
+    nominal_terbilang varchar(100),
+    batas_timur varchar(100),
+    batas_selatan varchar(100),
+    batas_barat varchar(100),
+    batas_utara varchar(100),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_ketwaris(
+	id_form_ketwaris int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama_pemberi varchar(100),
+    nama_penerima varchar(100),
+    umur int(3),
+    alamat varchar(100),
+    barang_waris varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    luas varchar(100),
+    nama_lain varchar(100),
+    saksi varchar(100),
+    batas_timur varchar(100),
+    batas_selatan varchar(100),
+    batas_barat varchar(100),
+    batas_utara varchar(100),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_ketwaris(
+	id_form_ketwaris int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama_pemberi varchar(100),
+    nama_penerima varchar(100),
+    umur int(3),
+    alamat varchar(100),
+    barang_waris varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    luas varchar(100),
+    nama_lain varchar(100),
+    saksi varchar(100),
+    batas_timur varchar(100),
+    batas_selatan varchar(100),
+    batas_barat varchar(100),
+    batas_utara varchar(100),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);
+	
+CREATE TABLE tbl_form_kethibah(
+	id_form_kethibah int AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nik varchar(16),
+    nama_pemberi varchar(100),
+    umur_pemberi int(3),
+    alamat_pemberi varchar(100),
+    pekerjaan_pemberi varchar(20),
+    nama_penerima varchar(100),
+    umur_penerima int(3),
+    alamat_penerima varchar(100),
+    pekerjaan_penerima varchar(20),
+    barang_hibah varchar(100),
+    id_rw int(3),
+    id_rt int(3),
+    luas varchar(100),
+    nama_lain varchar(100),
+    ukuran_timur varchar(100),
+    ukuran_selatan varchar(100),
+    ukuran_barat varchar(100),
+    ukuran_utara varchar(100),
+    batas_timur varchar(100),
+    batas_selatan varchar(100),
+    batas_barat varchar(100),
+    batas_utara varchar(100),
+    tanggal_pengajuan date,
+    verifikasi_rt varchar(1),
+    verifikasi_admin varchar(1),
+    verifikasi_lurah varchar(1)
+	);

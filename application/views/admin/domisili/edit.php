@@ -1,0 +1,125 @@
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Content Row -->
+
+          <div class="row">
+          
+          
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+            <?php if($this->session->flashdata('success_message')): ?>
+	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
+            <?php endif ?>
+                <div class="alert alert-danger col d-none" id="error-message"></div>
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                  <?php
+                  $segment = $this->uri->segment_array();
+                  $uri = base_url();
+                  $uriCount = count($segment);
+                  $i = 1;
+                  foreach ($segment as $s)
+                  {
+                    //echo $s;
+                    //echo '<br />';
+                    $uri = $uri.$s.'/';
+                    echo '<a href="'.$uri.'">'.ucfirst($s).'</a>';
+                    if($i != $uriCount){
+                      echo " » ";
+                    }
+                    $i++;
+                  }
+                  ?>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+          <div class="row">
+
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Edit Domisili</h6>
+                  <div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-warning">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <form method="POST" id="form" action="<?=base_url('admin/domisili/update')?>">
+                  <?php foreach($domisili as $d):?>
+                    <div class="form-row">
+                    <input type="hidden" class="form-control" id="id" name="id" value="<?=$d->id_form_domisili?>" >
+                    <div class="col-lg-6">
+                        <label for="nik">NIK</label>
+                        <input type="text" name="nik" class="form-control" placeholder="NIK" value="<?=$d->nik?>">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="nama">Nama</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Nama" readonly value="<?=$d->nama?>">
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="alamat">Alamat</label>
+                            <textarea name="alamat" class="form-control" id="alamat" rows="3"><?=$d->alamat?></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tempat_lahir">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat Lahir" readonly>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir" class="form-control" placeholder="mm/dd/yy" readonly>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
+                        <input type="text" name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" readonly>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="pekerjaan">Pekerjaan</label>
+                        <input type="text" name="pekerjaan" class="form-control" placeholder="Pekerjaan">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="rw">RW</label>
+                        <input type="text" name="rw" class="form-control" placeholder="RW" readonly>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="rt">RT</label>
+                        <input type="text" name="rt" class="form-control" placeholder="RT" readonly>
+                    </div>
+                </div>
+                  <?php endforeach;?>
+                  </form>
+                  <div class="d-flex mt-3">
+                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/domisili/update','#form')">Simpan</button>
+                        <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
