@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Form_belummenikah extends Frontend_Controller{
+class Form_check extends Frontend_Controller{
     
-    private $_table = 'form_belummenikah';
+    private $_table = 'form_check';
     private $_folder = 'form';
-    private $_docxName = 'form_belummenikah';
-    private $_mainTitle = 'Form Belum Menikah';  
-    private $_fileName = 'form_belummenikah';
+    private $_docxName = 'form_check';
+    private $_mainTitle = 'Form Check';  
+    private $_fileName = 'form_check';
     
    
     

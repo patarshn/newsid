@@ -5,7 +5,7 @@ class Form_penghasilan extends Admin_Controller{
 
     private $_table = 'form_penghasilan';
     private $_folder = 'form_penghasilan';
-    private $_docxName = 'form_penghasilan';
+    private $_docxName = 'form_penghasilan.docx';
     private $_mainTitle = 'Form Keterangan Penghasilan';
 
     function __construct()
@@ -215,12 +215,28 @@ class Form_penghasilan extends Admin_Controller{
 
     function cetak($id){
         $where = ['id'=>$id];
-        $data = $this->Main_m->get($where,$this->_table)->row();
-        print_r($data);
+        $data = $this->Main_m->get($this->_table,$where)->row();
+        $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
-        $template->setValue('username', 'Mager');
-        $temp_filename = $this->_docxName.'.docx';
+        $template->setValue('nama', $data->nama);
+        $template->setValue('jenis_kelamin', $data->jenis_kelamin);
+        $template->setValue('tempat_lahir', $data->tempat_lahir);
+        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('kewarganegaraan', $data->kewarganegaraan);
+        $template->setValue('agama', $data->agama);
+        $template->setValue('pekerjaan', $data->pekerjaan);
+        $template->setValue('alamat', $data->alamat);
+        $template->setValue('pekon', $data->pekon);
+        $template->setValue('kecamatan', $data->kecamatan);
+        $template->setValue('kabupaten', $data->kabupaten);
+        $template->setValue('rt', $data->rt);
+        $template->setValue('rw', $data->rw);
+        $template->setValue('penghasilan', $data->penghasilan);
+        $template->setValue('penghasilan2', $data->penghasilan2);
+        $template->setValue('persyaratan', $data->persyaratan);
+        $template->setValue('today', $today);
+        $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');

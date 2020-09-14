@@ -5,7 +5,7 @@ class Form_kematian extends Admin_Controller{
 
     private $_table = 'form_kematian';
     private $_folder = 'form_kematian';
-    private $_docxName = 'form_kematian';
+    private $_docxName = 'form_kematian.docx';
     private $_mainTitle = 'Form Keterangan Kematian';
 
     function __construct()
@@ -219,12 +219,26 @@ class Form_kematian extends Admin_Controller{
 
     function cetak($id){
         $where = ['id'=>$id];
-        $data = $this->Main_m->get($where,$this->_table)->row();
-        print_r($data);
+        $data = $this->Main_m->get($this->_table,$where)->row();
+        $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
-        $template->setValue('username', 'Mager');
-        $temp_filename = $this->_docxName.'.docx';
+        $template->setValue('nama', $data->nama);
+        $template->setValue('usia', $data->usia);
+        $template->setValue('agama', $data->agama);
+        $template->setValue('alamat', $data->alamat);
+        $template->setValue('rt', $data->rt);
+        $template->setValue('rw', $data->rw);
+        $template->setValue('tanggal_kematian', $data->tanggal_kematian);
+        $template->setValue('tempat_kematian', $data->tempat_kematian);
+        $template->setValue('waktu_kematian', $data->waktu_kematian);
+        $template->setValue('penyebab_kematian', $data->penyebab_kematian);
+        $template->setValue('tanggal_pemakaman', $data->tanggal_pemakaman);
+        $template->setValue('waktu_pemakaman', $data->waktu_pemakaman);
+        $template->setValue('tempat_pemakaman', $data->tempat_pemakaman);
+        $template->setValue('today', $today);
+        
+        $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');

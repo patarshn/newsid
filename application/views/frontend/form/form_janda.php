@@ -7,7 +7,7 @@
 	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
             <?php endif ?>
                 <div class="alert alert-danger col d-none" id="error-message"></div>
-            <?=form_open(base_url('form_belummenikah/store'),'id="form"')?>
+            <?=form_open(base_url($filename.'/store'),'id="form"')?>
                 <h3><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6">

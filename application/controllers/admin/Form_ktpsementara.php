@@ -5,7 +5,7 @@ class Form_ktpsementara extends Admin_Controller{
 
     private $_table = 'form_ktpsementara';
     private $_folder = 'form_ktpsementara';
-    private $_docxName = 'form_ktpsementara';
+    private $_docxName = 'form_ktpsementara.docx';
     private $_mainTitle = 'Form KTP Sementara';
 
     function __construct()
@@ -103,7 +103,7 @@ class Form_ktpsementara extends Admin_Controller{
                 'pekon' => $_POST['pekon'],
                 'kecamatan' => $_POST['kecamatan'],
                 'kabupaten' => $_POST['kabupaten'],
-                'persyaratan' => $_POST['persyaratan'],
+                'masa_berlaku' => $_POST['masa_berlaku'],
                 'verif_lurah' => $_POST['verif_lurah'],                
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -211,12 +211,28 @@ class Form_ktpsementara extends Admin_Controller{
 
     function cetak($id){
         $where = ['id'=>$id];
-        $data = $this->Main_m->get($where,$this->_table)->row();
-        print_r($data);
+        $data = $this->Main_m->get($this->_table,$where)->row();
+        $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
-        $template->setValue('username', 'Mager');
-        $temp_filename = $this->_docxName.'.docx';
+        $template->setValue('nama', $data->nama);
+        $template->setValue('nik', $data->nik);
+        $template->setValue('tempat_lahir', $data->tempat_lahir);
+        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('jenis_kelamin', $data->jenis_kelamin);
+        $template->setValue('kewarganegaraan', $data->kewarganegaraan);
+        $template->setValue('agama', $data->agama);
+        $template->setValue('golongan_darah', $data->golongan_darah);
+        $template->setValue('status_perkawinan', $data->status_perkawinan);
+        $template->setValue('pekerjaan', $data->pekerjaan);
+        $template->setValue('alamat', $data->alamat);
+        $template->setValue('rt', $data->rt);
+        $template->setValue('rw', $data->rw);
+        $template->setValue('pekon', $data->pekon);
+        $template->setValue('kecamatan', $data->kecamatan);
+        $template->setValue('masa_berlaku', $data->masa_berlaku);
+        $template->setValue('today', $today);
+        $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
