@@ -26,31 +26,17 @@
                         <label for="tanggal_lahir">Tanggal Lahir</label>
                         <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
-                    
-                    <div class="col-lg-6">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
-                            <option>-</option>
-                            <option value="PEREMPUAN">Perempuan</option>
-                            <option value="LAKI-LAKI">Laki-Laki</option>
-                        </select>
-                    </div>
-                    
-                    <div class="col-lg-6">
-                        <label for="nama">Kewarganegaraan</label>
-                        <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" value="Indonesia">
-                    </div>
                     <div class="col-lg-6">
                         <label for="agama">Agama</label>
                         <input type="text" name="agama" id="agama" class="form-control" placeholder="Agama">
                     </div>
                     <div class="col-lg-6">
-                        <label for="status_perkawinan">Status Perkawinan</label>
-                        <input type="text" name="status_perkawinan" id="status_perkawinan" class="form-control" placeholder="Status Perkawinan">
+                        <label for="bin_binti">Bin/Binti</label>
+                        <input type="text" name="bin_binti" id="bin_binti" class="form-control" placeholder="Bin/Binti">
                     </div>
                     <div class="col-lg-6">
-                        <label for="golongan_darah">Golongan Darah</label>
-                        <input type="text" name="golongan_darah" id="golongan_darah" class="form-control" placeholder="Golongan Darah">
+                        <label for="nama">Kewarganegaraan</label>
+                        <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" value="Indonesia">
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan">Pekerjaan</label>
@@ -81,6 +67,15 @@
                     <div class="col-lg-3">
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
+                    </div>
+                   
+                    
+                    
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="alamat">Persyaratan</label>
+                            <textarea class="form-control" name="persyaratan" id="persyaratan" rows="2"></textarea>
+                        </div>
                     </div>
                 </div>
             <?=form_close()?>
@@ -118,5 +113,4 @@ $('#nik').keyup(function(){
         $('#rw').val(obj['data']['rw']);
     }), 3000);
 });
-
 </script>

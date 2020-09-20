@@ -1,6 +1,6 @@
 <?php
 
-class Login_M extends MY_Model
+class Login_m extends MY_Model
 {
     private $_table = 'users';
 

@@ -6,7 +6,7 @@ class Login extends Frontend_Controller{
     function __construct()
 	{
         parent::__construct();
-        $this->load->model('Login_M');
+        $this->load->model('Login_m');
     }    
     
     function rulesLogin(){
@@ -50,7 +50,7 @@ class Login extends Frontend_Controller{
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesLogin());
         if($validation->run()){
-            if($this->Login_M->store()){
+            if($this->Login_m->store()){
                 $this->session->set_flashdata('success_message', 'Berhasil masuk, terimakasih');
                 $callback = array(
                     'status' => 'success',

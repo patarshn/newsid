@@ -6,13 +6,13 @@ class Home extends Frontend_Controller{
     function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Carousel_M');
+        $this->load->model('Carousel_m');
     }    
     
     function index(){
 
         $carousel = array(
-            'carousel' => $this->Carousel_M->get(),
+            'carousel' => $this->Carousel_m->get(),
         );
 
         $this->load->view('frontend/partials/header');

@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Form_ktpsementara extends Frontend_Controller{
+class Form_tidakmampu extends Frontend_Controller{
     
-    private $_table = 'form_ktpsementara';
+    private $_table = 'form_tidakmampu';
     private $_folder = 'form';
-    private $_docxName = 'form_ktpsementara';
-    private $_mainTitle = 'Form KTP Sementara';  
-    private $_fileName = 'form_ktpsementara';
+    private $_docxName = 'form_tidakmampu';
+    private $_mainTitle = 'Form Keterangan Tidak Mampu';  
+    private $_fileName = 'form_tidakmampu';
    
     
     function __construct()
@@ -23,22 +23,29 @@ class Form_ktpsementara extends Frontend_Controller{
 
     function rulesStore(){
         return [
-            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required'],
-            ['field' => 'nama', 'label' => 'NAMA', 'rules' => 'required'],
-            ['field' => 'tempat_lahir', 'label' => 'TEMPAT_LAHIR', 'rules' => 'required'],
-            ['field' => 'tanggal_lahir', 'label' => 'TANGGAL_LAHIR', 'rules' => 'required'],
-            ['field' => 'jenis_kelamin', 'label' => 'JENIS_KELAMIN', 'rules' => 'required'],
-            ['field' => 'kewarganegaraan', 'label' => 'KEWARGANEGARAAN', 'rules' => 'required'],
-            ['field' => 'agama', 'label' => 'AGAMA', 'rules' => 'required'],
-            ['field' => 'status_perkawinan', 'label' => 'STATUS_PERKAWINAN', 'rules' => 'required'],
-            ['field' => 'golongan_darah', 'label' => 'GOLONGAN_DARAH', 'rules' => 'required'],
-            ['field' => 'pekerjaan', 'label' => 'PEKERJAAN', 'rules' => 'required'],
+            ['field' => 'nik_orangtua', 'label' => 'NIK_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'nama_orangtua', 'label' => 'NAMA_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_orangtua', 'label' => 'TEMPAT_LAHIR_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_orangtua', 'label' => 'TANGGAL_LAHIR_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'kewarganegaraan_orangtua', 'label' => 'KEWARGANEGARAAN_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'agama_orangtua', 'label' => 'AGAMA_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'pekerjaan_orangtua', 'label' => 'PEKERJAAN_ORANGTUA', 'rules' => 'required'],
+            ['field' => 'nik_anak', 'label' => 'NIK_ANAK', 'rules' => 'required'],
+            ['field' => 'nama_anak', 'label' => 'NAMA_ANAK', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_anak', 'label' => 'TEMPAT_LAHIR_ANAK', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_anak', 'label' => 'TANGGAL_LAHIR_ANAK', 'rules' => 'required'],
+            ['field' => 'kewarganegaraan_anak', 'label' => 'KEWARGANEGARAAN_ANAK', 'rules' => 'required'],
+            ['field' => 'agama_anak', 'label' => 'AGAMA_ANAK', 'rules' => 'required'],
+            ['field' => 'pekerjaan_anak', 'label' => 'PEKERJAAN_ANAK', 'rules' => 'required'],
             ['field' => 'alamat', 'label' => 'ALAMAT', 'rules' => 'required'],
             ['field' => 'rt', 'label' => 'RT', 'rules' => 'required'],
             ['field' => 'rw', 'label' => 'RW', 'rules' => 'required'],
             ['field' => 'pekon', 'label' => 'PEKON', 'rules' => 'required'],
             ['field' => 'kecamatan', 'label' => 'KECAMATAN', 'rules' => 'required'],
             ['field' => 'kabupaten', 'label' => 'KABUPATEN', 'rules' => 'required'],
+            ['field' => 'persyaratan', 'label' => 'PERSYARATAN', 'rules' => 'required'],
+            
+            
             
         ];
     }
@@ -67,21 +74,27 @@ class Form_ktpsementara extends Frontend_Controller{
         if($validation->run()){
             $_POST = $this->input->post();
             $data = array(
-                'nik' => $_POST['nik'],
-                'nama' => $_POST['nama'],
-                'tempat_lahir' => $_POST['tempat_lahir'],
-                'tanggal_lahir' => $_POST['tanggal_lahir'],
-                'jenis_kelamin' => $_POST['jenis_kelamin'],
-                'kewarganegaraan' => $_POST['kewarganegaraan'],
-                'agama' => $_POST['agama'],
-                'status_perkawinan' => $_POST['status_perkawinan'],
-                'golongan_darah' => $_POST['golongan_darah'],
+                'nik_orangtua' => $_POST['nik_orangtua'],
+                'nama_orangtua' => $_POST['nama_orangtua'],
+                'tempat_lahir_orangtua' => $_POST['tempat_lahir_orangtua'],
+                'tanggal_lahir_orangtua' => $_POST['tanggal_lahir_orangtua'],
+                'kewarganegaraan_orangtua' => $_POST['kewarganegaraan_orangtua'],
+                'agama_orangtua' => $_POST['agama_orangtua'],
+                'pekerjaan_orangtua' => $_POST['pekerjaan_orangtua'],
+                'nik_anak' => $_POST['nik_anak'],
+                'nama_anak' => $_POST['nama_anak'],
+                'tempat_lahir_anak' => $_POST['tempat_lahir_anak'],
+                'tanggal_lahir_anak' => $_POST['tanggal_lahir_anak'],
+                'kewarganegaraan_anak' => $_POST['kewarganegaraan_anak'],
+                'agama_anak' => $_POST['agama_anak'],
+                'pekerjaan_anak' => $_POST['pekerjaan_anak'],
                 'alamat' => $_POST['alamat'],
                 'rt' => $_POST['rt'],
                 'rw' => $_POST['rw'],
                 'pekon' => $_POST['pekon'],
                 'kecamatan' => $_POST['kecamatan'],
                 'kabupaten' => $_POST['kabupaten'],
+                'persyaratan' => $_POST['persyaratan'],                                               
                 'created_at' => date('Y-m-d H:i:s'),
             );
             if($this->Main_m->store($data,$this->_table)){

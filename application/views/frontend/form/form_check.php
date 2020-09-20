@@ -7,10 +7,10 @@
 	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
             <?php endif ?>
                 <div class="alert alert-danger col d-none" id="error-message"></div>
-            <?=form_open(base_url($filename.'/store'),'id="form"')?>
+            <?=form_open(base_url($filename.'/store'),'id="form" class="col-12"')?>
                 <h3><?=$title?></h3>
                 <div class="form-row">
-                    <div class="col-lg-6">
+                <div class="form-group col">
                         <label for="jenis_form">Jenis Form</label>
                         <select name="jenis_form" id="jenis_form" class="form-control" placeholder="Jenis Form" required>
                             <option>Jenis Form</option>
@@ -21,15 +21,10 @@
                             <option value="form_belummenikah">Belum Menikah</option>
                         </select>
                     </div>
-                    <div class="col-lg-6">
-                        <label for="nik">NIK</label>
-                        <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
-                    </div>
-                    
+    <div class="col">
+    <label for="jenis_form">Jenis Form</label>  
+      <input type="text" class="form-control" placeholder="Last name">
+    </div>
                 </div>
             <?=form_close()?>
                 

@@ -41,21 +41,11 @@
                         <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" value="Indonesia">
                     </div>
                     <div class="col-lg-6">
-                        <label for="agama">Agama</label>
-                        <input type="text" name="agama" id="agama" class="form-control" placeholder="Agama">
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="status_perkawinan">Status Perkawinan</label>
-                        <input type="text" name="status_perkawinan" id="status_perkawinan" class="form-control" placeholder="Status Perkawinan">
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="golongan_darah">Golongan Darah</label>
-                        <input type="text" name="golongan_darah" id="golongan_darah" class="form-control" placeholder="Golongan Darah">
-                    </div>
-                    <div class="col-lg-6">
                         <label for="pekerjaan">Pekerjaan</label>
                         <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Pekerjaan">
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
@@ -81,6 +71,43 @@
                     <div class="col-lg-3">
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
+                    </div>
+                </div>
+                <h5>Detail Usaha</h5>
+                <div class="form-row">
+                    <div class="col-lg-12">
+                        <label for="nama_usaha">Nama Usaha</label>
+                        <input type="text" name="nama_usaha" id="nama_usaha" class="form-control" placeholder="Nama Usaha">
+                    </div>     
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="alamat_usaha">Alamat</label>
+                            <textarea class="form-control" name="alamat_usaha" id="alamat_usaha" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="pekon_usaha">Pekon</label>
+                        <input type="text" name="pekon_usaha" id="pekon_usaha" class="form-control" value="Wonodadi">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="kecamatan_usaha">Kecamatan</label>
+                        <input type="text" name="kecamatan_usaha" id="kecamatan_usaha" class="form-control" value="Gadingrejo">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="kabupaten_usaha">Kabupaten</label>
+                        <input type="text" name="kabupaten_usaha" id="kabupaten_usaha" class="form-control" value="Pringsewiu">
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="rt_usaha">RT</label>
+                        <input type="text" name="rt_usaha" id="rt_usaha" class="form-control" placeholder="RT">
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="rw_usaha">RW</label>
+                        <input type="text" name="rw_usaha" id="rw_usaha" class="form-control" placeholder="RW">
+                    </div>               
+                    <div class="col-lg-12">
+                        <label for="persyaratan">Persyaratan</label>
+                        <input type="text" name="persyaratan" id="persyaratan" class="form-control" placeholder="Persyaratan">
                     </div>
                 </div>
             <?=form_close()?>

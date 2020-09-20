@@ -40,6 +40,15 @@
             <a class="collapse-item text-wrap" href="<?=base_url('admin/form_kematian')?>">SK Kematian</a>
             <a class="collapse-item text-wrap" href="<?=base_url('admin/form_ktpsementara')?>">SK KTP Sementara</a>
             <a class="collapse-item text-wrap" href="<?=base_url('admin/form_penghasilan')?>">SK Penghasilan</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_tidakmampu')?>">SK Tidak Mampu</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_usaha')?>">SK Usaha</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_kelahiran')?>">SK Kelahiran</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_kehilanganbarang')?>">SK Kehilangan Barang</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_tatin')?>">SK Tatin</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_suamiistri')?>">SK Suami Istri</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_pasjalan')?>">SK Pas Jalan</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_ahliwaris')?>">SK Ahli Waris</a>
+            <a class="collapse-item text-wrap" href="<?=base_url('admin/form_skck')?>">SK Catatan Kriminal</a>
           </div>
         </div>
       </li>

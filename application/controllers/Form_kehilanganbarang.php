@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Form_ktpsementara extends Frontend_Controller{
+class Form_kehilanganbarang extends Frontend_Controller{
     
-    private $_table = 'form_ktpsementara';
+    private $_table = 'form_kehilanganbarang';
     private $_folder = 'form';
-    private $_docxName = 'form_ktpsementara';
-    private $_mainTitle = 'Form KTP Sementara';  
-    private $_fileName = 'form_ktpsementara';
+    private $_docxName = 'form_kehilanganbarang';
+    private $_mainTitle = 'Form Laporan Kehilangan Barang';  
+    private $_fileName = 'form_kehilanganbarang';
    
     
     function __construct()
@@ -27,18 +27,16 @@ class Form_ktpsementara extends Frontend_Controller{
             ['field' => 'nama', 'label' => 'NAMA', 'rules' => 'required'],
             ['field' => 'tempat_lahir', 'label' => 'TEMPAT_LAHIR', 'rules' => 'required'],
             ['field' => 'tanggal_lahir', 'label' => 'TANGGAL_LAHIR', 'rules' => 'required'],
-            ['field' => 'jenis_kelamin', 'label' => 'JENIS_KELAMIN', 'rules' => 'required'],
             ['field' => 'kewarganegaraan', 'label' => 'KEWARGANEGARAAN', 'rules' => 'required'],
             ['field' => 'agama', 'label' => 'AGAMA', 'rules' => 'required'],
-            ['field' => 'status_perkawinan', 'label' => 'STATUS_PERKAWINAN', 'rules' => 'required'],
-            ['field' => 'golongan_darah', 'label' => 'GOLONGAN_DARAH', 'rules' => 'required'],
-            ['field' => 'pekerjaan', 'label' => 'PEKERJAAN', 'rules' => 'required'],
             ['field' => 'alamat', 'label' => 'ALAMAT', 'rules' => 'required'],
             ['field' => 'rt', 'label' => 'RT', 'rules' => 'required'],
             ['field' => 'rw', 'label' => 'RW', 'rules' => 'required'],
             ['field' => 'pekon', 'label' => 'PEKON', 'rules' => 'required'],
             ['field' => 'kecamatan', 'label' => 'KECAMATAN', 'rules' => 'required'],
             ['field' => 'kabupaten', 'label' => 'KABUPATEN', 'rules' => 'required'],
+            ['field' => 'kehilangan', 'label' => 'KEHILANGAN', 'rules' => 'required'],
+            
             
         ];
     }
@@ -71,17 +69,15 @@ class Form_ktpsementara extends Frontend_Controller{
                 'nama' => $_POST['nama'],
                 'tempat_lahir' => $_POST['tempat_lahir'],
                 'tanggal_lahir' => $_POST['tanggal_lahir'],
-                'jenis_kelamin' => $_POST['jenis_kelamin'],
                 'kewarganegaraan' => $_POST['kewarganegaraan'],
                 'agama' => $_POST['agama'],
-                'status_perkawinan' => $_POST['status_perkawinan'],
-                'golongan_darah' => $_POST['golongan_darah'],
                 'alamat' => $_POST['alamat'],
                 'rt' => $_POST['rt'],
                 'rw' => $_POST['rw'],
                 'pekon' => $_POST['pekon'],
                 'kecamatan' => $_POST['kecamatan'],
                 'kabupaten' => $_POST['kabupaten'],
+                'kehilangan' => $_POST['kehilangan'],                
                 'created_at' => date('Y-m-d H:i:s'),
             );
             if($this->Main_m->store($data,$this->_table)){

@@ -26,16 +26,10 @@
                         <label for="tanggal_lahir">Tanggal Lahir</label>
                         <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
-                    
                     <div class="col-lg-6">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
-                            <option>-</option>
-                            <option value="PEREMPUAN">Perempuan</option>
-                            <option value="LAKI-LAKI">Laki-Laki</option>
-                        </select>
+                        <label for="binbinti">Bin/Binti</label>
+                        <input type="text" name="binbinti" id="binbinti" class="form-control" placeholder="Bin/Binti" required>
                     </div>
-                    
                     <div class="col-lg-6">
                         <label for="nama">Kewarganegaraan</label>
                         <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" value="Indonesia">
@@ -47,10 +41,6 @@
                     <div class="col-lg-6">
                         <label for="status_perkawinan">Status Perkawinan</label>
                         <input type="text" name="status_perkawinan" id="status_perkawinan" class="form-control" placeholder="Status Perkawinan">
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="golongan_darah">Golongan Darah</label>
-                        <input type="text" name="golongan_darah" id="golongan_darah" class="form-control" placeholder="Golongan Darah">
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan">Pekerjaan</label>
@@ -81,6 +71,20 @@
                     <div class="col-lg-3">
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="tujuan">Alamat Tujuan</label>
+                            <textarea class="form-control" name="tujuan" id="tujuan" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <label for="maksud_tujuan">Maksud Tujuan</label>
+                        <input type="text" name="maksud_tujuan" id="maksud_tujuan" class="form-control" placeholder="Maksud Tujuan">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tanggal_berangkat">Tanggal Berangkat</label>
+                        <input type="date" name="tanggal_berangkat" id="tanggal_berangkat" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
                 </div>
             <?=form_close()?>
