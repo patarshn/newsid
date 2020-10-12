@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Form_janda extends Admin_Controller{
+class Form_covid extends Admin_Controller{
 
-    private $_table = 'form_janda';
-    private $_folder = 'form_janda';
-    private $_docxName = 'form_janda.docx';
-    private $_mainTitle = 'Form Keterangan Janda';
+    private $_table = 'form_covid';
+    private $_folder = 'form_covid';
+    private $_docxName = 'form_covid.docx';
+    private $_mainTitle = 'Form Covid';
 
     function __construct()
 	{
@@ -91,11 +91,8 @@ class Form_janda extends Admin_Controller{
                 'id' => $_POST['id'],
                 'nik' => $_POST['nik'],
                 'nama' => $_POST['nama'],
-                'jenis_kelamin' => $_POST['jenis_kelamin'],
                 'tempat_lahir' => $_POST['tempat_lahir'],
                 'tanggal_lahir' => $_POST['tanggal_lahir'],
-                'kewarganegaraan' => $_POST['kewarganegaraan'],
-                'agama' => $_POST['agama'],
                 'pekerjaan' => $_POST['pekerjaan'],
                 'alamat' => $_POST['alamat'],
                 'rt' => $_POST['rt'],
@@ -103,11 +100,17 @@ class Form_janda extends Admin_Controller{
                 'pekon' => $_POST['pekon'],
                 'kecamatan' => $_POST['kecamatan'],
                 'kabupaten' => $_POST['kabupaten'],
-                'persyaratan' => $_POST['persyaratan'],
-                'verif_lurah' => $_POST['verif_lurah'],                
+                'tanggal_acara' => $_POST['tanggal_acara'],
+                'waktu_acara' => $_POST['waktu_acara'],
+                'tempat_acara' => $_POST['tempat_acara'],
+                'persyaratan' => $_POST['persyaratan'],                
+                'verif_lurah' => $_POST['verif_lurah'],                             
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
             );
+            if($_POST['verif_lurah'] != $_POST['verif_lurah_old']){
+                $data['verif_lurah_at'] = date('Y-m-d H:i:s');
+            }
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
@@ -216,18 +219,21 @@ class Form_janda extends Admin_Controller{
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama', $data->nama);
-        $template->setValue('jenis_kelamin', $data->jenis_kelamin);
+        $template->setValue('nik', $data->nik);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
         $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('jenis_kelamin', $data->jenis_kelamin);
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
         $template->setValue('agama', $data->agama);
+        $template->setValue('golongan_darah', $data->golongan_darah);
+        $template->setValue('status_perkawinan', $data->status_perkawinan);
         $template->setValue('pekerjaan', $data->pekerjaan);
         $template->setValue('alamat', $data->alamat);
         $template->setValue('rt', $data->rt);
         $template->setValue('rw', $data->rw);
         $template->setValue('pekon', $data->pekon);
         $template->setValue('kecamatan', $data->kecamatan);
-        $template->setValue('kabupaten', $data->kabupaten);
+        $template->setValue('masa_berlaku', $data->masa_berlaku);
         $template->setValue('today', $today);
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);

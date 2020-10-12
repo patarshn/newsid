@@ -65,7 +65,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_anak">Agama</label>
-                        <input type="text" name="agama_anak" id="agama_anak" class="form-control" value="<?=$d->agama_anak?>" required>
+                        <select name="agama_anak" id="agama_anak" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="ke_anak">Anak Ke-</label>
@@ -96,7 +104,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_ayah">Agama</label>
-                        <input type="text" name="agama_ayah" id="agama_ayah" class="form-control" value="<?=$d->agama_ayah?>" required>
+                        <select name="agama_ayah" id="agama_ayah" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                 </div>
                 <h4>Data Ibu :</h4>
@@ -123,7 +139,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_ibu">Agama</label>
-                        <input type="text" name="agama_ibu" id="agama_ibu" class="form-control" value="<?=$d->agama_ibu?>" required>
+                        <select name="agama_ibu" id="agama_ibu" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                 </div>
                 <h4>Alamat :</h4>
@@ -174,6 +198,18 @@
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    var agama_anak = "<?=$d->agama_anak?>";
+                    var agama_ayah = "<?=$d->agama_ayah?>";
+                    var agama_ibu = "<?=$d->agama_ibu?>";
+                    $(document).ready(function(){
+                        $('#agama_anak').val(agama_anak);
+                        $('#agama_ayah').val(agama_ayah);
+                        $('#agama_ibu').val(agama_ibu);
+                    });
+                </script>
+
               <?php
                 endforeach;
                 form_close();
@@ -198,4 +234,3 @@
 
       </div>
       <!-- End of Main Content -->
-

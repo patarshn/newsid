@@ -6,7 +6,7 @@ class Form_tatin extends Admin_Controller{
     private $_table = 'form_tatin';
     private $_folder = 'form_tatin';
     private $_docxName = 'form_tatin.docx';
-    private $_mainTitle = 'Form TATIN';
+    private $_mainTitle = 'Form Keterangan Imunisasi';
 
     function __construct()
 	{

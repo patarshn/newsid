@@ -65,7 +65,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama">Agama</label>
-                        <input type="text" name="agama" id="agama" class="form-control" value="<?=$d->agama?>" required>
+                        <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -117,6 +125,12 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                $(document).ready(function(){
+                  var agama = "<?=$d->agama?>";
+                  $('#agama').val(agama);
+                });
+                </script>
               <?php
                 endforeach;
                 form_close();

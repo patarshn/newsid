@@ -15,7 +15,7 @@
           </div>
 
           <!-- Content Row -->
-
+          <?php foreach($data as $d):?>
           <div class="row">
             <div class="col-xl-12 col-lg-12">
               <div class="card shadow mb-4">
@@ -24,14 +24,14 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <!--<button type="button" class="btn btn-warning">Cancel</button>-->
+                    <button type="button" class="btn btn-success" onclick="window.open('../cetak/<?=$d->id?>','_blank')">Cetak</button>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   
-                  <?php foreach($data as $d):?>
+                  
                     <table cellpadding="6">
                         <tr>
                             <td>ID</td>
@@ -182,14 +182,14 @@
                             <td><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
                         </tr>
                     </table>
-                  <?php endforeach;?>
+                  
                     
                     
                 </div>
               </div>
             </div>
           </div>
-          
+          <?php endforeach;?>
 
 
         </div>

@@ -15,14 +15,6 @@
                         <input type="text" name="nama_anak" id="nama_anak" class="form-control" placeholder="Nama" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir_anak">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir_anak" id="tempat_lahir_anak" class="form-control" placeholder="Tempat Lahir" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="tanggal_lahir_anak">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir_anak" id="tanggal_lahir_anak" class="form-control" placeholder="mm/dd/yy" required>
-                    </div>
-                    <div class="col-lg-6">
                         <label for="jenis_kelamin_anak">Jenis Kelamin</label>
                         <select name="jenis_kelamin_anak" id="jenis_kelamin_anak" class="form-control" placeholder="Jenis Kelamin" required>
                             <option>-</option>
@@ -31,8 +23,24 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
+                        <label for="tempat_lahir_anak">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir_anak" id="tempat_lahir_anak" class="form-control" placeholder="Tempat Lahir" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tanggal_lahir_anak">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir_anak" id="tanggal_lahir_anak" class="form-control" placeholder="mm/dd/yy" required>
+                    </div>
+                    <div class="col-lg-6">
                         <label for="agama_anak">Agama</label>
-                        <input type="text" name="agama_anak" id="agama_anak" class="form-control" placeholder="Agama">
+                        <select name="agama_anak" id="agama_anak" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="ke_anak">Anak Ke-</label>
@@ -63,7 +71,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_ayah">Agama</label>
-                        <input type="text" name="agama_ayah" id="agama_ayah" class="form-control" value="Agama">
+                        <select name="agama_ayah" id="agama_ayah" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                 </div>
                 <h4>Data Ibu :</h4>
@@ -90,7 +106,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_ibu">Agama</label>
-                        <input type="text" name="agama_ibu" id="agama_ibu" class="form-control" value="Agama">
+                        <select name="agama_ibu" id="agama_ibu" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                 </div>
                 <h4>Alamat :</h4>

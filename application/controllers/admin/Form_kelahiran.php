@@ -113,11 +113,14 @@ class Form_kelahiran extends Admin_Controller{
                 'kabupaten' => $_POST['kabupaten'],
                 'rt' => $_POST['rt'],
                 'rw' => $_POST['rw'],
-                'verif_lurah' => $_POST['verif_lurah'],
-                'verif_lurah_at' => date('Y-m-d H:i:s'),                                
+                'verif_lurah' => $_POST['verif_lurah'],                               
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
             );
+
+            if($_POST['verif_lurah'] != $_POST['verif_lurah_old']){
+                $data['verif_lurah_at'] = date('Y-m-d H:i:s');
+            }
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
@@ -225,22 +228,34 @@ class Form_kelahiran extends Admin_Controller{
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
-        $template->setValue('nama', $data->nama);
-        $template->setValue('nik', $data->nik);
-        $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
-        $template->setValue('jenis_kelamin', $data->jenis_kelamin);
-        $template->setValue('kewarganegaraan', $data->kewarganegaraan);
-        $template->setValue('agama', $data->agama);
-        $template->setValue('golongan_darah', $data->golongan_darah);
-        $template->setValue('status_perkawinan', $data->status_perkawinan);
-        $template->setValue('pekerjaan', $data->pekerjaan);
+        $template->setValue('nama_anak', $data->nama_anak);
+        $template->setValue('tempat_lahir_anak', $data->tempat_lahir_anak);
+        $template->setValue('tanggal_lahir_anak', $data->tanggal_lahir_anak);
+        $template->setValue('jenis_kelamin_anak', $data->jenis_kelamin_anak);
+        $template->setValue('agama_anak', $data->agama_anak);
+        $template->setValue('ke_anak', $data->ke_anak);
+        
+        $template->setValue('nama_ayah', $data->nama_ayah);
+        $template->setValue('nik_ayah', $data->nik_ayah);
+        $template->setValue('tempat_lahir_ayah', $data->tempat_lahir_ayah);
+        $template->setValue('tanggal_lahir_ayah', $data->tanggal_lahir_ayah);
+        $template->setValue('agama_ayah', $data->agama_ayah);
+        $template->setValue('pekerjaan_ayah', $data->pekerjaan_ayah);
+
+        $template->setValue('nama_ibu', $data->nama_ibu);
+        $template->setValue('nik_ibu', $data->nik_ibu);
+        $template->setValue('tempat_lahir_ibu', $data->tempat_lahir_ibu);
+        $template->setValue('tanggal_lahir_ibu', $data->tanggal_lahir_ibu);
+        $template->setValue('agama_ibu', $data->agama_ibu);
+        $template->setValue('pekerjaan_ibu', $data->pekerjaan_ibu);
+
+
         $template->setValue('alamat', $data->alamat);
         $template->setValue('rt', $data->rt);
         $template->setValue('rw', $data->rw);
         $template->setValue('pekon', $data->pekon);
         $template->setValue('kecamatan', $data->kecamatan);
-        $template->setValue('masa_berlaku', $data->masa_berlaku);
+        $template->setValue('kabupaten', $data->kabupaten);
         $template->setValue('today', $today);
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);

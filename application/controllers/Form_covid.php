@@ -1,13 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Form_janda extends Frontend_Controller{
+class Form_covid extends Frontend_Controller{
     
-    private $_table = 'form_janda';
+    private $_table = 'form_covid';
     private $_folder = 'form';
-    private $_docxName = 'form_janda';
-    private $_mainTitle = 'Form Keterangan Janda';  
-    private $_fileName = 'form_janda';
+    private $_docxName = 'form_covid';
+    private $_mainTitle = 'Form Covid';  
+    private $_fileName = 'form_covid';
    
     
     function __construct()
@@ -25,11 +25,8 @@ class Form_janda extends Frontend_Controller{
         return [
             ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required'],
             ['field' => 'nama', 'label' => 'NAMA', 'rules' => 'required'],
-            ['field' => 'jenis_kelamin', 'label' => 'JENIS_KELAMIN', 'rules' => 'required'],
             ['field' => 'tempat_lahir', 'label' => 'TEMPAT_LAHIR', 'rules' => 'required'],
             ['field' => 'tanggal_lahir', 'label' => 'TANGGAL_LAHIR', 'rules' => 'required'],
-            ['field' => 'kewarganegaraan', 'label' => 'KEWARGANEGARAAN', 'rules' => 'required'],
-            ['field' => 'agama', 'label' => 'AGAMA', 'rules' => 'required'],
             ['field' => 'pekerjaan', 'label' => 'PEKERJAAN', 'rules' => 'required'],
             ['field' => 'alamat', 'label' => 'ALAMAT', 'rules' => 'required'],
             ['field' => 'rt', 'label' => 'RT', 'rules' => 'required'],
@@ -37,7 +34,12 @@ class Form_janda extends Frontend_Controller{
             ['field' => 'pekon', 'label' => 'PEKON', 'rules' => 'required'],
             ['field' => 'kecamatan', 'label' => 'KECAMATAN', 'rules' => 'required'],
             ['field' => 'kabupaten', 'label' => 'KABUPATEN', 'rules' => 'required'],
-            ['field' => 'persyaratan', 'label' => 'PERSYARATAN', 'rules' => 'required'],
+            ['field' => 'tanggal_acara', 'label' => 'TANGGAL_ACARA', 'rules' => 'required'],
+            ['field' => 'waktu_acara', 'label' => 'WAKTU_ACARA', 'rules' => 'required'],
+            ['field' => 'tempat_acara', 'label' => 'TEMPAT_ACARA', 'rules' => 'required'],
+            ['field' => 'persyaratan', 'label' => 'RESEPSI', 'rules' => 'required'],            
+            
+            
         ];
     }
 
@@ -67,11 +69,8 @@ class Form_janda extends Frontend_Controller{
             $data = array(
                 'nik' => $_POST['nik'],
                 'nama' => $_POST['nama'],
-                'jenis_kelamin' => $_POST['jenis_kelamin'],
                 'tempat_lahir' => $_POST['tempat_lahir'],
                 'tanggal_lahir' => $_POST['tanggal_lahir'],
-                'kewarganegaraan' => $_POST['kewarganegaraan'],
-                'agama' => $_POST['agama'],
                 'pekerjaan' => $_POST['pekerjaan'],
                 'alamat' => $_POST['alamat'],
                 'rt' => $_POST['rt'],
@@ -79,7 +78,10 @@ class Form_janda extends Frontend_Controller{
                 'pekon' => $_POST['pekon'],
                 'kecamatan' => $_POST['kecamatan'],
                 'kabupaten' => $_POST['kabupaten'],
-                'persyaratan' => $_POST['persyaratan'],
+                'tanggal_acara' => $_POST['tanggal_acara'],
+                'waktu_acara' => $_POST['waktu_acara'],
+                'tempat_acara' => $_POST['tempat_acara'],
+                'persyaratan' => $_POST['persyaratan'],                               
                 'created_at' => date('Y-m-d H:i:s'),
             );
             if($this->Main_m->store($data,$this->_table)){

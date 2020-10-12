@@ -24,7 +24,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama">Agama</label>
-                        <input type="text" name="agama" id="agama" class="form-control" placeholder="Agama">
+                        <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -67,8 +75,8 @@
                                 <small class="timeinfo d-none">00.00-11.59 AM = 00.00-11.59<br>00.00-11.59 PM = 12.00-23.59</small>
                             </div>
                             <div class="col-lg-6">
-                                <label for="tempat_kematian">Tempat Kematian</label>
-                                <input type="text" name="tempat_kematian" id="tempat_kematian" class="form-control" placeholder="Tempat Kematian" required>
+                                <label for="tempat_kematian">Lokasi Kematian</label>
+                                <input type="text" name="tempat_kematian" id="tempat_kematian" class="form-control" placeholder="Lokasi Kematian" required>
                             </div>
                             <div class="col-lg-6">
                                 <label for="penyebab_kematian">Penyebab Kematian</label>
@@ -91,8 +99,8 @@
                                 <small class="timeinfo d-none">00.00-11.59 AM = 00.00-11.59<br>00.00-11.59 PM = 12.00-23.59</small>
                             </div>
                             <div class="col-lg-6">
-                                <label for="tempat_pemakaman">Tempat Pemakaman</label>
-                                <input type="text" name="tempat_pemakaman" id="tempat_pemakaman" class="form-control" placeholder="Tempat pemakaman" required>
+                                <label for="tempat_pemakaman">Lokasi Pemakaman</label>
+                                <input type="text" name="tempat_pemakaman" id="tempat_pemakaman" class="form-control" placeholder="Lokasi pemakaman" required>
                             </div>
                         </div>
                     </div>

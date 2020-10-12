@@ -98,7 +98,7 @@ a{
 
 .myw-100{
     width: 100% !important ;
-    height: 500px !important;
+    height: 300px !important;
     object-fit: cover;
 }
 
@@ -484,7 +484,7 @@ a{
     }
 
     .jumbotron{
-        height: 500px;
+        height: 300;
     }
 
     .display-4{

@@ -32,7 +32,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_anak">Agama</label>
-                        <input type="text" name="agama_anak" id="agama_anak" class="form-control" value="Agama">
+                        <select name="agama_anak" id="agama_anak" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan_anak">Pekerjaan</label>
@@ -63,7 +71,15 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="agama_orangtua">Agama</label>
-                        <input type="text" name="agama_orangtua" id="agama_orangtua" class="form-control" value="Agama">
+                        <select name="agama_orangtua" id="agama_orangtua" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan_orangtua">Pekerjaan</label>
@@ -100,7 +116,7 @@
                     
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat">Persyaratan</label>
+                            <label for="alamat">Peruntukkan</label>
                             <textarea class="form-control" name="persyaratan" id="persyaratan" rows="2"></textarea>
                         </div>
                     </div>

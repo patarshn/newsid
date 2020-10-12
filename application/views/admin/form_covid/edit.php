@@ -51,18 +51,6 @@
                         <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" value="<?=$d->nama?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
-                            <option>-</option>
-                            <option value="PEREMPUAN" <?= $d->jenis_kelamin == "PEREMPUAN" ? "selected": "" ?>>Perempuan</option>
-                            <option value="LAKI-LAKI" <?= $d->jenis_kelamin == "LAKI-LAKI" ? "selected": "" ?>>Laki-Laki</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="agama">Agama</label>
-                        <input type="text" name="agama" id="agama" class="form-control" placeholder="Agama" value="<?=$d->agama?>" required>
-                    </div>
-                    <div class="col-lg-6">
                         <label for="tempat_lahir">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir?>" required>
                     </div>
@@ -72,11 +60,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan">Pekerjaan</label>
-                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" value="<?=$d->pekerjaan?>" required>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="nama">Kewarganegaraan</label>
-                        <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" value="<?=$d->kewarganegaraan?>" required>
+                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Pekerjaan" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -104,16 +88,27 @@
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW" value="<?=$d->rw?>" required>
                     </div>
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="alamat">Persyaratan</label>
-                            <textarea class="form-control" name="persyaratan" id="persyaratan" rows="2" required><?=$d->persyaratan?></textarea>
-                        </div>
+
+                    <div class="col-lg-6">
+                        <label for="persyaratan">Resepsi</label>
+                        <input type="text" name="persyaratan" id="persyaratan" class="form-control" value="<?=$d->persyaratan?>">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tempat_acara">Lokasi Acara</label>
+                        <input type="text" name="tempat_acara" id="tempat_acara" class="form-control" value="<?=$d->tempat_acara?>">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tanggal_acara">Tanggal Acara</label>
+                        <input type="date" name="tanggal_acara" id="tanggal_acara" class="form-control" value="<?=$d->tanggal_acara?>">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="waktu_acara">Waktu Acara</label>
+                        <input type="time" name="waktu_acara" id="waktu_acara" class="form-control" value="<?=$d->waktu_acara?>">
                     </div>
                     <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Lurah : </label>
                         <br>
-                        
+                        <input type="hidden" name="verif_lurah_old" value="<?=$d->verif_lurah?>">
                         <div class="form-check form-check-inline">
                           <input type="radio" name="verif_lurah" id="verif_lurah1" value="Pending" class="form-control" <?php if($d->verif_lurah == "Pending"){echo "checked";}?>>
                           <label class="form-check-label" for="verif_lurah1">Pending</label>

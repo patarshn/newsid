@@ -152,6 +152,14 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                  $(document).ready(function(){
+                    var agama_anak = "<?=$d->agama_anak?>";
+                    var agama_orangtua = "<?=$d->agama_orangtua?>";
+                    $('#agama_anak').val(agama_anak);
+                    $('#agama_orangtua').val(agama_orangtua);
+                  });
+                </script>
               <?php
                 endforeach;
                 form_close();

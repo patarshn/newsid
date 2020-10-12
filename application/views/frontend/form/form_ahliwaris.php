@@ -30,7 +30,15 @@
                     
                     <div class="col-lg-6">
                         <label for="agama_1">Agama</label>
-                        <input type="text" name="agama_1" id="agama_1" class="form-control" placeholder="bin/binti">
+                        <select name="agama_1" id="agama_1" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan_1">Pekerjaan</label>
@@ -84,7 +92,15 @@
                     
                     <div class="col-lg-6">
                         <label for="agama_2">Agama</label>
-                        <input type="text" name="agama_2" id="agama_2" class="form-control" placeholder="bin/binti">
+                        <select name="agama_2" id="agama_2" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan_2">Pekerjaan</label>

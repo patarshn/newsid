@@ -106,8 +106,8 @@
                         <input type="text" name="rw_usaha" id="rw_usaha" class="form-control" placeholder="RW">
                     </div>               
                     <div class="col-lg-12">
-                        <label for="persyaratan">Persyaratan</label>
-                        <input type="text" name="persyaratan" id="persyaratan" class="form-control" placeholder="Persyaratan">
+                        <label for="persyaratan">Peruntukkan</label>
+                        <input type="text" name="persyaratan" id="persyaratan" class="form-control" placeholder="Peruntukkan">
                     </div>
                 </div>
             <?=form_close()?>

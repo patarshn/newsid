@@ -32,5 +32,9 @@ class Main_m extends MY_Model
         return $status;
     }
 
+    public function countDataVerifForm($table){
+        $status = $this->db->select('verif_lurah, COUNT(verif_lurah) as total')->group_by('verif_lurah')->get($table);
+        return $status;
+    }
 
 }

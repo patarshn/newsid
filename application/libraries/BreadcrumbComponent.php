@@ -2,7 +2,7 @@
     if (!defined('BASEPATH'))
         exit('No direct script access allowed');
      
-    class BreadcrumbComponent
+    class Breadcrumbcomponent
     {
         private $breadcrumbs = array();
         private $separator = '  »  ';

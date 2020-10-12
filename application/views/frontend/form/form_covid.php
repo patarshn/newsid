@@ -7,7 +7,7 @@
 	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
             <?php endif ?>
                 <div class="alert alert-danger col d-none" id="error-message"></div>
-            <?=form_open(base_url($filename.'/store'),'id="form"')?>
+            <?=form_open(base_url('form_belummenikah/store'),'id="form"')?>
                 <h3><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6">
@@ -19,18 +19,6 @@
                         <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="jenis_kelamin">Jenis Kelamin</label>
-                        <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" required>
-                            <option>-</option>
-                            <option value="PEREMPUAN">Perempuan</option>
-                            <option value="LAKI-LAKI">Laki-Laki</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="agama">Agama</label>
-                        <input type="text" name="agama" id="agama" class="form-control" placeholder="Agama">
-                    </div>
-                    <div class="col-lg-6">
                         <label for="tempat_lahir">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" required>
                     </div>
@@ -40,11 +28,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan">Pekerjaan</label>
-                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control">
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="nama">Kewarganegaraan</label>
-                        <input type="text" name="kewarganegaraan" id="kewarganegaraan" class="form-control" value="Indonesia">
+                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Pekerjaan" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -72,15 +56,26 @@
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
                     </div>
-                   
-                    
-                    
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label for="alamat">Persyaratan</label>
-                            <textarea class="form-control" name="persyaratan" id="persyaratan" rows="2"></textarea>
-                        </div>
+
+                    <div class="col-lg-6">
+                        <label for="persyaratan">Resepsi</label>
+                        <input type="text" name="persyaratan" id="persyaratan" class="form-control" placeholder="Resepsi">
                     </div>
+                    <div class="col-lg-6">
+                        <label for="tempat_acara">Lokasi Acara</label>
+                        <input type="text" name="tempat_acara" id="tempat_acara" class="form-control" placeholder="Lokasi">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="tanggal_acara">Tanggal Acara</label>
+                        <input type="date" name="tanggal_acara" id="tanggal_acara" class="form-control" placeholder="mm/dd/yy">
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="waktu_acara">Waktu Acara</label>
+                        <input type="time" name="waktu_acara" id="waktu_acara" class="form-control">
+                    </div>
+                    
+
+                    
                 </div>
             <?=form_close()?>
                 
@@ -117,4 +112,5 @@ $('#nik').keyup(function(){
         $('#rw').val(obj['data']['rw']);
     }), 3000);
 });
+
 </script>

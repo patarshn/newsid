@@ -63,7 +63,15 @@
                     
                     <div class="col-lg-6">
                         <label for="agama_1">Agama</label>
-                        <input type="text" name="agama_1" id="agama_1" class="form-control" placeholder="bin/binti" value="<?=$d->agama_1?>" required>
+                        <select name="agama_1" id="agama_1" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan_1">Pekerjaan</label>
@@ -118,7 +126,15 @@
                     
                     <div class="col-lg-6">
                         <label for="agama_2">Agama</label>
-                        <input type="text" name="agama_2" id="agama_2" class="form-control" placeholder="bin/binti" value="<?=$d->agama_2?>" required>
+                        <select name="agama_2" id="agama_2" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
                     </div>
                     <div class="col-lg-6">
                         <label for="pekerjaan_2">Pekerjaan</label>
@@ -168,6 +184,14 @@
                         </div>
                     </div>
                 </div>
+                <script>
+                $(document).ready(function(){
+                  var agama_1 = "<?=$d->agama_1?>";
+                  var agama_2 = "<?=$d->agama_2?>";
+                  $('#agama_1').val(agama_1);
+                  $('#agama_2').val(agama_2);
+                });
+                </script>
               <?php
                 endforeach;
                 form_close();

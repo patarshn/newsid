@@ -6,7 +6,7 @@ class Form_tatin extends Frontend_Controller{
     private $_table = 'form_tatin';
     private $_folder = 'form';
     private $_docxName = 'form_tatin';
-    private $_mainTitle = 'Form TATIN';  
+    private $_mainTitle = 'Form Keterangan Imunisasi';  
     private $_fileName = 'form_tatin';
    
     

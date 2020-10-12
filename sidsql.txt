@@ -25,10 +25,46 @@ CREATE TABLE form_ahliwaris(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik_1 var
 
 CREATE TABLE form_pasjalan(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik varchar(20), nama varchar(100), jenis_kelamin varchar(20), tempat_lahir varchar(100), tanggal_lahir date, kewarganegaraan varchar(50), agama varchar(50),status_perkawinan(30),binbinti varchar(50), pekerjaan varchar(100),alamat text, rt int, rw int, pekon varchar(50), kecamatan varchar(50), kabupaten varchar(50),tujuan text,maksud_tujuan varchar(50),tanggal_berangkat date, persyaratan varchar(100),verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
 
-CREATE TABLE form_belummenikah(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik varchar(20), nama varchar(100), tempat_lahir varchar(100), tanggal_lahir date, kewarganegaraan varchar(50), agama varchar(50), bin_binti varchar(100),pekerjaan varchar(50),alamat text, rt int, rw int, pekon varchar(50), kecamatan varchar(50), kabupaten varchar(50),keterangan text, persyaratan varchar(100),verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
+CREATE TABLE form_skck(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik varchar(20), nama varchar(100), tempat_lahir varchar(100), tanggal_lahir date, kewarganegaraan varchar(50), agama varchar(50), bin_binti varchar(100),pekerjaan varchar(50),alamat text, rt int, rw int, pekon varchar(50), kecamatan varchar(50), kabupaten varchar(50),keterangan text, persyaratan varchar(100),verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
+
+CREATE TABLE form_skck(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik varchar(20), nama varchar(100), tempat_lahir varchar(100), tanggal_lahir date, kewarganegaraan varchar(50), agama varchar(50), bin_binti varchar(100),pekerjaan varchar(50),alamat text, rt int, rw int, pekon varchar(50), kecamatan varchar(50), kabupaten varchar(50),keterangan text, persyaratan varchar(100),verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
+    
+CREATE TABLE form_pernyataannikah(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik_l varchar(20), nama_l varchar(100), tempat_lahir_l varchar(100), tanggal_lahir_l date, agama_l varchar(20), pekerjaan_l varchar(50), alamat_l text, rt_l int, rw_l int, pekon_l varchar(50), kecamatan_l varchar(50), kabupaten_l varchar(50),nik_p varchar(20), nama_p varchar(100), tempat_lahir_p varchar(100), tanggal_lahir_p date, agama_p varchar(20), pekerjaan_p varchar(50), alamat_p text, rt_p int, rw_p int, pekon_p varchar(50), kecamatan_p varchar(50), kabupaten_p varchar(50), maskawin text,tanggal_kawin date,jam_kawin time,verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
+
+CREATE TABLE form_suratkuasa(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik_1 varchar(20), nama_1 varchar(100), tempat_lahir_1 varchar(100), tanggal_lahir_1 date, pekerjaan_1 varchar(50), alamat_1 text, rt_1 int, rw_1 int, pekon_1 varchar(50), kecamatan_1 varchar(50), kabupaten_1 varchar(50),nik_2 varchar(20), nama_2 varchar(100), tempat_lahir_2 varchar(100), tanggal_lahir_2 date, pekerjaan_2 varchar(50), alamat_2 text, rt_2 int, rw_2 int, pekon_2 varchar(50), kecamatan_2 varchar(50), kabupaten_2 varchar(50), keterangan text,verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
+
+CREATE TABLE form_jualbelihewan(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik_1 varchar(20), nama_1 varchar(100), tempat_lahir_1 varchar(100), tanggal_lahir_1 date, pekerjaan_1 varchar(50), alamat_1 text, rt_1 int, rw_1 int, pekon_1 varchar(50), kecamatan_1 varchar(50), kabupaten_1 varchar(50),nik_2 varchar(20), nama_2 varchar(100), tempat_lahir_2 varchar(100), tanggal_lahir_2 date, pekerjaan_2 varchar(50), alamat_2 text, rt_2 int, rw_2 int, pekon_2 varchar(50), kecamatan_2 varchar(50), kabupaten_2 varchar(50), keterangan text,verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
+
+CREATE TABLE form_covid(id int AUTO_INCREMENT PRIMARY KEY NOT NULL,nik varchar(20), nama varchar(100), tempat_lahir varchar(100), tanggal_lahir date, pekerjaan varchar(50), alamat text, rt int, rw int, pekon varchar(50), kecamatan varchar(50), kabupaten varchar(50),  tanggal_acara date,waktu_acara time,tempat_acara text,persyaratan varchar(100),verif_lurah varchar(20) DEFAULT 'Pending',verif_lurah_at datetime,created_at datetime,updated_by varchar(50), updated_at datetime)
 
 
 *Penambahan hitung usia
 *penambahan field goldar dan notelp pada data penduduk
 *buat tabel history, isinya minimal:
 tgl, nik, nama pengajuan, status. Jika nik akan berelasi denan tabel (konsep XOR <- agak susah implementasinya)
+
+
+Meet 20200920
+ganti ke select option
+- agama (6)
+- status_perkawinan (sudah menikah, belum menikah, janda, duda)
+- golongan_darah
+- kewarganegaraan (WNI/WNA)
+
+
+=====
+Field persyaratan -> peruntukan
+Form Janda -> Form Status Perkawinan
+Form Kematian 	==> diatas -> di atas
+				==> Tempat Kematian -> lokasi kematian
+				==> Tempat Pemakaman -> lokasi pemakaman
+				
+Form Kelahiran 	==> Field tempat lahir diubah posisi ke anak-ke
+Form TATIN ==> Keterangan Imuninasi
+
+Form Jual Beli Hewan ==> khusus sapi/kerbau
+
+Form Suami Istri ==> field agama placeholder bin/binti
+=====
+AutoCount Usia
+

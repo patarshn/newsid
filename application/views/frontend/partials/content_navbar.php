@@ -17,20 +17,26 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url()?>"><b>LIHAT SEMUA</b></a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_ahliwaris')?>">SK Ahli Waris</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_belummenikah')?>">SK Belum Menikah</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_janda')?>">SK Janda</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_covid')?>">SK Covid</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_jualbelihewan')?>">SK Jual Beli Hewan</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_kehilanganbarang')?>">SK Kehilangan Barang</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_kelahiran')?>">SK Kelahiran</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_kematian')?>">SK Kematian</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_ktpsementara')?>">SK KTP Sementara</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_kuasa')?>">SK Kuasa</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_pasjalan')?>">SK Pas Jalan</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_penghasilan')?>">SK Penghasilan</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_pernyataannikah')?>">SK Pernyataan Nikah</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_skck')?>">SK Catatan Kriminal</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_statusperkawinan')?>">SK Status Perkawinan</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_suamiistri')?>">SK Suami Istri</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_tatin')?>">SK Keterangan Imunisasi</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_tidakmampu')?>">SK Tidak Mampu</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_usaha')?>">SK Usaha</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_kelahiran')?>">SK Kelahiran</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_kehilanganbarang')?>">SK Kehilangan Barang</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_tatin')?>">SK Tatin</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_suamiistri')?>">SK Suami Istri</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_pasjalan')?>">SK Pas Jalan</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_ahliwaris')?>">SK Ahli Waris</a>
-                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_skck')?>">SK Catatan Kriminal</a>
+
+                        
                         </div>
                     </span>
                     <?php if(!empty($this->session->userdata('username'))):?>
