@@ -35,7 +35,7 @@
               <?php endforeach?>
              <!--END-->
             </div>
-
+            
             <h3>Form Belum Menikah</h3>
               <div class="row">
               <!-- START -->
@@ -395,18 +395,6 @@
               <?php endforeach?>
              <!--END-->
             </div>
-
-
-
-
-
-
-
-
-
-
-
-          </div>
 
         </div>
         <!-- /.container-fluid -->

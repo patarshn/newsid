@@ -23,7 +23,12 @@
 <body class="hold-transition login-page">
 	<div class="login-box">
 		<div class="login-logo">
-			<a href="../../index2.html">Sistem Informasi Desa</a>
+		
+		<span>Sistem Informasi Desa</span>
+			<center>
+			<img src="<?=base_url('assets/my/img/basic/wonodadi.png')?>" width="200px" alt="" srcset="">
+			</center>
+		<span>Pekon Wonodadi</span>
 		</div>
 		<!-- /.login-logo -->
 		<div class="card">

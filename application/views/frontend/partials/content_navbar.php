@@ -3,7 +3,7 @@
 <header id="header">
     <nav class="navbar navbar-expand-lg navbar-light mybg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">LOGO</a>
+            <a class="navbar-brand" href="#"><img src="<?=base_url('assets/my/img/basic/logo_pekon.png')?>" width="128px" alt="" srcset=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,12 +39,15 @@
                         
                         </div>
                     </span>
+                    
+                    <a class="nav-item nav-link" href="<?=base_url('form_check')?>">Cek Form
                     <?php if(!empty($this->session->userdata('username'))):?>
                         <a class="nav-item nav-link" href="<?=base_url('admin')?>">Dashboard</a> 
+                        
                     <a class="nav-item nav-link" href="<?=base_url('logout')?>">Logout</a>    
                     <?php else:?>
                         <a class="nav-item nav-link" href="<?=base_url('login')?>">Login</a>  
-                    <?php endif;?>
+                    <?php endif;?></a> 
                     
                 </div>
             </div>

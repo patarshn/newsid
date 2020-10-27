@@ -5,7 +5,7 @@
         <div class="row content">
             <div class="col-lg">
                 <h5>LOGO</h5>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae molestias laboriosam, ex quia aliquam nemo itaque nostrum expedita, minus corporis atque iste praesentium voluptatem? Ullam dignissimos in dicta excepturi sequi?</p>
+                <p>Pekon Wonodadi berkomitmen untuk memperbaiki dalam Penyelenggaraan Pemerintahan dan Pelaksanaan Pembangunan di Pekon Wonodadi baik secara individu maupun kelembagaan. Dengan harapan Pekon Wonodadi  mengalami suatu perubahan yang lebih baik dan peningkatan kesejahteraan masyarakat dalam segi ekonomi yang dilandasi semangat kebersamaan dalam Penyelenggaraan Pemerintahan dan Pelaksanaan Pembangunan.</p>
                 <div class="social-media">
                     <img src="<?=base_url('assets/my/img/icon/Icon simple-facebook.png')?>" alt="Facebook">
                     <img src="<?=base_url('assets/my/img/icon/Icon awesome-instagram.png')?>" alt="Instagram">

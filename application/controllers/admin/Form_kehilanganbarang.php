@@ -210,6 +210,84 @@ class Form_kehilanganbarang extends Admin_Controller{
         echo json_encode($callback);
     }
 
+    public function setuju(){
+        $validation = $this->form_validation;
+        $validation->set_rules($this->rulesDestroy());
+        if($validation->run()){
+            $_POST = $this->input->post();
+            $where = $_POST['rowdelete'];
+            $data = array(              
+                'verif_lurah' => "Disetujui",                             
+                'updated_by' => $this->session->userdata('username'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'verif_lurah_at' => date('Y-m-d H:i:s'),
+            );
+
+            if($this->Main_m->setuju($data,$this->_table,$where)){
+                $this->session->set_flashdata('success_message', 'Setujui data berhasil, terimakasih');
+                $callback = array(
+                    'status' => 'success',
+                    'message' => 'Data berhasil diupdate',
+                    'redirect' => base_url().'admin/'.$this->_folder,
+                );
+            }
+            else{
+                $this->session->set_flashdata('error_message', 'Mohon maaf, Penyetujuan data gagal');
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Penyetujuan data gagal',
+                );
+            }
+        }
+        else{
+            $this->session->set_flashdata('error_message', validation_errors());
+            $callback = array(
+                'status' => 'error',
+                'message' => validation_errors(),
+            );          
+        }
+        echo json_encode($callback);
+    }
+
+    public function tolak(){
+        $validation = $this->form_validation;
+        $validation->set_rules($this->rulesDestroy());
+        if($validation->run()){
+            $_POST = $this->input->post();
+            $where = $_POST['rowdelete'];
+            $data = array(              
+                'verif_lurah' => "Ditolak",                             
+                'updated_by' => $this->session->userdata('username'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'verif_lurah_at' => date('Y-m-d H:i:s'),
+            );
+
+            if($this->Main_m->setuju($data,$this->_table,$where)){
+                $this->session->set_flashdata('success_message', 'Tolak data berhasil, terimakasih');
+                $callback = array(
+                    'status' => 'success',
+                    'message' => 'Data berhasil diupdate',
+                    'redirect' => base_url().'admin/'.$this->_folder,
+                );
+            }
+            else{
+                $this->session->set_flashdata('error_message', 'Mohon maaf, Tolak data gagal');
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Tolak data gagal',
+                );
+            }
+        }
+        else{
+            $this->session->set_flashdata('error_message', validation_errors());
+            $callback = array(
+                'status' => 'error',
+                'message' => validation_errors(),
+            );          
+        }
+        echo json_encode($callback);
+    }
+
     function cetak($id){
         $where = ['id'=>$id];
         $data = $this->Main_m->get($this->_table,$where)->row();
@@ -217,21 +295,23 @@ class Form_kehilanganbarang extends Admin_Controller{
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama', $data->nama);
-        $template->setValue('nik', $data->nik);
+        #$template->setValue('nik', $data->nik);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
         $template->setValue('tanggal_lahir', $data->tanggal_lahir);
-        $template->setValue('jenis_kelamin', $data->jenis_kelamin);
+        #$template->setValue('jenis_kelamin', $data->jenis_kelamin);
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
         $template->setValue('agama', $data->agama);
-        $template->setValue('golongan_darah', $data->golongan_darah);
-        $template->setValue('status_perkawinan', $data->status_perkawinan);
-        $template->setValue('pekerjaan', $data->pekerjaan);
-        $template->setValue('alamat', $data->alamat);
+        #$template->setValue('golongan_darah', $data->golongan_darah);
+        #$template->setValue('status_perkawinan', $data->status_perkawinan);
+        #$template->setValue('pekerjaan', $data->pekerjaan);
+        #$template->setValue('alamat', $data->alamat);
         $template->setValue('rt', $data->rt);
         $template->setValue('rw', $data->rw);
         $template->setValue('pekon', $data->pekon);
         $template->setValue('kecamatan', $data->kecamatan);
-        $template->setValue('masa_berlaku', $data->masa_berlaku);
+        $template->setValue('kabupaten', $data->kabupaten);
+        $kehilangan = str_replace(PHP_EOL,"<w:br/>",$data->kehilangan);
+        $template->setValue('kehilangan', $kehilangan);
         $template->setValue('today', $today);
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);

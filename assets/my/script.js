@@ -35,6 +35,8 @@ function getCookie(cname) {
     return "";
   }
 
+
+
 function store(url,formID){
     //$('#loading').removeClass('d-none');
     $.ajax({
@@ -61,29 +63,45 @@ function store(url,formID){
 }
 
 function alertModal(message){
+    $("#alertModal #alertModalMessage").html(message);
     $("#alertModal").modal("show");
-    $("#alertModalMessage").html(message);
+    
 }
 
-$('.rowdelete').click(function(){
-    var len = $('[name="rowdelete[]"]:checked').length;
-    if(len <= 0){
-      $('#deletebtn').html("Delete");
-    }
-    else{
-      $('#deletebtn').html("Delete ("+len+" data)");
-    }
-  });
+
 
 $('#deletebtn').click(function(){
-var len = $('[name="rowdelete[]"]:checked').length;
-if(len <= 0){
-    alertModal("Tidak ada data yang dipilih");
-}
-else{
-    $("#deleteModal").modal("show");
-}
+  var len = $('[name="rowdelete[]"]:checked').length;
+  if(len <= 0){
+      alertModal("Tidak ada data yang dipilih");
+  }
+  else{
+      $("#deleteModal #alertModalMessage").html(len + " Data yang akan dihapus tidak dapat dikembalikan lagi, konfirmasi untuk menghapus data.");
+      $("#deleteModal").modal("show");
+  }
 });
+
+$('#setujubtn').click(function(){
+  var len = $('[name="rowdelete[]"]:checked').length;
+  if(len <= 0){
+      alertModal("Tidak ada data yang dipilih");
+  }
+  else{
+      $("#setujuModal #alertModalMessage").html(len + " Data yang akan disetujui, konfirmasi untuk menyetujui data.");
+      $("#setujuModal").modal("show");
+  }
+  });
+
+$('#tolakbtn').click(function(){
+  var len = $('[name="rowdelete[]"]:checked').length;
+  if(len <= 0){
+      alertModal("Tidak ada data yang dipilih");
+  }
+  else{
+      $("#tolakModal #alertModalMessage").html(len + " Data yang akan ditolak, konfirmasi untuk menolak data.");
+      $("#tolakModal").modal("show");
+  }
+  });
 
 $('.time').focusin(function() {
   $('.timeinfo').removeClass('d-none');
@@ -92,3 +110,42 @@ $('.time').focusin(function() {
 $('.time').focusout(function() {
   $('.timeinfo').addClass('d-none');
 });
+
+$("#selectAll").click(function(){
+  $(".rowdelete").prop('checked', $(this).prop('checked'));
+  var len = $('[name="rowdelete[]"]:checked').length;
+    if(len <= 0){
+      $('#aksibtn').html("Aksi");
+    }
+    else{
+      $('#aksibtn').html("Aksi ("+len+" data)");
+    }
+});
+
+$('.rowdelete').click(function(){
+  var len = $('[name="rowdelete[]"]:checked').length;
+  if(len <= 0){
+    //$('#deletebtn').html("Delete");
+    $('#aksibtn').html("Aksi");
+  }
+  else{
+    //$('#deletebtn').html("Delete ("+len+" data)");
+    $('#aksibtn').html("Aksi ("+len+" data)");
+  }
+});
+
+// Call the dataTables jQuery plugin
+$(document).ready(function() {
+  $('#dataTable').DataTable( {
+      dom: 
+      /*"<'row'<'col-sm-3'lB><'col-sm-6 text-center'B><'col-sm-3'f>>" +
+      "<'row'<'col-sm-12'tr>>" +
+      "<'row'<'col-sm-5'i><'col-sm-7'p>>",*/
+      '<"row"<"col-6"<"d-flex justify-content-start"lB>><"col-6"f>>rtip',
+      "aLengthMenu": [[10,25, 50, 100, -1], [25, 50, 100, "All"]],
+      "iDisplayLength": 10,
+      "columnDefs": [
+        { "orderable": false, "targets": 0 }
+      ]
+  } );
+} );

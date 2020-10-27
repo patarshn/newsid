@@ -31,7 +31,13 @@
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')">Add</button>
-                    <button type="button" id="deletebtn" class="btn btn-danger">Delete</button>
+                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+                    <div class="dropdown-menu">
+                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
+                      <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
+                      <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Delete</button>
+                    </div>
                 </div>
               </div>
             </div>
@@ -41,7 +47,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th width="5%">No</th>
+                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
                       <th width="3%"></th>
                       <th>NIK</th>
                       <th>Nama</th>
