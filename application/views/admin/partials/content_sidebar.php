@@ -87,6 +87,40 @@
           </div>
         </div>
       </li>
+      <li class="nav-item">
+       
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#penduduk" aria-expanded="true" aria-controls="penduduk">
+          <i class="fa fa-id-card"></i>
+          <span>Penduduk</span>
+        </a>
+        <div id="penduduk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/induk_penduuduk')?>"><b>Iduk Penduduk</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/mutasi_penduduk')?>"><b>Mutasi Penduduk</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/rekap_penduduk')?>"><b>Rekapitulasi Jumlah Penduduk</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/penduduk_sementara')?>"><b>Penduduk Sementara</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/ktp_kk')?>"><b>KTP dan KK</b></a>
+         
+          </div>
+        </div>
+      
+        <hr class="sidebar-divider my-0">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pembangunan" aria-expanded="true" aria-controls="pembangunan">
+          <i class="fa fa-building"></i>
+          <span>Pembangunan</span>
+        </a>
+        <div id="pembangunan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/rencana_pembangunan')?>"><b>Rencana Kerja Pembangunan</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kegiatan_pembangunan')?>"><b>Kegiatan Pembangunan</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/inventaris_pembangunan')?>"><b>Inventaris Pembangunan</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kader_pemberdayaan')?>"><b>Kader Pemberdayaan Masyarakat</b></a>
+         
+          </div>
+        </div>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
