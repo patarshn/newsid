@@ -62,6 +62,21 @@
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_tidakmampu')?>">SK Tidak Mampu</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_usaha')?>">SK Usaha</a>
 
+    
+          </div>
+        </div>
+      </li>
+
+      <!-- Nav Item Administrasi - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#administrasi_umum" aria-expanded="true" aria-controls="administrasi_umum">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Administrasi Umum</span>
+        </a>
+        <div id="administrasi_umum" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_peraturan_desa')?>">Buku Peraturan di Desa</a>
 
           </div>
         </div>

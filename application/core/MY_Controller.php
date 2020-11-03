@@ -6,6 +6,7 @@ class MY_Controller extends CI_Controller {
     {	
         parent::__construct();
         
+        
     }
 
     function printUri(){
@@ -66,7 +67,7 @@ class Backend_Controller extends MY_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
-        
+        $this->form_validation->set_message('required', 'field %s harus diisi');
         if($this->session->userdata('login') != TRUE){
             redirect(base_url());
         }

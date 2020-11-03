@@ -55,7 +55,7 @@ class Data_kependudukan extends Admin_Controller{
         $this->breadcrumbcomponent->add('Home', base_url());
         $this->breadcrumbcomponent->add('Admin', base_url('admin'));  
         $this->breadcrumbcomponent->add($this->_mainTitle, base_url('admin/'.$this->_folder.'/'));
-
+        
         $breadcrumb = $this->breadcrumbcomponent->output();
         $data = array(
             'breadcrumb' => $breadcrumb,
