@@ -10,20 +10,26 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="<?= base_url('')?>">
+          <i class="fas fa-home"></i>
+          <span>Beranda</span></a>
+      </li>
       <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('admin/')?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?= base_url('')?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Beranda</span></a>
+        <a class="nav-link" href="<?= base_url('admin/report')?>">
+          <i class="fas fa-chart-pie"></i>
+          <span>Report</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="<?= base_url('')?>">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Report</span></a>
+        <a class="nav-link" href="<?= base_url('admin/data_kependudukan')?>">
+          <i class="fas fa-users"></i>
+          <span>Data Kependudukan</span></a>
       </li>
 
       <!-- Divider -->

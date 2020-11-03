@@ -66,6 +66,7 @@ class Main_m extends MY_Model
             UNION SELECT id,nik_p,nama_p,verif_lurah, verif_lurah_at,created_at, 'form_tatin' as table_name FROM form_tatin
             UNION SELECT id,nik_orangtua,nama_orangtua,verif_lurah, verif_lurah_at,created_at, 'form_tidakmampu' as table_name FROM form_tidakmampu
             UNION SELECT id,nik,nama,verif_lurah, verif_lurah_at,created_at, 'form_usaha' as table_name FROM form_usaha
+            ORDER BY `created_at` DESC
             ";
 
         $status = $this->db->query($query);    
@@ -91,6 +92,7 @@ class Main_m extends MY_Model
             UNION SELECT id,nik_p,nama_p,verif_lurah, verif_lurah_at,created_at, 'form_tatin' as table_name FROM form_tatin WHERE nik_p = '$nik'
             UNION SELECT id,nik_orangtua,nama_orangtua,verif_lurah, verif_lurah_at,created_at, 'form_tidakmampu' as table_name FROM form_tidakmampu WHERE nik_orangtua = '$nik'
             UNION SELECT id,nik,nama,verif_lurah, verif_lurah_at,created_at, 'form_usaha' as table_name FROM form_usaha WHERE nik = '$nik'
+            ORDER BY `created_at` DESC
             ";
 
         $status = $this->db->query($query);    
