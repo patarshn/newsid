@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="jkelamin">Jenis Kelamin</label>
-                        <input type="text" name="jkemlamin" id="jkelamin" class="form-control border-left-info" placeholder="jkelamin" " required>
+                        <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-info" placeholder="jkelamin" value="<?=$d->jkelamin?>" required>
                     </div>
                     <div class="col-lg-6">
                         <label for="pendidikan">pendidikan</label>

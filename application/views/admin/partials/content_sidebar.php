@@ -91,7 +91,7 @@
        
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#penduduk" aria-expanded="true" aria-controls="penduduk">
           <i class="fa fa-id-card"></i>
-          <span>Penduduk</span>
+          <span>Administrasi Penduduk</span>
         </a>
         <div id="penduduk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -108,7 +108,7 @@
         <hr class="sidebar-divider my-0">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pembangunan" aria-expanded="true" aria-controls="pembangunan">
           <i class="fa fa-building"></i>
-          <span>Pembangunan</span>
+          <span>Administrasi Pembangunan</span>
         </a>
         <div id="pembangunan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
