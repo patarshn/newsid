@@ -30,8 +30,7 @@
               <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
               <div>
                 
-                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')"><i class="fa fa-plus"></i> Add</button> 
-                    <button type="button" class="btn btn-warning" onclick="window.open('<?=base_url($uri[2])?>','_blank')"> Print</button> 
+                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')"><i class="fa fa-plus"></i>Tambah Data</button>
                     <button type="button" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                     
                 
