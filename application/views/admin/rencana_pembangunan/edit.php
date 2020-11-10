@@ -1,5 +1,5 @@
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
           <!-- Content Row -->
 
           <div class="row ">
@@ -43,37 +43,62 @@
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 
                 <div class="form-row">
-                    <div class="col-lg-6 ">
-                    <div class="form-group">
-                        <label for="nama"><b>Nama</b></label>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama" value="<?=$d->nama?>" required>
-                    </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="umur"><b>Umur</b></label>
-                        <input type="text" name="umur" id="umur" class="form-control border-left-info " placeholder="Umur" value="<?=$d->umur?>" required>
-                    </div>
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                        <label for="jkelamin"><b>Jenis Kelamin</b></label>
-                        <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-info" placeholder="jkelamin" value="<?=$d->jkelamin?>" required>
-                    </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="pendidikan"><b>Pendidikan</b></label>
-                        <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-info" placeholder="pendidikan" value="<?=$d->pendidikan?>" required>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="nama_proyek"><b>Nama Proyek/Kegiatan</b></label>
+                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" placeholder=" " value="<?=$d->nama_proyek?>" required>
+                        </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="lokasi"><b>Lokasi</b></label>
+                            <textarea class="form-control border-left-info" name="lokasi" id="lokasi" rows="2"><?=$d->lokasi?></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="bidang"><b>Bidang</b></label>
-                        <input type="text" name="bidang" id="bidang" class="form-control border-left-info" placeholder="bidang" value="<?=$d->bidang?>" required>
+                        <label for="biaya_pemerintah"><b>Biaya Pemerintah</b></label>
+                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_pemerintah?>" required>
                     </div>
                     </div>
 
+                    <div class="col-lg-3">
+                        <label for="biaya_prov"><b>Biaya Provinsi</b></label>
+                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_prov?>" required>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label for="biaya_kab"><b>Biaya Kabupaten</b></label>
+                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_kab?>" required>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label for="biaya_swadaya"><b>Biaya Swadaya</b></label>
+                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_swadaya?>" required>
+                    </div>
+                    <br>
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                        <label for="jumlah"><b>Jumlah Biaya</b></label>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-info" placeholder="lokasi"  value="<?=$d->jumlah?>" required>
+                        </div>
+                    </div>
+                    
                     <div class="col-lg-6">
-                        <label for="alamat"><b>Alamat</b></label>
-                        <input type="text" name="alamat" id="alamat" class="form-control border-left-info" placeholder="alamat" value="<?=$d->alamat?>" required>
+                        <div class="form-group">
+                            <label for="pelaksana"><b>Pelaksana Kegiatan</b></label>
+                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-info " placeholder="pelaksana" value="<?=$d->pelaksana?>" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="manfaat"><b>Manfaat Pembangunan</b></label>
+                            <textarea class="form-control border-left-info" name="manfaat" id="manfaat" rows="3"><?=$d->manfaat?></textarea>
+                        </div>
                     </div>
                 
                     <div class="col-lg-12">

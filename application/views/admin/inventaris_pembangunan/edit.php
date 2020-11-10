@@ -45,35 +45,23 @@
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
-                        <label for="nama"><b>Nama</b></label>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama" value="<?=$d->nama?>" required>
+                        <label for="nama_hasil"><b>Jenis/Nama Hasil Pembangunan</b></label>
+                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-info" placeholder=" " value="<?=$d->nama_hasil?>" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="umur"><b>Umur</b></label>
-                        <input type="text" name="umur" id="umur" class="form-control border-left-info " placeholder="Umur" value="<?=$d->umur?>" required>
+                        <label for="volume"><b>Volume</b></label>
+                        <input type="text" name="volume" id="volume" class="form-control border-left-info " placeholder="volume" value="<?=$d->volume?>" required>
                     </div>
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                        <label for="jkelamin"><b>Jenis Kelamin</b></label>
-                        <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-info" placeholder="jkelamin" value="<?=$d->jkelamin?>" required>
-                    </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <label for="pendidikan"><b>Pendidikan</b></label>
-                        <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-info" placeholder="pendidikan" value="<?=$d->pendidikan?>" required>
-                    </div>
-
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="bidang"><b>Bidang</b></label>
-                        <input type="text" name="bidang" id="bidang" class="form-control border-left-info" placeholder="bidang" value="<?=$d->bidang?>" required>
+                        <label for="biaya"><b>Biaya</b></label>
+                        <input type="text" name="biaya" id="biaya" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya?>" required>
                     </div>
                     </div>
-
                     <div class="col-lg-6">
-                        <label for="alamat"><b>Alamat</b></label>
-                        <input type="text" name="alamat" id="alamat" class="form-control border-left-info" placeholder="alamat" value="<?=$d->alamat?>" required>
+                        <label for="lokasi"><b>Lokasi</b></label>
+                        <input type="text" name="lokasi" id="lokasi" class="form-control border-left-info" placeholder="lokasi" rows="2" value="<?=$d->lokasi?>" required>
                     </div>
                 
                     <div class="col-lg-12">
