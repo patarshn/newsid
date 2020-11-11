@@ -70,11 +70,6 @@
                             <td><?=$d->pekerjaan_1?></td>
                         </tr>
                         <tr>
-                            <td>Agama</td>
-                            <td>:</td>
-                            <td><?=$d->agama_1?></td>
-                        </tr>
-                        <tr>
                             <td>Alamat</td>
                             <td>:</td>
                             <td><?=$d->alamat_1?></td>
@@ -127,11 +122,6 @@
                             <td><?=$d->pekerjaan_2?></td>
                         </tr>
                         <tr>
-                            <td>Agama</td>
-                            <td>:</td>
-                            <td><?=$d->agama_2?></td>
-                        </tr>
-                        <tr>
                             <td>Alamat</td>
                             <td>:</td>
                             <td><?=$d->alamat_2?></td>
@@ -155,6 +145,11 @@
                             <td>Kabupaten</td>
                             <td>:</td>
                             <td><?=$d->kabupaten_2?></td>
+                        </tr>
+                        <tr>
+                            <td>Keterangan</td>
+                            <td>:</td>
+                            <td><?=nl2br($d->keterangan)?></td>
                         </tr>
                         <tr>
                             <td>Verif Lurah</td>

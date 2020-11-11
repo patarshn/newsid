@@ -135,12 +135,10 @@ $('.rowdelete').click(function(){
 });
 
 // Call the dataTables jQuery plugin
+
 $(document).ready(function() {
   $('#dataTable').DataTable( {
       dom: 
-      /*"<'row'<'col-sm-3'lB><'col-sm-6 text-center'B><'col-sm-3'f>>" +
-      "<'row'<'col-sm-12'tr>>" +
-      "<'row'<'col-sm-5'i><'col-sm-7'p>>",*/
       '<"row"<"col-6"<"d-flex justify-content-start"lB>><"col-6"f>>rtip',
       "aLengthMenu": [[10,25, 50, 100, -1], [25, 50, 100, "All"]],
       "iDisplayLength": 10,
@@ -149,3 +147,5 @@ $(document).ready(function() {
       ]
   } );
 } );
+
+

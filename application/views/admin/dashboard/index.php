@@ -16,385 +16,83 @@
                 </div>
                 
               </div>
-              <h3>Form Ahli Waris</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_ahliwaris["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
+
+
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
                 </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th width="5%">No</th>
+                      <th>Jenis Form</th>
+                      <th class="text-warning">Dipending</th>
+                      <th class="text-success">Desetujui</th>
+                      <th class="text-danger">Ditolak</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th width="5%">No</th>
+                      <th>Jenis Form</th>
+                      <th class="text-warning">Dipending</th>
+                      <th class="text-success">Desetujui</th>
+                      <th class="text-danger">Ditolak</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <?php 
+                      $i = 1;
+                      foreach($data as $formdata):
+                          $form_name = $formdata['form_name'];
+                          $form_name_lower = strtolower($form_name);
+                          $form_name_id = str_replace(' ', '', $form_name_lower);  
+                    ?>
+                    <tr>
+                      <td><?=$i++;?></td>
+                      <td><?= $form_name?></td>
+                      <td id="<?=$form_name_id;?>Pending">0</td>
+                      <td id="<?=$form_name_id;?>Disetujui">0</td>
+                      <td id="<?=$form_name_id;?>Ditolak">0</td>
+                    </tr>
+                    
+                    <?php endforeach;?>
+                    <tbody>
+                  </table>
+                </div>
+                
               </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
             
-            <h3>Form Belum Menikah</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_belummenikah["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
 
-            <h3>Form Ahli Waris</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_ahliwaris["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
+              <script>
+                var data = <?=json_encode($data)?>;
+                Object.keys(data).forEach(function(i){
+                    var countdata = data[i].countdata;
+                    var form_name = data[i].form_name;
+                    var countdatalen = countdata.length;
+                    var form_name_lower = form_name.toLowerCase();
+                    var form_name_id = form_name_lower.replace(/ /g,'');
+                    console.log(form_name_id);
+                    for(j=0;j<countdatalen;j++){
+                      verif_lurah = countdata[j]['verif_lurah'];
+                      total = countdata[j]['total'];
+                      if(verif_lurah == "Pending"){
+                        document.getElementById(form_name_id+verif_lurah).innerHTML = total;
+                      }
+                      else if(verif_lurah == "Disetujui"){
+                        document.getElementById(form_name_id+verif_lurah).innerHTML = total;
+                      }
+                      else if(verif_lurah == "Ditolak"){
+                        document.getElementById(form_name_id+verif_lurah).innerHTML = total;
+                      }
+                    }
+                });
+              </script>
 
-            <h3>Form Covid</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_covid["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Jual Beli Hewan</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_jualbelihewan["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Kehilangan Barang</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_kehilanganbarang["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Kelahiran</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_kelahiran["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Kematian</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_kematian["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form KTP Sementara</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_ktpsementara["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Kuasa</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_kuasa["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Pas Jalan</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_pasjalan["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Penghasilan</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_penghasilan["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Pernyataan Nikah</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_pernyataannikah["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form SKCK</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_skck["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-            
-            <h3>Form Status Perkawinan</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_statusperkawinan["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Suami Istri</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_suamiistri["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Tatin</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_tatin["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Tidak Mampu</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_tidakmampu["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
-
-            <h3>Form Usaha</h3>
-              <div class="row">
-              <!-- START -->
-              <?php foreach($form_usaha["countdata"] as $d):?>
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$d['verif_lurah']?></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$d['total'];?></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <?php endforeach?>
-             <!--END-->
-            </div>
 
         </div>
         <!-- /.container-fluid -->

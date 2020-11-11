@@ -57,12 +57,14 @@ class Data_kependudukan extends Admin_Controller{
         $this->breadcrumbcomponent->add($this->_mainTitle, base_url('admin/'.$this->_folder.'/'));
         
         $breadcrumb = $this->breadcrumbcomponent->output();
+        $getData = $this->Main_m->get($this->_table,null);
         $data = array(
             'breadcrumb' => $breadcrumb,
-            'data' => $this->Main_m->get($this->_table,null)->result(),
+            'data' => $getData->result(),
             'title' => $this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'total' => count($getData->result()),
         );
 
         $this->load->view('admin/partials/header');

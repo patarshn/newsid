@@ -42,7 +42,7 @@
                         <tr>
                         
                         
-                        <td colspan="3"><h5><u>Data Laki-laki/Suami</u></h5></td>
+                        <td colspan="3"><h5><u>Penerima Waris (Pengaju)</u></h5></td>
                         </tr>
                         <tr>
                             <td>NIK</td>
@@ -99,7 +99,7 @@
                             <td>:</td>
                             <td><?=$d->kabupaten_1?></td>
                         </tr>
-                        <td colspan="3"><h5><u>Data Peremupan/Istri (Pengaju)</u></h5></td>
+                        <td colspan="3"><h5><u>Pewaris</u></h5></td>
                         </tr>
                         <tr>
                             <td>NIK</td>

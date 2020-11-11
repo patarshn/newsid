@@ -19,7 +19,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="<?=base_url('logout')?>">Logout</a>
         </div>
       </div>
     </div>
@@ -57,7 +57,29 @@
   });
   </script>
 -->
+  
+    <!-- Bootstrap core JavaScript-->
+    <script src='<?php echo base_url("assets/sb2/vendor/jquery/jquery.min.js")?>'></script>
+  <script src='<?php echo base_url("assets/sb2/vendor/bootstrap/js/bootstrap.bundle.min.js")?>'></script>
 
+  <!-- Core plugin JavaScript-->
+  <script src='<?php echo base_url("assets/sb2/vendor/jquery-easing/jquery.easing.min.js")?>'></script>
+
+ <!-- Custom scripts for all pages-->
+ <script src='<?php echo base_url("assets/sb2/js/sb-admin-2.min.js")?>'></script>
+
+<!-- Page level plugins -->
+<script src='<?php echo base_url("assets/sb2/vendor/chart.js/Chart.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/jquery.dataTables.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.bootstrap4.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.buttons.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/buttons.print.min.js")?>'></script>
+
+  <!-- Page level custom scripts
+  <script src='<?php echo base_url("assets/sb2/js/demo/chart-area-demo.js")?>'></script>
+<script src='<?php echo base_url("assets/sb2/js/demo/chart-pie-demo.js")?>'></script>
+<script src='<?=base_url("assets/sb2/js/demo/datatables-demo.js")?>'></script>
+-->
  
   <script src="<?=base_url('assets/my/script.js')?>"></script>
 

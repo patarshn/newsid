@@ -9,7 +9,7 @@
                 <div class="alert alert-danger col d-none" id="error-message"></div>
             <?=form_open(base_url('form_belummenikah/store'),'id="form"')?>
                 <h3><?=$title?></h3>
-                <h5>Data Penerima Kuasa (Pengaju)</h5>
+                <h5>Data Pembeli</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
                         <label for="nik_1">NIK</label>
@@ -58,7 +58,7 @@
                         <input type="text" name="rw_1" id="rw_1" class="form-control" placeholder="RW">
                     </div>
                 </div>
-                <h5>Data Pemberi Kuasa</h5>
+                <h5>Data Penjual</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
                         <label for="nik_2">NIK</label>

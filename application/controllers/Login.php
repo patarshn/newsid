@@ -40,6 +40,7 @@ class Login extends Frontend_Controller{
 
     function index(){
         $this->isLogin();
+        $this->load->view('admin/partials/header');
         $this->load->view('login');
     }
 

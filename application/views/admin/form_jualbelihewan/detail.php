@@ -42,7 +42,7 @@
                         <tr>
                         
                         
-                        <td colspan="3"><h5><u>Data Laki-laki/Suami</u></h5></td>
+                        <td colspan="3"><h5><u>Data Pembeli</u></h5></td>
                         </tr>
                         <tr>
                             <td>NIK</td>
@@ -70,11 +70,6 @@
                             <td><?=$d->pekerjaan_1?></td>
                         </tr>
                         <tr>
-                            <td>Agama</td>
-                            <td>:</td>
-                            <td><?=$d->agama_1?></td>
-                        </tr>
-                        <tr>
                             <td>Alamat</td>
                             <td>:</td>
                             <td><?=$d->alamat_1?></td>
@@ -99,7 +94,7 @@
                             <td>:</td>
                             <td><?=$d->kabupaten_1?></td>
                         </tr>
-                        <td colspan="3"><h5><u>Data Peremupan/Istri (Pengaju)</u></h5></td>
+                        <td colspan="3"><h5><u>Data Penjual</u></h5></td>
                         </tr>
                         <tr>
                             <td>NIK</td>
@@ -127,11 +122,6 @@
                             <td><?=$d->pekerjaan_2?></td>
                         </tr>
                         <tr>
-                            <td>Agama</td>
-                            <td>:</td>
-                            <td><?=$d->agama_2?></td>
-                        </tr>
-                        <tr>
                             <td>Alamat</td>
                             <td>:</td>
                             <td><?=$d->alamat_2?></td>
@@ -155,6 +145,11 @@
                             <td>Kabupaten</td>
                             <td>:</td>
                             <td><?=$d->kabupaten_2?></td>
+                        </tr>
+                        <tr>
+                            <td>Keterangan</td>
+                            <td>:</td>
+                            <td><?=nl2br($d->keterangan)?></td>
                         </tr>
                         <tr>
                             <td>Verif Lurah</td>

@@ -1,72 +1,61 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 3 | Log in</title>
-	<!-- Tell the browser to be responsive to screen width -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<body class="bg-gradient-primary">
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="<?=base_url('assets/plugins/fontawesome-free/css/all.min.css');?>">
-	<!-- Ionicons -->
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<!-- icheck bootstrap -->
-	<link rel="stylesheet" href="<?=base_url('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css');?>">
-	<!-- Theme style -->
-	<link rel="stylesheet" href="<?=base_url('assets/dist/css/adminlte.min.css');?>">
-	<!-- Google Font: Source Sans Pro -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
+    <div class="container">
 
-<body class="hold-transition login-page">
-	<div class="login-box">
-		<div class="login-logo">
-		
-		<span>Sistem Informasi Desa</span>
-			<center>
-			<img src="<?=base_url('assets/my/img/basic/wonodadi.png')?>" width="200px" alt="" srcset="">
-			</center>
-		<span>Pekon Wonodadi</span>
-		</div>
-		<!-- /.login-logo -->
-		<div class="card">
-			<div class="card-body login-card-body">
-				<p class="login-box-msg">Masuk untuk melanjutkan</p>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-				<form action="login/login" method="post">
-					<div class="input-group mb-3">
-						<input type="text" name="username" class="form-control" placeholder="Username">
-						<div class="input-group-append">
-							<div class="input-group-text">
-								<span class="fas fa-envelope"></span>
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block" style="background:url(<?=base_url('assets/my/img/4.jpg')?>);background-size: 1200px;background-repeat: no-repeat;">
 							</div>
-						</div>
-					</div>
-					<div class="input-group mb-3">
-						<input type="password" name="password" class="form-control" placeholder="Password">
-						<div class="input-group-append">
-							<div class="input-group-text">
-								<span class="fas fa-lock"></span>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<!-- /.col -->
-						<div class="col-12">
-							<button type="submit" class="btn btn-primary btn-block">Masuk</button>
-						</div>
-						<!-- /.col -->
-					</div>
-				</form>
+                            <div class="col-lg-6 mt-4">
+                                <div class="p-5">
+                                    <div class="text-center">
+										<img src="<?=base_url('assets/my/img/basic/wonodadi.png')?>" style="max-width:40%;height:auto;" alt="" srcset="">
+                                        <h1 class="h4 text-gray-900 mb-4">Sistem Informasi Desa<br>Pekon Wonodadi</h1>
+										
+                                    </div>
+                                    <form action="login/login" method="post" class="user">
+                                        <div class="form-group">
+                                            <input type="text" name="username" class="form-control form-control-user" id="username" placeholder="Username">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            Masuk
+                                        </button>
+                                    </form>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-				
-			</div>
-			<!-- /.login-card-body -->
-		</div>
-	</div>
-	<!-- /.login-box -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+
 
 	<!-- jQuery -->
 	<script src="<?=base_url('assets/plugins/jquery/jquery.min.js')?>"></script>

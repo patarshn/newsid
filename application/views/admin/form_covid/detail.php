@@ -60,11 +60,6 @@
                         </tr>
                         
                         <tr>
-                            <td>Agama</td>
-                            <td>:</td>
-                            <td><?=$d->agama?></td>
-                        </tr>
-                        <tr>
                             <td>Alamat</td>
                             <td>:</td>
                             <td><?=$d->alamat?></td>
@@ -90,9 +85,24 @@
                             <td><?=$d->kabupaten?></td>
                         </tr>
                         <tr>
-                            <td>Kehilangan</td>
+                            <td>Persyaratan</td>
                             <td>:</td>
-                            <td><textarea readonly rows="10"><?=$d->kehilangan?></textarea></td>
+                            <td><?=$d->persyaratan?></td>
+                        </tr>
+                        <tr>
+                            <td>Lokasi Acara</td>
+                            <td>:</td>
+                            <td><?=$d->tempat_acara?></td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Acara</td>
+                            <td>:</td>
+                            <td><?=$d->tanggal_acara?></td>
+                        </tr>
+                        <tr>
+                            <td>Waktu Acara</td>
+                            <td>:</td>
+                            <td><?=$d->waktu_acara?></td>
                         </tr>
                         <tr>
                             <td>Verif Lurah</td>
