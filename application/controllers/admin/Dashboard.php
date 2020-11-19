@@ -7,6 +7,7 @@ class Dashboard extends Admin_Controller{
 	{
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->library('breadcrumbcomponent'); 
     }    
     
     function index(){
@@ -34,6 +35,10 @@ class Dashboard extends Admin_Controller{
             ),
         );
         */
+
+        $this->breadcrumbcomponent->add('Home', base_url());
+        $this->breadcrumbcomponent->add('Admin', base_url('admin'));
+        $breadcrumb = $this->breadcrumbcomponent->output();
 
         $formdata['form_ahliwaris'] = array(
             "countdata" => $this->Main_m->countDataVerifForm('form_ahliwaris')->result_array(),
@@ -126,6 +131,8 @@ class Dashboard extends Admin_Controller{
         );
         $data = array(
             'data' => $formdata,
+            'breadcrumb' => $breadcrumb,
+            'uri' => $this->uri->segment_array(),
         );
         $this->load->view('admin/partials/header');
         $this->load->view('admin/partials/content_sidebar');
