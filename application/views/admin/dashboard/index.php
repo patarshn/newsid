@@ -25,44 +25,46 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                <table class="table table-bordered table-responsive" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th width="5%">No</th>
-                      <th>Jenis Form</th>
-                      <th class="text-warning">Dipending</th>
-                      <th class="text-success">Desetujui</th>
-                      <th class="text-danger">Ditolak</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th width="5%">No</th>
-                      <th>Jenis Form</th>
-                      <th class="text-warning">Dipending</th>
-                      <th class="text-success">Desetujui</th>
-                      <th class="text-danger">Ditolak</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <?php 
-                      $i = 1;
-                      foreach($data as $formdata):
-                          $form_name = $formdata['form_name'];
-                          $form_name_lower = strtolower($form_name);
-                          $form_name_id = str_replace(' ', '', $form_name_lower);  
-                    ?>
-                    <tr>
-                      <td><?=$i++;?></td>
-                      <td><?= $form_name?></td>
-                      <td id="<?=$form_name_id;?>Pending">0</td>
-                      <td id="<?=$form_name_id;?>Disetujui">0</td>
-                      <td id="<?=$form_name_id;?>Ditolak">0</td>
-                    </tr>
-                    
-                    <?php endforeach;?>
+                <div class="table-responsive">
+                  <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Form</th>
+                        <th class="text-warning">Dipending</th>
+                        <th class="text-success">Desetujui</th>
+                        <th class="text-danger">Ditolak</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th width="5%">No</th>
+                        <th>Jenis Form</th>
+                        <th class="text-warning">Dipending</th>
+                        <th class="text-success">Desetujui</th>
+                        <th class="text-danger">Ditolak</th>
+                      </tr>
+                    </tfoot>
                     <tbody>
-                  </table>
+                      <?php 
+                        $i = 1;
+                        foreach($data as $formdata):
+                            $form_name = $formdata['form_name'];
+                            $form_name_lower = strtolower($form_name);
+                            $form_name_id = str_replace(' ', '', $form_name_lower);  
+                      ?>
+                      <tr>
+                        <td><?=$i++;?></td>
+                        <td><?= $form_name?></td>
+                        <td id="<?=$form_name_id;?>Pending">0</td>
+                        <td id="<?=$form_name_id;?>Disetujui">0</td>
+                        <td id="<?=$form_name_id;?>Ditolak">0</td>
+                      </tr>
+                      
+                      <?php endforeach;?>
+                      <tbody>
+                    </table>
+                  </div>
                 </div>
                 
               </div>
