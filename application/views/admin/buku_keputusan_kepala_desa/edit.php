@@ -42,8 +42,8 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
                   <div class="col-lg-6 mt-3">
-                        <label for="jenis_peraturan_desa" class="text-gray-900 font-weight-bold">Jenis Peraturan Desa</label>
-                        <input type="text" name="jenis_peraturan_desa" id="jenis_peraturan_desa" class="form-control" value="<?=$d->jenis_peraturan_desa?>" required>
+                        <label for="no_tgl_keputusan_kepala_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Kepala Desa</label>
+                        <input type="text" name="no_tgl_keputusan_kepala_desa" id="no_tgl_keputusan_kepala_desa" class="form-control" value="<?=$d->no_tgl_keputusan_kepala_desa?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -52,29 +52,9 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tgl_kesepakatan_peraturan_desa" class="text-gray-900 font-weight-bold">Tanggal Kesepakatan Peraturan Desa</label>
-                        <input type="date" name="tgl_kesepakatan_peraturan_desa" id="tgl_kesepakatan_peraturan_desa" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tgl_kesepakatan_peraturan_desa?>" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_ditetapkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal ditetapkan</label>
-                        <input type="text" name="no_dan_tgl_ditetapkan" id="no_dan_tgl_ditetapkan" class="form-control" value="<?=$d->no_dan_tgl_ditetapkan?>" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
-                        <input type="text" name="no_dan_tgl_dilaporkan" id="no_dan_tgl_dilaporkan" class="form-control" value="<?=$d->no_dan_tgl_dilaporkan?>" required>
+                        <label for="no_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
+                        <input type="text" name="no_tgl_dilaporkan" id="no_tgl_dilaporkan" class="form-control" value="<?=$d->no_tgl_dilaporkan?>" required>
                     </div>                  
-                                                     
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_diundangkan_dalam_lembaran_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</label>
-                        <input type="text" name="no_dan_tgl_diundangkan_dalam_lembaran_desa" id="no_dan_tgl_diundangkan_dalam_lembaran_desa" class="form-control" value="<?=$d->no_dan_tgl_diundangkan_dalam_lembaran_desa?>" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_diundangkan_dalam_berita_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Diundangkan Dalam Berita Desa</label>
-                        <input type="text" name="no_dan_tgl_diundangkan_dalam_berita_desa" id="no_dan_tgl_diundangkan_dalam_berita_desa" class="form-control" value="<?=$d->no_dan_tgl_diundangkan_dalam_berita_desa?>" required>
-                    </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>

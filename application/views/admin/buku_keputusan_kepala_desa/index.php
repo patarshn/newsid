@@ -49,8 +49,7 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Jenis Peraturan Desa</th>
-                      <th>Nomor dan Tanggal ditetapkan</th>
+                      <th>Nomor dan Tanggal Keputusan Kepala Desa</th>
                       <th>Tentang</th>
                       <th>Uraian Singkat</th>
                       <th>Pengajuan</th>
@@ -61,8 +60,7 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Jenis Peraturan Desa</th>
-                      <th>Nomor dan Tanggal ditetapkan</th>
+                      <th>Nomor dan Tanggal Keputusan Kepala Desa</th>
                       <th>Tentang</th>
                       <th>Uraian Singkat</th>
                       <th>Pengajuan</th>
@@ -92,8 +90,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->jenis_peraturan_desa?></td>
-                      <td><?=$d->no_dan_tgl_ditetapkan?></td>
+                      <td><?=$d->no_tgl_keputusan_kepala_desa?></td>
                       <td><?=$d->tentang?></td>
                       <td><?=$d->uraian_singkat?></td>
                       <td>

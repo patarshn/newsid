@@ -49,10 +49,9 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Jenis Peraturan Desa</th>
-                      <th>Nomor dan Tanggal ditetapkan</th>
-                      <th>Tentang</th>
-                      <th>Uraian Singkat</th>
+                      <th>Jenis Barang atau Bangunan</th>
+                      <th>Asal Barang dan Bangunan</th>
+                      <th>Keadaan Barang atau Bangunan Awal Tahun</th>
                       <th>Pengajuan</th>
                       <th width="10%">Verif Kepala Desa</th>
                     </tr>
@@ -61,10 +60,9 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Jenis Peraturan Desa</th>
-                      <th>Nomor dan Tanggal ditetapkan</th>
-                      <th>Tentang</th>
-                      <th>Uraian Singkat</th>
+                      <th>Jenis Barang atau Bangunan</th>
+                      <th>Asal Barang dan Bangunan</th>
+                      <th>Keadaan Barang atau Bangunan Awal Tahun</th>
                       <th>Pengajuan</th>
                       <th>Verif Kepala Desa</th>
                     </tr>
@@ -92,10 +90,14 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->jenis_peraturan_desa?></td>
-                      <td><?=$d->no_dan_tgl_ditetapkan?></td>
-                      <td><?=$d->tentang?></td>
-                      <td><?=$d->uraian_singkat?></td>
+                      <td><?=$d->jenis_brng_bangunan?></td>
+                      <td><?=$d->abb_dibeli_sendiri?></td>
+                      <td><?=$d->bantuan_pemeritah?></td>
+                      <td><?=$d->bantuan_prov?></td>
+                      <td><?=$d->bantuan_kab_kota?></td>
+                      <td><?=$d->abb_sumbangan?></td>
+                      <td><?=$d->baik_awalthn?></td>
+                      <td><?=$d->rusak_awalthn?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);

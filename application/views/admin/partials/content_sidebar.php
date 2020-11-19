@@ -83,6 +83,8 @@
           <div class="bg-white py-2 collapse-inner rounded">
           
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_peraturan_desa')?>">Buku Peraturan di Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_kepala_desa')?>">Buku Keputusan Kepala Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_inventaris_kekayaan_desa')?>">Buku Inventaris dan Kekayaan Desa</a>
 
           </div>
         </div>

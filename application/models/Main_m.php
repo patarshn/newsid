@@ -10,7 +10,7 @@ class Main_m extends MY_Model
         $status = $this->db->insert($table,$data) ? true:false;
         return $status;
     }
-
+    
     public function get($table,$where){
         if($where == null){
             $status = $this->db->get($table);
