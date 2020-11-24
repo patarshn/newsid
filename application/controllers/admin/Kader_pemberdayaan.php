@@ -169,7 +169,7 @@ class Kader_pemberdayaan extends Admin_Controller {
         if($validation->run()){
             $_POST = $this->input->post();
             $id = $_POST['id'];
-            $where = ['id'=>$id]; 
+            $where = ['id'=>$id];
             $data = array(
                 'id' => $_POST['id'],
                 'nama' => $_POST['nama'],

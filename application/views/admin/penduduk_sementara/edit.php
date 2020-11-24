@@ -40,12 +40,11 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                <h4 class="m-0 font-weight-bold text-primary"><center>Induk Penduduk : <?=$d->nama?></center></h4>
+                <h4 class="m-0 font-weight-bold text-primary"><center>Data Penduduk Sementara : <?=$d->nama?></center></h4>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
 
                 <div class="form-row">
-
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="nik"><b>Nomor Induk Penduduk (NIK)</b></label>
@@ -54,92 +53,73 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="nokk"><b>Nomor Kartu Keluarga (KK)</b></label>
-                            <input type="number" name="nokk" id="nokk" class="form-control border-left-info " placeholder="No. KK" value="<?=$d->nokk?>" required>
+                            <label for="pekerjaan"><b>Pekerjaan</b></label>
+                            <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-info " placeholder="Pekerjaan" value="<?=$d->pekerjaan?>" required>
                         </div>
-                    </div>
                 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="nama"><b>Nama Lengkap/Panggilan</b></label>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama" value="<?=$d->nama?>" required>
+                            <label for="nama"><b>Nama Lengkap</b></label>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama Lengkat" value="<?=$d->nama?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                            <label for="wn"><b>Kewarganegaraan</b></label>
-                            <input type="text" name="wn" id="wn" class="form-control border-left-info " placeholder="satatus kewarganegaraan" value="<?=$d->wn?>" required>
+                            <label for="datang_dari"><b>Datang Dari (Asal)</b></label>
+                            <input type="text" name="datang_dari" id="datang_dari" class="form-control border-left-info " placeholder="Asal Kedatangan" value="<?=$d->datang_dari?>" required>
                         </div>
                     
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="jk"><b>Jenis Kelamin</b></label>
-                            <input type="text" name="jk" id="jk" class="form-control border-left-info " placeholder="jk" value="<?=$d->jk?>" required>
+                            <input type="text" name="jk" id="jk" class="form-control border-left-info " placeholder="Jenis Kelamin" value="<?=$d->jk?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <label for="stkawin"><b>Startus Perkawinan</b></label>
-                        <input type="text" name="stkawin" id="stkawin" class="form-control border-left-info" placeholder="Statur Pekawinan" value="<?=$d->stkawin?>" required>
+                        <label for="maksud_tujuan"><b>Maksud dan Tujuan</b></label>
+                        <input type="text" name="maksud_tujuan" id="maksud_tujuan" class="form-control border-left-info" placeholder="Maksud dan Tujuan Kedatangan" value="<?=$d->maksud_tujuan?>" required>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="tempat_lahir"><b>Tempat Lahir</b></label>
-                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-info" placeholder="" value="<?=$d->tempat_lahir?>" required>
+                        <label for="tmpt_tgl_lahir"><b>Tempat dan Tanggal Lahir</b></label>
+                        <input type="text" name="tmpt_tgl_lahir" id="tmpt_tgl_lahir" class="form-control border-left-info" placeholder="Tempat dan Tanggal Lahir" value="<?=$d->tmpt_tgl_lahir?>" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <label for="pendidikan"><b>Pendidikan Terakhir</b></label>
-                        <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-info" placeholder="pendidikan terahir"  value="<?=$d->pendidikan?>" required>
+                        <label for="kebangsaan"><b>Kebangsaan</b></label>
+                        <input type="text" name="kebangsaan" id="kebangsaan" class="form-control border-left-info" placeholder="kebangsaan"  value="<?=$d->kebangsaan?>" required>
                         </div>
                     
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="tgl_lahir"><b>Tanggal Lahir</b></label>
-                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-info" placeholder="" value="<?=$d->tgl_lahir?>" required>
+                        <label for="tgl_datang"><b>Tanggal Datang</b></label>
+                        <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-info" placeholder="" value="<?=$d->tgl_datang?>" required>
                     </div>
                     </div>
                     
 
                     <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="baca_huruf"><b>Dapat Membaca Huruf</b></label>
-                            <input type="text" name="baca_huruf" id="baca_huruf" class="form-control border-left-info " placeholder="" value="<?=$d->baca_huruf?>" required>
+                            <label for="keturunan"><b>Keturunan</b></label>
+                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-info " placeholder="" value="<?=$d->keturunan?>" required>
                         </div>
-                    </div>
 
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="agama"><b>Agama</b></label>
-                        <input type="text" name="agama" id="agama" class="form-control border-left-info" placeholder="agama" value="<?=$d->agama?>" required>
+                        <label for="tgl_pergi"><b>Tanggal Pergi</b></label>
+                        <input type="date" name="tgl_pergi" id="tgl_pergi" class="form-control border-left-info" placeholder="" value="<?=$d->tgl_pergi?>" required>
                     </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="pekerjaan"><b>Pekerjaan</b></label>
-                            <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-info " placeholder="kedudukan di keluarga" value="<?=$d->pekerjaan?>" required>
-                        </div>
                     </div>
                 
                     <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="alamat"><b>Alamat</b></label>
-                            <textarea class="form-control border-left-info" name="alamat" id="alamat" rows="1"><?=$d->alamat?></textarea>
+                            <label for="nama_alamat_datang"><b>Nama dan Alamat yang Didatangi</b></label>
+                            <textarea class="form-control border-left-info" name="nama_alamat_datang" id="nama_alamat_datang" rows="1"><?=$d->nama_alamat_datang?></textarea>
                         </div>
-                    </div>
 
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label for="kdd_keluarga"><b>Kedudukan di Keluarga</b></label>
-                            <input type="text" name="kdd_keluarga" id="kdd_keluarga" class="form-control border-left-info " placeholder="kedudukan di keluarga" value="<?=$d->kdd_keluarga?>" required>
-                        </div>
-                    </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">

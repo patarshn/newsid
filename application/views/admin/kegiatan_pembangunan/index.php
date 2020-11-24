@@ -1,8 +1,9 @@
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
           <!-- Content Row -->
 
-          <div class="row">
+          <div class="row"> 
 
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-12">
@@ -39,6 +40,9 @@
                 </div>
               </div>
             </div>
+            <br>
+            <form method="get">
+           
             <div class="card-body">
               <div class="table-responsive">
                <form method="POST" id="formdelete" action="/kk/destroy">
@@ -52,7 +56,7 @@
                       <th>Waktu</th>
                       <th>Sifat Kegiatan</th>
                       <th>Pelaksana</th>
-                      <th>Keterangan</th>
+                      <th>Tanggal Kegiatan</th>
                       <th>Option</th>
                     </tr>
                   </thead>
@@ -65,7 +69,7 @@
                       <th>Waktu</th>
                       <th>Sifat Kegiatan</th>
                       <th>Pelaksana</th>
-                      <th>Keterangan</th>
+                      <th>Tanggal Kegiatan</th>
                       <th>Option</th>
                     </tr>
                   </tfoot>
@@ -73,7 +77,9 @@
                   
                   <?php 
                   $count = 1;
+
                   foreach ($data as $d): ?>
+                  		
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -85,9 +91,9 @@
                       <td><?=$d->waktu?></td>
                       <td><?=$d->sifat?></td>
                       <td><?=$d->pelaksana?></td>
-                      <td><?=$d->ket?></td>
+                      <td><?=$d->created_at?></td>
                       <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"><i class="fa fa-pen"></i> Edit</a>
+                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"> Edit</a>
                             <a class="btn btn-info"  data-toggle="modal" data-target="#myModal<?=$d->id?>"
                             title="Show Data" data-toggle="modal"><span class="glyphicon glyphicon-eye-open">Detail</span></a>
 <!-- Modal -->

@@ -42,14 +42,14 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="nama_proyek"><b>Nama Proyek/Kegiatan</b></label>
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" placeholder="Nama proyek atau kegiatan" required>
+                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" rows="3" placeholder="Nama proyek atau kegiatan" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="volume"><b>Volume</b></label>
-                            <input type="text" name="volume" id="volume" class="form-control border-left-info " placeholder="Volume bagunan"  required>
+                            <input type="text" name="volume" id="volume" class="form-control border-left-info " rows="3" placeholder="Volume bagunan"  required>
                         </div>
                     </div>
                     

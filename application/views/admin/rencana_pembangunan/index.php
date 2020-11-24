@@ -26,14 +26,19 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
               <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
-              <div>                
-                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')"><i class="fa fa-plus"></i>Tambah Data</button>
-                    <button type="button" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+              <div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
+                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+										<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+										<div class="dropdown-menu">
+										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+										</div>
+                </div>
               </div>
             </div>
-            
             <div class="card-body">
               <div class="table-responsive">
                <form method="POST" id="formdelete" action="/kk/destroy">
@@ -46,7 +51,7 @@
                       <th>Total Biaya</th>
                       <th>Pelaksana</th>
                       <th>Manfaat</th>
-                      <th width="13%">Option</th>
+                      <th width="11%">Option</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -57,7 +62,7 @@
                       <th>Total Biaya</th>
                       <th>Pelaksana</th>
                       <th>Manfaat</th>
-                      <th width="13%">Option</th>>
+                      <th width="11%">Option</th>>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -76,7 +81,7 @@
                       <td><?=$d->pelaksana?></td>
                       <td><?=$d->manfaat?></td>
                       <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"><i class="fa fa-pen"></i> Edit</a>
+                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"> Edit</a>
                             <a class="btn btn-info"  data-toggle="modal" data-target="#myModal<?=$d->id?>"
                             title="Show Data" data-toggle="modal"><span class="glyphicon glyphicon-eye-open">Detail</span></a>
 <!-- Modal -->
