@@ -85,10 +85,12 @@
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_peraturan_desa')?>">Buku Peraturan di Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_kepala_desa')?>">Buku Keputusan Kepala Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_inventaris_kekayaan_desa')?>">Buku Inventaris dan Kekayaan Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_aparat_pemerintah_desa')?>">Buku Aparat Pemerintah Desa</a>
 
           </div>
         </div>
       </li>
+      
       <li class="nav-item">
        
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#penduduk" aria-expanded="true" aria-controls="penduduk">

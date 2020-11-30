@@ -417,6 +417,11 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
     private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
+
+            if(empty($b_id->berkas)){
+                return true;
+            }
+            
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }

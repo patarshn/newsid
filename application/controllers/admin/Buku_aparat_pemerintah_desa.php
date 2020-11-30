@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buku_peraturan_desa extends Admin_Controller {
+class Buku_aparat_pemerintah_desa extends Admin_Controller {
 
-    private $_table = 'buku_peraturan_desa';
-    private $_folder = 'buku_peraturan_desa';
-    private $_mainTitle = 'Buku Peraturan Desa';
+    private $_table = 'buku_aparat_pemerintah_desa';
+    private $_folder = 'buku_aparat_pemerintah_desa';
+    private $_mainTitle = 'Buku Aparat Pemerintah Desa';
 
     function __construct() {
         parent::__construct();
@@ -16,30 +16,37 @@ class Buku_peraturan_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'jenis_peraturan_desa','label' => 'Jenis Peraturan Desa', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_ditetapkan','label' => 'Nomor dan Tanggal Ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'Tanggal Kesepakatan Peraturan Desa', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_dilaporkan','label' => 'Nomor dan Tanggal Dilaporkan', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_diundangkan_dalam_lembaran_desa','label' => 'Nomor dan Tanggal Diundangkan Dalam Lembaran Desa ', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_diundangkan_dalam_berita_desa','label' => 'Nomor dan Tanggal Diundangkan Dalam Berita Desa', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama', 'rules' => 'required'],
+            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required'],
+            ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
+            ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tgl','label' => 'Tanggal Lahir', 'rules' => 'required'],
+            ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'pangkat_golongan','label' => 'Pangkat Golongan', 'rules' => 'required'],
+            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required'],
+            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pengangkatan','label' => 'Nomor dan Tanggal Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pemberhentian','label' => 'Nomor dan Tanggal Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'jenis_peraturan_desa','label' => 'Jenis Peraturan Desa', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_ditetapkan','label' => 'Nomor dan Tanggal Ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'Tanggal Kesepakatan Peraturan Desa', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_dilaporkan','label' => 'Nomor dan Tanggal Dilaporkan', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_diundangkan_dalam_lembaran_desa','label' => 'Nomor dan Tanggal Diundangkan Dalam Lembaran Desa ', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_diundangkan_dalam_berita_desa','label' => 'Nomor dan Tanggal Diundangkan Dalam Berita Desa', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama', 'rules' => 'required'],
+            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required'],
+            ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
+            ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tgl','label' => 'Tanggal Lahir', 'rules' => 'required'],
+            ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'pangkat_golongan','label' => 'Pangkat Golongan', 'rules' => 'required'],
+            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required'],
+            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pengangkatan','label' => 'Nomor dan Tanggal Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pemberhentian','label' => 'Nomor dan Tanggal Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -113,52 +120,57 @@ class Buku_peraturan_desa extends Admin_Controller {
                     exit;
                 }
             }
-
             else{
                 $berkas = "";
             }
 
-            $_POST = $this->input->post();
-            $data = array(
-                'jenis_peraturan_desa' => $_POST['jenis_peraturan_desa'],
-                'no_dan_tgl_ditetapkan' => $_POST['no_dan_tgl_ditetapkan'],
-                'tentang' => $_POST['tentang'],
-                'uraian_singkat' => $_POST['uraian_singkat'],
-                'tgl_kesepakatan_peraturan_desa' => $_POST['tgl_kesepakatan_peraturan_desa'],
-                'no_dan_tgl_dilaporkan' => $_POST['no_dan_tgl_dilaporkan'],
-                'no_dan_tgl_diundangkan_dalam_lembaran_desa' => $_POST['no_dan_tgl_diundangkan_dalam_lembaran_desa'],
-                'no_dan_tgl_diundangkan_dalam_berita_desa' => $_POST['no_dan_tgl_diundangkan_dalam_berita_desa'],
-                'ket' => $_POST['ket'],
-                'berkas' => $berkas,
-                'ver_kepala_desa' => "Pending",
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' =>  $this->session->userdata('username'),
-                
-            );
-            if($this->Main_m->store($data,$this->_table)){
-                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
-                $callback = array(
-                    'status' => 'success',
-                    'message' => 'Data berhasil diinput',
-                    'redirect' => base_url().'admin/'.$this->_folder,
+                $_POST = $this->input->post();
+                $data = array(
+                    'nama' => $_POST['nama'],
+                    'niap' => $_POST['niap'],
+                    'nip' => $_POST['nip'],
+                    'jenis_kelamin' => $_POST['jenis_kelamin'],
+                    'tempat' => $_POST['tempat'],
+                    'tgl' => $_POST['tgl'],
+                    'agama' => $_POST['agama'],
+                    'pangkat_golongan' => $_POST['pangkat_golongan'],
+                    'jabatan ' => $_POST['jabatan'],
+                    'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
+                    'no_tgl_keputusan_pengangkatan' => $_POST['no_tgl_keputusan_pengangkatan'],
+                    'no_tgl_keputusan_pemberhentian' => $_POST['no_tgl_keputusan_pemberhentian'],
+                    'ket' => $_POST['ket'],
+                    'berkas' => $berkas,
+                    'ver_kepala_desa' => "Pending",
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'created_by' =>  $this->session->userdata('username'),
+                    
                 );
+                if($this->Main_m->store($data,$this->_table)){
+                    $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                    $callback = array(
+                        'status' => 'success',
+                        'message' => 'Data berhasil diinput',
+                        'redirect' => base_url().'admin/'.$this->_folder,
+                    );
+                }
+                else{
+                    //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, Pengisian form gagal',
+                    );
+                }
             }
+        
             else{
-                //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
+                //$this->session->set_flashdata('error_message', validation_errors());
                 $callback = array(
                     'status' => 'error',
-                    'message' => 'Mohon Maaf, Pengisian form gagal',
+                    'message' => validation_errors(),
                 );
             }
-        }
-        else{
-            //$this->session->set_flashdata('error_message', validation_errors());
-            $callback = array(
-                'status' => 'error',
-                'message' => validation_errors(),
-            );
-        }
-        echo json_encode($callback);
+            echo json_encode($callback);
+        
     }
 
     function edit($id){
@@ -207,14 +219,18 @@ class Buku_peraturan_desa extends Admin_Controller {
             }
 
             $data = array(
-                'jenis_peraturan_desa' => $_POST['jenis_peraturan_desa'],
-                'no_dan_tgl_ditetapkan' => $_POST['no_dan_tgl_ditetapkan'],
-                'tentang' => $_POST['tentang'],
-                'uraian_singkat' => $_POST['uraian_singkat'],
-                'tgl_kesepakatan_peraturan_desa' => $_POST['tgl_kesepakatan_peraturan_desa'],
-                'no_dan_tgl_dilaporkan' => $_POST['no_dan_tgl_dilaporkan'],
-                'no_dan_tgl_diundangkan_dalam_lembaran_desa' => $_POST['no_dan_tgl_diundangkan_dalam_lembaran_desa'],
-                'no_dan_tgl_diundangkan_dalam_berita_desa' => $_POST['no_dan_tgl_diundangkan_dalam_berita_desa'],
+                'nama' => $_POST['nama'],
+                'niap' => $_POST['niap'],
+                'nip' => $_POST['nip'],
+                'jenis_kelamin' => $_POST['jenis_kelamin'],
+                'tempat' => $_POST['tempat'],
+                'tgl' => $_POST['tgl'],
+                'agama' => $_POST['agama'],
+                'pangkat_golongan' => $_POST['pangkat_golongan'],
+                'jabatan ' => $_POST['jabatan'],
+                'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
+                'no_tgl_keputusan_pengangkatan' => $_POST['no_tgl_keputusan_pengangkatan'],
+                'no_tgl_keputusan_pemberhentian' => $_POST['no_tgl_keputusan_pemberhentian'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
@@ -431,13 +447,13 @@ class Buku_peraturan_desa extends Admin_Controller {
     }
 
     private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
-            
+
             if(empty($b_id->berkas)){
                 return true;
             }
-
+            
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }

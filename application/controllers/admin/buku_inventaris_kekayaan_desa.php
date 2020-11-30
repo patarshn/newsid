@@ -16,20 +16,20 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'jenis_brng_bangunan','label' => 'Jenis Barang Bangunan', 'rules' => 'required'],
-            ['field' => 'abb_dibeli_sendiri','label' => 'Abb Dibeli Sendiri', 'rules' => 'required'],
-            ['field' => 'bantuan_pemeritah','label' => 'Bantuan Pemerintah Singkat', 'rules' => 'required'],
-            ['field' => 'bantuan_prov','label' => 'Bantuan Prov', 'rules' => 'required'],
-            ['field' => 'bantuan_kab_kota','label' => 'Bantuan Kab Kota', 'rules' => 'required'],
-            ['field' => 'abb_sumbangan','label' => 'Abb Sumbangan', 'rules' => 'required'],
-            ['field' => 'baik_awalthn','label' => 'Baik Awalthn', 'rules' => 'required'],
-            ['field' => 'rusak_awalthn','label' => 'Rusak Awalthn', 'rules' => 'required'],
-            ['field' => 'rusak_hps','label' => 'Rusak Hps', 'rules' => 'required'],
-            ['field' => 'dijual_hps','label' => 'Dijual Hps', 'rules' => 'required'],
-            ['field' => 'disumbangkan_hps','label' => 'Disumbangkan Hps', 'rules' => 'required'],
-            ['field' => 'tgl_hapus','label' => 'Tgl Hapus', 'rules' => 'required'],
-            ['field' => 'baik_akhirthn','label' => 'Baik Akhirthn', 'rules' => 'required'],
-            ['field' => 'rusak_akhirthn','label' => 'Rusak Akhirthn', 'rules' => 'required'],
+            ['field' => 'jenis_brng_bangunan','label' => 'Jenis Barang atau Bangunan', 'rules' => 'required'],
+            ['field' => 'abb_dibeli_sendiri','label' => 'Asal Barang atau Bangunan', 'rules' => 'required'],
+            ['field' => 'bantuan_pemeritah','label' => 'Asal Barang atau Bangunan', 'rules' => 'required'],
+            ['field' => 'bantuan_prov','label' => 'Asal Barang atau Bangunan', 'rules' => 'required'],
+            ['field' => 'bantuan_kab_kota','label' => 'Asal Barang atau Bangunan', 'rules' => 'required'],
+            ['field' => 'abb_sumbangan','label' => 'Asal Barang atau Bangunan', 'rules' => 'required'],
+            ['field' => 'baik_awalthn','label' => 'Keadaan Barang atau Bangunan Awal Tahun', 'rules' => 'required'],
+            ['field' => 'rusak_awalthn','label' => 'Keadaan Barang atau Bangunan Awal Tahun', 'rules' => 'required'],
+            ['field' => 'rusak_hps','label' => 'Penghapusan Barang dan Bangunan', 'rules' => 'required'],
+            ['field' => 'dijual_hps','label' => 'Penghapusan Barang dan Bangunan', 'rules' => 'required'],
+            ['field' => 'disumbangkan_hps','label' => 'Penghapusan Barang dan Bangunan', 'rules' => 'required'],
+            ['field' => 'tgl_hapus','label' => 'Penghapusan Barang dan Bangunan', 'rules' => 'required'],
+            ['field' => 'baik_akhirthn','label' => 'Keadaan Barang atau Bangunan Akhir Tahun', 'rules' => 'required'],
+            ['field' => 'rusak_akhirthn','label' => 'Keadaan Barang atau Bangunan Akhir Tahun', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
@@ -457,6 +457,11 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
     private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
+            
+            if(empty($b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
