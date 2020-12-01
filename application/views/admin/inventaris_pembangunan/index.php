@@ -51,7 +51,7 @@
                       <th>Biaya</th>
                       <th>Lokasi</th>
                       <th>Keterangan</th>
-                      <th>Option</th>
+                      <th width="11.5%">Option</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -62,7 +62,7 @@
                       <th>Biaya</th>
                       <th>Lokasi</th>
                       <th>Keterangan</th>
-                      <th>Option</th>
+                      <th width="11.5%">Option</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -81,7 +81,7 @@
                       <td><?=$d->lokasi?></td>
                       <td><?=$d->ket?></td>
                       <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"><i class="fa fa-pen"></i> Edit</a>
+                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"> Edit</a>
                             <a class="btn btn-info"  data-toggle="modal" data-target="#myModal<?=$d->id?>"
                             title="Show Data" data-toggle="modal"><span class="glyphicon glyphicon-eye-open">Detail</span></a>
 <!-- Modal -->

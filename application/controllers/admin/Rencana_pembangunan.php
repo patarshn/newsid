@@ -188,7 +188,7 @@ class Rencana_pembangunan extends Admin_Controller {
                 'pelaksana' => $_POST['pelaksana'],
                 'manfaat' => $_POST['manfaat'],
                 'ket' => $_POST['ket'],
-                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
                 
             );
                        

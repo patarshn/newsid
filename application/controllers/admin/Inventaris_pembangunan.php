@@ -101,7 +101,7 @@ class Inventaris_pembangunan extends Admin_Controller {
                 'biaya' => $_POST['biaya'],
                 'lokasi' => $_POST['lokasi'],
                 'ket' => $_POST['ket'],
-                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
                 
             );
             if($this->Main_m->store($data,$this->_table)){

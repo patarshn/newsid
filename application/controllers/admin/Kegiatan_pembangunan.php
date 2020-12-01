@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kegiatan_pembangunan extends Admin_Controller {
-
+     
     private $_table = 'kegiatan_pembangunan';
     private $_folder = 'kegiatan_pembangunan';
     private $_mainTitle = 'Data Kegiatan Pembangunan';
@@ -118,7 +118,7 @@ class Kegiatan_pembangunan extends Admin_Controller {
                 'sifat' => $_POST['sifat'],
                 'pelaksana' => $_POST['pelaksana'],
                 'ket' => $_POST['ket'],
-                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d'),
                 
             );
             if($this->Main_m->store($data,$this->_table)){
@@ -194,7 +194,7 @@ class Kegiatan_pembangunan extends Admin_Controller {
                 'sifat' => $_POST['sifat'],
                 'pelaksana' => $_POST['pelaksana'],
                 'ket' => $_POST['ket'],
-                'updated_at' => date('Y-m-d H:i:s'),
+                'created_at' => date('Y-m-d'),
             );
                        
             if($this->Main_m->update($data,$this->_table,$where)){

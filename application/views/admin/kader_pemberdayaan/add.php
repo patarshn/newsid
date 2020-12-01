@@ -44,6 +44,7 @@
                         <label for="nama"><b>Nama</b></label>
                         <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama lengkap anda" required>
                     </div>
+                    </div>
                     <div class="col-lg-6">
                         <label for="umur"><b>Umur</b></label>
                         <input type="text" name="umur" id="umur" class="form-control border-left-info " placeholder="Umur anda" required>
@@ -52,6 +53,7 @@
                     <div class="form-group">
                         <label for="jkelamin"><b>Jenis Kelamin</b></label>
                         <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-info" placeholder=" " required>
+                    </div>
                     </div>
                     <div class="col-lg-6">
                         <label for="pendidikan"><b>Pendidikan</b></label>
@@ -62,6 +64,7 @@
                     <div class="form-group">
                         <label for="bidang"><b>Bidang</b></label>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-info" placeholder="Posisi bidang saat ini" required>
+                    </div>
                     </div>
 
                     <div class="col-lg-6">
