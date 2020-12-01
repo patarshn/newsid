@@ -148,4 +148,29 @@ $(document).ready(function() {
   } );
 } );
 
+$(document).ready(function() {
+
+    //datatables
+    var table = $('#dataTablePenduduk').DataTable({ 
+
+        "processing": true, 
+        "serverSide": true, 
+        "order": [], 
+         
+        "ajax": {
+            "url": base_url+'admin/data_kependudukan/get_data_user',
+            "type": "POST"
+        },
+
+         
+        "columnDefs": [
+        { 
+            "targets": [ 0 ], 
+            "orderable": false, 
+        },
+        ],
+
+    });
+
+});
 
