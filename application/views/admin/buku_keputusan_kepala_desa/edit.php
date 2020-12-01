@@ -101,7 +101,8 @@
                     
                 <?php
                 endforeach;
-                echo form_close();?>
+                echo form_close();
+                ?>
                 
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>

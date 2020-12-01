@@ -86,7 +86,7 @@
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_kepala_desa')?>">Buku Keputusan Kepala Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_inventaris_kekayaan_desa')?>">Buku Inventaris dan Kekayaan Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_aparat_pemerintah_desa')?>">Buku Aparat Pemerintah Desa</a>
-
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_tnh_kas_desa')?>">Buku Tanah Kas Desa</a>
           </div>
         </div>
       </li>

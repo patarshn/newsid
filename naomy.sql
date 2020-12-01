@@ -26,6 +26,13 @@ CREATE TABLE `buku_keputusan_kepala_desa` (
  `uraian_singkat` varchar(255) DEFAULT NULL,
  `no_tgl_dilaporkan` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
+ `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 );
 
@@ -35,7 +42,7 @@ CREATE TABLE `buku_aparat_pemerintah_desa` (
  `niap` varchar(255) DEFAULT NULL,
  `nip` varchar(255) DEFAULT NULL,
  `jenis_kelamin` varchar(255) DEFAULT NULL,
- `ttl` varchar(255) DEFAULT NULL,
+ `tempat` varchar(255) DEFAULT NULL,
  `agama` varchar(255) DEFAULT NULL,
  `pangkat_golongan` varchar(255) DEFAULT NULL,
  `jabatan` varchar(255) DEFAULT NULL,
@@ -43,6 +50,14 @@ CREATE TABLE `buku_aparat_pemerintah_desa` (
  `no_tgl_keputusan_pengangkatan` varchar(255) DEFAULT NULL,
  `no_tgl_keputusan_pemberhentian` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `tgl` date DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
+ `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 );
 
@@ -62,6 +77,9 @@ CREATE TABLE `buku_agenda` (
  `created_by` varchar(255) DEFAULT NULL,
  `updated_at` datetime DEFAULT NULL,
  `updated_by` varchar(255) DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
+ `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 ) 
 
@@ -76,6 +94,9 @@ CREATE TABLE `buku_ekspedisi` (
  `created_by` varchar(255) DEFAULT NULL,
  `updated_at` datetime DEFAULT NULL,
  `updated_by` varchar(255) DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
+ `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 )
 
@@ -102,7 +123,7 @@ CREATE TABLE `buku_inventaris_kekayaan_desa` (
  `updated_by` varchar(255) DEFAULT NULL,
  `berkas` varchar(255) DEFAULT NULL,
  `ver_kepala_desa_at` datetime DEFAULT NULL,
- `ver_kepala_desa` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
  PRIMARY KEY (`id`)
 )
 
@@ -137,6 +158,9 @@ CREATE TABLE `buku_tnh_desa` (
  `created_by` varchar(255) DEFAULT NULL,
  `updated_at` datetime DEFAULT NULL,
  `updated_by` varchar(255) DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
+ `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 )
 
@@ -169,5 +193,8 @@ CREATE TABLE `buku_tnh_kas_desa` (
  `created_by` varchar(255) DEFAULT NULL,
  `updated_at` datetime DEFAULT NULL,
  `updated_by` varchar(255) DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ `ver_kepala_desa` varchar(20) DEFAULT NULL,
+ `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 )

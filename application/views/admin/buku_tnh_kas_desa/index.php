@@ -17,7 +17,7 @@
               </div>
             </div>
             <?php if($this->session->flashdata('success_message')): ?>
-	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
+	          <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
             <?php endif ?>
                 <div class="alert alert-danger col d-none" id="error-message"></div>
           </div>
@@ -32,12 +32,12 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
-										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
-										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
-										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
-										</div>
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+					<div class="dropdown-menu">
+                        <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
+                        <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
+                        <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+					</div>
                 </div>
               </div>
             </div>
@@ -49,10 +49,10 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Nama</th>
-                      <th>NIAP</th>
-                      <th>NIP</th>
-                      <th>Jabatan</th>
+                      <th>Asal Tanah Kas Desa</th>
+                      <th>Nomor Sertifikat Buku Letter C/Persil</th>
+                      <th>Luas</th>
+                      <th>Kelas</th>
                       <th>Pengajuan</th>
                       <th width="10%">Verif Kepala Desa</th>
                     </tr>
@@ -61,10 +61,10 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Nama</th>
-                      <th>NIAP</th>
-                      <th>NIP</th>
-                      <th>Jabatan</th>
+                      <th>Asal Tanah Kas Desa</th>
+                      <th>Nomor Sertifikat Buku Letter C/Persil</th>
+                      <th>Luas</th>
+                      <th>Kelas</th>
                       <th>Pengajuan</th>
                       <th>Verif Kepala Desa</th>
                     </tr>
@@ -92,10 +92,10 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->nama?></td>
-                      <td><?=$d->niap?></td>
-                      <td><?=$d->nip?></td>
-                      <td><?=$d->jabatan?></td>
+                      <td><?=$d->asal_tnh_kas?></td>
+                      <td><?=$d->no_serti_letterc_persil?></td>
+                      <td><?=$d->luas?></td>
+                      <td><?=$d->kelas?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);
