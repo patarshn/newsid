@@ -12,6 +12,7 @@ class Data_kependudukan extends Admin_Controller{
 	{
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Kependudukan_m');
         
         $this->load->library('breadcrumbcomponent'); 
     }    
@@ -49,6 +50,36 @@ class Data_kependudukan extends Admin_Controller{
             'label' => 'rowdelete',
             'rules' => 'required']
         ];
+    }
+
+
+    function get_data_user()
+    {
+        $list = $this->Kependudukan_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $field->nkk;
+            $row[] = $field->nik;
+            $row[] = $field->nama;
+            $row[] = $field->rt;
+            $row[] = $field->rw;
+            $row[] = $field->created_at;
+ 
+            $data[] = $row;
+        }
+ 
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Kependudukan_m->count_all(),
+            "recordsFiltered" => $this->Kependudukan_m->count_filtered(),
+            "data" => $data,
+        );
+        //output dalam format JSON
+        echo json_encode($output);
     }
 
     function index(){

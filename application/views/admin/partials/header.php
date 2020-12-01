@@ -18,6 +18,16 @@
   <link href='<?php echo base_url("assets/sb2/css/sb-admin-2.min.css")?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/my/admin_style.css")?>' rel="stylesheet">
   <link href='<?=base_url("assets/sb2/vendor/datatables/dataTables.bootstrap4.min.css")?>' rel="stylesheet">
+  <!-- Bootstrap core JavaScript-->
+  <script src='<?php echo base_url("assets/sb2/vendor/jquery/jquery.min.js")?>'></script>
+  <script src='<?php echo base_url("assets/sb2/vendor/bootstrap/js/bootstrap.bundle.min.js")?>'></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src='<?php echo base_url("assets/sb2/vendor/jquery-easing/jquery.easing.min.js")?>'></script>
+
+ <!-- Custom scripts for all pages-->
+ <script src='<?php echo base_url("assets/sb2/js/sb-admin-2.min.js")?>'></script>
+
   <script>
     base_url = "<?=base_url()?>";
     function base_url(url){
