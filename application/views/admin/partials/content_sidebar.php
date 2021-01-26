@@ -125,6 +125,21 @@
           </div>
         </div>
       </li>
+      
+      <li class="nav-item">
+      <hr class="sidebar-divider my-0">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#administrasi_keuangan" aria-expanded="true" aria-controls="administrasi_keuangan">
+          <i class="fa fa-id-card"></i>
+          <span>Administrasi Keuangan</span>
+        </a>
+        <div id="administrasi_keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/apbd')?>"><b>Agaran Pendapatan dan Belanja Desa</b></a>
+         
+          </div>
+        </div>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
