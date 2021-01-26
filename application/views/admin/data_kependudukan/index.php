@@ -61,7 +61,7 @@
                   <thead>
                     <tr>
                       <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
-                      
+                      <th></th>
                       <th>NKK</th>
                       <th>NIK</th>
                       <th>Nama</th>
@@ -73,6 +73,7 @@
                   <tfoot>
                     <tr>
                       <th width="5%">No</th>
+                      <th></th>
                       <th>NKK</th>
                       <th>NIK</th>
                       <th>Nama</th>

@@ -31,11 +31,7 @@
 <script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.buttons.min.js")?>'></script>
 <script src='<?=base_url("assets/sb2/vendor/datatables/buttons.print.min.js")?>'></script>
 
-  <!-- Page level custom scripts
-  <script src='<?php echo base_url("assets/sb2/js/demo/chart-area-demo.js")?>'></script>
-<script src='<?php echo base_url("assets/sb2/js/demo/chart-pie-demo.js")?>'></script>
-<script src='<?=base_url("assets/sb2/js/demo/datatables-demo.js")?>'></script>
--->
+
  
 
 
