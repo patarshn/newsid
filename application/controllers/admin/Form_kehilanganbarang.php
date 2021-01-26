@@ -297,7 +297,7 @@ class Form_kehilanganbarang extends Admin_Controller{
         $template->setValue('nama', $data->nama);
         #$template->setValue('nik', $data->nik);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
         #$template->setValue('jenis_kelamin', $data->jenis_kelamin);
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
         $template->setValue('agama', $data->agama);
@@ -312,7 +312,7 @@ class Form_kehilanganbarang extends Admin_Controller{
         $template->setValue('kabupaten', $data->kabupaten);
         $kehilangan = str_replace(PHP_EOL,"<w:br/>",$data->kehilangan);
         $template->setValue('kehilangan', $kehilangan);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

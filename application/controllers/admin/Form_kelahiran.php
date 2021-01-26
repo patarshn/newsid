@@ -309,7 +309,7 @@ class Form_kelahiran extends Admin_Controller{
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama_anak', $data->nama_anak);
         $template->setValue('tempat_lahir_anak', $data->tempat_lahir_anak);
-        $template->setValue('tanggal_lahir_anak', $data->tanggal_lahir_anak);
+        $template->setValue('tanggal_lahir_anak', longdate_indo($data->tanggal_lahir_anak));
         $template->setValue('jenis_kelamin_anak', $data->jenis_kelamin_anak);
         $template->setValue('agama_anak', $data->agama_anak);
         $template->setValue('ke_anak', $data->ke_anak);
@@ -317,14 +317,14 @@ class Form_kelahiran extends Admin_Controller{
         $template->setValue('nama_ayah', $data->nama_ayah);
         $template->setValue('nik_ayah', $data->nik_ayah);
         $template->setValue('tempat_lahir_ayah', $data->tempat_lahir_ayah);
-        $template->setValue('tanggal_lahir_ayah', $data->tanggal_lahir_ayah);
+        $template->setValue('tanggal_lahir_ayah', longdate_indo($data->tanggal_lahir_ayah));
         $template->setValue('agama_ayah', $data->agama_ayah);
         $template->setValue('pekerjaan_ayah', $data->pekerjaan_ayah);
 
         $template->setValue('nama_ibu', $data->nama_ibu);
         $template->setValue('nik_ibu', $data->nik_ibu);
         $template->setValue('tempat_lahir_ibu', $data->tempat_lahir_ibu);
-        $template->setValue('tanggal_lahir_ibu', $data->tanggal_lahir_ibu);
+        $template->setValue('tanggal_lahir_ibu', longdate_indo($data->tanggal_lahir_ibu));
         $template->setValue('agama_ibu', $data->agama_ibu);
         $template->setValue('pekerjaan_ibu', $data->pekerjaan_ibu);
 
@@ -335,7 +335,7 @@ class Form_kelahiran extends Admin_Controller{
         $template->setValue('pekon', $data->pekon);
         $template->setValue('kecamatan', $data->kecamatan);
         $template->setValue('kabupaten', $data->kabupaten);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

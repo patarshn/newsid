@@ -312,7 +312,7 @@ class Form_pernyataannikah extends Admin_Controller{
         $template->setValue('nama_l', $data->nama_l);
         #$template->setValue('nik_l', $data->nik_l);
         $template->setValue('tempat_lahir_l', $data->tempat_lahir_l);
-        $template->setValue('tanggal_lahir_l', $data->tanggal_lahir_l);
+        $template->setValue('tanggal_lahir_l', longdate_indo($data->tanggal_lahir_l));
         #$template->setValue('jenis_kelamin_l', $data->jenis_kelamin_l);
         #$template->setValue('kewarganegaraan_l', $data->kewarganegaraan_l);
         $template->setValue('agama_l', $data->agama_l);
@@ -329,7 +329,7 @@ class Form_pernyataannikah extends Admin_Controller{
         $template->setValue('nama_p', $data->nama_p);
         #$template->setValue('nik_p', $data->nik_p);
         $template->setValue('tempat_lahir_p', $data->tempat_lahir_p);
-        $template->setValue('tanggal_lahir_p', $data->tanggal_lahir_p);
+        $template->setValue('tanggal_lahir_p', longdate_indo($data->tanggal_lahir_p));
         #$template->setValue('jenis_kelamin_p', $data->jenis_kelamin_p);
         #$template->setValue('kewarganegaraan_p', $data->kewarganegaraan_p);
         $template->setValue('agama_p', $data->agama_p);
@@ -345,10 +345,10 @@ class Form_pernyataannikah extends Admin_Controller{
 
         $template->setValue('maskawin', $data->maskawin);
         $template->setValue('jam_kawin', $data->jam_kawin);
-        $template->setValue('tanggal_kawin', $data->tanggal_kawin);
+        $template->setValue('tanggal_kawin', longdate_indo($data->tanggal_kawin));
 
 
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

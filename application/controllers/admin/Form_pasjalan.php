@@ -303,7 +303,7 @@ class Form_pasjalan extends Admin_Controller{
         $template->setValue('nama', $data->nama);
         $template->setValue('nik', $data->nik);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
         $template->setValue('binbinti', $data->binbinti);
         #$template->setValue('jenis_kelamin', $data->jenis_kelamin);
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
@@ -319,8 +319,8 @@ class Form_pasjalan extends Admin_Controller{
 
         $template->setValue('tujuan', $data->tujuan);
         $template->setValue('maksud_tujuan', $data->maksud_tujuan);
-        $template->setValue('tanggal_berangkat', $data->tanggal_berangkat);
-        $template->setValue('today', $today);
+        $template->setValue('tanggal_berangkat', longdate_indo($data->tanggal_berangkat));
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

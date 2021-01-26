@@ -302,7 +302,7 @@ class Form_tidakmampu extends Admin_Controller{
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama_anak', $data->nama_anak);
         $template->setValue('nik_anak', $data->nik_anak);
-        $template->setValue('tanggal_lahir_anak', $data->tanggal_lahir_anak);
+        $template->setValue('tanggal_lahir_anak', longdate_indo($data->tanggal_lahir_anak));
         $template->setValue('tempat_lahir_anak', $data->tempat_lahir_anak);
         $template->setValue('kewarganegaraan_anak', $data->kewarganegaraan_anak);
         $template->setValue('agama_anak', $data->agama_anak);
@@ -311,7 +311,7 @@ class Form_tidakmampu extends Admin_Controller{
         $template->setValue('nama_orangtua', $data->nama_orangtua);
         $template->setValue('nik_orangtua', $data->nik_orangtua);
         $template->setValue('tempat_lahir_orangtua', $data->tempat_lahir_orangtua);
-        $template->setValue('tanggal_lahir_orangtua', $data->tanggal_lahir_orangtua);
+        $template->setValue('tanggal_lahir_orangtua', longdate_indo($data->tanggal_lahir_orangtua));
         $template->setValue('kewarganegaraan_orangtua', $data->kewarganegaraan_orangtua);
         $template->setValue('agama_orangtua', $data->agama_orangtua);
         $template->setValue('pekerjaan_orangtua', $data->pekerjaan_orangtua);
@@ -322,7 +322,7 @@ class Form_tidakmampu extends Admin_Controller{
         $template->setValue('kecamatan', $data->kecamatan);
         $template->setValue('kabupaten', $data->kabupaten);
         $template->setValue('persyaratan', $data->persyaratan);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
