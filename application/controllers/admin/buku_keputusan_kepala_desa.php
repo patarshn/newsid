@@ -16,11 +16,11 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'no_tgl_keputusan_kepala_desa','label' => 'Nomor dan Tanggal Keputusan Kepala Desa', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'no_tgl_dilaporkan','label' => 'Nomor dan Tanggal Dilaporkan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_kepala_desa','label' => 'no_tgl_keputusan_kepala_desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
+            ['field' => 'no_tgl_dilaporkan','label' => 'no_tgl_dilaporkan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -417,6 +417,11 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
     private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
+
+            if(empty($b_id->berkas)){
+                return true;
+            }
+            
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }

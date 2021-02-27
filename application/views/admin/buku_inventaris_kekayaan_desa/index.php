@@ -44,28 +44,39 @@
             <div class="card-body">
               <div class="table-responsive">
               <form method="POST" id="formdelete">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Jenis Barang atau Bangunan</th>
-                      <th>Asal Barang dan Bangunan</th>
-                      <th>Keadaan Barang atau Bangunan Awal Tahun</th>
-                      <th>Pengajuan</th>
-                      <th width="10%">Verif Kepala Desa</th>
+                      <th rowspan="3" width="5%">No</th>
+                      <th rowspan="3" width="3%"></th>
+                      <th rowspan="3">Jenis Barang atau Bangunan</th>
+                      <th colspan="5">Asal Barang dan Bangunan</th>
+                      <th rowspan="3">Pengajuan</th>
+                      <th rowspan="3">Verif Kepala Desa</th>
                     </tr>
+
+                    <tr>
+                      <th rowspan="2">Dibeli Sendiri</th>
+                      <th colspan="3">Bantuan</th>
+                      <th rowspan="2">Sumbangan</th>
+                    </tr>
+
+                    <tr>
+                      <th>Pemerintah</th>
+                      <th>Provinsi</th>
+                      <th>Kab/Kota</th>
+                    </tr>
+                    
                   </thead>
                   <tfoot>
                     <tr>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Jenis Barang atau Bangunan</th>
-                      <th>Asal Barang dan Bangunan</th>
-                      <th>Keadaan Barang atau Bangunan Awal Tahun</th>
-                      <th>Pengajuan</th>
-                      <th>Verif Kepala Desa</th>
-                    </tr>
+                        <th width="5%">No</th>
+                        <th width="3%"></th>
+                        <th>Jenis Barang atau Bangunan</th>
+                        <th colspan="5">Asal Barang dan Bangunan</th>
+                        <th>Pengajuan</th>
+                        <th>Verif Kepala Desa</th>
+                      </tr>
                   </tfoot>
                   <tbody>
                   
@@ -96,8 +107,6 @@
                       <td><?=$d->bantuan_prov?></td>
                       <td><?=$d->bantuan_kab_kota?></td>
                       <td><?=$d->abb_sumbangan?></td>
-                      <td><?=$d->baik_awalthn?></td>
-                      <td><?=$d->rusak_awalthn?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);
@@ -132,7 +141,6 @@
             </div>
           </div>
           
-
         </div>
         <!-- /.container-fluid -->
 

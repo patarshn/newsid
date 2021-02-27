@@ -35,7 +35,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('buku_peraturan_desa/update'),'id="form"');
+                <?php echo form_open(base_url('buku_keputusan_kepala_desa/update'),'id="form"');
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
@@ -101,7 +101,8 @@
                     
                 <?php
                 endforeach;
-                echo form_close();?>
+                echo form_close();
+                ?>
                 
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>

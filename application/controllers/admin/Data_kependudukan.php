@@ -12,6 +12,7 @@ class Data_kependudukan extends Admin_Controller{
 	{
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Kependudukan_m');
         
         $this->load->library('breadcrumbcomponent'); 
     }    
@@ -49,6 +50,47 @@ class Data_kependudukan extends Admin_Controller{
             'label' => 'rowdelete',
             'rules' => 'required']
         ];
+    }
+
+
+    function get_data_user()
+    {
+        $list = $this->Kependudukan_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = '<div class="dropdown no-arrow">  
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="'.base_url('admin/'.$this->_folder.'/edit/'.$field->nik).'">Edit</a>
+                    <a class="dropdown-item" href="'.base_url('admin/'.$this->_folder.'/detail/'.$field->nik).'">Detail</a>
+                    <a class="dropdown-item" href="'.base_url('admin/'.$this->_folder.'/cetak/'.$field->nik).'">Cetak</a>
+                </div>
+            </div>';
+            $row[] = $field->nkk;
+            $row[] = $field->nik;
+            $row[] = $field->nama;
+            $row[] = $field->rt;
+            $row[] = $field->rw;
+            $row[] = $field->created_at;
+ 
+            $data[] = $row;
+        }
+ 
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Kependudukan_m->count_all(),
+            "recordsFiltered" => $this->Kependudukan_m->count_filtered(),
+            "data" => $data,
+        );
+        //output dalam format JSON
+        echo json_encode($output);
     }
 
     function index(){

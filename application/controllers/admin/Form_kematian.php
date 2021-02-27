@@ -309,14 +309,14 @@ class Form_kematian extends Admin_Controller{
         $template->setValue('alamat', $data->alamat);
         $template->setValue('rt', $data->rt);
         $template->setValue('rw', $data->rw);
-        $template->setValue('tanggal_kematian', $data->tanggal_kematian);
+        $template->setValue('tanggal_kematian', longdate_indo($data->tanggal_kematian));
         $template->setValue('tempat_kematian', $data->tempat_kematian);
         $template->setValue('waktu_kematian', $data->waktu_kematian);
         $template->setValue('penyebab_kematian', $data->penyebab_kematian);
-        $template->setValue('tanggal_pemakaman', $data->tanggal_pemakaman);
+        $template->setValue('tanggal_pemakaman', longdate_indo($data->tanggal_pemakaman));
         $template->setValue('waktu_pemakaman', $data->waktu_pemakaman);
         $template->setValue('tempat_pemakaman', $data->tempat_pemakaman);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);

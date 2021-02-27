@@ -308,7 +308,7 @@ class Form_ahliwaris extends Admin_Controller{
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama_1', $data->nama_1);
         $template->setValue('tempat_lahir_1', $data->tempat_lahir_1);
-        $template->setValue('tanggal_lahir_1', $data->tanggal_lahir_1);
+        $template->setValue('tanggal_lahir_1', longdate_indo($data->tanggal_lahir_1));
         $template->setValue('nik_1', $data->nik_1);
         $template->setValue('agama_1', $data->agama_1);
         $template->setValue('pekerjaan_1', $data->pekerjaan_1);
@@ -319,7 +319,7 @@ class Form_ahliwaris extends Admin_Controller{
         $template->setValue('kabupaten_1', $data->kabupaten_1);
         $template->setValue('nama_2', $data->nama_2);
         $template->setValue('tempat_lahir_2', $data->tempat_lahir_2);
-        $template->setValue('tanggal_lahir_2', $data->tanggal_lahir_2);
+        $template->setValue('tanggal_lahir_2', longdate_indo($data->tanggal_lahir_2));
         $template->setValue('nik_2', $data->nik_2);
         $template->setValue('agama_2', $data->agama_2);
         $template->setValue('pekerjaan_2', $data->pekerjaan_2);

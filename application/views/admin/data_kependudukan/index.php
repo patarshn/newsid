@@ -57,14 +57,14 @@
             <div class="card-body">
               <div class="table-responsive">
                <form method="POST" id="formdelete" action="/kk/destroy">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTablePenduduk" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
-                      <th width="3%"></th>
+                      <th></th>
+                      <th>NKK</th>
                       <th>NIK</th>
                       <th>Nama</th>
-                      <th>Alamat</th>
                       <th>RT</th>
                       <th>RW</th>
                       <th>Dibuat</th>
@@ -73,53 +73,15 @@
                   <tfoot>
                     <tr>
                       <th width="5%">No</th>
-                      <th width="3%"></th>
+                      <th></th>
+                      <th>NKK</th>
                       <th>NIK</th>
                       <th>Nama</th>
-                      <th>Alamat</th>
                       <th>RT</th>
                       <th>RW</th>
                       <th>Dibuat</th>
                     </tr>
                   </tfoot>
-                  <tbody>
-                  
-                  <?php 
-                  $count = 1;
-                  foreach ($data as $d): ?>
-                    <tr>
-                    <td>
-                        <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
-                      </td>
-                      <td><div class="dropdown no-arrow">
-                        <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
-                          <!--<div class="dropdown-divider"></div>-->
-                          </div>
-                        </div>
-                      </td>
-                      <td><?=$d->nkk?></td>
-                      <td><?=$d->nik?></td>
-                      <td><?=$d->nama?></td>
-                      <td><?=$d->rt?></td>
-                      <td><?=$d->rw?></td>
-                      <td>
-                      <?php
-                      $pengajuan  = explode(" ",$d->created_at);
-                      echo $pengajuan[0]."<br>";
-                      echo $pengajuan[1];
-                      ?>
-                      </td>
-                    </tr>
-                  <?php endforeach;?>
-                  </tbody>
                 </table>
                 </form>
               </div>

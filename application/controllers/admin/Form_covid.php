@@ -299,7 +299,7 @@ class Form_covid extends Admin_Controller{
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama', $data->nama);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
         $template->setValue('pekerjaan', $data->pekerjaan);
         $template->setValue('rt', $data->rt);
         $template->setValue('rw', $data->rw);
@@ -307,12 +307,12 @@ class Form_covid extends Admin_Controller{
         $template->setValue('kecamatan', $data->kecamatan);
         $template->setValue('kabupaten', $data->kabupaten);
         $template->setValue('persyaratan', $data->persyaratan);
-        $template->setValue('tanggal_acara', $data->tanggal_acara);
+        $template->setValue('tanggal_acara', longdate_indo($data->tanggal_acara));
         $template->setValue('waktu_acara', $data->waktu_acara);
         $template->setValue('tempat_acara', $data->tempat_acara);
 
 
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

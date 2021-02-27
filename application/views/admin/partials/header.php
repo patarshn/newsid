@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Sistem Administrasi Pelayanan Pekon Wonodadi</title>
 
   <!-- Custom fonts for this template-->
   <link href='<?php echo base_url("assets/sb2/vendor/fontawesome-free/css/all.min.css");?>' rel="stylesheet" type="text/css">
@@ -18,6 +18,23 @@
   <link href='<?php echo base_url("assets/sb2/css/sb-admin-2.min.css")?>' rel="stylesheet">
   <link href='<?php echo base_url("assets/my/admin_style.css")?>' rel="stylesheet">
   <link href='<?=base_url("assets/sb2/vendor/datatables/dataTables.bootstrap4.min.css")?>' rel="stylesheet">
+  <!-- Bootstrap core JavaScript-->
+  <script src='<?php echo base_url("assets/sb2/vendor/jquery/jquery.min.js")?>'></script>
+  <script src='<?php echo base_url("assets/sb2/vendor/bootstrap/js/bootstrap.bundle.min.js")?>'></script>
+
+
+ 
+<!-- Page level plugins -->
+<script src='<?=base_url("assets/sb2/vendor/chart.js/Chart.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/jquery.dataTables.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.bootstrap4.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.buttons.min.js")?>'></script>
+<script src='<?=base_url("assets/sb2/vendor/datatables/buttons.print.min.js")?>'></script>
+
+
+ 
+
+
   <script>
     base_url = "<?=base_url()?>";
     function base_url(url){

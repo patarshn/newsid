@@ -301,7 +301,7 @@ class Form_skck extends Admin_Controller{
         $template->setValue('nama', $data->nama);
         $template->setValue('nik', $data->nik);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
         $template->setValue('binbinti', $data->bin_binti);
         #$template->setValue('jenis_kelamin', $data->jenis_kelamin);
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
@@ -318,7 +318,7 @@ class Form_skck extends Admin_Controller{
         $keterangan = str_replace(PHP_EOL,"<w:br/>",$data->keterangan);
         $template->setValue('keterangan', $keterangan);
         $template->setValue('persyaratan', $data->persyaratan);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
