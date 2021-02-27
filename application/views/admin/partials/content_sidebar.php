@@ -98,7 +98,7 @@
         <div id="penduduk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/induk_penduuduk')?>"><b>Iduk Penduduk</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/induk_penduuduk')?>"><b>Induk Penduduk</b></a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/mutasi_penduduk')?>"><b>Mutasi Penduduk</b></a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/rekap_penduduk')?>"><b>Rekapitulasi Jumlah Penduduk</b></a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/penduduk_sementara')?>"><b>Penduduk Sementara</b></a>

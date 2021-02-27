@@ -32,7 +32,7 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
-										<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
@@ -46,6 +46,7 @@
                   <thead>
                     <tr>
                       <th width="5%">No</th>
+                      <th width="3%"></th>
                       <th>Nama</th>
                       <th>Umur</th>
                       <th>Jenis Kelamin</th>
@@ -53,12 +54,12 @@
                       <th>Bidang</th>
                       <th>Alamat</th>
                       <th>Keterangan</th>
-                      <th width="11%">Option</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th width="5%">No</th>
+                      <th width="3%"></th>
                       <th>Nama</th>
                       <th>Umur</th>
                       <th>Jenis Kelamin</th>
@@ -66,7 +67,6 @@
                       <th>Bidang</th>
                       <th>Alamat</th>
                       <th>Keterangan</th>
-                      <th width="11%">Option</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -79,6 +79,18 @@
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
                         <?=$count++;?>
                       </td>
+                      <td><div class="dropdown no-arrow">
+                      <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                          <div class="dropdown-header">Actions:</div>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
+                          
+                          </div>
+                        </div>
                       <td><?=$d->nama?></td>
                       <td><?=$d->umur?></td>
                       <td><?=$d->jkelamin?></td>
@@ -86,61 +98,6 @@
                       <td><?=$d->bidang?></td>
                       <td><?=$d->alamat?></td>
                       <td><?=$d->ket?></td>
-                      <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
-                            <a class="btn btn-info"  data-toggle="modal" data-target="#myModal<?=$d->id?>"
-                            title="Show Data" data-toggle="modal"><span class="glyphicon glyphicon-eye-open">Detail</span></a>
-<!-- Modal -->
-                      <div id="myModal<?=$d->id?>" class="modal fade" role="dialog">
-                          <div class="modal-dialog modal-lg">
-                              <!-- konten modal-->
-                              <div class="modal-content">
-                              <!-- heading modal -->
-                              <div class="modal-header  border-bottom-info">
-                                  <h8 class="modal-title"><b>Data Kader Pembangunan: <?=$d->nama?></b></h8>
-                              </div>
-                              <!-- body modal -->
-                              <div class="modal-body">
-                                  <div class="row">
-                                      <div class="col-lg-12">
-                                      <div class="card mb-4 py-3 border-bottom-info">
-                                          <div class="card-body">
-                                              <table class="table table-bordered table-hover border-left-info">
-                                              <thead>
-                                                  <tr><th>Nama Lengkap</th>
-                                                  <td><?=$d->nama?></td></tr>
-
-                                                  <tr><th>Tempat dan Tanggal Lahir</th>
-                                                  <td><?=$d->umur?></td></tr> 
-
-                                                  <tr><th>Jenis Kelamin</th>
-                                                  <td><?=$d->jkelamin?></td></tr>
-
-                                                  <tr><th>Golongan Darah</th>
-                                                  <td><?=$d->pendidikan?></td></tr>
-
-                                                  <tr><th>Alamat</th>
-                                                  <td><?=$d->bidang?></td></tr>
-
-                                                  <tr><th>Keterangan</th>
-                                                  <td><?=$d->ket?></td></tr>
-
-                                              </thead>
-                                              </table>
-                                        </div>
-                                    </div>
-                              </div>
-                        </div>
-                    </div>
-                                <!-- footer modal -->
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
-                                  </div>
-                              </div>
-                           </div>
-                        </div>
-<!-- Modal -->
-                        </div>
                       </td>
                     </tr>
                   <?php endforeach;?>

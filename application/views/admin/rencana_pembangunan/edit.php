@@ -38,73 +38,73 @@
                 
                 <?php 
                   echo form_open(base_url($folder.'/update'),'id="form"');
-                  foreach($data as $d):
+                  foreach($data as $p):
                 ?>
-                <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
+                <input type="hidden" name="id" id="id" class="form-control" value="<?=$p->id?>" required>
                 
                 <div class="form-row">
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="nama_proyek"><b>Nama Proyek/Kegiatan</b></label>
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" placeholder=" " value="<?=$d->nama_proyek?>" required>
+                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" placeholder=" " value="<?=$p->nama_proyek?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="lokasi"><b>Lokasi</b></label>
-                            <textarea class="form-control border-left-info" name="lokasi" id="lokasi" rows="2"><?=$d->lokasi?></textarea>
+                            <textarea class="form-control border-left-info" name="lokasi" id="lokasi" rows="2"><?=$p->lokasi?></textarea>
                         </div>
                     </div>
                     
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label for="biaya_pemerintah"><b>Biaya Pemerintah</b></label>
-                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_pemerintah?>" required>
+                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-info" placeholder="biaya" value="<?=$p->biaya_pemerintah?>" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                         <label for="biaya_prov"><b>Biaya Provinsi</b></label>
-                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_prov?>" required>
+                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control border-left-info" placeholder="biaya" value="<?=$p->biaya_prov?>" required>
                     </div>
 
                     <div class="col-lg-3">
                         <label for="biaya_kab"><b>Biaya Kabupaten</b></label>
-                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_kab?>" required>
+                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control border-left-info" placeholder="biaya" value="<?=$p->biaya_kab?>" required>
                     </div>
 
                     <div class="col-lg-3">
                         <label for="biaya_swadaya"><b>Biaya Swadaya</b></label>
-                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-info" placeholder="biaya" value="<?=$d->biaya_swadaya?>" required>
+                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-info" placeholder="biaya" value="<?=$p->biaya_swadaya?>" required>
                     </div>
                     <br>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label for="jumlah"><b>Jumlah Biaya</b></label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-info" placeholder="lokasi"  value="<?=$d->jumlah?>" required>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-info" placeholder="lokasi"  value="<?=$p->jumlah?>" required>
                         </div>
                     </div>
                     
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="pelaksana"><b>Pelaksana Kegiatan</b></label>
-                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-info " placeholder="pelaksana" value="<?=$d->pelaksana?>" required>
+                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-info " placeholder="pelaksana" value="<?=$p->pelaksana?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="manfaat"><b>Manfaat Pembangunan</b></label>
-                            <textarea class="form-control border-left-info" name="manfaat" id="manfaat" rows="3"><?=$d->manfaat?></textarea>
+                            <textarea class="form-control border-left-info" name="manfaat" id="manfaat" rows="3"><?=$p->manfaat?></textarea>
                         </div>
                     </div>
                 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ket"><b>Keterangan</b></label>
-                            <textarea class="form-control border-left-info" name="ket" id="ket" rows="3"><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-info" name="ket" id="ket" rows="3"><?=$p->ket?></textarea>
                         </div>                   
                     </div>
                 </div>

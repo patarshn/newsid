@@ -24,7 +24,8 @@ class Kegiatan_pembangunan extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
+            ['field' => 'id_rencana','label' => 'Nama Proyek/Kegiatan',  'rules' => 'required'],
+            ['field' => 'nama_kegiatan','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
             ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
@@ -41,7 +42,8 @@ class Kegiatan_pembangunan extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
+            ['field' => 'id_rencana','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
+            ['field' => 'nama_kegiatan','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
             ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
@@ -78,6 +80,32 @@ class Kegiatan_pembangunan extends Admin_Controller {
             $this->load->view('admin/partials/footer');
     }
 
+    function detail($id){
+        
+        $this->breadcrumbcomponent->add('Home', base_url());
+        $this->breadcrumbcomponent->add('Admin', base_url('admin')); 
+        $this->breadcrumbcomponent->add($this->_mainTitle, base_url('admin/'.$this->_folder.'/')); 
+        $this->breadcrumbcomponent->add('Detail', base_url('admin/'.$this->_folder.'/detail/'));
+        $this->breadcrumbcomponent->add($id, base_url('admin/'.$this->_folder.'/detail/'.$id));
+
+        $breadcrumb = $this->breadcrumbcomponent->output();
+        $where = ['id'=>$id];
+        $data = array(
+            'breadcrumb' => $breadcrumb,
+            'data' => $this->Main_m->get($this->_table,$where)->result(),
+            'title' => "Detail ".$this->_mainTitle,
+            'uri' => $this->uri->segment_array(),
+            'folder' => $this->_folder,
+        );
+
+        $this->load->view('admin/partials/header');
+        $this->load->view('admin/partials/content_sidebar');
+        $this->load->view('admin/partials/content_navbar');
+        $this->load->view('admin/'.$this->_folder.'/detail',$data);
+        $this->load->view('admin/partials/content_footer');
+        $this->load->view('admin/partials/footer');
+    }
+
     function add(){
         
         $this->breadcrumbcomponent->add('Home', base_url());
@@ -91,6 +119,7 @@ class Kegiatan_pembangunan extends Admin_Controller {
             'title' => "Tambah Data ".$this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data_option' => $this->Main_m->get('rencana_pembangunan',null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -105,9 +134,12 @@ class Kegiatan_pembangunan extends Admin_Controller {
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
+
+           
             $_POST = $this->input->post();
             $data = array(
-                'nama_proyek' => $_POST['nama_proyek'],
+                'id_rencana' => $_POST['id_rencana'],
+                'nama_kegiatan' => $_POST['nama_kegiatan'],
                 'volume' => $_POST['volume'],
                 'biaya_pemerintah' => $_POST['biaya_pemerintah'],
                 'biaya_prov' => $_POST['biaya_prov'],
@@ -118,7 +150,7 @@ class Kegiatan_pembangunan extends Admin_Controller {
                 'sifat' => $_POST['sifat'],
                 'pelaksana' => $_POST['pelaksana'],
                 'ket' => $_POST['ket'],
-                'updated_at' => date('Y-m-d'),
+                'created_at' => date('Y-m-d'),
                 
             );
             if($this->Main_m->store($data,$this->_table)){
@@ -164,6 +196,7 @@ class Kegiatan_pembangunan extends Admin_Controller {
             'title' => "Edit ".$this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data_option' => $this->Main_m->get('rencana_pembangunan',null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -181,9 +214,11 @@ class Kegiatan_pembangunan extends Admin_Controller {
             $_POST = $this->input->post();
             $id = $_POST['id'];
             $where = ['id'=>$id];
+
+            
             $data = array(
-                'id' => $_POST['id'],
-                'nama_proyek' => $_POST['nama_proyek'],
+                'id_rencana' => $_POST['id_rencana'],
+                'nama_kegiatan' => $_POST['nama_kegiatan'],
                 'volume' => $_POST['volume'],
                 'biaya_pemerintah' => $_POST['biaya_pemerintah'],
                 'biaya_prov' => $_POST['biaya_prov'],
@@ -194,7 +229,7 @@ class Kegiatan_pembangunan extends Admin_Controller {
                 'sifat' => $_POST['sifat'],
                 'pelaksana' => $_POST['pelaksana'],
                 'ket' => $_POST['ket'],
-                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
             );
                        
             if($this->Main_m->update($data,$this->_table,$where)){
@@ -270,5 +305,5 @@ class Kegiatan_pembangunan extends Admin_Controller {
     }
 
 
-
 }
+?>

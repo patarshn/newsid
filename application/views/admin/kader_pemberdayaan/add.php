@@ -42,22 +42,36 @@
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label for="nama"><b>Nama</b></label>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama lengkap anda" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-info" placeholder="Nama Lengkap Anda" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label for="umur"><b>Umur</b></label>
-                        <input type="text" name="umur" id="umur" class="form-control border-left-info " placeholder="Umur anda" required>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-info " placeholder="Umur Anda" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label for="jkelamin"><b>Jenis Kelamin</b></label>
-                        <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-info" placeholder=" " required>
-                    </div>
+                        <select name="jkelamin" id="jkelamin" class="form-control" placeholder="Jenis Kelamin" required>
+                            <option>- Pilih -</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div> 
                     </div>
                     <div class="col-lg-6">
                         <label for="pendidikan"><b>Pendidikan</b></label>
-                        <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-info" placeholder="Pendidikan terakhir" required>
+                        <select name="pendidikan" id="pendidikan" class="form-control" placeholder="pendidikan" required>
+                            <option>- Pilih -</option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP/SLTP Sederajat</option>
+                            <option value="SMA">SMA/STA Sederajat</option>
+                            <option value="SMK">SMK</option>
+                            <option value="Sarjana (S1)">Sarjana (S1)</option>
+                            <option value="Magister (S2)">Magister (S2)</option>
+                            <option value="Doktor (S3)">Doktor (S3)</option>
+                            <option value="Tidak Sekolah"> Tidak Sekolah</option>
+                        </select>
                     </div>
 
                     <div class="col-lg-6">
@@ -69,13 +83,13 @@
 
                     <div class="col-lg-6">
                         <label for="alamat"><b>Alamat</b></label>
-                        <input type="text" name="alamat" id="alamat" class="form-control border-left-info" placeholder="Alamat anda"  required>
+                        <input type="text" name="alamat" id="alamat" class="form-control border-left-info" placeholder="Alamat Anda"  required>
                     </div>
                 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ket"><b>Keterangan</b></label>
-                            <textarea class="form-control border-left-info" name="ket" id="ket" rows="3" plceholder="Isi keterangan (jika ada)"></textarea>
+                            <textarea class="form-control border-left-info" name="ket" id="ket" rows="3" placeholder="Isi Keterangan (jika ada)"></textarea>
                         </div>                   
                     </div>
                 </div>
