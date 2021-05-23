@@ -35,26 +35,31 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('buku_keputusan_kepala_desa/update'),'id="form"');
+                <?php echo form_open(base_url('buku_peraturan_desa/update'),'id="form"');
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
-                  <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_kepala_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Kepala Desa</label>
-                        <input type="text" name="no_tgl_keputusan_kepala_desa" id="no_tgl_keputusan_kepala_desa" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_kepala_desa?>" required>
+                    <div class="col-lg-6 mt-3">
+                        <label for="tgl_pengiriman" class="text-gray-900 font-weight-bold">Tanggal Pengiriman</label>
+                        <input type="date" name="tgl_pengiriman" id="tgl_pengiriman" class="form-control border-left-primary" value="<?=$d->tgl_pengiriman?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" value="<?=$d->tentang?>" required>
+                        <label for="tgl_no_surat" class="text-gray-900 font-weight-bold">Tanggal Dan Nomor Surat</label>
+                        <input type="text" name="tgl_no_surat" id="tgl_no_surat" class="form-control border-left-primary" value="<?=$d->tgl_no_surat?>" required>
+                    </div>
+
+                        <div class="col-lg-6 mt-3">
+                        <label for="isi_singkat_surat" class="text-gray-900 font-weight-bold">Isi Singkat Surat Yang Dikirim</label>
+                        <input type="text" name="isi_singkat_surat" id="isi_singkat_surat" class="form-control border-left-primary" value="<?=$d->isi_singkat_surat?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
-                        <input type="text" name="no_tgl_dilaporkan" id="no_tgl_dilaporkan" class="form-control border-left-primary" value="<?=$d->no_tgl_dilaporkan?>" required>
-                    </div>                  
+                        <label for="ditunjukkan_kpd" class="text-gray-900 font-weight-bold">Ditunjukkan Kepada</label>
+                        <input type="text" name="ditunjukkan_kpd" id="ditunjukkan_kpd" class="form-control border-left-primary" value="<?=$d->ditunjukkan_kpd?>" required>
+                    </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
@@ -63,13 +68,6 @@
                           <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
-                    </div>
-
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
-                        </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
@@ -101,8 +99,7 @@
                     
                 <?php
                 endforeach;
-                echo form_close();
-                ?>
+                echo form_close();?>
                 
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>

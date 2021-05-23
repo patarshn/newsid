@@ -87,6 +87,10 @@
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_inventaris_kekayaan_desa')?>">Buku Inventaris dan Kekayaan Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_aparat_pemerintah_desa')?>">Buku Aparat Pemerintah Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_tnh_kas_desa')?>">Buku Tanah Kas Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_tnh_desa')?>">Buku Tanah di Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda')?>">Buku Agenda</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ekspedisi')?>">Buku Ekspedisi</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_lemdes_berdes')?>">Buku Lembaran Desa dan Berita Desa</a>
           </div>
         </div>
       </li>

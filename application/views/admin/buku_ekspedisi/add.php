@@ -39,38 +39,23 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="jenis_peraturan_desa" class="text-gray-900 font-weight-bold">Jenis Peraturan Desa</label>
-                        <input type="text" name="jenis_peraturan_desa" id="jenis_peraturan_desa" class="form-control border-left-primary" required>
+                        <label for="tgl_pengiriman" class="text-gray-900 font-weight-bold">Tanggal Pengiriman</label>
+                        <input type="date" name="tgl_pengiriman" id="tgl_pengiriman" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
+                        <label for="tgl_no_surat" class="text-gray-900 font-weight-bold">Tanggal Dan Nomor Surat</label>
+                        <input type="text" name="tgl_no_surat" id="tgl_no_surat" class="form-control border-left-primary" required>
                     </div>
 
-                      <div class="col-lg-6 mt-3">
-                        <label for="tgl_kesepakatan_peraturan_desa" class="text-gray-900 font-weight-bold">Tanggal Kesepakatan Peraturan Desa</label>
-                        <input type="date" name="tgl_kesepakatan_peraturan_desa" id="tgl_kesepakatan_peraturan_desa" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_ditetapkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal ditetapkan</label>
-                        <input type="text" name="no_dan_tgl_ditetapkan" id="no_dan_tgl_ditetapkan" class="form-control border-left-primary" required>
+                        <div class="col-lg-6 mt-3">
+                        <label for="isi_singkat_surat" class="text-gray-900 font-weight-bold">Isi Singkat Surat Yang Dikirim</label>
+                        <input type="text" name="isi_singkat_surat" id="isi_singkat_surat" class="form-control border-left-primary"  required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
-                        <input type="text" name="no_dan_tgl_dilaporkan" id="no_dan_tgl_dilaporkan" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_diundangkan_dalam_lembaran_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</label>
-                        <input type="text" name="no_dan_tgl_diundangkan_dalam_lembaran_desa" id="no_dan_tgl_diundangkan_dalam_lembaran_desa" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_diundangkan_dalam_berita_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Diundangkan Dalam Berita Desa</label>
-                        <input type="text" name="no_dan_tgl_diundangkan_dalam_berita_desa" id="no_dan_tgl_diundangkan_dalam_berita_desa" class="form-control border-left-primary" required>
+                        <label for="ditunjukkan_kpd" class="text-gray-900 font-weight-bold">Ditunjukkan Kepada</label>
+                        <input type="text" name="ditunjukkan_kpd" id="ditunjukkan_kpd" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -79,13 +64,6 @@
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
-                    </div>
-
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
-                        </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">

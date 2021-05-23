@@ -39,18 +39,8 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_kepala_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Kepala Desa</label>
-                        <input type="text" name="no_tgl_keputusan_kepala_desa" id="no_tgl_keputusan_kepala_desa" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
-                        <input type="text" name="no_tgl_dilaporkan" id="no_tgl_dilaporkan" class="form-control border-left-primary" required>
+                        <label for="status_surat" class="text-gray-900 font-weight-bold">Tanggal Penerimaan/Pengiriman Surat</label>
+                        <input type="date" name="status_surat" id="status_surat" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -61,11 +51,54 @@
                       </div>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
+                    <div class="col-lg-6 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Surat Masuk</label>
+                      <div class="form-row">
+                        <div class="col-lg-4">
+                          <input type="text" name="sm_no" id="sm_no" class="form-control border-left-primary" required>
+                          <small id="sm_no" class="text-gray-700">nomor</small>
                         </div>
+                        
+                        <div class="col-lg-4">
+                          <input type="date" name="sm_tgl" id="sm_tgl" class="form-control border-left-primary" required>
+                          <small id="sm_tgl" class="text-gray-700">Tanggal</small>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <input type="text" name="sm_pengirim" id="sm_pengirim" class="form-control border-left-primary" required>
+                          <small id="sm_pengirim" class="text-gray-700">Pengirim</small>
+                        </div>
+                        
+                        <div class="col-lg-12 mt-2">
+                          <input type="text" name="sm_isi" id="sm_isi" class="form-control border-left-primary" required>
+                          <small id="sm_isi" class="text-gray-700">Isi Singkat</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Surat Keluar</label>
+                      <div class="form-row">
+                        <div class="col-lg-4">
+                          <input type="text" name="sk_no" id="sk_no" class="form-control border-left-primary" required>
+                          <small id="sk_no" class="text-gray-700">nomor</small>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                          <input type="date" name="sk_tgl" id="sk_tgl" class="form-control border-left-primary" required>
+                          <small id="sk_tgl" class="text-gray-700">Tanggal</small>
+                        </div>
+
+                        <div class="col-lg-4">
+                          <input type="text" name="sk_ditunjukkan" id="sk_ditunjukkan" class="form-control border-left-primary" required>
+                          <small id="sk_ditunjukkan" class="text-gray-700">Ditunjukkan Kepada</small>
+                        </div>
+                        
+                        <div class="col-lg-12 mt-2">
+                          <input type="text" name="sk_isi" id="sk_isi" class="form-control border-left-primary" required>
+                          <small id="sk_isi" class="text-gray-700">Isi Surat</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">

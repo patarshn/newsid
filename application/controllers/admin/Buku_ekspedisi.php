@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buku_tnh_kas_desa extends Admin_Controller {
+class Buku_ekspedisi extends Admin_Controller {
 
-    private $_table = 'buku_tnh_kas_desa';
-    private $_folder = 'buku_tnh_kas_desa';
-    private $_mainTitle = 'Buku Tanah Kas Desa';
+    private $_table = 'buku_ekspedisi';
+    private $_folder = 'buku_ekspedisi';
+    private $_mainTitle = 'Buku Ekspedisi';
 
     function __construct() {
         parent::__construct();
@@ -16,54 +16,20 @@ class Buku_tnh_kas_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'asal_tnh_kas','label' => 'asal_tnh_kas', 'rules' => 'required'],
-            ['field' => 'no_serti_letterc_persil','label' => 'no_serti_letterc_persil', 'rules' => 'required'],
-            ['field' => 'luas','label' => 'luas', 'rules' => 'required'],
-            ['field' => 'kelas','label' => 'kelas', 'rules' => 'required'],
-            ['field' => 'peroleh_asli_milik_desa','label' => 'peroleh_asli_milik_desa', 'rules' => 'required'],
-            ['field' => 'bantuan_pem','label' => 'bantuan_pem', 'rules' => 'required'],
-            ['field' => 'bantuan_prov','label' => 'bantuan_prov', 'rules' => 'required'],
-            ['field' => 'bantuan_kab_kota','label' => 'bantuan_kab_kota', 'rules' => 'required'],
-            ['field' => 'peroleh_lain','label' => 'peroleh_lain', 'rules' => 'required'],
-            ['field' => 'tgl_peroleh','label' => 'tgl_peroleh', 'rules' => 'required'],
-            ['field' => 'jenis_sawah','label' => 'jenis_sawah', 'rules' => 'required'],
-            ['field' => 'jenis_tegal','label' => 'jenis_tegal', 'rules' => 'required'],
-            ['field' => 'jenis_kebun','label' => 'jenis_kebun', 'rules' => 'required'],
-            ['field' => 'jenis_tambak','label' => 'jenis_tambak', 'rules' => 'required'],
-            ['field' => 'jenis_darat','label' => 'jenis_darat', 'rules' => 'required'],
-            ['field' => 'patok_ada','label' => 'patok_ada', 'rules' => 'required'],
-            ['field' => 'patok_tdkada','label' => 'patok_tdkada', 'rules' => 'required'],
-            ['field' => 'papan_ada','label' => 'papan_ada', 'rules' => 'required'],
-            ['field' => 'papan_tdkada','label' => 'papan_tdkada', 'rules' => 'required'],
-            ['field' => 'lokasi','label' => 'lokasi', 'rules' => 'required'],
-            ['field' => 'peruntukkan','label' => 'peruntukkan', 'rules' => 'required'],
+            ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
+            ['field' => 'tgl_no_surat','label' => 'tgl_no_surat', 'rules' => 'required'],
+            ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
+            ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'asal_tnh_kas','label' => 'asal_tnh_kas', 'rules' => 'required'],
-            ['field' => 'no_serti_letterc_persil','label' => 'no_serti_letterc_persil', 'rules' => 'required'],
-            ['field' => 'luas','label' => 'luas', 'rules' => 'required'],
-            ['field' => 'kelas','label' => 'kelas', 'rules' => 'required'],
-            ['field' => 'peroleh_asli_milik_desa','label' => 'peroleh_asli_milik_desa', 'rules' => 'required'],
-            ['field' => 'bantuan_pem','label' => 'bantuan_pem', 'rules' => 'required'],
-            ['field' => 'bantuan_prov','label' => 'bantuan_prov', 'rules' => 'required'],
-            ['field' => 'bantuan_kab_kota','label' => 'bantuan_kab_kota', 'rules' => 'required'],
-            ['field' => 'peroleh_lain','label' => 'peroleh_lain', 'rules' => 'required'],
-            ['field' => 'tgl_peroleh','label' => 'tgl_peroleh', 'rules' => 'required'],
-            ['field' => 'jenis_sawah','label' => 'jenis_sawah', 'rules' => 'required'],
-            ['field' => 'jenis_tegal','label' => 'jenis_tegal', 'rules' => 'required'],
-            ['field' => 'jenis_kebun','label' => 'jenis_kebun', 'rules' => 'required'],
-            ['field' => 'jenis_tambak','label' => 'jenis_tambak', 'rules' => 'required'],
-            ['field' => 'jenis_darat','label' => 'jenis_darat', 'rules' => 'required'],
-            ['field' => 'patok_ada','label' => 'patok_ada', 'rules' => 'required'],
-            ['field' => 'patok_tdkada','label' => 'patok_tdkada', 'rules' => 'required'],
-            ['field' => 'papan_ada','label' => 'papan_ada', 'rules' => 'required'],
-            ['field' => 'papan_tdkada','label' => 'papan_tdkada', 'rules' => 'required'],
-            ['field' => 'lokasi','label' => 'lokasi', 'rules' => 'required'],
-            ['field' => 'peruntukkan','label' => 'peruntukkan', 'rules' => 'required'],
+            ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
+            ['field' => 'tgl_no_surat','label' => 'tgl_no_surat', 'rules' => 'required'],
+            ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
+            ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
@@ -138,67 +104,48 @@ class Buku_tnh_kas_desa extends Admin_Controller {
                     exit;
                 }
             }
+
             else{
                 $berkas = "";
             }
 
-                $_POST = $this->input->post();
-                $data = array(
-                    'asal_tnh_kas' => $_POST['asal_tnh_kas'],
-                    'no_serti_letterc_persil' => $_POST['no_serti_letterc_persil'],
-                    'luas' => $_POST['luas'],
-                    'kelas' => $_POST['kelas'],
-                    'peroleh_asli_milik_desa' => $_POST['peroleh_asli_milik_desa'],
-                    'bantuan_pem' => $_POST['bantuan_pem'],
-                    'bantuan_prov' => $_POST['bantuan_prov'],
-                    'bantuan_kab_kota' => $_POST['bantuan_kab_kota'],
-                    'peroleh_lain' => $_POST['peroleh_lain'],
-                    'tgl_peroleh' => $_POST['tgl_peroleh'],
-                    'jenis_sawah' => $_POST['jenis_sawah'],
-                    'jenis_tegal' => $_POST['jenis_tegal'],
-                    'jenis_kebun' => $_POST['jenis_kebun'],
-                    'jenis_tambak' => $_POST['jenis_tambak'],
-                    'jenis_darat' => $_POST['jenis_darat'],
-                    'patok_ada' => $_POST['patok_ada'],
-                    'patok_tdkada' => $_POST['patok_tdkada'],
-                    'papan_ada' => $_POST['papan_ada'],
-                    'papan_tdkada' => $_POST['papan_tdkada'],
-                    'lokasi' => $_POST['lokasi'],
-                    'peruntukkan' => $_POST['peruntukkan'],
-                    'mutasi' => $_POST['mutasi'],
-                    'ket' => $_POST['ket'],
-                    'berkas' => $berkas,
-                    'ver_kepala_desa' => "Pending",
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'created_by' =>  $this->session->userdata('username'),
-                    
+            $_POST = $this->input->post();
+            $data = array(
+                'tgl_pengiriman' => $_POST['tgl_pengiriman'],
+                'tgl_no_surat' => $_POST['tgl_no_surat'],
+                'isi_singkat_surat' => $_POST['isi_singkat_surat'],
+                'ditunjukkan_kpd' => $_POST['ditunjukkan_kpd'],
+                'ket' => $_POST['ket'],
+                'berkas' => $berkas,
+                'ver_kepala_desa' => "Pending",
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' =>  $this->session->userdata('username'),
+                
+            );
+            if($this->Main_m->store($data,$this->_table)){
+                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                $callback = array(
+                    'status' => 'success',
+                    'message' => 'Data berhasil diinput',
+                    'redirect' => base_url().'admin/'.$this->_folder,
                 );
-                if($this->Main_m->store($data,$this->_table)){
-                    $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
-                    $callback = array(
-                        'status' => 'success',
-                        'message' => 'Data berhasil diinput',
-                        'redirect' => base_url().'admin/'.$this->_folder,
-                    );
-                }
-                else{
-                    //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Mohon Maaf, Pengisian form gagal',
-                    );
-                }
             }
-        
             else{
-                //$this->session->set_flashdata('error_message', validation_errors());
+                //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
                 $callback = array(
                     'status' => 'error',
-                    'message' => validation_errors(),
+                    'message' => 'Mohon Maaf, Pengisian form gagal',
                 );
             }
-            echo json_encode($callback);
-        
+        }
+        else{
+            //$this->session->set_flashdata('error_message', validation_errors());
+            $callback = array(
+                'status' => 'error',
+                'message' => validation_errors(),
+            );
+        }
+        echo json_encode($callback);
     }
 
     function edit($id){
@@ -247,28 +194,10 @@ class Buku_tnh_kas_desa extends Admin_Controller {
             }
 
             $data = array(
-                'asal_tnh_kas' => $_POST['asal_tnh_kas'],
-                'no_serti_letterc_persil' => $_POST['no_serti_letterc_persil'],
-                'luas' => $_POST['luas'],
-                'kelas' => $_POST['kelas'],
-                'peroleh_asli_milik_desa' => $_POST['peroleh_asli_milik_desa'],
-                'bantuan_pem' => $_POST['bantuan_pem'],
-                'bantuan_prov' => $_POST['bantuan_prov'],
-                'bantuan_kab_kota' => $_POST['bantuan_kab_kota'],
-                'peroleh_lain' => $_POST['peroleh_lain'],
-                'tgl_peroleh' => $_POST['tgl_peroleh'],
-                'jenis_sawah' => $_POST['jenis_sawah'],
-                'jenis_tegal' => $_POST['jenis_tegal'],
-                'jenis_kebun' => $_POST['jenis_kebun'],
-                'jenis_tambak' => $_POST['jenis_tambak'],
-                'jenis_darat' => $_POST['jenis_darat'],
-                'patok_ada' => $_POST['patok_ada'],
-                'patok_tdkada' => $_POST['patok_tdkada'],
-                'papan_ada' => $_POST['papan_ada'],
-                'papan_tdkada' => $_POST['papan_tdkada'],
-                'lokasi' => $_POST['lokasi'],
-                'peruntukkan' => $_POST['peruntukkan'],
-                'mutasi' => $_POST['mutasi'],
+                'tgl_pengiriman' => $_POST['tgl_pengiriman'],
+                'tgl_no_surat' => $_POST['tgl_no_surat'],
+                'isi_singkat_surat' => $_POST['isi_singkat_surat'],
+                'ditunjukkan_kpd' => $_POST['ditunjukkan_kpd'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
@@ -485,7 +414,7 @@ class Buku_tnh_kas_desa extends Admin_Controller {
     }
 
     private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
         foreach ($berkas_id as $b_id) {
             
             if(empty($b_id->berkas)){

@@ -33,51 +33,20 @@
                 
                 <?php foreach($data as $d):?>
                 <div class="border-bottom-primary mb-4">
-                    <h5 class = "text-gray-600 font-weight-bold">Buku Tanah Kas Desa: <?=$d->asal_tnh_kas?></h5>
+                    <h5 class = "text-gray-600 font-weight-bold">Buku Tanah di Desa: <?=$d->nama_perorangan_bdn_hkm?></h5>
                 </div>
                     <div class="card mb-4 py-3 border-bottom-primary">
                         <div class="col-lg-12">
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="30%">Asal Tanah Kas Desa</th>
-                                    <td><?=$d->asal_tnh_kas?></td>
+                                    <th width="30%">Nama Perorangan/Badan Hukum</th>
+                                    <td><?=$d->nama_perorangan_bdn_hkm?></td>
                                 </tr >
 
                                 <tr>
-                                    <th>Nomor Sertifikat Buku Letter C/Persil</th>
-                                    <td><?=$d->no_serti_letterc_persil?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Luas</th>
-                                    <td><?=$d->luas?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Kelas</th>
-                                    <td><?=$d->kelas?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Lokasi</th>
-                                    <td><?=$d->lokasi?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Peruntukkan</th>
-                                    <td><?=$d->peruntukkan?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Mutasi</th>
-                                    <td>
-                                    <?php if($d->mutasi != 0):?>
-                                    <?=$d->mutasi?>
-                                    <?php else :?>
-                                    Tidak ada Mutasi
-                                    <?php endif; ?>
-                                    </td>
-                                </tr >
+                                    <th>Jumlah</th>
+                                    <td><?=$d->jml?></td>
+                                </tr>
 
                                 <tr>
                                     <th>Keterangan</th>
@@ -114,90 +83,125 @@
                                 </tr >
                             </table>
 
-                            <h8><b>Perolehan TKD</b></h8>
+                            <h8><b>Status Hak Tanah Sudah Bersertifikat</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="50%">Asli Milik Desa</th>
-                                    <td><?=$d->peroleh_asli_milik_desa?></td>
+                                    <th width="50%">Hak Milik</th>
+                                    <td><?=$d->sdh_serti_hm?> m<sup>2</sup></td>
                                 </tr >
 
                                 <tr>
-                                    <th>Bantuan Pemerintah</th>
-                                    <td><?=$d->bantuan_pem?></td>
+                                    <th>Hak Guna Bangunan</th>
+                                    <td><?=$d->sdh_serti_hgb?></td>
                                 </tr >
                                 
                                 <tr>
-                                    <th>Bantuan Provinsi</th>
-                                    <td><?=$d->bantuan_prov?></td>
+                                    <th>Hak Pakai</th>
+                                    <td><?=$d->sdh_serti_hp?></td>
                                 </tr >
 
                                 <tr>
-                                    <th>Bantuan Kab/Kota</th>
-                                    <td><?=$d->bantuan_kab_kota?></td>
+                                    <th>Hak Guna Usaha</th>
+                                    <td><?=$d->sdh_serti_hgu?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Hak Pengelolaan</th>
+                                    <td><?=$d->sdh_serti_hpl?></td>
+                                </tr >
+                            </table>
+
+                            <h8><b>Status Hak Tanah Belum Bersertifikat</b></h8>
+                            <table class="table table-bordered table-hover border-left-primary mt-3">
+                                    <tr>
+                                    <th width="50%">Hak Milik Adat</th>
+                                    <td><?=$d->blm_serti_ma?></td>
+                                </tr >
+                                
+                                <tr>
+                                    <th>Hak Verponding Indonesia</th>
+                                    <td><?=$d->blm_serti_vi?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Tanah Negara</th>
+                                    <td><?=$d->blm_serti_tn?></td>
+                                </tr >
+                            </table>
+
+                            <h8><b>Penggunaan Tanah Pertanian</b></h8>
+                            <table class="table table-bordered table-hover border-left-primary mt-3">
+                                <tr>
+                                    <th width="50%">Sawah</th>
+                                    <td><?=$d->sdh_serti_hm?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Tegalan</th>
+                                    <td><?=$d->sdh_serti_hgb?></td>
+                                </tr >
+                                
+                                <tr>
+                                    <th>Perkebunan</th>
+                                    <td><?=$d->sdh_serti_hp?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Perternakan/Perikanan</th>
+                                    <td><?=$d->sdh_serti_hgu?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Hutan Belukar</th>
+                                    <td><?=$d->sdh_serti_hpl?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Hutan Lebat/Lindung</th>
+                                    <td><?=$d->sdh_serti_hgb?></td>
+                                </tr >
+                                
+                                <tr>
+                                    <th>Mutasi Tanah di Desa</th>
+                                    <td><?=$d->sdh_serti_hp?></td>
+                                </tr >
+
+                                <tr>
+                                    <th>Tanah Kosong</th>
+                                    <td><?=$d->sdh_serti_hgu?></td>
                                 </tr >
 
                                 <tr>
                                     <th>Lain-Lain</th>
-                                    <td><?=$d->peroleh_lain?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Tanggal Perolehan</th>
-                                    <td><?=$d->tgl_peroleh?></td>
+                                    <td><?=$d->sdh_serti_hpl?></td>
                                 </tr >
                             </table>
 
-                            <h8><b>Jenis TKD</b></h8>
+                            <h8><b>Penggunaan Tanah Non Pertanian</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
-                                    <tr>
-                                    <th width="50%">Sawah</th>
-                                    <td><?=$d->jenis_sawah?></td>
+                                <tr>
+                                    <th width="50%">Perumahan</th>
+                                    <td><?=$d->non_pertanian_perumahan?></td>
                                 </tr >
                                 
                                 <tr>
-                                    <th>Tegal</th>
-                                    <td><?=$d->jenis_tegal?></td>
+                                    <th>Perdagangan dan Jasa</th>
+                                    <td><?=$d->non_pertanian_dagang_jasa?></td>
                                 </tr >
 
                                 <tr>
-                                    <th>Kebun</th>
-                                    <td><?=$d->jenis_kebun?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Tambak/Kolam</th>
-                                    <td><?=$d->jenis_tambak?></td>
-                                </tr >
-
-                                <tr>
-                                    <th>Tanah Kering/Darat</th>
-                                    <td><?=$d->jenis_darat?></td>
-                                </tr >
-                            </table>
-
-                            <h8><b>Patok Tanda Batas</b></h8>
-                            <table class="table table-bordered table-hover border-left-primary mt-3">
-                                    <tr>
-                                    <th width="50%">Ada</th>
-                                    <td><?=$d->patok_ada?></td>
+                                    <th width="50%">Perkantoran</th>
+                                    <td><?=$d->non_pertanian_kantor?></td>
                                 </tr >
                                 
                                 <tr>
-                                    <th>Tidak Ada</th>
-                                    <td><?=$d->patok_tdkada?></td>
+                                    <th>Industri</th>
+                                    <td><?=$d->non_pertanian_industri?></td>
                                 </tr >
-                            </table>
 
-                            <h8><b>Papan Nama</b></h8>
-                            <table class="table table-bordered table-hover border-left-primary mt-3">
-                                    <tr>
-                                    <th width="50%">Ada</th>
-                                    <td><?=$d->papan_ada?></td>
-                                </tr >
-                                
                                 <tr>
-                                    <th>Tidak Ada</th>
-                                    <td><?=$d->papan_tdkada?></td>
+                                    <th width="50%">Fasilitas Umum</th>
+                                    <td><?=$d->non_pertanian_fasilitas_umum?></td>
                                 </tr >
                             </table>
 

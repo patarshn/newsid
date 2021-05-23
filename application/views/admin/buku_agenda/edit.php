@@ -35,15 +35,15 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('buku_inventaris_kekayaan_desa/update'),'id="form"');
+                <?php echo form_open(base_url('buku_peraturan_desa/update'),'id="form"');
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="jenis_brng_bangunan" class="text-gray-900 font-weight-bold">Jenis Barang atau Bangunan</label>
-                        <input type="text" name="jenis_brng_bangunan" id="jenis_brng_bangunan" class="form-control border-left-primary" value="<?=$d->jenis_brng_bangunan?>" required>
+                        <label for="status_surat" class="text-gray-900 font-weight-bold">Tanggal Penerimaan/Pengiriman Surat</label>
+                        <input type="date" name="status_surat" id="status_surat" class="form-control border-left-primary" value="<?=$d->status_surat?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -56,86 +56,51 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Asal Barang atau Bangunan</label>
+                      <label class="text-gray-900 font-weight-bold" >Surat Masuk</label>
                       <div class="form-row">
-                        <div class="col-lg-2">
-                          <input type="text" name="abb_dibeli_sendiri" id="abb_dibeli_sendiri" class="form-control border-left-primary" value="<?=$d->abb_dibeli_sendiri?>" required>
-                          <small id="abb_dibeli_sendiri" class="text-gray-700">Dibeli Sendiri</small>
+                        <div class="col-lg-4">
+                          <input type="text" name="sm_no" id="sm_no" class="form-control border-left-primary" value="<?=$d->sm_no?>" required>
+                          <small id="sm_no" class="text-gray-700">nomor</small>
                         </div>
                         
-                        <div class="col-lg-2 ml-2">
-                          <input type="text" name="bantuan_pemeritah" id="bantuan_pemeritah" class="form-control border-left-primary" value="<?=$d->bantuan_pemeritah?>" required>
-                          <small id="bantuan_pemeritah" class="text-gray-700">Bantuan Pemerintah</small>
+                        <div class="col-lg-4">
+                          <input type="date" name="sm_tgl" id="sm_tgl" class="form-control border-left-primary" value="<?=$d->sm_tgl?>" required>
+                          <small id="sm_tgl" class="text-gray-700">Tanggal</small>
                         </div>
 
-                        <div class="col-lg-2 ml-2">
-                          <input type="text" name="bantuan_prov" id="bantuan_prov" class="form-control border-left-primary" value="<?=$d->bantuan_prov?>" required>
-                          <small id="bantuan_prov" class="text-gray-700">Bantuan Provinsi</small>
+                        <div class="col-lg-4">
+                          <input type="text" name="sm_pengirim" id="sm_pengirim" class="form-control border-left-primary" value="<?=$d->sm_pengirim?>" required>
+                          <small id="sm_pengirim" class="text-gray-700">Pengirim</small>
                         </div>
                         
-                        <div class="col-lg-2 ml-2">
-                          <input type="text" name="bantuan_kab_kota" id="bantuan_kab_kota" class="form-control border-left-primary" value="<?=$d->bantuan_kab_kota?>" required>
-                          <small id="bantuan_kab_kota" class="text-gray-700">Bantuan Kab/Kota</small>
-                        </div>
-                        
-                        <div class="col-lg-2 ml-2">
-                          <input type="text" name="abb_sumbangan" id="abb_sumbangan" class="form-control border-left-primary" value="<?=$d->abb_sumbangan?>" required>
-                          <small id="abb_sumbangan" class="text-gray-700">Sumbangan</small>
+                        <div class="col-lg-12 mt-2">
+                          <input type="text" name="sm_isi" id="sm_isi" class="form-control border-left-primary" value="<?=$d->sm_isi?>" required>
+                          <small id="sm_isi" class="text-gray-700">Isi Singkat</small>
                         </div>
                       </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Penghapusan Barang dan Bangunan</label>
+                      <label class="text-gray-900 font-weight-bold" >Surat Keluar</label>
                       <div class="form-row">
-                        <div class="col-lg-2">
-                        <input type="text" name="rusak_hps" id="rusak_hps" class="form-control border-left-primary" value="<?=$d->rusak_hps?>" required>
-                        <small id="rusak_hps" class="text-gray-700">Rusak</small>
+                        <div class="col-lg-4">
+                          <input type="text" name="sk_no" id="sk_no" class="form-control border-left-primary" value="<?=$d->sk_no?>" required>
+                          <small id="sk_no" class="text-gray-700">nomor</small>
                         </div>
                         
-                        <div class="col-lg-2 ml-2">
-                        <input type="text" name="dijual_hps" id="dijual_hps" class="form-control border-left-primary" value="<?=$d->dijual_hps?>" required>
-                        <small id="dijual_hps" class="text-gray-700">Dijual</small>
+                        <div class="col-lg-4">
+                          <input type="date" name="sk_tgl" id="sk_tgl" class="form-control border-left-primary" value="<?=$d->sk_tgl?>" required>
+                          <small id="sk_tgl" class="text-gray-700">Tanggal</small>
                         </div>
 
-                        <div class="col-lg-2 ml-2">
-                        <input type="text" name="disumbangkan_hps" id="disumbangkan_hps" class="form-control border-left-primary" value="<?=$d->disumbangkan_hps?>" required>
-                        <small id="disumbangkan_hps" class="text-gray-700">Disumbangkan</small>
+                        <div class="col-lg-4">
+                          <input type="text" name="sk_ditunjukkan" id="sk_ditunjukkan" class="form-control border-left-primary" value="<?=$d->sk_ditunjukkan?>" required>
+                          <small id="sk_ditunjukkan" class="text-gray-700">Ditunjukkan Kepada</small>
                         </div>
                         
-                        <div class="col-lg-4 ml-2">
-                        <input type="date" name="tgl_hapus" id="tgl_hapus" class="form-control border-left-primary" value="<?=$d->tgl_hapus?>" required>
-                        <small id="tgl_hapus" class="text-gray-700">Tanggal Penghapusan</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Keadaan Barang atau Bangunan Awal Tahun</label>
-                      <div class="form-row">
-                          <div class="col-lg-3">
-                              <input type="text" name="baik_awalthn" id="baik_awalthn" class="form-control border-left-primary" value="<?=$d->baik_awalthn?>" required>
-                              <small id="baik_awalthn" class="text-gray-700">Baik</small>
-                          </div>
-                          
-                          <div class="col-lg-3 ml-4">
-                              <input type="text" name="rusak_awalthn" id="rusak_awalthn" class="form-control border-left-primary" value="<?=$d->rusak_awalthn?>" required>
-                              <small id="baik_awalthn" class="text-gray-700">Rusak</small>
-                          </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Keadaan Barang atau Bangunan Akhir Tahun</label>
-                      <div class="form-row">
-                        <div class="col-lg-3">
-                          <input type="text" name="baik_akhirthn" id="baik_akhirthn" class="form-control border-left-primary" value="<?=$d->baik_akhirthn?>" required>
-                          <small id="baik_akhirthn" class="text-gray-700">Baik</small>
-                        </div>
-
-                        <div class="col-lg-3 ml-4">                        
-                          <input type="text" name="rusak_akhirthn" id="rusak_akhirthn" class="form-control border-left-primary" value="<?=$d->rusak_akhirthn?>" required>
-                          <small id="rusak_akhirthn" class="text-gray-700">Rusak</small>
+                        <div class="col-lg-12 mt-2">
+                          <input type="text" name="sk_isi" id="sk_isi" class="form-control border-left-primary" value="<?=$d->sk_isi?>" required>
+                          <small id="sk_isi" class="text-gray-700">Isi Surat</small>
                         </div>
                       </div>
                     </div>
@@ -163,7 +128,8 @@
                           <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
                           <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
                         </div>
-                    </div>                    
+                    </div>
+                    
                 </div>
                     
                 <?php

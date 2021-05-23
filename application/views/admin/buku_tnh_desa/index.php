@@ -49,9 +49,8 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Asal Tanah Kas Desa</th>
-                      <th>Nomor Sertifikat Buku Letter C/Persil</th>
-                      <th>Luas</th>
+                      <th>Nama Perorangan/Badan Hukum</th>
+                      <th>Jumlah</th>
                       <th>Pengajuan</th>
                       <th width="10%">Verif Kepala Desa</th>
                     </tr>
@@ -60,9 +59,8 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Asal Tanah Kas Desa</th>
-                      <th>Nomor Sertifikat Buku Letter C/Persil</th>
-                      <th>Luas</th>
+                      <th>Nama Perorangan/Badan Hukum</th>
+                      <th>Jumlah</th>
                       <th>Pengajuan</th>
                       <th>Verif Kepala Desa</th>
                     </tr>
@@ -90,9 +88,8 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->asal_tnh_kas?></td>
-                      <td><?=$d->no_serti_letterc_persil?></td>
-                      <td><?=$d->luas?></td>
+                      <td><?=$d->nama_perorangan_bdn_hkm?></td>
+                      <td><?=$d->jml?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);

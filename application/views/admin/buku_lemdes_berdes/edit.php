@@ -35,15 +35,20 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('buku_keputusan_kepala_desa/update'),'id="form"');
+                <?php echo form_open(base_url('buku_peraturan_desa/update'),'id="form"');
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
-                  <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_kepala_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Kepala Desa</label>
-                        <input type="text" name="no_tgl_keputusan_kepala_desa" id="no_tgl_keputusan_kepala_desa" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_kepala_desa?>" required>
+                <div class="col-lg-6 mt-3">
+                        <label for="jns_peraturan_desa" class="text-gray-900 font-weight-bold">Jenis Peraturan di Desa</label>
+                        <input type="text" name="jns_peraturan_desa" id="jns_peraturan_desa" class="form-control border-left-primary" value="<?=$d->jns_peraturan_desa?>" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="jns_peraturan_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal ditetapkan</label>
+                        <input type="text" name="no_tgl_ditetapkan" id="no_tgl_ditetapkan" class="form-control border-left-primary" value="<?=$d->jns_peraturan_desa?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -52,9 +57,19 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
-                        <input type="text" name="no_tgl_dilaporkan" id="no_tgl_dilaporkan" class="form-control border-left-primary" value="<?=$d->no_tgl_dilaporkan?>" required>
-                    </div>                  
+                      <label class="text-gray-900 font-weight-bold" >Diundangkan</label>
+                      <div class="form-row">
+                          <div class="col-lg-6">
+                              <input type="date" name="tgl_diundangkan" id="tgl_diundangkan" class="form-control border-left-primary" value="<?=$d->tgl_diundangkan?>" required>
+                              <small id="tgl_diundangkan" class="text-gray-700">Tanggal</small>
+                          </div>
+                          
+                          <div class="col-lg-6">
+                              <input type="text" name="no_diundangkan" id="no_diundangkan" class="form-control border-left-primary" value="<?=$d->no_diundangkan?>" required>
+                              <small id="no_diundangkan" class="text-gray-700">Nomor</small>
+                          </div>
+                      </div>
+                    </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
@@ -63,13 +78,6 @@
                           <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
-                    </div>
-
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
-                        </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
@@ -101,8 +109,7 @@
                     
                 <?php
                 endforeach;
-                echo form_close();
-                ?>
+                echo form_close();?>
                 
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>

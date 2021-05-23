@@ -17,7 +17,7 @@
               </div>
             </div>
             <?php if($this->session->flashdata('success_message')): ?>
-	          <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
+	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
             <?php endif ?>
                 <div class="alert alert-danger col d-none" id="error-message"></div>
           </div>
@@ -32,40 +32,45 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
-					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
-					<div class="dropdown-menu">
-                        <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-                        <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
-                        <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
-					</div>
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+										<div class="dropdown-menu">
+                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
+										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
+										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+										</div>
                 </div>
               </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">
               <form method="POST" id="formdelete">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Asal Tanah Kas Desa</th>
-                      <th>Nomor Sertifikat Buku Letter C/Persil</th>
-                      <th>Luas</th>
-                      <th>Pengajuan</th>
-                      <th width="10%">Verif Kepala Desa</th>
+                      <th rowspan="2" width="5%">No</th>
+                      <th rowspan="2" width="3%"></th>
+                      <th rowspan="2">Tanggal Penerimaan/Pengiriman Surat</th>
+                      <th colspan="4">Surat Masuk</th>
+                      <th rowspan="2">Pengajuan</th>
+                      <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
+
+                    <tr>
+                      <th>nomor</th>
+                      <th>Tanggal</th>
+                      <th>Pengirim</th>
+                      <th>Isi Singkat</th>
+                    </tr>                    
                   </thead>
                   <tfoot>
                     <tr>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Asal Tanah Kas Desa</th>
-                      <th>Nomor Sertifikat Buku Letter C/Persil</th>
-                      <th>Luas</th>
-                      <th>Pengajuan</th>
-                      <th>Verif Kepala Desa</th>
-                    </tr>
+                        <th width="5%">No</th>
+                        <th width="3%"></th>
+                        <th>Tanggal Penerimaan/Pengiriman Surat</th>
+                        <th colspan="4">Surat Masuk</th>
+                        <th>Pengajuan</th>
+                        <th>Verif Kepala Desa</th>
+                      </tr>
                   </tfoot>
                   <tbody>
                   
@@ -90,9 +95,11 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->asal_tnh_kas?></td>
-                      <td><?=$d->no_serti_letterc_persil?></td>
-                      <td><?=$d->luas?></td>
+                      <td><?=$d->status_surat?></td>
+                      <td><?=$d->sm_no?></td>
+                      <td><?=$d->sm_tgl?></td>
+                      <td><?=$d->sm_pengirim?></td>
+                      <td><?=$d->sm_isi?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);
@@ -127,7 +134,6 @@
             </div>
           </div>
           
-
         </div>
         <!-- /.container-fluid -->
 
