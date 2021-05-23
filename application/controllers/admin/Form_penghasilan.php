@@ -301,7 +301,7 @@ class Form_penghasilan extends Admin_Controller{
         $template->setValue('nama', $data->nama);
         $template->setValue('jenis_kelamin', $data->jenis_kelamin);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
         $template->setValue('agama', $data->agama);
         $template->setValue('pekerjaan', $data->pekerjaan);
@@ -314,7 +314,7 @@ class Form_penghasilan extends Admin_Controller{
         $template->setValue('penghasilan', $data->penghasilan);
         $template->setValue('penghasilan2', $data->penghasilan2);
         $template->setValue('persyaratan', $data->persyaratan);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

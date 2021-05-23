@@ -49,9 +49,9 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="nik"><b>Nomor Induk Penduduk (NIK)</b></label>
-                            <input type="number" name="nik" id="nik" class="form-control border-left-info" placeholder="NIK" value="<?=$d->nik?>" required>
+                            <input type="number" name="nik" id="nik" class="form-control border-left-info" placeholder="NIK" value="<?=$d->nik?>" maxlength="16" required>
                         </div>
-                    </div>
+                    </div> 
 
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -76,13 +76,24 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="jk"><b>Jenis Kelamin</b></label>
-                            <input type="text" name="jk" id="jk" class="form-control border-left-info " placeholder="jk" value="<?=$d->jk?>" required>
+                            <select name="jk" id="jk" class="form-control" placeholder="Jenis Kelamin" required>
+                                <option><?=$d->jk?></option>
+                                <option value="Laki-Laki">Laki-Laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                        </select>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <label for="stkawin"><b>Startus Perkawinan</b></label>
-                        <input type="text" name="stkawin" id="stkawin" class="form-control border-left-info" placeholder="Statur Pekawinan" value="<?=$d->stkawin?>" required>
+                        
+                        <select name="stkawin" id="stkawin" class="form-control" placeholder="Status Perkawinan" required>
+                            <option><?=$d->stkawin?></option>
+                            <option value="Belum Kawin">Belum Kawin</option>
+                            <option value="Kawin">Kawin</option>
+                            <option value="Cerai Hidup">Cerai Hidup</option>
+                            <option value="Cerai Mati">Cerai Mati</option>
+                        </select>
                     </div>
 
                     <div class="col-lg-6">
@@ -94,8 +105,18 @@
 
                     <div class="col-lg-6">
                         <label for="pendidikan"><b>Pendidikan Terakhir</b></label>
-                        <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-info" placeholder="pendidikan terahir"  value="<?=$d->pendidikan?>" required>
-                        </div>
+                        <select name="pendidikan" id="pendidikan" class="form-control" placeholder="Pendidikan Terakhir" required>
+                            <option><?=$d->pendidikan?></option>
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP/SLTP Sederajat</option>
+                            <option value="SMA">SMA/STA Sederajat</option>
+                            <option value="SMK">SMK</option>
+                            <option value="Sarjana (S1)">Sarjana (S1)</option>
+                            <option value="Magister (S2)">Magister (S2)</option>
+                            <option value="Doktor (S3)">Doktor (S3)</option>
+                            <option value="Tidak Sekolah"> Tidak Sekolah</option>
+                        </select>    
+                    </div>
                     
                     <div class="col-lg-6">
                     <div class="form-group">
@@ -108,7 +129,11 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="baca_huruf"><b>Dapat Membaca Huruf</b></label>
-                            <input type="text" name="baca_huruf" id="baca_huruf" class="form-control border-left-info " placeholder="" value="<?=$d->baca_huruf?>" required>
+                            <select name="baca_huruf" id="baca_huruf" class="form-control" placeholder="" required>
+                                <option><?=$d->baca_huruf?></option>
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                        </select>
                         </div>
                     </div>
 
@@ -116,7 +141,15 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label for="agama"><b>Agama</b></label>
-                        <input type="text" name="agama" id="agama" class="form-control border-left-info" placeholder="agama" value="<?=$d->agama?>" required>
+                        <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                            <option><?=$d->agama?></option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghuchu</option>
+                        </select>
                     </div>
                     </div>
 

@@ -56,7 +56,7 @@ class Frontend_Controller extends MY_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('form');
-		$this->load->library('form_validation');
+        $this->load->library('form_validation');
     }
 }
 
@@ -68,6 +68,7 @@ class Backend_Controller extends MY_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_message('required', 'field %s harus diisi');
+        $this->load->helper('indonesia_date_helper');
         if($this->session->userdata('login') != TRUE){
             redirect(base_url());
         }

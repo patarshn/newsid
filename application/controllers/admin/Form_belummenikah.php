@@ -294,7 +294,7 @@ class Form_belummenikah extends Admin_Controller{
         $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
         $template->setValue('nama', $data->nama);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', $data->tanggal_lahir);
+        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
         $template->setValue('nik', $data->nik);
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
         $template->setValue('agama', $data->agama);
@@ -305,7 +305,7 @@ class Form_belummenikah extends Admin_Controller{
         $template->setValue('kecamatan', $data->kecamatan);
         $template->setValue('kabupaten', $data->kabupaten);
         $template->setValue('persyaratan', $data->persyaratan);
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

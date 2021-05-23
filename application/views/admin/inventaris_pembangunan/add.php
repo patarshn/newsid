@@ -39,6 +39,7 @@
                 <h3 class="text-gray-900"></h3>
 
                 <div class="form-row">
+                
                 <div class="col-lg-6 ">
                 <div class="form-group">
                         <label for="nama_hasil"><b>Jenis/Nama Hasil Pembangunan</b></label>

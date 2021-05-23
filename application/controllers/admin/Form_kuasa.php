@@ -309,7 +309,7 @@ class Form_kuasa extends Admin_Controller{
         $template->setValue('nama_1', $data->nama_1);
         $template->setValue('nik_1', $data->nik_1);
         $template->setValue('tempat_lahir_1', $data->tempat_lahir_1);
-        $template->setValue('tanggal_lahir_1', $data->tanggal_lahir_1);
+        $template->setValue('tanggal_lahir_1', longdate_indo($data->tanggal_lahir_1));
         $template->setValue('pekerjaan_1', $data->pekerjaan_1);
         $template->setValue('rt_1', $data->rt_1);
         $template->setValue('rw_1', $data->rw_1);
@@ -320,7 +320,7 @@ class Form_kuasa extends Admin_Controller{
         $template->setValue('nama_2', $data->nama_2);
         $template->setValue('nik_2', $data->nik_2);
         $template->setValue('tempat_lahir_2', $data->tempat_lahir_2);
-        $template->setValue('tanggal_lahir_2', $data->tanggal_lahir_2);
+        $template->setValue('tanggal_lahir_2', longdate_indo($data->tanggal_lahir_2));
         $template->setValue('pekerjaan_2', $data->pekerjaan_2);
         $template->setValue('rt_2', $data->rt_2);
         $template->setValue('rw_2', $data->rw_2);
@@ -331,7 +331,7 @@ class Form_kuasa extends Admin_Controller{
         $keterangan = str_replace(PHP_EOL,"<w:br/>",$data->keterangan);
         $template->setValue('keterangan', $keterangan);
 
-        $template->setValue('today', $today);
+        $template->setValue('today', longdate_indo($today));
         $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');

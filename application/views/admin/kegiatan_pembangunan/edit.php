@@ -37,18 +37,32 @@
                 <div class="card-body  border-bottom-info ">
                 
                 <?php 
-                  echo form_open(base_url($folder.'/update'),'id="form"');
+                  echo form_open(base_url($folder.'/update'),'id="form"','enctype="multipart/form-data"');
                   foreach($data as $d):
                 ?>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 
                 <div class="form-row">
-                    <div class="col-lg-6">
+                <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="nama_proyek"><b>Nama Proyek/Kegiatan</b></label>
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" placeholder=" " value="<?=$d->nama_proyek?>" required>
+                            <label for="id_rencana"><b>Nama Proyek/Kegiatan</b></label>
+                            <select name="id_rencana" id="id_rencana" class="form-control">
+                                <option value=" ">- Pilih -</option> 
+                                
+                                <?php foreach($data_option as $p) : ?>
+                                  <option value="<?php echo $p->id;?>"> <?php echo $p->nama_proyek; ?> </option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="nama_kegiatan"><b>Nama Proyek/Kegiatan</b></label>
+                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" class="form-control border-left-info" placeholder=" " value="<?=$d->nama_kegiatan?>" required>
+                        </div>
+                    </div>
+                  
 
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -107,7 +121,8 @@
                             <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-info " placeholder="pelaksana" value="<?=$d->pelaksana?>" required>
                         </div>
                     </div>
-                
+
+                   
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ket"><b>Keterangan</b></label>

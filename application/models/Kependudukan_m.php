@@ -15,6 +15,7 @@ class Kependudukan_m extends MY_Model
         return $this->db->where('nik',$nik)->get($this->_table)->row();
     }
 
+    /*
     public function update(){
         $_POST = $this->input->post();
         $data['id_form_jualbeli'] = $_POST['id'];
@@ -33,6 +34,7 @@ class Kependudukan_m extends MY_Model
         }
         return $status;
     }
+    */
     
 
 
