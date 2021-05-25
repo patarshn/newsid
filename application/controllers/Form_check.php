@@ -5,6 +5,7 @@ class Form_check extends Frontend_Controller{
     
     private $_table = 'form_check';
     private $_folder = 'form';
+    private $_folderUpload = 'form_check';
     private $_docxName = 'form_check';
     private $_mainTitle = 'Form Check';  
     private $_fileName = 'form_check';
