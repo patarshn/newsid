@@ -30,12 +30,13 @@
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
               <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
               <div>
+                <!-- <a class="btn btn-info" href="<?=base_url('admin/'.$uri[2].'/image/');?>">Arsip Gambar</a> -->
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
-										<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+										  <button type="button" id="deletebtn" class="dropdown-item btn btn-primary">Hapus</button>
 										</div>
                 </div>
               </div>
@@ -50,6 +51,7 @@
                   <thead>
                     <tr>
                       <th width="5%">No</th>
+                      <th width="3%"></th>
                       <th>Nama Kegiatan</th>
                       <th>Volume</th>
                       <th>Jumlah Biaya</th>
@@ -57,12 +59,12 @@
                       <th>Sifat Kegiatan</th>
                       <th>Pelaksana</th>
                       <th>Tanggal Kegiatan</th>
-                      <th>Option</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                     <th width="5%">No</th>
+                    <th width="3%"></th>
                       <th>Nama Kegiatan</th>
                       <th>Volume</th>
                       <th>Jumlah Biaya</th>
@@ -70,7 +72,6 @@
                       <th>Sifat Kegiatan</th>
                       <th>Pelaksana</th>
                       <th>Tanggal Kegiatan</th>
-                      <th>Option</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -85,87 +86,26 @@
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
                         <?=$count++;?>
                       </td>
-                      <td><?=$d->nama_proyek?></td>
+                      <td><div class="dropdown no-arrow">
+                      <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                          <div class="dropdown-header">Actions:</div>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
+                          
+                          </div>
+                        </div>
+                      
+                      <td><?=$d->nama_kegiatan?></td>
                       <td><?=$d->volume?></td>
                       <td><?=$d->jumlah?></td>
                       <td><?=$d->waktu?></td>
                       <td><?=$d->sifat?></td>
                       <td><?=$d->pelaksana?></td>
                       <td><?=$d->created_at?></td>
-                      <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"> Edit</a>
-                            <a class="btn btn-info"  data-toggle="modal" data-target="#myModal<?=$d->id?>"
-                            title="Show Data" data-toggle="modal"><span class="glyphicon glyphicon-eye-open">Detail</span></a>
-<!-- Modal -->
-                      <div id="myModal<?=$d->id?>" class="modal fade" role="dialog">
-                          <div class="modal-dialog modal-lg">
-                              <!-- konten modal-->
-                              <div class="modal-content">
-                              <!-- heading modal -->
-                              <div class="modal-header  border-bottom-info">
-                                  <h8 class="modal-title"><b>Kegiatan Pembangunan: <?=$d->nama_proyek?></b></h8>
-                              </div>
-                              <!-- body modal -->
-                              <div class="modal-body">
-                                  <div class="row">
-                                      <div class="col-lg-12">
-                                      <div class="card mb-4 py-3 border-bottom-info">
-                                          <div class="card-body">
-                                              <table class="table table-bordered table-hover border-left-info">
-                                              <thead>
-                                                  <tr><th>Nama Kegiatan</th>
-                                                  <td><?=$d->nama_proyek?></td></tr>
-
-                                                  <tr><th>Volume</th>
-                                                  <td><?=$d->volume?></td></tr> 
-                                                
-                                                  <tr><th>Waktu</th>
-                                                  <td><?=$d->waktu?></td></tr>
-
-                                                  <tr><th>Sifat Proyek</th>
-                                                  <td><?=$d->sifat?></td></tr>
-
-                                                  <tr><th>Pelaksana</th>
-                                                  <td><?=$d->pelaksana?></td></tr>
-
-                                                  <tr><th>Keterangan</th>
-                                                  <td><?=$d->ket?></td></tr>
-                                                 </thead>
-                                              </table>
-                                            
-                                        
-                                              <h8><b> Sumber Dana / Besaran Biaya</b></h8>
-                                              <table class="table table-bordered table-hover border-left-info">
-                                              <thead>
-                                              <tr><th>Pemerintah</th>
-                                                  <td style="text-align:right"><?=$d->biaya_pemerintah?></td></tr>
-
-                                                  <tr><th>Provinsi</th>
-                                                  <td style="text-align:right"><?=$d->biaya_prov?></td></tr> 
-
-                                                  <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:right"><?=$d->biaya_kab?></td></tr>
-
-                                                  <tr class="border-bottom-info"><th>Swadaya</th>
-                                                  <td style="text-align:right"><?=$d->biaya_swadaya?></td></tr>
-
-                                                  <tr><th>Total Biaya</th>
-                                                  <td style="text-align:right"><?=$d->jumlah?></td></tr>
-                                                 </thead>
-                                              </table>
-                                        </div>
-                                    </div>
-                              </div>
-                        </div>
-                    </div>
-                                <!-- footer modal -->
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
-                                  </div>
-                              </div>
-                           </div>
-                        </div>
-<!-- Modal -->
                         </div>
                       </td>
                     </tr>

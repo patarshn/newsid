@@ -124,6 +124,36 @@ No. Mesin : ABCDE-1234567
                             <textarea class="form-control" name="keterangan" id="keterangan" rows="10" placeholder="<?=$keterangan?>"></textarea>
                         </div>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_ktp">Upload KTP Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
+                            <img id="file_ktp_preview" src="#" alt="your image" width="200"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_kk">Upload KK Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_kk" name="file_kk">
+                            <img id="file_kk_preview" src="#" alt="your image" width="200" />
+                        </div>
+                    </div>
+                    <script>
+                    
+                        $('#file_ktp').change(function(){
+                            var file_ktp_tmp = file_ktp.files[0]
+                            if (file_ktp_tmp) {
+                                file_ktp_preview.src = URL.createObjectURL(file_ktp_tmp)
+                            }
+                        });
+
+                        $('#file_kk').change(function(){
+                            var file_kk_tmp = file_kk.files[0]
+                            if (file_kk_tmp) {
+                                file_kk_preview.src = URL.createObjectURL(file_kk_tmp)
+                            }
+                        });
+                    </script>
                 </div>
                 
             <?=form_close()?>

@@ -35,14 +35,27 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?=form_open(base_url('kegiatan_pembangunan/store'),'id="form"')?>
+                <?=form_open(base_url('kegiatan_pembangunan/store'),'id="form"','enctype="multipart/form-data"')?>
                 <h3 class="text-gray-900"></h3>
 
                 <div class="form-row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="nama_proyek"><b>Nama Proyek/Kegiatan</b></label>
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-info" rows="3" placeholder="Nama proyek atau kegiatan" required>
+                            <label for="id_rencana"><b>Nama Proyek/Kegiatan</b></label>
+                            <select name="id_rencana" id="id_rencana" class="form-control">
+                                <option value=" ">- Pilih -</option> 
+                                
+                                <?php foreach($data_option as $p) : ?>
+                                  <option value="<?php echo $p->id;?>"> <?php echo $p->nama_proyek; ?> </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group"> 
+                            <label for="nama_kegiatan"><b>Deskripsi kegiatan</b></label>
+                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" class="form-control border-left-info" required >
                         </div>
                     </div>
 
@@ -103,7 +116,7 @@
                             <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-info " placeholder="Pelaksana kegiatan"  required>
                         </div>
                     </div>
-                
+
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="ket"><b>Keterangan</b></label>

@@ -66,6 +66,32 @@ class Inventaris_pembangunan extends Admin_Controller {
             $this->load->view('admin/partials/footer');
     }
 
+    function detail($id){
+        
+        $this->breadcrumbcomponent->add('Home', base_url());
+        $this->breadcrumbcomponent->add('Admin', base_url('admin')); 
+        $this->breadcrumbcomponent->add($this->_mainTitle, base_url('admin/'.$this->_folder.'/')); 
+        $this->breadcrumbcomponent->add('Detail', base_url('admin/'.$this->_folder.'/detail/'));
+        $this->breadcrumbcomponent->add($id, base_url('admin/'.$this->_folder.'/detail/'.$id));
+
+        $breadcrumb = $this->breadcrumbcomponent->output();
+        $where = ['id'=>$id];
+        $data = array(
+            'breadcrumb' => $breadcrumb,
+            'data' => $this->Main_m->get($this->_table,$where)->result(),
+            'title' => "Detail ".$this->_mainTitle,
+            'uri' => $this->uri->segment_array(),
+            'folder' => $this->_folder,
+        );
+
+        $this->load->view('admin/partials/header');
+        $this->load->view('admin/partials/content_sidebar');
+        $this->load->view('admin/partials/content_navbar');
+        $this->load->view('admin/'.$this->_folder.'/detail',$data);
+        $this->load->view('admin/partials/content_footer');
+        $this->load->view('admin/partials/footer');
+    }
+
     function add(){
         
         $this->breadcrumbcomponent->add('Home', base_url());

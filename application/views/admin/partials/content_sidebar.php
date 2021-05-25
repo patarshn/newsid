@@ -87,6 +87,10 @@
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_inventaris_kekayaan_desa')?>">Buku Inventaris dan Kekayaan Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_aparat_pemerintah_desa')?>">Buku Aparat Pemerintah Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_tnh_kas_desa')?>">Buku Tanah Kas Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_tnh_desa')?>">Buku Tanah di Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda')?>">Buku Agenda</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ekspedisi')?>">Buku Ekspedisi</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_lemdes_berdes')?>">Buku Lembaran Desa dan Berita Desa</a>
           </div>
         </div>
       </li>
@@ -100,7 +104,7 @@
         <div id="penduduk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/induk_penduuduk')?>"><b>Iduk Penduduk</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/induk_penduuduk')?>"><b>Induk Penduduk</b></a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/mutasi_penduduk')?>"><b>Mutasi Penduduk</b></a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/rekap_penduduk')?>"><b>Rekapitulasi Jumlah Penduduk</b></a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/penduduk_sementara')?>"><b>Penduduk Sementara</b></a>
@@ -137,6 +141,32 @@
           
           <a class="collapse-item text-wrap" href="<?=base_url('admin/apbd')?>"><b>Agaran Pendapatan dan Belanja Desa</b></a>
          
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#administrasi_lainnya" aria-expanded="true" aria-controls="administrasi_lainnya">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Administrasi Lainnya</span>
+        </a>
+        <div id="administrasi_lainnya" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda_surat_keluar')?>">Buku Agenda Surat Keluar BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda_surat_masuk')?>">Buku Agenda Surat Masuk BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ekspedisi_bpd')?>">Buku Ekspedisi BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_inventaris_bpd')?>">Buku Data Inventaris BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_laporan_keuangan')?>">Buku Laporan Keuangan BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_anggota_bpd')?>">Buku Data Anggota BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_kegiatan')?>">Buku Data Kegiatan BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_aspirasi_masyarakat')?>">Buku Data Aspirasi Masyarakat</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_peraturan_bpd')?>">Buku Data Peraturan/Keputusan BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_peraturan_desa')?>">Buku Data Peraturan Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_musyawarah')?>">Buku Keputusan Musyawarah Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_ppd')?>">Buku Keputusan Musyawarah Perencanaan Pembangunan Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_rapat_bpd')?>">Buku Rapat BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('administrasilainnya\buku_tamu_bpd/BUKU TAMU BPD.docx')?>">Unduh Buku Tamu BPD</a>
           </div>
         </div>
       </li>

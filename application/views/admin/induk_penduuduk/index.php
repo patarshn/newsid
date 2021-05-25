@@ -32,7 +32,7 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
-										<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
@@ -46,6 +46,7 @@
                   <thead>
                     <tr>
                       <th width="5%">No</th>
+                      <th width="3%"></th>
                       <th>NIK</th>
                       <th>No. KK</th>
                       <th>Nama</th>
@@ -53,12 +54,12 @@
                       <th>Tempat Lahir</th>
                       <th>Tanggal Lahir</th>
                       <th>Alamat</th>
-                      <th width="11%">Option</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                     <th width="5%">No</th>
+                    <th width="3%"></th>
                     <th>NIK</th>
                       <th>No. KK</th>
                       <th>Nama</th>
@@ -66,7 +67,6 @@
                       <th>Tempat Lahir</th>
                       <th>Tanggal Lahir</th>
                       <th>Alamat</th>
-                      <th width="11%">Option</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -78,6 +78,18 @@
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
                         <?=$count++;?>
                       </td>
+                      <td><div class="dropdown no-arrow">
+                      <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                          <div class="dropdown-header">Actions:</div>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
+                          
+                          </div>
+                        </div>
                       <td><?=$d->nik?></td>
                       <td><?=$d->nokk?></td>
                       <td><?=$d->nama?></td>
@@ -85,11 +97,6 @@
                       <td><?=$d->tempat_lahir?></td>
                       <td><?=$d->tgl_lahir?></td>
                       <td><?=$d->alamat?></td>
-                      <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"> Edit</a>
-                            <a class="btn btn-info" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                        </div>
-                      </td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
