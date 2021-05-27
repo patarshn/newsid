@@ -149,9 +149,12 @@
                     <script>
                     
                         $('#file_ktp').change(function(){
-                            var file_ktp_tmp = file_ktp.files[0]
-                            if (file_ktp_tmp) {
-                                file_ktp_preview.src = URL.createObjectURL(file_ktp_tmp)
+                            if (this.files && this.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                    $('#file_ktp_preview').attr('src', e.target.result);
+                                }
+                                reader.readAsDataURL(this.files[0]);
                             }
                         });
 
