@@ -138,22 +138,7 @@ No. Mesin : ABCDE-1234567
                             <img id="file_kk_preview" src="#" alt="your image" width="200" />
                         </div>
                     </div>
-                    <script>
-                    
-                        $('#file_ktp').change(function(){
-                            var file_ktp_tmp = file_ktp.files[0]
-                            if (file_ktp_tmp) {
-                                file_ktp_preview.src = URL.createObjectURL(file_ktp_tmp)
-                            }
-                        });
-
-                        $('#file_kk').change(function(){
-                            var file_kk_tmp = file_kk.files[0]
-                            if (file_kk_tmp) {
-                                file_kk_preview.src = URL.createObjectURL(file_kk_tmp)
-                            }
-                        });
-                    </script>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                 </div>
                 
             <?=form_close()?>
