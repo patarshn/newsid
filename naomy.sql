@@ -198,3 +198,20 @@ CREATE TABLE `buku_tnh_kas_desa` (
  `ver_kepala_desa_at` datetime DEFAULT NULL,
  PRIMARY KEY (`id`)
 )
+
+CREATE TABLE `buku_lemdes_berdes` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `no_tgl_ditetapkan` varchar(255) DEFAULT NULL,
+ `tentang` varchar(255) DEFAULT NULL,
+ `tgl_diundangkan` date DEFAULT NULL,
+ `no_diundangkan` varchar(255) DEFAULT NULL,
+ `ket` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `verif_lurah` varchar(20) DEFAULT NULL,
+ `verif_lurah_at` datetime DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) 

@@ -39,6 +39,7 @@
                 <?php 
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
+                    $berkas = json_decode($d->berkas);
                 ?>
                 <div class="form-row">
                   <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
@@ -106,6 +107,22 @@
                             <textarea class="form-control" name="persyaratan" id="persyaratan" rows="2" required><?=$d->persyaratan?></textarea>
                         </div>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_ktp">Upload KTP Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
+                            <img id="file_ktp_preview" src="<?=base_url('uploads/form_belummenikah/'.$berkas->file_ktp)?>" width="200px">
+                            <input type="hidden" class="form-control-file" id="file_ktp_old" name="file_ktp_old" value="<?=$berkas->file_ktp?>">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_kk">Upload KK Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_kk" name="file_kk">
+                            <img id="file_kk_preview" src="<?=base_url('uploads/form_belummenikah/'.$berkas->file_kk)?>" width="200px">
+                            <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
+                        </div>
+                    </div>
                     <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Lurah : </label>
                         <br>
@@ -154,4 +171,19 @@
 
       </div>
       <!-- End of Main Content -->
+<script>
+$('#file_ktp').change(function(){
+    var file_ktp_tmp = file_ktp.files[0]
+    if (file_ktp_tmp) {
+        file_ktp_preview.src = URL.createObjectURL(file_ktp_tmp)
+    }
+});
+
+$('#file_kk').change(function(){
+    var file_kk_tmp = file_kk.files[0]
+    if (file_kk_tmp) {
+        file_kk_preview.src = URL.createObjectURL(file_kk_tmp)
+    }
+});
+</script>
 

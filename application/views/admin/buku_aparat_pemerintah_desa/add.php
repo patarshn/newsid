@@ -40,18 +40,18 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="nama" class="text-gray-900 font-weight-bold">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="niap" class="text-gray-900 font-weight-bold">NIAP</label>
-                        <input type="text" name="niap" id="niap" class="form-control" required>
+                        <input type="text" name="niap" id="niap" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="jenis_kelamin" class="text-gray-900 font-weight-bold">Jenis Kelamin</label>
-                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control" required>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" required>
                                 <option>-</option>
                                 <option value="PEREMPUAN">Perempuan</option>
                                 <option value="LAKI-LAKI">Laki-Laki</option>
@@ -61,23 +61,23 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
-                        <input type="text" name="nip" id="nip" class="form-control" required>
+                        <input type="text" name="nip" id="nip" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="tempat" class="text-gray-900 font-weight-bold">Tempat Lahir</label>
-                        <input type="text" name="tempat" id="tempat" class="form-control" required>
+                        <input type="text" name="tempat" id="tempat" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal Lahir</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="agama" class="text-gray-900 font-weight-bold">Agama</label>
-                            <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                            <select name="agama" id="agama" class="form-control border-left-primary" placeholder="Agama" required>
                                 <option>-</option>
                                 <option value="Islam">Islam</option>
                                 <option value="Kristen">Kristen</option>
@@ -91,33 +91,33 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="jabatan" class="text-gray-900 font-weight-bold">Jabatan</label>
-                        <input type="text" name="jabatan" id="jabatan" class="form-control" required>
+                        <input type="text" name="jabatan" id="jabatan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pangkat_golongan" class="text-gray-900 font-weight-bold">Pangkat Golongan</label>
-                        <input type="text" name="pangkat_golongan" id="pangkat_golongan" class="form-control" required>
+                        <input type="text" name="pangkat_golongan" id="pangkat_golongan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pendidikan_terakhir" class="text-gray-900 font-weight-bold">Pendidikan Terakhir</label>
-                        <input type="text" name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control" required>
+                        <input type="text" name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="no_tgl_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pengangkatan</label>
-                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control" required>
+                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="no_tgl_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pemberhentian</label>
-                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control" required>
+                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label">Pilih Berkas</label>
+                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
@@ -125,7 +125,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
                         </div>
                     </div>
                 </div>
