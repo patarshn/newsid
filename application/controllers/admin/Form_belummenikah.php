@@ -88,7 +88,7 @@ class Form_belummenikah extends Admin_Controller{
             $_POST = $this->input->post();
             $id = $_POST['id'];
             $where = ['id'=>$id];
-            
+
             $nik = $_POST['nik'];
             if(!empty($_FILES["file_ktp"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
@@ -104,8 +104,8 @@ class Form_belummenikah extends Admin_Controller{
                     exit;
                 }
                 $berkas['file_ktp'] = $berkas_tmp;
-                if($this->destroy_file($where,'file_ktp')){
-                    echo "success";
+                if(!$this->destroy_file($where,'file_ktp')){
+                    $berkas['file_ktp'] = $_POST['file_kk_old'];
                 }
             }
             else{
@@ -115,7 +115,7 @@ class Form_belummenikah extends Admin_Controller{
 
             if(!empty($_FILES["file_kk"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
-                $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
+                $file_name = 'kk_'.$nik.'_'.date('YmdHis').'_'.uniqid();
                 $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     echo $this->upload->display_errors();
@@ -128,13 +128,12 @@ class Form_belummenikah extends Admin_Controller{
                 }
                 $berkas['file_kk'] = $berkas_tmp;
                 if(!$this->destroy_file($where,'file_kk')){
-                    $berkas['file_ktp'] = $_POST['file_kk_old'];
+                    $berkas['file_kk'] = $_POST['file_kk_old'];
                 }
             }
             else{
                 $berkas['file_kk'] = $_POST['file_kk_old'];
             }
-
 
             $data = array(
                 'id' => $_POST['id'],
@@ -397,7 +396,9 @@ class Form_belummenikah extends Admin_Controller{
         $berkas_id =  $this->Main_m->get($this->_table,$where)->result();
         foreach ($berkas_id as $b_id) {
             $berkas = json_decode($b_id->berkas,true);
-
+            if($berkas[$file_json_key] == ""){
+                return true;
+            }
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$berkas[$file_json_key])) {
                 return false;
             }

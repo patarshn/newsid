@@ -111,7 +111,7 @@
                         <div class="form-group">
                             <label for="file_ktp">Upload KTP Pengaju</label>
                             <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
-                            <img id="file_ktp_preview" src="<?=base_url('uploads/form_belummenikah/'.$berkas->file_ktp)?>" width="200px">
+                            <img id="file_ktp_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_ktp)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_ktp_old" name="file_ktp_old" value="<?=$berkas->file_ktp?>">
                         </div>
                     </div>
@@ -119,10 +119,11 @@
                         <div class="form-group">
                             <label for="file_kk">Upload KK Pengaju</label>
                             <input type="file" class="form-control-file" id="file_kk" name="file_kk">
-                            <img id="file_kk_preview" src="<?=base_url('uploads/form_belummenikah/'.$berkas->file_kk)?>" width="200px">
+                            <img id="file_kk_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_kk)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
                         </div>
                     </div>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                     <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Lurah : </label>
                         <br>
@@ -171,19 +172,4 @@
 
       </div>
       <!-- End of Main Content -->
-<script>
-$('#file_ktp').change(function(){
-    var file_ktp_tmp = file_ktp.files[0]
-    if (file_ktp_tmp) {
-        file_ktp_preview.src = URL.createObjectURL(file_ktp_tmp)
-    }
-});
-
-$('#file_kk').change(function(){
-    var file_kk_tmp = file_kk.files[0]
-    if (file_kk_tmp) {
-        file_kk_preview.src = URL.createObjectURL(file_kk_tmp)
-    }
-});
-</script>
 
