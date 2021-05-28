@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Apbd extends Admin_Controller {
+class Kas_pembantu_kegiatan extends Admin_Controller {
 
-    private $_table = 'apbd';
-    private $_folder = 'apbd';
-    private $_mainTitle = 'Buku Anggaran Pendapatan dan Belanja Desa ';
+    private $_table = 'kas_pembantu_kegiatan';
+    private $_folder = 'kas_pembantu_kegiatan';
+    private $_mainTitle = 'Buku Kas Pembantu Kegiatan ';
 
     function __construct() {
         parent::__construct();
@@ -17,28 +17,30 @@ class Apbd extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'type','label' => 'type', 'rules' => 'required'],
-            ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'kode_rekening2','label' => 'kode_rekening2', 'rules' => 'required'],
-            ['field' => 'kode_rekening3','label' => 'kode_rekening3', 'rules' => 'required'],
-            ['field' => 'kode_rekening4','label' => 'kode_rekening4', 'rules' => 'required'],
+            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
+            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
-            ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
+            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
+            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'type','label' => 'type', 'rules' => 'required'],
-            ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'kode_rekening2','label' => 'kode_rekening2', 'rules' => 'required'],
-            ['field' => 'kode_rekening3','label' => 'kode_rekening3', 'rules' => 'required'],
-            ['field' => 'kode_rekening4','label' => 'kode_rekening4', 'rules' => 'required'],
+            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
+            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
-            ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
+            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
+            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
         ];
     }
 
@@ -85,6 +87,7 @@ class Apbd extends Admin_Controller {
             'title' => "Tambah Data ".$this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data' => $this->Main_m->get("apbd",null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -119,14 +122,17 @@ class Apbd extends Admin_Controller {
                 $_POST = $this->input->post();
                 $data = array(
                     'tahun_anggaran' => $_POST['tahun_anggaran'],
-                    'type' => $_POST['type'],
-                    'kode_rekening1' => $_POST['kode_rekening1'],
-                    'kode_rekening2' => $_POST['kode_rekening2'],
-                    'kode_rekening3' => $_POST['kode_rekening3'],
-                    'kode_rekening4' => $_POST['kode_rekening4'],
+                    'bidang' => $_POST['bidang'],
+                    'kegiatan' => $_POST['kegiatan'],
+                    'tanggal' => $_POST['tanggal'],
                     'uraian' => $_POST['uraian'],
-                    'anggaran' => $_POST['anggaran'],
-                    'keterangan' => $_POST['keterangan'],
+                    'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
+                    'penerimaan_sdm' => $_POST['penerimaan_sdm'],
+                    'no_bukti' => $_POST['no_bukti'],
+                    'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
+                    'pengeluaran_bm' => $_POST['pengeluaran_bm'],
+                    'jumlah' => $_POST['jumlah'],
+                    'saldo' => $_POST['saldo'],
                     'ver_kepala_desa' => "Pending",
                     'created_at' => date('Y-m-d H:i:s'),
                     'created_by' =>  $this->session->userdata('username'),
@@ -208,14 +214,13 @@ class Apbd extends Admin_Controller {
             $data = array(
                 'id' => $_POST['id'],
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'type' => $_POST['type'],
-                'kode_rekening1' => $_POST['kode_rekening1'],
-                'kode_rekening2' => $_POST['kode_rekening2'],
-                'kode_rekening3' => $_POST['kode_rekening3'],
-                'kode_rekening4' => $_POST['kode_rekening4'],
+                'bidang' => $_POST['bidang'],
+                'kegiatan' => $_POST['kegiatan'],
+                'waktu_pelaksanaan' => $_POST['waktu_pelaksanaan'],
                 'uraian' => $_POST['uraian'],
-                'anggaran' => $_POST['anggaran'],
-                'keterangan' => $_POST['keterangan'],
+                'volume' => $_POST['volume'],
+                'harga_satuan' => $_POST['harga_satuan'],
+                'jumlah' => $_POST['jumlah'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),

@@ -49,34 +49,33 @@
                     <tr>
                       <th rowspan="2" width="5%">No</th>
                       <th rowspan="2" width="3%"></th>
+                      <th rowspan="2">Tanggal</th>
+                      <th colspan="3">Uraian</th>
+                      <th rowspan="2">Pemotongan (Rp.)</th>
+                      <th rowspan="2">Penyetoran (Rp.)</th>
+                      <th rowspan="2">Saldo</th>
                       <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Type</th>
-                      <th colspan="4">Kode Rekening</th>
-                      <th rowspan="2">Uraian</th>
-                      <th rowspan="2">Anggaran</th>
-                      <th rowspan="2">Keterangan</th>
                       <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
 
                     <tr>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                      <th>4</th>
+                      <th>Pajak</th>
+                      <th>RET</th>
+                      <th>PL</th>
                     </tr>
                     
                   </thead>
                   <tfoot>
                     <tr>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Tahun Anggaran</th>
-                        <th>Type</th>
-                        <th colspan="4">Kode Rekening</th>
-                        <th>Uraian</th>
-                        <th>Anggaran</th>
-                        <th>Keterangan</th>
-                        <th>Verif Kepala Desa</th>
+                      <th width="5%">No</th>
+                      <th width="3%"></th>
+                      <th>Tanggal</th>
+                      <th colspan="3">Uraian</th>
+                      <th>Pemotongan (Rp.)</th>
+                      <th>Penyetoran (Rp.)</th>
+                      <th>Saldo</th>
+                      <th>Tahun Anggaran</th>
+                      <th>Verif Kepala Desa</th>
                       </tr>
                   </tfoot>
                   <tbody>

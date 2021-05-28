@@ -39,64 +39,61 @@
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
-                <input type="hidden" name="id" id="id" value="<?=$d->id?>">
-                <div class="form-row">
-                <div class="col-lg-6 mt-3">
+                <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
+                    <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
                         <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
+                        <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
+                        <input type="text" name="bidang" id="bidang" class="form-control" value="<?=$d->bidang?>" required>
+                    </div>
+
+                    <div class="col-lg-3 mt-2">
                         <div class="form-group">
-                            <label for="type" class="text-gray-900 font-weight-bold">Type</label>
-                            <select name="type" id="type" class="form-control" value="<?=$d->type?>" value="<?=$d->type?>" required>
+                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
+                            <select name="kode_rekening" id="kode_rekening" class="form-control" required>
                                 <option>-</option>
-                                <option value="PENDAPATAN">Pendapatan</option>
-                                <option value="BELANJA">Belanja</option>
+                                
+                                <?php   
+                                foreach($data as $d):
+                                    $kode = $d->kode_rekening1."-".$d->kode_rekening2."-".$d->kode_rekening3."-".$d->kode_rekening4;
+                                    echo "<option value='$kode'>$kode</option>"; 
+                                endforeach;
+                                ?>
                             </select>
                         </div>
                     </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Kode Rekening</label>
-                      <div class="form-row">
-                        <div class="col-lg-2">
-                          <input type="text" name="kode_rekening1" id="kode_rekening1" class="form-control" value="<?=$d->kode_rekening1?>" required>
-                          <small id="kode_rekening1" class="text-gray-700"></small>
-                        </div>
-                        
-                        <div class="col-lg-2">
-                          <input type="text" name="kode_rekening2" id="kode_rekening2" class="form-control" value="<?=$d->kode_rekening2?>" required>
-                          <small id="kode_rekening2" class="text-gray-700"></small>
-                        </div>
-
-                        <div class="col-lg-2">
-                          <input type="text" name="kode_rekening3" id="kode_rekening3" class="form-control" value="<?=$d->kode_rekening3?>" required>
-                          <small id="kode_rekening3" class="text-gray-700"></small>
-                        </div>
-                        
-                        <div class="col-lg-2">
-                          <input type="text" name="kode_rekening4" id="kode_rekening4" class="form-control" value="<?=$d->kode_rekening4?>" required>
-                          <small id="kode_rekening4" class="text-gray-700"></small>
-                        </div>
-                      </div>
+                    
+                    <div class="col-lg-3 mt-2">
+                        <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                        <input type="text" name="kegiatan" id="kegiatan" class="form-control" value="<?=$d->kegiatan?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
+                        <label for="waktu_pelaksanaan" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
+                        <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control" value="<?=$d->waktu_pelaksanaan?>" required>
+                    </div>
+
+                    <div class="col-lg-3 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
                         <input type="text" name="uraian" id="uraian" class="form-control" value="<?=$d->uraian?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <label for="anggaran" class="text-gray-900 font-weight-bold">Anggaran</label>
-                        <input type="text" name="anggaran" id="anggaran" class="form-control" value="<?=$d->anggaran?>" required>
+                    <div class="col-lg-3 mt-2">
+                        <label for="volume" class="text-gray-900 font-weight-bold">Volume</label>
+                        <input type="text" name="volume" id="volume" class="form-control" value="<?=$d->volume?>" required>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="keterangan" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" id="keterangan" rows="3" value="<?=$d->keterangan?>" required></textarea>
-                        </div>
+                    <div class="col-lg-3 mt-2">
+                        <label for="harga_satuan" class="text-gray-900 font-weight-bold">Harga Satuan</label>
+                        <input type="text" name="harga_satuan" id="harga_satuan" class="form-control" value="<?=$d->harga_satuan?>" required>
+                    </div>
+
+                    <div class="col-lg-3 mt-2">
+                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah</label>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control" value="<?=$d->jumlah?>" required>
                     </div>
 
                     <div class="col-lg-12 form-inline">

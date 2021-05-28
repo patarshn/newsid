@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Apbd extends Admin_Controller {
+class Kas_umum extends Admin_Controller {
 
-    private $_table = 'apbd';
-    private $_folder = 'apbd';
-    private $_mainTitle = 'Buku Anggaran Pendapatan dan Belanja Desa ';
+    private $_table = 'kas_umum';
+    private $_folder = 'kas_umum';
+    private $_mainTitle = 'Buku Kas Umum';
 
     function __construct() {
         parent::__construct();
@@ -16,29 +16,30 @@ class Apbd extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'type','label' => 'type', 'rules' => 'required'],
-            ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'kode_rekening2','label' => 'kode_rekening2', 'rules' => 'required'],
-            ['field' => 'kode_rekening3','label' => 'kode_rekening3', 'rules' => 'required'],
-            ['field' => 'kode_rekening4','label' => 'kode_rekening4', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
-            ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
+            ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
+            ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
+            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
+            ['field' => 'jumlah_komulatif','label' => 'Jumlah Pengeluaran Komulatif', 'rules' => 'required'],
+            ['field' => 'saldo','label' => 'Saldo', 'rules' => 'required'],
+            ['field' => 'thn_anggrn','label' => 'Tahun Anggaran', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'type','label' => 'type', 'rules' => 'required'],
-            ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'kode_rekening2','label' => 'kode_rekening2', 'rules' => 'required'],
-            ['field' => 'kode_rekening3','label' => 'kode_rekening3', 'rules' => 'required'],
-            ['field' => 'kode_rekening4','label' => 'kode_rekening4', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
-            ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
+            ['field' => 'id','label' => 'id', 'rules' => 'required'],
+            ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
+            ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
+            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
+            ['field' => 'jumlah_komulatif','label' => 'Jumlah Pengeluaran Komulatif', 'rules' => 'required'],
+            ['field' => 'saldo','label' => 'Saldo', 'rules' => 'required'],
+            ['field' => 'thn_anggrn','label' => 'Tahun Anggaran', 'rules' => 'required'],
         ];
     }
 
@@ -112,52 +113,51 @@ class Apbd extends Admin_Controller {
                     exit;
                 }
             }
+
             else{
                 $berkas = "";
             }
-
-                $_POST = $this->input->post();
-                $data = array(
-                    'tahun_anggaran' => $_POST['tahun_anggaran'],
-                    'type' => $_POST['type'],
-                    'kode_rekening1' => $_POST['kode_rekening1'],
-                    'kode_rekening2' => $_POST['kode_rekening2'],
-                    'kode_rekening3' => $_POST['kode_rekening3'],
-                    'kode_rekening4' => $_POST['kode_rekening4'],
-                    'uraian' => $_POST['uraian'],
-                    'anggaran' => $_POST['anggaran'],
-                    'keterangan' => $_POST['keterangan'],
-                    'ver_kepala_desa' => "Pending",
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'created_by' =>  $this->session->userdata('username'),
-                    
+            $_POST = $this->input->post();
+            $data = array(
+                'tgl' => $_POST['tgl'],
+                'kode_rekening' => $_POST['kode_rekening'],
+                'uraian' => $_POST['uraian'],
+                'penerimaan' => $_POST['penerimaan'],
+                'pengeluaran' => $_POST['pengeluaran'],
+                'no_bukti' => $_POST['no_bukti'],
+                'jumlah_komulatif' => $_POST['jumlah_komulatif'],
+                'saldo' => $_POST['saldo'],
+                'thn_anggrn' => $_POST['thn_anggrn'],
+                'berkas' => $berkas,
+                'verif_bpd' => "Pending",
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' =>  $this->session->userdata('username'),
+                
+            );
+            if($this->Main_m->store($data,$this->_table)){
+                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                $callback = array(
+                    'status' => 'success',
+                    'message' => 'Data berhasil diinput',
+                    'redirect' => base_url().'admin/'.$this->_folder,
                 );
-                if($this->Main_m->store($data,$this->_table)){
-                    $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
-                    $callback = array(
-                        'status' => 'success',
-                        'message' => 'Data berhasil diinput',
-                        'redirect' => base_url().'admin/'.$this->_folder,
-                    );
-                }
-                else{
-                    //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Mohon Maaf, Pengisian form gagal',
-                    );
-                }
             }
-        
             else{
-                //$this->session->set_flashdata('error_message', validation_errors());
+                //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
                 $callback = array(
                     'status' => 'error',
-                    'message' => validation_errors(),
+                    'message' => 'Mohon Maaf, Pengisian form gagal',
                 );
             }
-            echo json_encode($callback);
-        
+        }
+        else{
+            //$this->session->set_flashdata('error_message', validation_errors());
+            $callback = array(
+                'status' => 'error',
+                'message' => validation_errors(),
+            );
+        }
+        echo json_encode($callback);
     }
 
     function edit($id){
@@ -204,33 +204,32 @@ class Apbd extends Admin_Controller {
             else {
                 $berkas = $_POST["old_file"];
             }
-
             $data = array(
-                'id' => $_POST['id'],
-                'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'type' => $_POST['type'],
-                'kode_rekening1' => $_POST['kode_rekening1'],
-                'kode_rekening2' => $_POST['kode_rekening2'],
-                'kode_rekening3' => $_POST['kode_rekening3'],
-                'kode_rekening4' => $_POST['kode_rekening4'],
+                'tgl' => $_POST['tgl'],
+                'kode_rekening' => $_POST['kode_rekening'],
                 'uraian' => $_POST['uraian'],
-                'anggaran' => $_POST['anggaran'],
-                'keterangan' => $_POST['keterangan'],
-                'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
+                'penerimaan' => $_POST['penerimaan'],
+                'pengeluaran' => $_POST['pengeluaran'],
+                'no_bukti' => $_POST['no_bukti'],
+                'jumlah_komulatif' => $_POST['jumlah_komulatif'],
+                'saldo' => $_POST['saldo'],
+                'thn_anggrn' => $_POST['thn_anggrn'],
+                'berkas' => $berkas,
+                'verif_bpd' => $_POST['verif_bpd'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
 
-            if($_POST['ver_kepala_desa'] != $_POST['ver_kepala_desa_old']){
-                $data['ver_kepala_desa_at'] = date('Y-m-d H:i:s');
+            if($_POST['verif_bpd'] != $_POST['verif_bpd_old']){
+                $data['verif_bpd_at'] = date('Y-m-d H:i:s');
             }
-
+                       
             if($this->Main_m->update($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
-                    'message' => 'Data berhasil diinput',
+                    'message' => 'Data berhasil diupdate',
                     'redirect' => base_url().'admin/'.$this->_folder,
                 );
             }
@@ -238,7 +237,7 @@ class Apbd extends Admin_Controller {
                 $this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
                 $callback = array(
                     'status' => 'error',
-                    'message' => 'Mohon Maaf, Pengisian form gagal',
+                    'message' => 'Mohon Maaf, Update data gagal disimpan',
                 );
             }
         }
@@ -247,7 +246,7 @@ class Apbd extends Admin_Controller {
             $callback = array(
                 'status' => 'error',
                 'message' => validation_errors(),
-            );
+            );          
         }
         echo json_encode($callback);
     }
@@ -270,16 +269,6 @@ class Apbd extends Admin_Controller {
                 }
                 $count++;
             }
-
-            if (!$this->destroy_file($where)) {
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
-                );
-                echo json_encode($callback);
-                exit;
-            }
-
             if($this->Main_m->destroy($this->_table,$where)){
                 
                 $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
@@ -315,10 +304,10 @@ class Apbd extends Admin_Controller {
             $_POST = $this->input->post();
             $where = $_POST['rowdelete'];
             $data = array(              
-                'ver_kepala_desa' => "Disetujui",                             
+                'verif_bpd' => "Disetujui",                             
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
-                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
+                'verif_bpd_at' => date('Y-m-d H:i:s'),
             );
 
             if($this->Main_m->setuju($data,$this->_table,$where)){
@@ -354,10 +343,10 @@ class Apbd extends Admin_Controller {
             $_POST = $this->input->post();
             $where = $_POST['rowdelete'];
             $data = array(              
-                'ver_kepala_desa' => "Ditolak",                             
+                'verif_kepala_desa' => "Ditolak",                             
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
-                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
+                'verif_kepala_desa_at' => date('Y-m-d H:i:s'),
             );
 
             if($this->Main_m->setuju($data,$this->_table,$where)){
@@ -413,8 +402,8 @@ class Apbd extends Admin_Controller {
     }
 
     public function upload_file(){
-        $config['upload_path']      = "./uploads/".$this->_folder."/"; //lokasi
-        $config['allowed_types']    = 'pdf'; //file dizinka
+        $config['upload_path']      = "./administrasikeuangan/".$this->_folder."/"; //lokasi
+        $config['allowed_types']    = 'pdf'; //file dizinkan
         $config['file_name']        = $this->_folder.uniqid();
         $config['overwrite']        = true;
         $config['max_size']         = 2000; // 2MB
@@ -430,14 +419,14 @@ class Apbd extends Admin_Controller {
     }
 
     private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
         foreach ($berkas_id as $b_id) {
             
             if(empty($b_id->berkas)){
                 return true;
             }
 
-            if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
+            if (!unlink(FCPATH."administrasikeuangan/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             

@@ -47,36 +47,28 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="5%">No</th>
-                      <th rowspan="2" width="3%"></th>
-                      <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Type</th>
-                      <th colspan="4">Kode Rekening</th>
-                      <th rowspan="2">Uraian</th>
-                      <th rowspan="2">Anggaran</th>
-                      <th rowspan="2">Keterangan</th>
-                      <th rowspan="2">Verif Kepala Desa</th>
+                      <th width="5%">No</th>
+                      <th width="3%"></th>
+                      <th>Bidang</th>
+                      <th>Kegiatan</th>
+                      <th>Uraian</th>
+                      <th>Tahun Anggaran</th>
+                      <th>Volume</th>
+                      <th>Jumlah</th>
+                      <th width="10%">Verif Kepala Desa</th>
                     </tr>
-
-                    <tr>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                      <th>4</th>
-                    </tr>
-                    
                   </thead>
                   <tfoot>
                     <tr>
                         <th width="5%">No</th>
                         <th width="3%"></th>
-                        <th>Tahun Anggaran</th>
-                        <th>Type</th>
-                        <th colspan="4">Kode Rekening</th>
+                        <th>Bidang</th>
+                        <th>Kegiatan</th>
                         <th>Uraian</th>
-                        <th>Anggaran</th>
-                        <th>Keterangan</th>
-                        <th>Verif Kepala Desa</th>
+                        <th>Tahun Anggaran</th>
+                        <th>Volume</th>
+                        <th>Jumlah</th>
+                        <th width="10%">Verif Kepala Desa</th>
                       </tr>
                   </tfoot>
                   <tbody>
@@ -102,19 +94,17 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tahun_anggaran?></td>
-                      <td><?=$d->type?></td>
-                      <td><?=$d->kode_rekening1?></td>
-                      <td><?=$d->kode_rekening2?></td>
-                      <td><?=$d->kode_rekening3?></td>
-                      <td><?=$d->kode_rekening4?></td>
+                      <td><?=$d->bidang?></td>
+                      <td><?=$d->kegiatan?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->anggaran?></td>
-                      <td><?=$d->keterangan?></td>
+                      <td><?=$d->tahun_anggaran?></td>
+                      <td><?=$d->volume?></td>
+                      <td><?=$d->jumlah?></td>
 
                       </td>
                       <td>
-                        <?php 
+                
+                      <?php 
                         if($d->ver_kepala_desa_at == null){
                           $verif_time = "";
                         }

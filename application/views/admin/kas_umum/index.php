@@ -47,22 +47,15 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="5%">No</th>
-                      <th rowspan="2" width="3%"></th>
-                      <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Type</th>
-                      <th colspan="4">Kode Rekening</th>
-                      <th rowspan="2">Uraian</th>
-                      <th rowspan="2">Anggaran</th>
-                      <th rowspan="2">Keterangan</th>
-                      <th rowspan="2">Verif Kepala Desa</th>
-                    </tr>
-
-                    <tr>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                      <th>4</th>
+                      <th width="5%">No</th>
+                      <th width="3%"></th>
+                      <th>Tanggal</th>
+                      <th>Kode Rekening</th>
+                      <th>Uraian</th>
+                      <th>Penerimaan (Rp.)</th>
+                      <th>Pengeluaran (Rp.)</th>
+                      <th>Tahun Anggaran</th>
+                      <th>Verif Kepala Desa</th>
                     </tr>
                     
                   </thead>
@@ -70,14 +63,14 @@
                     <tr>
                         <th width="5%">No</th>
                         <th width="3%"></th>
-                        <th>Tahun Anggaran</th>
-                        <th>Type</th>
-                        <th colspan="4">Kode Rekening</th>
+                        <th>Tanggal</th>
+                        <th>Kode Rekening</th>
                         <th>Uraian</th>
-                        <th>Anggaran</th>
-                        <th>Keterangan</th>
+                        <th>Penerimaan (Rp.)</th>
+                        <th>Pengeluaran (Rp.)</th>
+                        <th>Tahun Anggaran</th>
                         <th>Verif Kepala Desa</th>
-                      </tr>
+                    </tr>
                   </tfoot>
                   <tbody>
                   
@@ -102,15 +95,12 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tahun_anggaran?></td>
-                      <td><?=$d->type?></td>
-                      <td><?=$d->kode_rekening1?></td>
-                      <td><?=$d->kode_rekening2?></td>
-                      <td><?=$d->kode_rekening3?></td>
-                      <td><?=$d->kode_rekening4?></td>
+                      <td><?=$d->tanggal?></td>
+                      <td><?=$d->kode_rekening?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->anggaran?></td>
-                      <td><?=$d->keterangan?></td>
+                      <td><?=$d->penerimaan?></td>
+                      <td><?=$d->pengeluaran?></td>
+                      <td><?=$d->tahun_anggaran?></td>
 
                       </td>
                       <td>
@@ -165,4 +155,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>s

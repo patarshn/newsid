@@ -47,36 +47,34 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="5%">No</th>
+                      <th rowspan="2" width="5%">No Urut</th>
                       <th rowspan="2" width="3%"></th>
-                      <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Type</th>
-                      <th colspan="4">Kode Rekening</th>
+                      <th rowspan="2">Tanggal</th>
                       <th rowspan="2">Uraian</th>
-                      <th rowspan="2">Anggaran</th>
-                      <th rowspan="2">Keterangan</th>
+                      <th colspan="2">Penerimaan (Rp.)</th>
+                      <th colspan="2">Pengeluaran (Rp.)</th>
+                      <th rowspan="2">Tahun Anggaran</th>
                       <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
 
                     <tr>
-                      <th>1</th>
-                      <th>2</th>
-                      <th>3</th>
-                      <th>4</th>
+                      <th>Dari Bendahara</th>
+                      <th>Swadaya Masyarakat</th>
+                      <th>Belanja Barang dan Jasa</th>
+                      <th>Belanja Modal</th>
                     </tr>
                     
                   </thead>
                   <tfoot>
                     <tr>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Tahun Anggaran</th>
-                        <th>Type</th>
-                        <th colspan="4">Kode Rekening</th>
-                        <th>Uraian</th>
-                        <th>Anggaran</th>
-                        <th>Keterangan</th>
-                        <th>Verif Kepala Desa</th>
+                      <th width="5%">No Urut</th>
+                      <th width="3%"></th>
+                      <th>Tanggal</th>
+                      <th>Uraian</th>
+                      <th colspan="2">Penerimaan (Rp.)</th>
+                      <th colspan="2">Pengeluaran (Rp.)</th>
+                      <th>Tahun Anggaran</th>
+                      <th>Verif Kepala Desa</th></th>
                       </tr>
                   </tfoot>
                   <tbody>

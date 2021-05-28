@@ -52,7 +52,7 @@
                       <th>Tanggal</th>
                       <th>Nama/Lembaga Pihak Penyampai Aspirasi</th>
                       <th>Aspirasi yang Disampaikan</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th>Verif Kepala Desa</th>
                     </tr>
                   </thead>
                   <tfoot>
