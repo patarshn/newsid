@@ -1,0 +1,180 @@
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Content Row -->
+
+          <div class="row">
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between border-bottom-primary">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                  <?=$breadcrumb?>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+          <div class="row">
+          <?php if($this->session->flashdata('success_message')): ?>
+	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
+            <?php endif ?>
+                <div class="alert alert-danger col d-none" id="error-message"></div> 
+            <!-- Area Chart -->
+            <div class="col-xl-12 col-lg-12">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
+                  <div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-warning">Batal</button>
+                    </div>
+                  </div>
+                </div> 
+                <!-- Card Body -->
+                <div class="card-body border-bottom-primary">
+                <?=form_open(base_url('buku_mutasi_penduduk/store'),'id="form"')?>
+                <h3 class="text-gray-900"></h3>
+
+                <div class="form-row">
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                        <label for="bulan_tahun"><b>Bulan dan Tahun Mutasi</b></label>
+                        <input type="bulan_number" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-12 ">
+                    <div class="form-group">
+                        <label for="nama"><b>Nama</b></label>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="jk"><b>Jenis Kelamin</b></label>
+                        <select name="jk" id="jk" class="form-control" placeholder="Jenis Kelamin" required>
+                            <option>- Pilih -</option>
+                            <option value="L">L</option>
+                            <option value="P">P</option>
+                        </select>
+                        <small id="abb_apb_desa" class="text-gray-700">L = Laki-Laki <br> P = Perempuan</small>
+                    </div> 
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="tempat_lahir"><b>Tempat Lahir</b></label>
+                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="tgl_lahir"><b>Tanggal Lahir</b></label>
+                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" placeholder="Tanggal Lahir" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="wn"><b>Kewarganegaraan</b></label>
+                        <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
+                            <option>- Pilih -</option>
+                            <option value="WNI">WNI</option>
+                            <option value="WNA">WNA</option>
+                        </select>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                    <h4><b>Penambahan</b></h4>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="datang"><b>Datang Dari (Tempat/Alamat Asal)</b></label>
+                        <input type="text" name="datang" id="datang" class="form-control border-left-primary" placeholder="Asal tempat dan alamat semula">
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="tgl_datang"><b>Tanggal Datang</b></label>
+                        <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="Tanggal datang ke desa" >
+                    </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                    <h4><b>Pengurangan</b></h4>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="pindah"><b>Pindah Ke (Lokasi Tujuan)</b></label>
+                        <input type="text" name="pindah" id="pindah" class="form-control border-left-primary" placeholder="Lokasi tujuan pindah">
+                    </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                          <label for="tgl_pindah"><b>Tanggal Pindah</b></label>
+                          <input type="date" name="tgl_pindah" id="tgl_pindah" class="form-control border-left-primary" placeholder="Tanggal Kepindahan">
+                      </div>
+                      </div>
+
+                  
+                      <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="meninggal"><b>Tempat/Alamat Meninggal</b></label>
+                          <input type="text" name="meninggal" id="meninggal" class="form-control border-left-primary" placeholder="Tempat/Alamat Meninggal">
+                      </div>
+                      </div>
+
+                      <div class="col-lg-6">
+                      <div class="form-group">
+                          <label for="tgl_meninggal"><b>Tanggal Meninggal</b></label>
+                          <input type="date" name="tgl_meninggal" id="tgl_meninggal" class="form-control border-left-primary" placeholder="">
+                      </div>
+                      </div>
+
+                
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="ket"><b>Keterangan</b></label>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Isikan Keterangan jika diperlukan"></textarea>
+                        </div>                   
+                    </div>
+                </div>
+                <?=form_close()?>
+                
+                  <div class="d-flex mt-3">
+                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
+                        <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+            

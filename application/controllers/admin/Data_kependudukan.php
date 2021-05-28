@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_kependudukan extends Admin_Controller{
 
-    private $_table = 'data_kependudukan';
+    private $_table = 'ktp_kk';
     private $_folder = 'data_kependudukan';
     private $_docxName = 'data_kependudukan.docx';
     private $_mainTitle = 'Data Kependudukan';
