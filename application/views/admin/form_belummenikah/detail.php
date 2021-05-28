@@ -115,14 +115,14 @@
                             <td>Berkas KTP</td>
                             <td>:</td>
                             <td>
-                            <img src="<?=base_url('uploads/form_belummenikah/'.$berkas->file_ktp)?>" width="50%">
+                            <img src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_ktp)?>" width="50%">
                             </td>
                         </tr>
                         <tr>
                             <td>Berkas KK</td>
                             <td>:</td>
                             <td>
-                            <img src="<?=base_url('uploads/form_belummenikah/'.$berkas->file_kk)?>" width="50%">
+                            <img src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_kk)?>" width="50%">
                             </td>
                         </tr>
                         <tr>

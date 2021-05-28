@@ -146,25 +146,7 @@
                             <img id="file_kk_preview" src="#" alt="your image" width="200" />
                         </div>
                     </div>
-                    <script>
-                    
-                        $('#file_ktp').change(function(){
-                            if (this.files && this.files[0]) {
-                                var reader = new FileReader();
-                                reader.onload = function (e) {
-                                    $('#file_ktp_preview').attr('src', e.target.result);
-                                }
-                                reader.readAsDataURL(this.files[0]);
-                            }
-                        });
-
-                        $('#file_kk').change(function(){
-                            var file_kk_tmp = file_kk.files[0]
-                            if (file_kk_tmp) {
-                                file_kk_preview.src = URL.createObjectURL(file_kk_tmp)
-                            }
-                        });
-                    </script>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                 </div>
                 
             <?=form_close()?>
