@@ -5,6 +5,7 @@ class Form_tatin extends Frontend_Controller{
     
     private $_table = 'form_tatin';
     private $_folder = 'form';
+    private $_folderUpload = 'form_tatin';
     private $_docxName = 'form_tatin';
     private $_mainTitle = 'Form Keterangan Imunisasi';  
     private $_fileName = 'form_tatin';
@@ -75,6 +76,46 @@ class Form_tatin extends Frontend_Controller{
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
             $_POST = $this->input->post();
+            $nik = $_POST['nik_p'];
+            if(!empty($_FILES["file_ktp"]["name"])){
+                $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
+                $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
+                $berkas_tmp = $this->upload_file('file_ktp',$upload_path,$file_name);
+                if(!$berkas_tmp){
+                    echo $this->upload->display_errors();
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, file ktp gagal diupload',
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
+                $berkas['file_ktp'] = $berkas_tmp;
+            }
+            else{
+                $berkas['file_ktp'] = "";
+            }
+            
+
+            if(!empty($_FILES["file_kk"]["name"])){
+                $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
+                $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
+                $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
+                if(!$berkas_tmp){
+                    echo $this->upload->display_errors();
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, file kk gagal diupload',
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
+                $berkas['file_kk'] = $berkas_tmp;
+            }
+            else{
+                $berkas['file_kk'] = "";
+            }
+
             $data = array(
                 'nik_p' => $_POST['nik_p'],
                 'nama_p' => $_POST['nama_p'],
@@ -101,6 +142,7 @@ class Form_tatin extends Frontend_Controller{
                 'kecamatan_l' => $_POST['kecamatan_l'],
                 'kabupaten_l' => $_POST['kabupaten_l'],                            
                 'created_at' => date('Y-m-d H:i:s'),
+                'berkas' => json_encode($berkas),
             );
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

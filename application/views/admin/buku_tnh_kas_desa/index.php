@@ -52,7 +52,6 @@
                       <th>Asal Tanah Kas Desa</th>
                       <th>Nomor Sertifikat Buku Letter C/Persil</th>
                       <th>Luas</th>
-                      <th>Kelas</th>
                       <th>Pengajuan</th>
                       <th width="10%">Verif Kepala Desa</th>
                     </tr>
@@ -64,7 +63,6 @@
                       <th>Asal Tanah Kas Desa</th>
                       <th>Nomor Sertifikat Buku Letter C/Persil</th>
                       <th>Luas</th>
-                      <th>Kelas</th>
                       <th>Pengajuan</th>
                       <th>Verif Kepala Desa</th>
                     </tr>
@@ -95,7 +93,6 @@
                       <td><?=$d->asal_tnh_kas?></td>
                       <td><?=$d->no_serti_letterc_persil?></td>
                       <td><?=$d->luas?></td>
-                      <td><?=$d->kelas?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);

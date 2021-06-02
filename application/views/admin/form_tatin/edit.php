@@ -39,6 +39,7 @@
                 <?php 
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
+                    $berkas = json_decode($d->berkas);
                 ?>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 <h5>Data Perempuan (Pengaju)/Istri</h5>
@@ -148,6 +149,23 @@
                         <label for="rw_l">RW</label>
                         <input type="text" name="rw_l" id="rw_l" class="form-control" placeholder="RW" value="<?=$d->rw_l?>" required>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_ktp">Upload KTP Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
+                            <img id="file_ktp_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_ktp)?>" width="200px">
+                            <input type="hidden" class="form-control-file" id="file_ktp_old" name="file_ktp_old" value="<?=$berkas->file_ktp?>">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_kk">Upload KK Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_kk" name="file_kk">
+                            <img id="file_kk_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_kk)?>" width="200px">
+                            <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
+                        </div>
+                    </div>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                     <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Lurah : </label>
                         <br>

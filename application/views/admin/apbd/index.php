@@ -1,5 +1,5 @@
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
           <!-- Content Row -->
 
           <div class="row">
@@ -9,7 +9,7 @@
             
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between border-bottom-primary">
                   <h6 class="m-0 font-weight-bold text-primary">
                   <?=$breadcrumb?>
                   </h6>
@@ -26,38 +26,59 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
               <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
-              <div>                
-                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')"><i class="fa fa-plus"></i>Tambah Data</button>
-                    <button type="button" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+              <div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
+                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+										<div class="dropdown-menu">
+                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
+										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
+										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+										</div>
+                </div>
               </div>
             </div>
-            
             <div class="card-body">
               <div class="table-responsive">
-               <form method="POST" id="formdelete" action="/kk/destroy">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <form method="POST" id="formdelete">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th width="5%">Kode Rekening</th>
-                      <th>Uraian</th>
-                      <th>Anggaran</th>
-                      <th>Keterangan</th>
-                      <th width="13%">Option</th>
+                      <th rowspan="2" width="5%">No</th>
+                      <th rowspan="2" width="3%"></th>
+                      <th rowspan="2">Tahun Anggaran</th>
+                      <th rowspan="2">Type</th>
+                      <th colspan="4">Kode Rekening</th>
+                      <th rowspan="2">Uraian</th>
+                      <th rowspan="2">Anggaran</th>
+                      <th rowspan="2">Keterangan</th>
+                      <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
-                  </thead>
-                  <!-- <tfoot>
+
                     <tr>
-                      <th width="5%">No</th>
-                      <th>Nama/Jenis</th>
-                      <th>Lokasi</th>
-                      <th>Total Biaya</th>
-                      <th>Pelaksana</th>
-                      <th>Manfaat</th>
-                      <th width="13%">Option</th>>
+                      <th>1</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
                     </tr>
-                  </tfoot> -->
+                    
+                  </thead>
+                  <tfoot>
+                    <tr>
+                        <th width="5%">No</th>
+                        <th width="3%"></th>
+                        <th>Tahun Anggaran</th>
+                        <th>Type</th>
+                        <th colspan="4">Kode Rekening</th>
+                        <th>Uraian</th>
+                        <th>Anggaran</th>
+                        <th>Keterangan</th>
+                        <th>Verif Kepala Desa</th>
+                      </tr>
+                  </tfoot>
                   <tbody>
                   
                   <?php 
@@ -65,83 +86,50 @@
                   foreach ($data as $d): ?>
                     <tr>
                     <td>
-                        <input type="checkbox" name="rowdelete[]" value="<?=$d->kode_rekening?>" class="rowdelete">
+                        <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
                         <?=$count++;?>
                       </td>
+                      <td><div class="dropdown no-arrow">
+                      <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                          <div class="dropdown-header">Actions:</div>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
+                          <!--<div class="dropdown-divider"></div>-->
+                          </div>
+                        </div>
+                      </td>
+                      <td><?=$d->tahun_anggaran?></td>
+                      <td><?=$d->type?></td>
+                      <td><?=$d->kode_rekening1?></td>
+                      <td><?=$d->kode_rekening2?></td>
+                      <td><?=$d->kode_rekening3?></td>
+                      <td><?=$d->kode_rekening4?></td>
                       <td><?=$d->uraian?></td>
                       <td><?=$d->anggaran?></td>
                       <td><?=$d->keterangan?></td>
-                      <td> <div">
-                            <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>"><i class="fa fa-pen"></i> Edit</a>
-                            <a class="btn btn-info"  data-toggle="modal" data-target="#myModal<?=$d->id?>"
-                            title="Show Data" data-toggle="modal"><span class="glyphicon glyphicon-eye-open">Detail</span></a>
-<!-- Modal -->
-                      <div id="myModal<?=$d->id?>" class="modal fade" role="dialog">
-                          <div class="modal-dialog modal-lg">
-                              <!-- konten modal-->
-                              <div class="modal-content">
-                              <!-- heading modal -->
-                              <div class="modal-header border-bottom-info">
-                                  <h8 class="modal-title"><b>Rencana Kegiatan Pembangunan: <?=$d->nama_proyek?></b></h8>
-                              </div>
-                              <!-- body modal -->
-                              <div class="modal-body">
-                                  <div class="row">
-                                      <div class="col-lg-12">
-                                      <div class="card mb-4 py-3 border-bottom-info">
-                                          <div class="card-body">
-                                          <table class="table table-bordered table-hover border-left-info">
-                                              <thead>
-                                                  <tr><th>Nama Proyek/Kegiatan</th>
-                                                  <td><?=$d->nama_proyek?></td></tr>
 
-                                                  <tr><th>Lokasi</th>
-                                                  <td><?=$d->lokasi?></td></tr>                                                                                      
-
-                                                  <tr><th>Pelaksana</th>
-                                                  <td><?=$d->pelaksana?></td></tr>
-
-                                                  <tr><th>Manfaat</th>
-                                                  <td><?=$d->manfaat?></td></tr>
-                                                  
-                                                  <tr><th>Keterangan</th>
-                                                  <td><?=$d->ket?></td></tr>
-                                                 </thead>
-                                              </table>                                            
-                                        
-                                              <h8><b> Sumber Dana / Besaran Biaya</b></h8>
-                                              <table class="table table-bordered table-hover border-left-info">
-                                              <thead>
-                                              <tr><th>Pemerintah</th>
-                                                  <td style="text-align:right"><?=$d->biaya_pemerintah?></td></tr>
-
-                                                  <tr><th>Provinsi</th>
-                                                  <td style="text-align:right"><?=$d->biaya_prov?></td></tr> 
-
-                                                  <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:right"><?=$d->biaya_kab?></td></tr>
-
-                                                  <tr class="border-bottom-info"><th>Swadaya</th>
-                                                  <td style="text-align:right"><?=$d->biaya_swadaya?></td></tr>
-
-                                                  <tr><th>Total Biaya</th>
-                                                  <td style="text-align:right"><?=$d->jumlah?></td></tr>
-                                                 </thead>
-                                              </table>
-                                        </div>
-                                    </div>
-                              </div>
-                        </div>
-                    </div>
-                                <!-- footer modal -->
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
-                                  </div>
-                              </div>
-                           </div>
-                        </div>
-<!-- Modal -->
-                        </div>
+                      </td>
+                      <td>
+                        <?php 
+                        if($d->ver_kepala_desa_at == null){
+                          $verif_time = "";
+                        }
+                        else{
+                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
+                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
+                        }
+                        ?>
+                        <?php if($d->ver_kepala_desa == 'Pending'):?>
+                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
+                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
+                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
+                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
+                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
+                        <?php endif;?>
                       </td>
                     </tr>
                   <?php endforeach;?>
@@ -152,19 +140,18 @@
             </div>
           </div>
           
-
         </div>
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
 
-<!-- SUBMIT FORMDELETE MODAL -->
+<!-- SUBMIT FORM DELETE MODAL -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete Modal</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Hapus Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -173,10 +160,9 @@
         Data yang akan dihapus tidak dapat dikembalikan lagi, konfirmasi untuk menghapus data.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Hapus</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
       </div>
     </div>
   </div>
 </div>
-

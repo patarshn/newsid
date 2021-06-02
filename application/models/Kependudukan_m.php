@@ -2,8 +2,8 @@
 
 class Kependudukan_m extends MY_Model
 {
-    private $_table = 'data_kependudukan';
-    var $table = 'data_kependudukan'; //nama tabel dari database
+    private $_table = 'ktp_kk';
+    var $table = 'ktp_kk'; //nama tabel dari database
     var $column_order = array(null, 'nkk','nik','nama','rt','rw','created_at'); //field yang ada di table user
     var $column_search = array('nkk','nik','nama','rt','rw','created_at'); //field yang diizin untuk pencarian 
     var $order = array('id' => 'asc'); // default order 

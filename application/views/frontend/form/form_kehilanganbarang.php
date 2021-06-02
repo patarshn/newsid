@@ -78,6 +78,21 @@
 3.dst.."></textarea>
                         </div>
                     </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_ktp">Upload KTP Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
+                            <img id="file_ktp_preview" src="#" alt="your image" width="200"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="file_kk">Upload KK Pengaju</label>
+                            <input type="file" class="form-control-file" id="file_kk" name="file_kk">
+                            <img id="file_kk_preview" src="#" alt="your image" width="200" />
+                        </div>
+                    </div>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                 </div>
             <?=form_close()?>
                 

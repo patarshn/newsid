@@ -37,7 +37,6 @@ class Buku_tnh_kas_desa extends Admin_Controller {
             ['field' => 'papan_tdkada','label' => 'papan_tdkada', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'lokasi', 'rules' => 'required'],
             ['field' => 'peruntukkan','label' => 'peruntukkan', 'rules' => 'required'],
-            ['field' => 'mutasi','label' => 'mutasi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
@@ -65,7 +64,6 @@ class Buku_tnh_kas_desa extends Admin_Controller {
             ['field' => 'papan_tdkada','label' => 'papan_tdkada', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'lokasi', 'rules' => 'required'],
             ['field' => 'peruntukkan','label' => 'peruntukkan', 'rules' => 'required'],
-            ['field' => 'mutasi','label' => 'mutasi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
