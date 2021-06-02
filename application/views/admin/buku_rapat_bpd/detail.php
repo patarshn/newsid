@@ -33,44 +33,38 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Agenda Surat Keluar BPD : <?=$d->tgl?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Rapat BPD: <?=$d->tgl?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
 
                                     <tr>
-                                        <th width="50%">Tanggal</th>
-                                        <td><?=$d->tgl?></td>
+                                        <th width="50%">Agenda Rapat</th>
+                                        <td><?=$d->agenda?></td>
                                     </tr >
 
                                     <tr>
-                                        <th>Nomor dan Tanggal Surat Keluar</th>
-                                        <td><?=$d->no_dan_tgl_surat_keluar?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Uraian Singkat</th>
-                                        <td><?=$d->uraian_singkat?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Tujuan</th>
-                                        <td><?=$d->tujuan?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Keterangan</th>
-                                        <td><?=$d->ket?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Berkas</th>
+                                        <th>Berkas Daftar Hadir Rapat</th>
                                         <td>
-                                        <?php if($d->berkas != null):?>
-                                        <?=$d->berkas?>
+                                        <?php if($d->berkas1 != null):?>
+                                        <?=$d->berkas1?>
                                         <br>
-                                        <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
+                                        <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas1?>" target="_blank">Unduh Berkas</a>
+                                        <?php else :?>
+                                        berkas Tidak ada
+                                        <?php endif; ?>
+                                        </td>
+                                        
+                                    </tr >
+
+                                    <tr>
+                                        <th>Berkas Notulen Rapat</th>
+                                        <td>
+                                        <?php if($d->berkas2 != null):?>
+                                        <?=$d->berkas2?>
+                                        <br>
+                                        <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas2?>" target="_blank">Unduh Berkas</a>
                                         <?php else :?>
                                         berkas Tidak ada
                                         <?php endif; ?>

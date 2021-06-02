@@ -43,19 +43,19 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="no_dan_tgl_peraturan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control" value="<?=$d->no_dan_tgl_peraturan?>" required>
+                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_peraturan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control" value="<?=$d->tentang?>" required>
+                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" value="<?=$d->tentang?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label"><?=$d->berkas?></label>
+                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
@@ -63,14 +63,14 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
+                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
                         </div>
                     </div>
 

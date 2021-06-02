@@ -35,42 +35,45 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?=form_open_multipart(base_url('buku_data_peraturan_bpd/store'),'id="form"')?>
+                <?=form_open_multipart(base_url('buku_rapat_bpd/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_peraturan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control border-left-primary" required>
+                        <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal Rapat</label>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
+                        <label for="agenda" class="text-gray-900 font-weight-bold">Agenda Rapat</label>
+                        <input type="text" name="agenda" id="agenda" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
+                        <label for="buku_daftar_hadir" class="text-gray-900 font-weight-bold">Buku Daftar Hadir Rapat</label>
+                        <a href="<?=base_url('administrasilainnya\buku_rapat_bpd/BUKU DAFTAR HADIR RAPAT BPD.docx')?>" class="btn btn-primary" role="button">Unduh</a>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="buku_notulen" class="text-gray-900 font-weight-bold">Buku Notulen Rapat</label>
+                        <a href="<?=base_url('administrasilainnya\buku_rapat_bpd/BUKU NOTULEN RAPAT BPD.docx')?>" class="btn btn-primary" role="button">Unduh</a>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                    <label class="text-gray-900 font-weight-bold">Upload Berkas Daftar Hadir Rapat</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <label for="berkas1" class="custom-file-label border-left-primary">Pilih Berkas</label>
+                          <input type="file" class="custom-file-input" id="berkas1" name="berkas1">
                       </div>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
-                        </div>
+                    <div class="col-lg-6 mt-3">
+                    <label class="text-gray-900 font-weight-bold">Upload Berkas Notulen Rapat</label>
+                      <div class="custom-file">
+                          <label for="berkas2" class="custom-file-label border-left-primary">Pilih Berkas</label>
+                          <input type="file" class="custom-file-input" id="berkas2" name="berkas2">
+                      </div>
                     </div>
 
-
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
-                        </div>
-                    </div>
-                </div>
                 <?=form_close()?>
                 
                 <div class="d-flex mt-3">

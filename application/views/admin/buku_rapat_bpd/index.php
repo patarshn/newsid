@@ -32,12 +32,12 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
-										<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
-										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
-										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
-										</div>
+					<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
+					<div class="dropdown-menu">
+                    <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
+					<button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
+					<button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+					</div>
                 </div>
               </div>
             </div>
@@ -49,9 +49,8 @@
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>Nomor dan Tanggal Peraturan/Keputusan BPD</th>
-                      <th>Tentang</th>
-                      <th>Uraian Singkat</th>
+                      <th>Tanggal Rapat</th>
+                      <th>Agenda Rapat</th>
                       <th width="10%">Verif Kepala BPD</th>
                     </tr>
                   </thead>
@@ -59,9 +58,8 @@
                     <tr>
                     <th width="5%">No</th>
                     <th width="3%"></th>
-                    <th>Nomor dan Tanggal Peraturan/Keputusan BPD</th>
-                    <th>Tentang</th>
-                    <th>Uraian Singkat</th>
+                    <th>Tanggal Rapat</th>
+                    <th>Agenda Rapat</th>
                     <th width="10%">Verif Kepala BPD</th>
                     </tr>
                   </tfoot>
@@ -88,9 +86,8 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->no_dan_tgl_peraturan?></td>
-                      <td><?=$d->tentang?></td>
-                      <td><?=$d->uraian_singkat?></td>
+                      <td><?=$d->tgl?></td>
+                      <td><?=$d->agenda?></td>
                       <td>
                         <?php 
                         if($d->verif_bpd_at == null){

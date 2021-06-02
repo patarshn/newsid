@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Buku_laporan_keuangan extends Admin_Controller {
+class Buku_data_peraturan_desa extends Admin_Controller {
 
-    private $_table = 'buku_laporan_keuangan';
-    private $_folder = 'buku_laporan_keuangan';
-    private $_mainTitle = 'Buku Laporan Keuangan BPD';
+    private $_table = 'buku_data_peraturan_desa';
+    private $_folder = 'buku_data_peraturan_desa';
+    private $_mainTitle = 'Buku Data Peraturan Desa';
 
     function __construct() {
         parent::__construct();
@@ -16,24 +16,22 @@ class Buku_laporan_keuangan extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
-            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
-            ['field' => 'jml_penerimaan','label' => 'Jumlah Penerimaan', 'rules' => 'required'],
-            ['field' => 'jml_pengeluaran','label' => 'Jumlah Pengeluaran', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_peraturan_desa','label' => 'Nomor dan Tanggal Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_kesepakatan','label' => 'Nomor dan Tanggal Kesepakatan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
-            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
-            ['field' => 'jml_penerimaan','label' => 'Jumlah Penerimaan', 'rules' => 'required'],
-            ['field' => 'jml_pengeluaran','label' => 'Jumlah Pengeluaran', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_peraturan_desa','label' => 'Nomor dan Tanggal Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_kesepakatan','label' => 'Nomor dan Tanggal Kesepakatan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -111,15 +109,13 @@ class Buku_laporan_keuangan extends Admin_Controller {
             else{
                 $berkas = "";
             }
-
             $_POST = $this->input->post();
             $data = array(
-                'tgl' => $_POST['tgl'],
-                'uraian' => $_POST['uraian'],
-                'penerimaan' => $_POST['penerimaan'],
-                'pengeluaran'=> $_POST['pengeluaran'],
-                'jml_penerimaan' => $_POST['jml_penerimaan'],
-                'jml_pengeluaran' => $_POST['jml_pengeluaran'],
+                'no_dan_tgl_peraturan_desa' => $_POST['no_dan_tgl_peraturan_desa'],
+                'tentang' => $_POST['tentang'],
+                'uraian_singkat' => $_POST['uraian_singkat'],
+                'no_dan_tgl_kesepakatan' => $_POST['no_dan_tgl_kesepakatan'],
+                'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'verif_bpd' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
@@ -196,18 +192,17 @@ class Buku_laporan_keuangan extends Admin_Controller {
             else {
                 $berkas = $_POST["old_file"];
             }
-
             $data = array(
-                'tgl' => $_POST['tgl'],
-                'uraian' => $_POST['uraian'],
-                'penerimaan' => $_POST['penerimaan'],
-                'pengeluaran' => $_POST['pengeluaran'],
-                'jml_penerimaan' => $_POST['jml_penerimaan'],
-                'jml_pengeluaran' => $_POST['jml_pengeluaran'],
+                'no_dan_tgl_peraturan_desa' => $_POST['no_dan_tgl_peraturan_desa'],
+                'tentang' => $_POST['tentang'],
+                'uraian_singkat' => $_POST['uraian_singkat'],
+                'no_dan_tgl_kesepakatan' => $_POST['no_dan_tgl_kesepakatan'],
+                'ket' => $_POST['ket'],
                 'berkas' => $berkas,
-                'verif_bpd' => $_POST['verif_bpd'], 
+                'verif_bpd' => $_POST['verif_bpd'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
+                
             );
 
             if($_POST['verif_bpd'] != $_POST['verif_bpd_old']){
@@ -416,7 +411,7 @@ class Buku_laporan_keuangan extends Admin_Controller {
             echo $this->upload->display_errors();
         }    
     }
-    
+
     private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
         foreach ($berkas_id as $b_id) {

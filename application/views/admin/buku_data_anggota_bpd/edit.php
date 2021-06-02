@@ -43,19 +43,19 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="nama" class="text-gray-900 font-weight-bold">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control" value="<?=$d->nama?>" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" value="<?=$d->nama?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
-                        <input type="text" name="nip" id="nip" class="form-control" value="<?=$d->nip?>" required>
+                        <input type="text" name="nip" id="nip" class="form-control border-left-primary" value="<?=$d->nip?>" required>
                     </div>
 
 
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="jenis_kelamin" class="text-gray-900 font-weight-bold">Jenis Kelamin</label>
-                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control"required>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary"required>
                                 <option>-</option>
                                 <option value="LAKI-LAKI" <?= $d->jenis_kelamin == "LAKI-LAKI" ? "selected": "" ?>>Laki-Laki</option>
                                 <option value="PEREMPUAN" <?= $d->jenis_kelamin == "PEREMPUAN" ? "selected": "" ?>>Perempuan</option>                                
@@ -66,7 +66,7 @@
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="agama" class="text-gray-900 font-weight-bold">Agama</label>
-                            <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                            <select name="agama" id="agama" class="form-control border-left-primary" placeholder="Agama" required>
                                 <option>-</option>
                                 <option value="Islam">Islam</option>
                                 <option value="Kristen">Kristen</option>
@@ -80,39 +80,39 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="tempat_lahir" class="text-gray-900 font-weight-bold">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" value="<?=$d->tempat_lahir?>" required>
+                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" value="<?=$d->tempat_lahir?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="tgl_lahir" class="text-gray-900 font-weight-bold">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" value="<?=$d->tgl_lahir?>" required>
+                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" value="<?=$d->tgl_lahir?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jabatan" class="text-gray-900 font-weight-bold">Jabatan</label>
-                        <input type="text" name="jabatan" id="jabatan" class="form-control" value="<?=$d->jabatan?>" required>
+                        <input type="text" name="jabatan" id="jabatan" class="form-control border-left-primary" value="<?=$d->jabatan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pendidikan_terakhir" class="text-gray-900 font-weight-bold">Pendidikan Terakhir</label>
-                        <input type="text" name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control" value="<?=$d->pendidikan_terakhir?>" required>
+                        <input type="text" name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control border-left-primary" value="<?=$d->pendidikan_terakhir?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="no_tgl_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pengangkatan</label>
-                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control" value="<?=$d->no_tgl_keputusan_pengangkatan?>" required>
+                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_pengangkatan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="no_tgl_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pemberhentian</label>
-                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control" value="<?=$d->no_tgl_keputusan_pemberhentian?>" required>
+                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_pemberhentian?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label"><?=$d->berkas?></label>
+                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
@@ -120,7 +120,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
                         </div>
                     </div>
                 </div>

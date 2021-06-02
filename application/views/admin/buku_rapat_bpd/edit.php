@@ -33,52 +33,41 @@
                     </div>
                   </div>
                 </div>
+
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('buku_agenda_surat_keluar/update'),'id="form"');
+                <?php echo form_open(base_url('buku_rapat_bpd/update'),'id="form"');
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal Rapat</label>
                         <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_surat_keluar" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat Keluar</label>
-                        <input type="text" name="no_dan_tgl_surat_keluar" id="no_dan_tgl_surat_keluar" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_surat_keluar?>" required>
+                        <label for="agenda" class="text-gray-900 font-weight-bold">Agenda Rapat</label>
+                        <input type="text" name="agenda" id="agenda" class="form-control border-left-primary" value="<?=$d->agenda?>" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
-                    <input type="hidden" name="old_file" value=<?=$d->berkas?>>
-                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
+                    <input type="hidden" name="old_file" value=<?=$d->berkas1?>>
+                    <label class="text-gray-900 font-weight-bold">Upload Berkas Daftar Hadir Rapat</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <label for="berkas1" class="custom-file-label border-left-primary"><?=$d->berkas1?></label>
+                          <input type="file" class="custom-file-input" id="berkas1" name="berkas1">
                       </div>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="tujuan" class="text-gray-900 font-weight-bold">Tujuan</label>
-                            <textarea class="form-control border-left-primary" name="tujuan" id="tujuan" rows="3" required><?=$d->tujuan?></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
-                        </div>
+                    <div class="col-lg-6 mt-3">
+                    <input type="hidden" name="old_file" value=<?=$d->berkas2?>>
+                    <label class="text-gray-900 font-weight-bold">Upload Berkas Notulen Rapat</label>
+                      <div class="custom-file">
+                          <label for="berkas2" class="custom-file-label border-left-primary"><?=$d->berkas2?></label>
+                          <input type="file" class="custom-file-input" id="berkas2" name="berkas2">
+                      </div>
                     </div>
 
                     <div class="col-lg-12 form-inline">
@@ -97,7 +86,7 @@
                           <input type="radio" name="verif_bpd" id="verif_bpd3" value="Ditolak" class="form-control" <?php if($d->verif_bpd == "Ditolak"){echo "checked";}?>>
                           <label class="form-check-label" for="verif_bpd3">Ditolak</label>
                         </div>
-                    </div>  
+                    </div>
                 </div>
 
 
