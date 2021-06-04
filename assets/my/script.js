@@ -140,7 +140,7 @@ $(document).ready(function() {
   $('#dataTable').DataTable( {
       dom: 
       '<"row"<"col-6"<"d-flex justify-content-start"lB>><"col-6"f>>rtip',
-      "aLengthMenu": [[10,25, 50, 100, -1], [25, 50, 100, "All"]],
+      "aLengthMenu": [[10, 25, 50, 100], [10, 25, 50, "All"]],
       "iDisplayLength": 10,
       "columnDefs": [
         { "orderable": false, "targets": 0 }
