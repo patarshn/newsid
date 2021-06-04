@@ -5,6 +5,7 @@ class Form_usaha extends Admin_Controller{
 
     private $_table = 'form_usaha';
     private $_folder = 'form_usaha';
+    private $_folderUpload = 'form_tatin';
     private $_docxName = 'form_usaha.docx';
     private $_mainTitle = 'Form Usaha';
 
@@ -87,6 +88,53 @@ class Form_usaha extends Admin_Controller{
             $_POST = $this->input->post();
             $id = $_POST['id'];
             $where = ['id'=>$id];
+
+            $nik = $_POST['nik'];
+            if(!empty($_FILES["file_ktp"]["name"])){
+                $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
+                $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
+                $berkas_tmp = $this->upload_file('file_ktp',$upload_path,$file_name);
+                if(!$berkas_tmp){
+                    echo $this->upload->display_errors();
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, file ktp gagal diupload',
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
+                $berkas['file_ktp'] = $berkas_tmp;
+                if(!$this->destroy_file($where,'file_ktp')){
+                    $berkas['file_ktp'] = $_POST['file_kk_old'];
+                }
+            }
+            else{
+                $berkas['file_ktp'] = $_POST['file_ktp_old'];
+            }
+            
+
+            if(!empty($_FILES["file_kk"]["name"])){
+                $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
+                $file_name = 'kk_'.$nik.'_'.date('YmdHis').'_'.uniqid();
+                $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
+                if(!$berkas_tmp){
+                    echo $this->upload->display_errors();
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, file kk gagal diupload',
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
+                $berkas['file_kk'] = $berkas_tmp;
+                if(!$this->destroy_file($where,'file_kk')){
+                    $berkas['file_kk'] = $_POST['file_kk_old'];
+                }
+            }
+            else{
+                $berkas['file_kk'] = $_POST['file_kk_old'];
+            }
+            
             $data = array(
                 'id' => $_POST['id'],
                 'nik' => $_POST['nik'],
@@ -114,6 +162,7 @@ class Form_usaha extends Admin_Controller{
                 'verif_lurah_at' => date('Y-m-d H:i:s'),                         
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
+                'berkas' => json_encode($berkas),
             );
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
@@ -328,6 +377,42 @@ class Form_usaha extends Admin_Controller{
         readfile($temp_filename);
         unlink($temp_filename);
         exit;    
+    }
+
+    public function upload_file($inputname,$upload_path,$file_name){
+        
+        #$config['upload_path']      = "./uploads/".$this->_folder."/"; //lokasi
+        $config['upload_path']      = $upload_path;
+        $config['allowed_types']    = 'jpg|png|jpeg'; //file dizinka
+        #$config['file_name']        = $this->_folder.uniqid();
+        $config['file_name']        = $file_name;
+        $config['overwrite']        = true;
+        $config['max_size']         = 2000; // 2MB
+
+        $this->load->library('upload',$config);
+        $this->upload->initialize($config);
+
+        if ($this->upload->do_upload($inputname)) {
+            return $this->upload->data("file_name");
+        }
+        else{
+            echo $this->upload->display_errors();
+        }    
+    }
+
+    private function destroy_file($where,$file_json_key) {
+        $berkas_id =  $this->Main_m->get($this->_table,$where)->result();
+        foreach ($berkas_id as $b_id) {
+            $berkas = json_decode($b_id->berkas,true);
+            if($berkas[$file_json_key] == ""){
+                return true;
+            }
+            if (!unlink(FCPATH."uploads/".$this->_folder."/".$berkas[$file_json_key])) {
+                return false;
+            }
+            
+        }
+        return true;
     }
 
 }

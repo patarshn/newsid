@@ -201,14 +201,10 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
                 'tujuan' => $_POST['tujuan'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
-                'verif_bpd' => $_POST['verif_bpd'], 
+                'verif_bpd' => $_POST['verif_bpd'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
             );
-
-            if($_POST['verif_bpd'] != $_POST['verif_bpd_old']){
-                $data['verif_bpd_at'] = date('Y-m-d H:i:s');
-            }
                        
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
@@ -254,6 +250,16 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
                 }
                 $count++;
             }
+
+            if (!$this->destroy_file($where)) {
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
+                );
+                echo json_encode($callback);
+                exit;
+            }
+
             if($this->Main_m->destroy($this->_table,$where)){
                 
                 $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
@@ -404,7 +410,7 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
     }
     
     private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
             
             if(empty($b_id->berkas)){

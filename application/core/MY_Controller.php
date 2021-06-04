@@ -58,6 +58,43 @@ class Frontend_Controller extends MY_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
     }
+
+    public function upload_file($inputname,$upload_path,$file_name){
+        
+        #$config['upload_path']      = "./uploads/".$this->_folder."/"; //lokasi
+        $config['upload_path']      = $upload_path;
+        $config['allowed_types']    = 'jpg|png|jpeg'; //file dizinka
+        #$config['file_name']        = $this->_folder.uniqid();
+        $config['file_name']        = $file_name;
+        $config['overwrite']        = true;
+        $config['max_size']         = 2000; // 2MB
+
+        $this->load->library('upload',$config);
+        $this->upload->initialize($config);
+
+        if ($this->upload->do_upload($inputname)) {
+            return $this->upload->data("file_name");
+        }
+        else{
+            echo $this->upload->display_errors();
+        }    
+    }
+
+    public function destroy_file($id) {
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
+        foreach ($berkas_id as $b_id) {
+            
+            if(empty($b_id->berkas)){
+                return true;
+            }
+
+            if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
+                return false;
+            }
+            
+        }
+        return true;
+    }
 }
 
 class Backend_Controller extends MY_Controller {
