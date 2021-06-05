@@ -141,6 +141,7 @@ class Form_kuasa extends Frontend_Controller{
                 'keterangan' => $_POST['keterangan'],                                                       
                 'created_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
+                'notelp' => $this->notelp($_POST['notelp'])
             );
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

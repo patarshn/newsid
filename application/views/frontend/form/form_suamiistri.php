@@ -132,6 +132,10 @@
                         <label for="rw_p">RW</label>
                         <input type="text" name="rw_p" id="rw_p" class="form-control" placeholder="RW">
                     </div>
+                    <div class="col-lg-6">
+                        <label for="notelp">No Telp/WA</label>
+                        <input type="text" name="notelp" id="notelp" class="form-control" placeholder="6281245586699">
+                    </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="file_ktp">Upload KTP Pengaju</label>

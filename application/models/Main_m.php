@@ -13,10 +13,10 @@ class Main_m extends MY_Model
     
     public function get($table,$where){
         if($where == null){
-            $status = $this->db->get($table);
+            $status = $this->db->order_by('id','desc')->get($table);
         }
         else{
-            $status = $this->db->where($where)->get($table);
+            $status = $this->db->order_by('id','desc')->where($where)->get($table);
         }
         
         return $status;

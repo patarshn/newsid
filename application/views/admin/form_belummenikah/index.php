@@ -47,7 +47,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
+                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th>No</th>
                       <th width="3%"></th>
                       <th>NIK</th>
                       <th>Nama</th>
@@ -60,7 +61,8 @@
                   </thead>
                   <tfoot>
                     <tr>
-                      <th width="5%">No</th>
+                      <th width="5%"></th>
+                      <th>No</th>
                       <th width="3%"></th>
                       <th>NIK</th>
                       <th>Nama</th>
@@ -79,8 +81,8 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
                       </td>
+                    <td><?=$count++;?></td>
                       <td><div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>

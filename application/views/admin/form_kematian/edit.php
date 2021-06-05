@@ -42,23 +42,23 @@
                     $berkas = json_decode($d->berkas);
                 ?>
                 <div class="form-row">
-                  <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
+                  <input type="hidden" name="id" id="id" class="form-control border-left-primary" value="<?=$d->id?>" required>
                     <div class="col-lg-6">
-                        <label for="nik">NIK</label>
-                        <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" value="<?=$d->nik?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nik">NIK</label>
+                        <input type="text" name="nik" id="nik" class="form-control border-left-primary" placeholder="NIK" value="<?=$d->nik?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" value="<?=$d->nama?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>" required>
                     </div>
                     
                     <div class="col-lg-6">
-                        <label for="usia">Usia</label>
-                        <input type="number" name="usia" id="usia" class="form-control" placeholder="Usia dalam tahun" value="<?=$d->usia?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="usia">Usia</label>
+                        <input type="number" name="usia" id="usia" class="form-control border-left-primary" placeholder="Usia dalam tahun" value="<?=$d->usia?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="agama">Agama</label>
-                        <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                        <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
+                        <select name="agama" id="agama" class="form-control border-left-primary" placeholder="Agama" required>
                             <option>-</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
@@ -70,29 +70,29 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea class="form-control" name="alamat" id="alamat" rows="3" required><?=$d->alamat?></textarea>
+                            <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                            <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="3" required><?=$d->alamat?></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="jenis_kelamin">Pekon</label>
-                        <input type="text" name="pekon" id="pekon" class="form-control" value="<?=$d->pekon?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Pekon</label>
+                        <input type="text" name="pekon" id="pekon" class="form-control border-left-primary" value="<?=$d->pekon?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekerjaan">Kecamatan</label>
-                        <input type="text" name="kecamatan" id="kecamatan" class="form-control" value="<?=$d->kecamatan?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan">Kecamatan</label>
+                        <input type="text" name="kecamatan" id="kecamatan" class="form-control border-left-primary" value="<?=$d->kecamatan?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekerjaan">Kabupaten</label>
-                        <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="<?=$d->kabupaten?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan">Kabupaten</label>
+                        <input type="text" name="kabupaten" id="kabupaten" class="form-control border-left-primary" value="<?=$d->kabupaten?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label for="rt">RT</label>
-                        <input type="text" name="rt" id="rt" class="form-control" placeholder="RT" value="<?=$d->rt?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="rt">RT</label>
+                        <input type="text" name="rt" id="rt" class="form-control border-left-primary" placeholder="RT" value="<?=$d->rt?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label for="rw">RW</label>
-                        <input type="text" name="rw" id="rw" class="form-control" placeholder="RW" value="<?=$d->rw?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
+                        <input type="text" name="rw" id="rw" class="form-control border-left-primary" placeholder="RW" value="<?=$d->rw?>" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -100,21 +100,21 @@
                         </div>
                         <div class="form-row">
                             <div class="col-lg-6">
-                                <label for="tanggal_kematian">Tanggal Kematian</label>
-                                <input type="date" name="tanggal_kematian" id="tanggal_kematian" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tanggal_kematian?>" required>
+                                <label class="text-gray-900 font-weight-bold" for="tanggal_kematian">Tanggal Kematian</label>
+                                <input type="date" name="tanggal_kematian" id="tanggal_kematian" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_kematian?>" required>
                             </div>
                             <div class="col-lg-6">
-                                <label for="waktu_kematian">Waktu Kematian</label>
+                                <label class="text-gray-900 font-weight-bold" for="waktu_kematian">Waktu Kematian</label>
                                 <input type="time" name="waktu_kematian" id="waktu_kematian" class="form-control mb-0 time" value="<?=$d->waktu_kematian?>" required >
                                 <small class="timeinfo d-none">00.00-11.59 AM = 00.00-11.59<br>00.00-11.59 PM = 12.00-23.59</small>
                             </div>
                             <div class="col-lg-6">
-                                <label for="tempat_kematian">Lokasi Kematian</label>
-                                <input type="text" name="tempat_kematian" id="tempat_kematian" class="form-control" placeholder="Lokasi Kematian" value="<?=$d->tempat_kematian?>" required>
+                                <label class="text-gray-900 font-weight-bold" for="tempat_kematian">Lokasi Kematian</label>
+                                <input type="text" name="tempat_kematian" id="tempat_kematian" class="form-control border-left-primary" placeholder="Lokasi Kematian" value="<?=$d->tempat_kematian?>" required>
                             </div>
                             <div class="col-lg-6">
-                                <label for="penyebab_kematian">Penyebab Kematian</label>
-                                <input type="text" name="penyebab_kematian" id="penyebab_kematian" class="form-control" placeholder="Penyebab Kematian" value="<?=$d->penyebab_kematian?>" required>
+                                <label class="text-gray-900 font-weight-bold" for="penyebab_kematian">Penyebab Kematian</label>
+                                <input type="text" name="penyebab_kematian" id="penyebab_kematian" class="form-control border-left-primary" placeholder="Penyebab Kematian" value="<?=$d->penyebab_kematian?>" required>
                             </div>
                         </div>
                     </div>
@@ -124,23 +124,27 @@
                         </div>
                         <div class="form-row">
                             <div class="col-lg-6">
-                                <label for="tanggal_pemakaman">Tanggal Pemakaman</label>
-                                <input type="date" name="tanggal_pemakaman" id="tanggal_pemakaman" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tanggal_pemakaman?>" required>
+                                <label class="text-gray-900 font-weight-bold" for="tanggal_pemakaman">Tanggal Pemakaman</label>
+                                <input type="date" name="tanggal_pemakaman" id="tanggal_pemakaman" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_pemakaman?>" required>
                             </div>
                             <div class="col-lg-6">
-                                <label for="waktu_pemakaman">Waktu Pemakaman</label>
+                                <label class="text-gray-900 font-weight-bold" for="waktu_pemakaman">Waktu Pemakaman</label>
                                 <input type="time" name="waktu_pemakaman" id="waktu_pemakaman" class="form-control mb-0 time" value="<?=$d->waktu_pemakaman?>" required >
                                 <small class="timeinfo d-none">00.00-11.59 AM = 00.00-11.59<br>00.00-11.59 PM = 12.00-23.59</small>
                             </div>
                             <div class="col-lg-6">
-                                <label for="tempat_pemakaman">Lokasi Pemakaman</label>
-                                <input type="text" name="tempat_pemakaman" id="tempat_pemakaman" class="form-control" placeholder="Lokasi pemakaman" value="<?=$d->tempat_pemakaman?>" required>
+                                <label class="text-gray-900 font-weight-bold" for="tempat_pemakaman">Lokasi Pemakaman</label>
+                                <input type="text" name="tempat_pemakaman" id="tempat_pemakaman" class="form-control border-left-primary" placeholder="Lokasi pemakaman" value="<?=$d->tempat_pemakaman?>" required>
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                        <label class="text-gray-900 font-weight-bold" for="notelp">No Telp/WA</label>
+                        <input type="text" name="notelp" id="notelp" class="form-control border-left-primary" placeholder="6281245586699" value="<?=$d->notelp?>">
+                    </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="file_ktp">Upload KTP Pengaju</label>
+                            <label class="text-gray-900 font-weight-bold" for="file_ktp">Upload KTP Pengaju</label>
                             <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
                             <img id="file_ktp_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_ktp)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_ktp_old" name="file_ktp_old" value="<?=$berkas->file_ktp?>">
@@ -148,7 +152,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="file_kk">Upload KK Pengaju</label>
+                            <label class="text-gray-900 font-weight-bold" for="file_kk">Upload KK Pengaju</label>
                             <input type="file" class="form-control-file" id="file_kk" name="file_kk">
                             <img id="file_kk_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_kk)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
@@ -156,22 +160,22 @@
                     </div>
                     <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                     <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Lurah : </label>
+                        <label class="text-gray-900 font-weight-bold" for="status" class="mr-sm-2">Verifikasi Lurah : </label>
                         <br>
                         
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="verif_lurah" id="verif_lurah1" value="Pending" class="form-control" <?php if($d->verif_lurah == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="verif_lurah1">Pending</label>
+                          <input type="radio" name="verif_lurah" id="verif_lurah1" value="Pending" class="form-control border-left-primary" <?php if($d->verif_lurah == "Pending"){echo "checked";}?>>
+                          <label class="text-gray-900 font-weight-bold" class="form-check-label" for="verif_lurah1">Pending</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="verif_lurah" id="verif_lurah2" value="Disetujui" class="form-control" <?php if($d->verif_lurah == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="verif_lurah2">Disetujui</label>
+                          <input type="radio" name="verif_lurah" id="verif_lurah2" value="Disetujui" class="form-control border-left-primary" <?php if($d->verif_lurah == "Disetujui"){echo "checked";}?>>
+                          <label class="text-gray-900 font-weight-bold" class="form-check-label" for="verif_lurah2">Disetujui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="verif_lurah" id="verif_lurah3" value="Ditolak" class="form-control" <?php if($d->verif_lurah == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="verif_lurah3">Ditolak</label>
+                          <input type="radio" name="verif_lurah" id="verif_lurah3" value="Ditolak" class="form-control border-left-primary" <?php if($d->verif_lurah == "Ditolak"){echo "checked";}?>>
+                          <label class="text-gray-900 font-weight-bold" class="form-check-label" for="verif_lurah3">Ditolak</label>
                         </div>
-                        <input type="hidden" name="verif_lurah_old" value="<?=$d->verif_lurah?>" class="form-control">
+                        <input type="hidden" name="verif_lurah_old" value="<?=$d->verif_lurah?>" class="form-control border-left-primary">
                     </div>
                 </div>
                 <script>
