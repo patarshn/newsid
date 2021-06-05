@@ -116,7 +116,7 @@ class Form_ahliwaris extends Frontend_Controller{
             else{
                 $berkas['file_kk'] = "";
             }
-
+            
             $data = array(
                 'nik_1' => $_POST['nik_1'],
                 'nama_1' => $_POST['nama_1'],
@@ -144,6 +144,7 @@ class Form_ahliwaris extends Frontend_Controller{
                 'kabupaten_2' => $_POST['kabupaten_2'],                                        
                 'created_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
+                'notelp' => $this->notelp($_POST['notelp'])
             );
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

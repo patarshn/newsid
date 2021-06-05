@@ -135,7 +135,7 @@
                   <thead>
                     <tr>
                       <th width="5%">No</th>
-                      <th>ID</th>
+                      <th>Aksi</th>
                       <th>NIK</th>
                       <th>Nama</th>
                       <th>Jenis Form</th>
@@ -146,7 +146,7 @@
                   <tfoot>
                     <tr>
                       <th width="5%">No</th>
-                      <th>ID</th>
+                      <th>Aksi</th>
                       <th>NIK</th>
                       <th>Nama</th>
                       <th>Jenis Form</th>
@@ -163,7 +163,19 @@
                     <td>
                         <?=$count++;?>
                       </td>
-                      <td><?=$d->id?></td>
+                      <td><div class="dropdown no-arrow">
+                        <a class="dropdown-toggle btn btn-sm btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                          <div class="dropdown-header">Actions:</div>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$d->table_name.'/edit/'.$d->id)?>">Edit</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$d->table_name.'/detail/'.$d->id)?>">Detail</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$d->table_name.'/cetak/'.$d->id)?>">Cetak</a>
+                          <!--<div class="dropdown-divider"></div>-->
+                          </div>
+                        </div>
+                      </td>
                       <td><?=$d->nik?></td>
                       <td><?=$d->nama?></td>
                       <td><?=$d->table_name?></td>

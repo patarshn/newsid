@@ -43,39 +43,39 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control" value="<?=$d->uraian?>" required>
+                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control" value="<?=$d->penerimaan?>" required>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control" value="<?=$d->pengeluaran?>" required>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jml_penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
-                        <input type="text" name="jml_penerimaan" id="jml_penerimaan" class="form-control" value="<?=$d->jml_penerimaan?>" required>
+                        <input type="text" name="jml_penerimaan" id="jml_penerimaan" class="form-control border-left-primary" value="<?=$d->jml_penerimaan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jml_pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
-                        <input type="text" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control" value="<?=$d->jml_pengeluaran?>" required>
+                        <input type="text" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control border-left-primary" value="<?=$d->jml_pengeluaran?>" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label"><?=$d->berkas?></label>
+                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>

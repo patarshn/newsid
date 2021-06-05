@@ -43,31 +43,31 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="kegiatan" class="text-gray-900 font-weight-bold">Jenis Kegiatan</label>
-                        <input type="text" name="kegiatan" id="kegiatan" class="form-control" value="<?=$d->kegiatan?>" required>
+                        <input type="text" name="kegiatan" id="kegiatan" class="form-control border-left-primary" value="<?=$d->kegiatan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pelaksana" class="text-gray-900 font-weight-bold">Pelaksana</label>
-                        <input type="text" name="pelaksana" id="pelaksana" class="form-control" value="<?=$d->pelaksana?>" required>
+                        <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary" value="<?=$d->pelaksana?>" required>
                     </div>
 
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="agenda_hasil" class="text-gray-900 font-weight-bold">Tindak Lanjut</label>
-                            <textarea class="form-control" name="agenda_hasil" id="agenda_hasil" rows="3" required><?=$d->agenda_hasil?></textarea>
+                            <textarea class="form-control border-left-primary" name="agenda_hasil" id="agenda_hasil" rows="3" required><?=$d->agenda_hasil?></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
                         </div>
                     </div>
 

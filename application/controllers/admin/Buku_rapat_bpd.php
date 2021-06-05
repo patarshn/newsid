@@ -83,12 +83,13 @@ class Buku_rapat_bpd extends Admin_Controller {
     }
 
     public function store(){
+     
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
 
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas1 = $this->upload_file();
+            if(!empty($_FILES["berkas1"]["name"])){
+                $berkas1 = $this->upload_file1();
                 if(!$berkas1){
                     echo $this->upload->display_errors();
                     $callback = array(
@@ -103,9 +104,12 @@ class Buku_rapat_bpd extends Admin_Controller {
             else{
                 $berkas1 = "";
             }
-
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas2 = $this->upload_file();
+            
+            #echo $berkas1;
+            #echo "<br>";
+            
+            if(!empty($_FILES["berkas2"]["name"])){
+                $berkas2 = $this->upload_file2();
                 if(!$berkas2){
                     echo $this->upload->display_errors();
                     $callback = array(
@@ -120,8 +124,10 @@ class Buku_rapat_bpd extends Admin_Controller {
             else{
                 $berkas2 = "";
             }
-
-
+            
+            #echo $berkas2;
+            
+            #exit();
             $_POST = $this->input->post();
             $data = array(
                 'tgl' => $_POST['tgl'],
@@ -141,6 +147,7 @@ class Buku_rapat_bpd extends Admin_Controller {
                     'redirect' => base_url().'admin/'.$this->_folder,
                 );
             }
+            
             else{
                 //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
                 $callback = array(
@@ -194,23 +201,31 @@ class Buku_rapat_bpd extends Admin_Controller {
             $where = ['id'=>$id];
             
             //jika ada file yang baru
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                $berkas_lama = $this->destroy_file($where);
+            if(!empty($_FILES["berkas1"]["name"])){
+                $berkas1 = $this->upload_file1();
+                $berkas1_lama = $this->destroy_file($where);
             }
 
             //jika tidak ada file baru
             else {
-                $berkas = $_POST["old_file"];
+                $berkas1 = $_POST["old_file"];
+            }
+
+            if(!empty($_FILES["berkas2"]["name"])){
+                $berkas2 = $this->upload_file2();
+                $berkas2_lama = $this->destroy_file($where);
+            }
+
+            //jika tidak ada file baru
+            else {
+                $berkas2 = $_POST["old_file"];
             }
 
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_dan_tgl_surat_keluar' => $_POST['no_dan_tgl_surat_keluar'],
-                'uraian_singkat' => $_POST['uraian_singkat'],
-                'tujuan' => $_POST['tujuan'],
-                'ket' => $_POST['ket'],
-                'berkas' => $berkas,
+                'agenda' => $_POST['agenda'],
+                'berkas1' => $berkas1,
+                'berkas2' => $berkas2,
                 'verif_bpd' => $_POST['verif_bpd'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -264,6 +279,25 @@ class Buku_rapat_bpd extends Admin_Controller {
                 }
                 $count++;
             }
+
+            if (!$this->destroy_file1($where)) {
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
+                );
+                echo json_encode($callback);
+                exit;
+            }
+
+            if (!$this->destroy_file2($where)) {
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
+                );
+                echo json_encode($callback);
+                exit;
+            }
+
             if($this->Main_m->destroy($this->_table,$where)){
                 
                 $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
@@ -396,16 +430,38 @@ class Buku_rapat_bpd extends Admin_Controller {
         $this->load->view('admin/partials/footer');
     }
 
-    public function upload_file(){
+    public function upload_file1(){
+        #echo "upload1";
         $config['upload_path']      = "./administrasilainnya/".$this->_folder."/"; //lokasi
         $config['allowed_types']    = 'pdf'; //file dizinkan
-        $config['file_name']        = $this->_folder.uniqid();
+        $config['file_name']        = $this->_folder.uniqid()."-1";
         $config['overwrite']        = true;
         $config['max_size']         = 2000; // 2MB
 
+        
         $this->load->library('upload',$config);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('berkas1')) {
+            return $this->upload->data("file_name");
+        }
+        else{
+            echo $this->upload->display_errors();
+        }    
+    }
 
-        if ($this->upload->do_upload('berkas')) {
+    
+    public function upload_file2(){
+        #echo "upload2";
+        $config['upload_path']      = "./administrasilainnya/".$this->_folder."/"; //lokasi
+        $config['allowed_types']    = 'pdf'; //file dizinkan
+        $config['file_name']        = $this->_folder.uniqid()."-2";
+        $config['overwrite']        = true;
+        $config['max_size']         = 2000; // 2MB
+
+
+        $this->load->library('upload',$config);
+        $this->upload->initialize($config);
+        if ($this->upload->do_upload('berkas2')) {
             return $this->upload->data("file_name");
         }
         else{
@@ -413,15 +469,31 @@ class Buku_rapat_bpd extends Admin_Controller {
         }    
     }
     
-    private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
-        foreach ($berkas_id as $b_id) {
+    private function destroy_file1($id) {
+        $berkas1_id =  $this->Main_m->get($this->_table,$id)->result();
+        foreach ($berkas1_id as $b1_id) {
             
-            if(empty($b_id->berkas)){
+            if(empty($b1_id->berkas1)){
                 return true;
             }
 
-            if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b_id->berkas)) {
+            if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b1_id->berkas1)) {
+                return false;
+            }
+            
+        }
+        return true;
+    }
+
+    private function destroy_file2($id) {
+        $berkas2_id =  $this->Main_m->get($this->_table,$id)->result();
+        foreach ($berkas2_id as $b2_id) {
+            
+            if(empty($b2_id->berkas2)){
+                return true;
+            }
+
+            if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b2_id->berkas2)) {
                 return false;
             }
             
