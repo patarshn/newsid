@@ -47,35 +47,30 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="5%">No Urut</th>
-                      <th rowspan="2" width="3%"></th>
-                      <th rowspan="2">Tanggal</th>
-                      <th rowspan="2">Uraian</th>
-                      <th colspan="2">Penerimaan (Rp.)</th>
-                      <th colspan="2">Pengeluaran (Rp.)</th>
-                      <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Verif Kepala Desa</th>
-                    </tr>
-
-                    <tr>
-                      <th>Dari Bendahara</th>
-                      <th>Swadaya Masyarakat</th>
-                      <th>Belanja Barang dan Jasa</th>
-                      <th>Belanja Modal</th>
+                      <th width="5%">No</th>
+                      <th width="3%"></th>
+                      <th>Bulan</th>
+                      <th>Bank Cabang</th>
+                      <th>Tanggal Transaksi</th>
+                      <th>Uraian Transaksi</th>
+                      <th>Bukti Transaksi</th>
+                      <th>Saldo</th>
+                      <th>Verif Kepala Desa</th>
                     </tr>
                     
                   </thead>
                   <tfoot>
                     <tr>
-                      <th width="5%">No Urut</th>
-                      <th width="3%"></th>
-                      <th>Tanggal</th>
-                      <th>Uraian</th>
-                      <th colspan="2">Penerimaan (Rp.)</th>
-                      <th colspan="2">Pengeluaran (Rp.)</th>
-                      <th>Tahun Anggaran</th>
-                      <th>Verif Kepala Desa</th></th>
-                      </tr>
+                        <th width="5%">No</th>
+                        <th width="3%"></th>
+                        <th>Bulan</th>
+                        <th>Bank Cabang</th>
+                        <th>Tanggal Transaksi</th>
+                        <th>Uraian Transaksi</th>
+                        <th>Bukti Transaksi</th>
+                        <th>Saldo</th>
+                        <th>Verif Kepala Desa</th>
+                    </tr>
                   </tfoot>
                   <tbody>
                   
@@ -100,13 +95,13 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tanggal?></td>
-                      <td><?=$d->uraian?></td>
-                      <td><?=$d->penerimaan_bendahara?></td>
-                      <td><?=$d->penerimaan_sdm?></td>
-                      <td><?=$d->pengeluaran_bbj?></td>
-                      <td><?=$d->pengeluaran_bm?></td>
-                      <td><?=$d->tahun_anggaran?></td>
+                      <td><?=$d->bulan?></td>
+                      <td><?=$d->bank_cabang?></td>
+                      <td><?=$d->tgl_trans?></td>
+                      <td><?=$d->uraian_trans?></td>
+                      <td><?=$d->bukti_trans?></td>
+                      <td><?=$d->saldo?></td>
+
                       </td>
                       <td>
                         <?php 

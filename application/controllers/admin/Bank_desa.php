@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kas_pembantu_kegiatan extends Admin_Controller {
+class Bank_desa extends Admin_Controller {
 
-    private $_table = 'kas_pembantu_kegiatan';
-    private $_folder = 'kas_pembantu_kegiatan';
-    private $_mainTitle = 'Buku Kas Pembantu Kegiatan ';
+    private $_table = 'bank_desa';
+    private $_folder = 'bank_desa';
+    private $_mainTitle = 'Buku Bank Desa ';
 
     function __construct() {
         parent::__construct();
@@ -16,31 +16,38 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
     function rulesStore() {
         return [
+            ['field' => 'tgl_trans','label' => 'tgl_trans', 'rules' => 'required'],
+            ['field' => 'uraian_trans','label' => 'uraian_trans', 'rules' => 'required'],
+            ['field' => 'bukti_trans','label' => 'bukti_trans', 'rules' => 'required'],
+            ['field' => 'pmskn_setoran','label' => 'pmskn_setoran', 'rules' => 'required'],
+            ['field' => 'pmskn_bungabank','label' => 'pmskn_bungabank', 'rules' => 'required'],
+            ['field' => 'pngl_penarikan','label' => 'pngl_penarikan', 'rules' => 'required'],
+            ['field' => 'pngl_pajak','label' => 'pngl_pajak', 'rules' => 'required'],
+            ['field' => 'pngl_biaya_adm','label' => 'pngl_biaya_adm', 'rules' => 'required'],
+            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
-            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
-            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
-            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
+            ['field' => 'bulan','label' => 'bulan', 'rules' => 'required'],
+            ['field' => 'bank_cabang','label' => 'bank_cabang', 'rules' => 'required'],
+            ['field' => 'rekening','label' => 'rekening', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
+            ['field' => 'tgl_trans','label' => 'tgl_trans', 'rules' => 'required'],
+            ['field' => 'uraian_trans','label' => 'uraian_trans', 'rules' => 'required'],
+            ['field' => 'bukti_trans','label' => 'bukti_trans', 'rules' => 'required'],
+            ['field' => 'pmskn_setoran','label' => 'pmskn_setoran', 'rules' => 'required'],
+            ['field' => 'pmskn_bungabank','label' => 'pmskn_bungabank', 'rules' => 'required'],
+            ['field' => 'pngl_penarikan','label' => 'pngl_penarikan', 'rules' => 'required'],
+            ['field' => 'pngl_pajak','label' => 'pngl_pajak', 'rules' => 'required'],
+            ['field' => 'pngl_biaya_adm','label' => 'pngl_biaya_adm', 'rules' => 'required'],
+            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
-            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
-            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
-            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
+            ['field' => 'bulan','label' => 'bulan', 'rules' => 'required'],
+            ['field' => 'bank_cabang','label' => 'bank_cabang', 'rules' => 'required'],
+            ['field' => 'rekening','label' => 'rekening', 'rules' => 'required'],
+            
         ];
     }
 
@@ -87,7 +94,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             'title' => "Tambah Data ".$this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
-            'data' => $this->Main_m->get("apbd",null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -121,18 +127,19 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
                 $_POST = $this->input->post();
                 $data = array(
-                    'tahun_anggaran' => $_POST['tahun_anggaran'],
-                    'bidang' => $_POST['bidang'],
-                    'kegiatan' => $_POST['kegiatan'],
-                    'tanggal' => $_POST['tanggal'],
-                    'uraian' => $_POST['uraian'],
-                    'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
-                    'penerimaan_sdm' => $_POST['penerimaan_sdm'],
-                    'no_bukti' => $_POST['no_bukti'],
-                    'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
-                    'pengeluaran_bm' => $_POST['pengeluaran_bm'],
-                    'jumlah' => $_POST['jumlah'],
+                    'tgl_trans' => $_POST['tgl_trans'],
+                    'uraian_trans' => $_POST['uraian_trans'],
+                    'bukti_trans' => $_POST['bukti_trans'],
+                    'pmskn_setoran' => $_POST['pmskn_setoran'],
+                    'pmskn_bungabank' => $_POST['pmskn_bungabank'],
+                    'pngl_penarikan' => $_POST['pngl_penarikan'],
+                    'pngl_pajak' => $_POST['pngl_pajak'],
+                    'pngl_biaya_adm' => $_POST['pngl_biaya_adm'],
                     'saldo' => $_POST['saldo'],
+                    'tahun_anggaran' => $_POST['tahun_anggaran'],
+                    'bulan' => $_POST['bulan'],
+                    'bank_cabang' => $_POST['bank_cabang'],
+                    'rekening' => $_POST['rekening'],
                     'ver_kepala_desa' => "Pending",
                     'created_at' => date('Y-m-d H:i:s'),
                     'created_by' =>  $this->session->userdata('username'),
@@ -213,18 +220,17 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
             $data = array(
                 'id' => $_POST['id'],
-                'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'bidang' => $_POST['bidang'],
-                'kegiatan' => $_POST['kegiatan'],
-                'tanggal' => $_POST['tanggal'],
-                'uraian' => $_POST['uraian'],
-                'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
-                'penerimaan_sdm' => $_POST['penerimaan_sdm'],
-                'no_bukti' => $_POST['no_bukti'],
-                'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
-                'pengeluaran_bm' => $_POST['pengeluaran_bm'],
-                'jumlah' => $_POST['jumlah'],
+                'tgl_trans' => $_POST['tgl_trans'],
+                'uraian_trans' => $_POST['uraian_trans'],
+                'bukti_trans' => $_POST['bukti_trans'],
+                'pmskn_setoran' => $_POST['pmskn_setoran'],
+                'pmskn_bungabank' => $_POST['pmskn_bungabank'],                    'pngl_penarikan' => $_POST['pngl_penarikan'],
+                'pngl_pajak' => $_POST['pngl_pajak'],
+                'pngl_biaya_adm' => $_POST['pngl_biaya_adm'],
                 'saldo' => $_POST['saldo'],
+                'tahun_anggaran' => $_POST['tahun_anggaran'],                    'bulan' => $_POST['bulan'],
+                'bank_cabang' => $_POST['bank_cabang'],
+                'rekening' => $_POST['rekening'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
