@@ -43,19 +43,19 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="no_dan_tgl_surat_keluar" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat Keluar</label>
-                        <input type="text" name="no_dan_tgl_surat_keluar" id="no_dan_tgl_surat_keluar" class="form-control" value="<?=$d->no_dan_tgl_surat_keluar?>" required>
+                        <input type="text" name="no_dan_tgl_surat_keluar" id="no_dan_tgl_surat_keluar" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_surat_keluar?>" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label"><?=$d->berkas?></label>
+                          <label for="berkas" class="custom-file-label custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
@@ -63,21 +63,21 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
+                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="tujuan" class="text-gray-900 font-weight-bold">Tujuan</label>
-                            <textarea class="form-control" name="tujuan" id="tujuan" rows="3" required><?=$d->tujuan?></textarea>
+                            <textarea class="form-control border-left-primary" name="tujuan" id="tujuan" rows="3" required><?=$d->tujuan?></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
                         </div>
                     </div>
 
@@ -97,7 +97,7 @@
                           <input type="radio" name="verif_bpd" id="verif_bpd3" value="Ditolak" class="form-control" <?php if($d->verif_bpd == "Ditolak"){echo "checked";}?>>
                           <label class="form-check-label" for="verif_bpd3">Ditolak</label>
                         </div>
-                    </div>
+                    </div>  
                 </div>
 
 

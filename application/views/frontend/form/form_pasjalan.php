@@ -94,6 +94,10 @@
                         <label for="tanggal_berangkat">Tanggal Berangkat</label>
                         <input type="date" name="tanggal_berangkat" id="tanggal_berangkat" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
+                    <div class="col-lg-6">
+                        <label for="notelp">No Telp/WA</label>
+                        <input type="text" name="notelp" id="notelp" class="form-control" placeholder="6281245586699">
+                    </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="file_ktp">Upload KTP Pengaju</label>

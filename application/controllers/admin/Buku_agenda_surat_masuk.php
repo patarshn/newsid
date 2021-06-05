@@ -253,6 +253,16 @@ class Buku_agenda_surat_masuk extends Admin_Controller {
                 }
                 $count++;
             }
+
+            if (!$this->destroy_file($where)) {
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
+                );
+                echo json_encode($callback);
+                exit;
+            }
+
             if($this->Main_m->destroy($this->_table,$where)){
                 
                 $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
@@ -403,7 +413,7 @@ class Buku_agenda_surat_masuk extends Admin_Controller {
     }
 
     private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
             
             if(empty($b_id->berkas)){
