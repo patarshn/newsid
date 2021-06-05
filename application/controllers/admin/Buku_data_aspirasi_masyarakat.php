@@ -223,6 +223,16 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
                 }
                 $count++;
             }
+
+            if (!$this->destroy_file($where)) {
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
+                );
+                echo json_encode($callback);
+                exit;
+            }
+
             if($this->Main_m->destroy($this->_table,$where)){
                 
                 $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');

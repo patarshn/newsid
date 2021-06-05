@@ -43,14 +43,14 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label"><?=$d->berkas?></label>
+                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
@@ -58,14 +58,14 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ppu" class="text-gray-900 font-weight-bold">Pokok-Pokok Usulan/Kegiatan</label>
-                            <textarea class="form-control" name="ppu" id="ppu" rows="3" required><?=$d->ppu?></textarea>
+                            <textarea class="form-control border-left-primary" name="ppu" id="ppu" rows="3" required><?=$d->ppu?></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
                         </div>
                     </div>
 
