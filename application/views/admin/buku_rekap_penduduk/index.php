@@ -34,31 +34,59 @@
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
               </div>
-            </div>
+            </div> 
             <div class="card-body">
               <div class="table-responsive">
                <form method="POST" id="formdelete" action="/kk/destroy">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead> 
+                <thead>
                     <tr>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      
+                    <th rowspan="3" width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
+                    <th rowspan="3" width="3%"></th>
+                    <th rowspan="3"> Nama Dusun/Lingkungan</th>
+                      <th colspan="7"><center>Jumlah Penduduk Awal Bulan</th>       
+                      <th colspan="7"><center>Jumlah Penduduk Akhir Bulan</th>       
+                    </tr>
+
+                    <tr>
+                    <th colspan="2">WNA</th>
+                    <th colspan="2">WNI</th>
+                    <th rowspan="2">Jumlah KK</th>
+                    <th rowspan="2">Jumlah Anggota Keluarga</th>
+                    <th rowspan="2">Jumlah Jiwa</th>
+                    <th colspan="2">WNA</th>
+                    <th colspan="2">WNI</th>
+                    <th rowspan="2">Jumlah KK</th>
+                    <th rowspan="2">Jumlah Anggota Keluarga</th>
+                    <th rowspan="2">Jumlah Jiwa</th>
+                    </tr>
+                   
+                    <tr>
+                    <th>L</th>
+                    <th>P</th>
+                    <th>L</th>
+                    <th>P</th>
+                    <th>L</th>
+                    <th>P</th>
+                    <th>L</th>
+                    <th>P</th>
                     </tr>
                   </thead>
+
                   <tfoot>
                     <tr>
                     <th width="5%">No</th>
-                      <th width="3%"></th>
-                      
+                    <th width="3%"></th>
+                    <th> Nama Dusun</th>
+                    <th colspan="7"><center>Jumlah Penduduk Awal Bulan</th>       
+                    <th colspan="7"><center>Jumlah Penduduk Akhir Bulan</th>       
                     </tr>
                   </tfoot>
+                  
                   <tbody>
                   
                   <?php 
@@ -77,11 +105,24 @@
                           <div class="dropdown-header">Actions:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
                           
                           </div>
                         </div>
-
+                      <td><?=$d->dusun?></td>
+                      <td><?=$d->awal_wna_l?></td>
+                      <td><?=$d->awal_wna_p?></td>
+                      <td><?=$d->awal_wni_l?></td>
+                      <td><?=$d->awal_wni_p?></td>
+                      <td><?=$d->awal_jml_kk?></td>
+                      <td><?=$d->awal_jml_anggota_keluarga?></td>
+                      <td><?=$d->awal_jml_jiwa?></td>
+                      <td><?=$d->akhir_wna_l?></td>
+                      <td><?=$d->akhir_wna_p?></td>
+                      <td><?=$d->akhir_wni_l?></td>
+                      <td><?=$d->akhir_wni_p?></td>
+                      <td><?=$d->akhir_jml_kk?></td>
+                      <td><?=$d->akhir_jml_anggota_keluarga?></td>
+                      <td><?=$d->akhir_jml_jiwa?></td>
                       </td>
                       
                     </tr>

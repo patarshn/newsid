@@ -106,7 +106,7 @@
           
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_induk_penduduk')?>">Buku Induk Penduduk</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_mutasi_penduduk')?>">Buku Mutasi Penduduk Desa</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/rekap_penduduk')?>">Buku Rekapitulasi Jumlah Penduduk</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_rekap_penduduk')?>">Buku Rekapitulasi Jumlah Penduduk</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_penduduk_sementara')?>">Buku Penduduk Sementara</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ktp_kk')?>">Buku KTP dan Buku KK</a>
          

@@ -29,7 +29,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Edit <?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning">Cancel</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
                     </div>
                   </div>
                 </div>

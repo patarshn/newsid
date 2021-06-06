@@ -34,9 +34,9 @@ class Buku_induk_penduduk extends Admin_Controller {
             ['field' => 'dusun','label' => 'Nama Dusun', 'rules' => 'required'],
             ['field' => 'baca_huruf','label' => 'Dapat Membaca Huruf', 'rules' => 'required'],
             ['field' => 'status_perkawinan','label' => 'Status Perkawinan', 'rules' => 'required'],
-            ['field' => 'tmpt_tgl_dikeluarkan','label' => 'Tempat dan Tanggal di Keluarkan E-KTP', 'rules' => 'required'],
+            ['field' => 'tmpt_ektp_dikeluarkan','label' => 'Tempat di Keluarkannya E-KTP', 'rules' => 'required'],
+            ['field' => 'tgl_ektp_dikeluarkan','label' => 'Tanggal di Keluarkannya E-KTP', 'rules' => 'required'],
             ['field' => 'hub_keluarga','label' => 'Hubungan Keluarga', 'rules' => 'required'],
-            ['field' => 'kedudukan_dikeluarga','label' => 'Kedudukan di Keluarga', 'rules' => 'required'],
             ['field' => 'wn','label' => 'Kewarganegaraan', 'rules' => 'required'],
             ['field' => 'ayah','label' => 'Nama Ayah', 'rules' => 'required'],
             ['field' => 'ibu','label' => 'Nama Ibu', 'rules' => 'required'],
@@ -65,9 +65,9 @@ class Buku_induk_penduduk extends Admin_Controller {
             ['field' => 'dusun','label' => 'Nama Dusun', 'rules' => 'required'],
             ['field' => 'baca_huruf','label' => 'Dapat Membaca Huruf', 'rules' => 'required'],
             ['field' => 'status_perkawinan','label' => 'Status Perkawinan', 'rules' => 'required'],
-            ['field' => 'tmpt_tgl_dikeluarkan','label' => 'Tempat dan Tanggal di Keluarkan E-KTP', 'rules' => 'required'],
+            ['field' => 'tmpt_ektp_dikeluarkan','label' => 'Tempat di Keluarkannya E-KTP', 'rules' => 'required'],
+            ['field' => 'tgl_ektp_dikeluarkan','label' => 'Tanggal di Keluarkannya E-KTP', 'rules' => 'required'],
             ['field' => 'hub_keluarga','label' => 'Hubungan Keluarga', 'rules' => 'required'],
-            ['field' => 'kedudukan_dikeluarga','label' => 'Kedudukan di Keluarga', 'rules' => 'required'],
             ['field' => 'wn','label' => 'Kewarganegaraan', 'rules' => 'required'],
             ['field' => 'ayah','label' => 'Nama Ayah', 'rules' => 'required'],
             ['field' => 'ibu','label' => 'Nama Ibu', 'rules' => 'required'],
@@ -175,14 +175,14 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'agama' => $_POST['agama'],
                 'pendidikan' => $_POST['pendidikan'],
                 'pekerjaan' => $_POST['pekerjaan'],
-                'tmpt_tgl_dikeluarkan' => $_POST['tmpt_tgl_dikeluarkan'],
+                'tmpt_ektp_dikeluarkan' => $_POST['tmpt_ektp_dikeluarkan'],
+                'tgl_ektp_dikeluarkan' => $_POST['tgl_ektp_dikeluarkan'],
                 'wn' => $_POST['wn'],
                 'alamat' => $_POST['alamat'],
                 'rt' => $_POST['rt'],
                 'rw' => $_POST['rw'],
                 'dusun' => $_POST['dusun'],
                 'baca_huruf' => $_POST['baca_huruf'],
-                'hub_keluarga' => $_POST['hub_keluarga'],
                 'kedudukan_dikeluarga' => $_POST['kedudukan_dikeluarga'],
                 'ayah' => $_POST['ayah'],
                 'ibu' => $_POST['ibu'],
@@ -191,6 +191,20 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'created_at' => date('Y-m-d H:i:s'),
                 
             );
+
+            $nik = $_POST['nik'];
+            $sql  = $this->db->query("SELECT nik FROM ktp_kk where nik='$nik'");
+            $cek_nik = $sql->num_rows();
+            if($cek_nik > 0){
+                $this->session->set_flashdata('error_message', 'NIK Sudah terdaftar sebelumnya');
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'NIK sudah terdaftar sebelumnya',
+                    );
+               echo json_encode($callback);
+               exit();
+            }
+            
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                 $callback = array(
@@ -263,14 +277,14 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'agama' => $_POST['agama'],
                 'pendidikan' => $_POST['pendidikan'],
                 'pekerjaan' => $_POST['pekerjaan'],
-                'tmpt_tgl_dikeluarkan' => $_POST['tmpt_tgl_dikeluarkan'],
+                'tmpt_ektp_dikeluarkan' => $_POST['tmpt_ektp_dikeluarkan'],
+                'tgl_ektp_dikeluarkan' => $_POST['tgl_ektp_dikeluarkan'],
                 'wn' => $_POST['wn'],
                 'alamat' => $_POST['alamat'],
                 'rt' => $_POST['rt'],
                 'rw' => $_POST['rw'],
                 'dusun' => $_POST['dusun'],
                 'baca_huruf' => $_POST['baca_huruf'],
-                'hub_keluarga' => $_POST['hub_keluarga'],
                 'kedudukan_dikeluarga' => $_POST['kedudukan_dikeluarga'],
                 'ayah' => $_POST['ayah'],
                 'ibu' => $_POST['ibu'],
@@ -279,6 +293,7 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
+
                        
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');

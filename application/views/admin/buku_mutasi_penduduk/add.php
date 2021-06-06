@@ -29,7 +29,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning">Batal</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
                     </div>
                   </div>
                 </div> 
@@ -43,7 +43,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label for="bulan_tahun"><b>Bulan dan Tahun Mutasi</b></label>
-                        <input type="bulan_number" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" required>
+                        <input type="month" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" required>
                     </div>
                     </div>
 
