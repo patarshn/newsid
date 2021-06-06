@@ -156,6 +156,7 @@ class Form_penghasilan extends Admin_Controller{
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
+                'notelp' => $this->notelp($_POST['notelp']),
             );
 
             if($_POST['verif_lurah'] != $_POST['verif_lurah_old']){

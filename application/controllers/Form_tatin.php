@@ -143,6 +143,7 @@ class Form_tatin extends Frontend_Controller{
                 'kabupaten_l' => $_POST['kabupaten_l'],                            
                 'created_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
+                'notelp' => $this->notelp($_POST['notelp'])
             );
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

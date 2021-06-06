@@ -139,12 +139,12 @@
         <div id="administrasi_keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/apbd')?>"><b>Buku Anggaran Pendapatan dan Belanja Desa</b></a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/rab')?>"><b>Buku Rencana Anggaran Biaya</b></a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu_kegiatan')?>"><b>Buku Kas Pembantu Kegiatan</b></a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_umum')?>"><b>Buku Kas Umum</b></a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu')?>"><b>Buku Kas Pembantu</b></a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/bank_desa')?>"><b>Buku Bank Desa</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/apbd')?>">Buku Anggaran Pendapatan dan Belanja Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/rab')?>">Buku Rencana Anggaran Biaya</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu_kegiatan')?>">Buku Kas Pembantu Kegiatan</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_umum')?>">Buku Kas Umum</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu')?>">Buku Kas Pembantu</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/bank_desa')?>">Buku Bank Desa</a>
          
           </div>
         </div>

@@ -40,32 +40,32 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="mm/dd/yy"  required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="phk_aspirasi" class="text-gray-900 font-weight-bold">Nama/Lembaga Pihak Penyampai Aspirasi</label>
-                        <input type="text" name="phk_aspirasi" id="phk_aspirasi" class="form-control" required>
+                        <input type="text" name="phk_aspirasi" id="phk_aspirasi" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="aspirasi" class="text-gray-900 font-weight-bold">Aspirasi yang Disampaikan</label>
-                            <textarea class="form-control" name="aspirasi" id="aspirasi" rows="3" required></textarea>
+                            <textarea class="form-control border-left-primary" name="aspirasi" id="aspirasi" rows="3" required></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="tindak_lanjut" class="text-gray-900 font-weight-bold">Tindak Lanjut</label>
-                            <textarea class="form-control" name="tindak_lanjut" id="tindak_lanjut" rows="3" required></textarea>
+                            <textarea class="form-control border-left-primary" name="tindak_lanjut" id="tindak_lanjut" rows="3" required></textarea>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
                         </div>
                     </div>
                 </div>

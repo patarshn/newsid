@@ -100,16 +100,13 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tahun_anggaran?></td>
-                      <td><?=$d->type?></td>
-                      <td><?=$d->kode_rekening1?></td>
-                      <td><?=$d->kode_rekening2?></td>
-                      <td><?=$d->kode_rekening3?></td>
-                      <td><?=$d->kode_rekening4?></td>
+                      <td><?=$d->tanggal?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->anggaran?></td>
-                      <td><?=$d->keterangan?></td>
-
+                      <td><?=$d->penerimaan_bendahara?></td>
+                      <td><?=$d->penerimaan_sdm?></td>
+                      <td><?=$d->pengeluaran_bbj?></td>
+                      <td><?=$d->pengeluaran_bm?></td>
+                      <td><?=$d->tahun_anggaran?></td>
                       </td>
                       <td>
                         <?php 

@@ -9,45 +9,31 @@ class MY_Controller extends CI_Controller {
         
     }
 
-    function printUri(){
-        $segment = $this->uri->segment_array();
-        $uri = base_url();
-        $uriCount = count($segment);
-        $i = 1;
-        foreach ($segment as $s)
-        {
-          //echo $s;
-          //echo '<br />';
-          $uri = $uri.$s.'/';
-          echo '<a href="'.$uri.'">'.ucfirst($s).'</a>';
-          if($i != $uriCount){
-            echo " » ";
-          }
-          $i++;
+    public function notelp($notelp) {
+        // kadang ada penulisan no hp 0811 239 345
+        $notelp = str_replace(" ","",$notelp);
+        // kadang ada penulisan no hp (0274) 778787
+        $notelp = str_replace("(","",$notelp);
+        // kadang ada penulisan no hp (0274) 778787
+        $notelp = str_replace(")","",$notelp);
+        // kadang ada penulisan no hp 0811.239.345
+        $notelp = str_replace(".","",$notelp);
+        // kadang ada penulisan no hp +6211239345
+        $notelp = str_replace("+","",$notelp);
+        $hp =  $notelp;
+        // cek apakah no hp mengandung karakter + dan 0-9
+        if(!preg_match('/[^0-9]/',trim($notelp))){
+            // cek apakah no hp karakter 1-3 adalah +62
+            if(substr(trim($notelp), 0, 2)=='62'){
+                $hp = trim($notelp);
+            }
+            // cek apakah no hp karakter 1 adalah 0
+            elseif(substr(trim($notelp), 0, 1)=='0'){
+                $hp = '62'.substr(trim($notelp), 1);
+            }
         }
-      }
-      
-    public function print_uri(){
-        $segment = $this->uri->segment_array();
-        $uri = base_url();
-        $uriCount = count($segment);
-        $url = "";
-        $i = 1;
-        foreach ($segment as $s)
-        {
-          //echo $s;
-          //echo '<br />';
-          $uri = $uri.$s.'/';
-          //echo '<a href="'.$uri.'">'.ucfirst($s).'</a>';
-          $url = $url.'<a href="'.$uri.'">'.ucfirst($s).'</a>';
-          if($i != $uriCount){
-            //echo " » ";
-            $url = $url." » ";
-          }
-          $i++;
-        }
-        return $url;
-      }
+        return $hp;
+    }
 }
 
 class Frontend_Controller extends MY_Controller {

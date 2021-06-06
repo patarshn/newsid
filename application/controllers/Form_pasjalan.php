@@ -129,6 +129,7 @@ class Form_pasjalan extends Frontend_Controller{
                 'tanggal_berangkat' => $_POST['tanggal_berangkat'],                                         
                 'created_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
+                'notelp' => $this->notelp($_POST['notelp'])
             );
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

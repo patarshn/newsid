@@ -34,7 +34,7 @@
                   <?php foreach($data as $d):
                     $berkas = json_decode($d->berkas);
                     ?>
-                    <table cellpadding="6">
+                    <table class="table table-bordered table-hover border-left-primary mt-3"cellpadding="6">
                         <tr>
                             <td>ID</td>
                             <td>:</td>
@@ -132,6 +132,11 @@
                             <td>Tanggal Pengajuan</td>
                             <td>:</td>
                             <td><?=$d->created_at?></td>
+                        </tr>
+                        <tr>
+                            <td>No Telp/WA</td>
+                            <td>:</td>
+                            <td><?=$d->notelp?></td>
                         </tr>
                         
                         <tr>

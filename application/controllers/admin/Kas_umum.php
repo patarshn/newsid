@@ -16,7 +16,7 @@ class Kas_umum extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
             ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
@@ -24,14 +24,14 @@ class Kas_umum extends Admin_Controller {
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
             ['field' => 'jumlah_komulatif','label' => 'Jumlah Pengeluaran Komulatif', 'rules' => 'required'],
             ['field' => 'saldo','label' => 'Saldo', 'rules' => 'required'],
-            ['field' => 'thn_anggrn','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
             ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
@@ -39,7 +39,7 @@ class Kas_umum extends Admin_Controller {
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
             ['field' => 'jumlah_komulatif','label' => 'Jumlah Pengeluaran Komulatif', 'rules' => 'required'],
             ['field' => 'saldo','label' => 'Saldo', 'rules' => 'required'],
-            ['field' => 'thn_anggrn','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
         ];
     }
 
@@ -119,7 +119,7 @@ class Kas_umum extends Admin_Controller {
             }
             $_POST = $this->input->post();
             $data = array(
-                'tgl' => $_POST['tgl'],
+                'tanggal' => $_POST['tanggal'],
                 'kode_rekening' => $_POST['kode_rekening'],
                 'uraian' => $_POST['uraian'],
                 'penerimaan' => $_POST['penerimaan'],
@@ -127,9 +127,8 @@ class Kas_umum extends Admin_Controller {
                 'no_bukti' => $_POST['no_bukti'],
                 'jumlah_komulatif' => $_POST['jumlah_komulatif'],
                 'saldo' => $_POST['saldo'],
-                'thn_anggrn' => $_POST['thn_anggrn'],
-                'berkas' => $berkas,
-                'verif_bpd' => "Pending",
+                'tahun_anggaran' => $_POST['tahun_anggaran'],
+                'verif_kepala_desa' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' =>  $this->session->userdata('username'),
                 
@@ -205,7 +204,7 @@ class Kas_umum extends Admin_Controller {
                 $berkas = $_POST["old_file"];
             }
             $data = array(
-                'tgl' => $_POST['tgl'],
+                'tanggal' => $_POST['tanggal'],
                 'kode_rekening' => $_POST['kode_rekening'],
                 'uraian' => $_POST['uraian'],
                 'penerimaan' => $_POST['penerimaan'],
@@ -213,16 +212,15 @@ class Kas_umum extends Admin_Controller {
                 'no_bukti' => $_POST['no_bukti'],
                 'jumlah_komulatif' => $_POST['jumlah_komulatif'],
                 'saldo' => $_POST['saldo'],
-                'thn_anggrn' => $_POST['thn_anggrn'],
-                'berkas' => $berkas,
-                'verif_bpd' => $_POST['verif_bpd'],
+                'tahun_anggaran' => $_POST['tahun_anggaran'],
+                'verif_kepala_desa' => $_POST['verif_kepala_desa'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
 
-            if($_POST['verif_bpd'] != $_POST['verif_bpd_old']){
-                $data['verif_bpd_at'] = date('Y-m-d H:i:s');
+            if($_POST['verif_kepala_desa'] != $_POST['verif_kepala_desa_old']){
+                $data['verif_kepala_desa_at'] = date('Y-m-d H:i:s');
             }
                        
             if($this->Main_m->update($data,$this->_table,$where)){
@@ -304,10 +302,10 @@ class Kas_umum extends Admin_Controller {
             $_POST = $this->input->post();
             $where = $_POST['rowdelete'];
             $data = array(              
-                'verif_bpd' => "Disetujui",                             
+                'verif_kepala_desa' => "Disetujui",                             
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
-                'verif_bpd_at' => date('Y-m-d H:i:s'),
+                'verif_kepala_desa_at' => date('Y-m-d H:i:s'),
             );
 
             if($this->Main_m->setuju($data,$this->_table,$where)){

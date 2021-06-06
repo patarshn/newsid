@@ -40,23 +40,23 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control" placeholder="mm/dd/yy"  required>
+                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="no_dan_tgl_surat_masuk" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat Masuk</label>
-                        <input type="text" name="no_dan_tgl_surat_masuk" id="no_dan_tgl_surat_masuk" class="form-control" required>
+                        <input type="text" name="no_dan_tgl_surat_masuk" id="no_dan_tgl_surat_masuk" class="form-control border-left-primary" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
                         <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
-                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control" required>
+                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label">Pilih Berkas</label>
+                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
@@ -64,7 +64,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
+                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
                         </div>
                     </div>
 
@@ -72,7 +72,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="ket" id="ket" rows="3" required></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
                         </div>
                     </div>
                 </div>
