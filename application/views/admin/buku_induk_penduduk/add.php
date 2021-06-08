@@ -36,7 +36,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning">Batal</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
                     </div>
                   </div>
                 </div>
@@ -177,14 +177,14 @@
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label for="rt"><b>RT</b></label>
-                            <input type="text" class="form-control border-left-primary" name="rt" id="rt" placeholder="RT" required>
+                            <input type="number" class="form-control border-left-primary" name="rt" id="rt" placeholder="RT" required>
                      </div>
                      </div>
 
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label for="rw"><b>RW</b></label>
-                            <input type="text" class="form-control border-left-primary" name="rw" id="rw" placeholder="RW" required>
+                            <input type="number" class="form-control border-left-primary" name="rw" id="rw" placeholder="RW" required>
                      </div>
                      </div>
 
@@ -210,18 +210,24 @@
                     </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                     <div class="form-group">
                         <label for="hub_keluarga"><b>Status Hubungan Keluarga</b></label>
-                        <input type="text" name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="contoh: ayah, ibu, anak, dan lain-lain" required>
-                    </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                    <div class="form-group">
-                        <label for="kedudukan_dikeluarga"><b>Kedudukan di Keluarga</b></label>
-                        <input type="text" name="kedudukan_dikeluarga" id="kedudukan_dikeluarga" class="form-control border-left-primary" placeholder="contoh: kepala keluarga, istri, anak" required>
-                    </div>
+                            <select name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="" required>
+                            <option>- Pilih -</option>
+                            <option value="Kepala Keluarga">Kepala Keluarga</option>
+                            <option value="Suami">Suami</option>
+                            <option value="Istri">Istri</option>
+                            <option value="Anak">Anak</option>
+                            <option value="Menantu">Menantu</option>
+                            <option value="Cucu">Cucu</option>
+                            <option value="Orang Tua">Orang Tua</option>
+                            <option value="Mertua">Mertua</option>
+                            <option value="Famili Lain">Famili Lain</option>
+                            <option value="Pembantu">Pembantu</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                        </div>
                     </div>
 
                     <div class="col-lg-6">
@@ -258,13 +264,19 @@
                     </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tmpt_tgl_dikeluarkan"><b>Tempat dan Tanggal Keluar E-KTP</b></label>
-                        <input type="text" name="tmpt_tgl_dikeluarkan" id="tmpt_tgl_dikeluarkan" class="form-control border-left-primary" placeholder="Tempat dan Tanggal Keluar E-KTP"  required>
+                        <label for="tmpt_ektp_dikeluarkan"><b>Tempat Keluarnya E-KTP</b></label>
+                        <input type="text" name="tmpt_ektp_dikeluarkan" id="tmpt_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tempat Keluarnya E-KTP"  required>
                     </div>
                     </div>
-                    
+
+                    <div class="col-lg-3">
+                    <div class="form-group">
+                        <label for="tgl_ektp_dikeluarkan"><b>Tanggal Keluarnya E-KTP</b></label>
+                        <input type="date" name="tgl_ektp_dikeluarkan" id="tgl_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tanggal Keluarnya E-KTP"  required>
+                    </div>
+                    </div>                    
 
                     <div class="col-lg-12">
                         <div class="form-group">

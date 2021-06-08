@@ -1,5 +1,5 @@
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
           <!-- Content Row -->
 
           <div class="row">
@@ -9,7 +9,7 @@
             
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between border-bottom-primary">
                   <h6 class="m-0 font-weight-bold text-primary">
                   <?=$breadcrumb?>
                   </h6>
@@ -43,20 +43,33 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-               <form method="POST" id="formdelete" action="/kk/destroy">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead> 
+              <form method="POST" id="formdelete">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
+                  <thead>
                     <tr>
                       <th width="5%">No</th>
                       <th width="3%"></th>
-                      
+                      <th>Bulan</th>
+                      <th>Bank Cabang</th>
+                      <th>Tanggal Transaksi</th>
+                      <th>Uraian Transaksi</th>
+                      <th>Bukti Transaksi</th>
+                      <th>Saldo</th>
+                      <th>Verif Kepala Desa</th>
                     </tr>
+                    
                   </thead>
                   <tfoot>
                     <tr>
-                    <th width="5%">No</th>
-                      <th width="3%"></th>
-                      
+                        <th width="5%">No</th>
+                        <th width="3%"></th>
+                        <th>Bulan</th>
+                        <th>Bank Cabang</th>
+                        <th>Tanggal Transaksi</th>
+                        <th>Uraian Transaksi</th>
+                        <th>Bukti Transaksi</th>
+                        <th>Saldo</th>
+                        <th>Verif Kepala Desa</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -78,12 +91,36 @@
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
-                          
+                          <!--<div class="dropdown-divider"></div>-->
                           </div>
                         </div>
+                      </td>
+                      <td><?=$d->bulan?></td>
+                      <td><?=$d->bank_cabang?></td>
+                      <td><?=$d->tgl_trans?></td>
+                      <td><?=$d->uraian_trans?></td>
+                      <td><?=$d->bukti_trans?></td>
+                      <td><?=$d->saldo?></td>
 
                       </td>
-                      
+                      <td>
+                        <?php 
+                        if($d->ver_kepala_desa_at == null){
+                          $verif_time = "";
+                        }
+                        else{
+                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
+                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
+                        }
+                        ?>
+                        <?php if($d->ver_kepala_desa == 'Pending'):?>
+                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
+                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
+                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
+                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
+                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
+                        <?php endif;?>
+                      </td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
@@ -93,19 +130,18 @@
             </div>
           </div>
           
-
         </div>
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
 
-<!-- SUBMIT FORMDELETE MODAL -->
+<!-- SUBMIT FORM DELETE MODAL -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete Modal</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Hapus Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -114,10 +150,9 @@
         Data yang akan dihapus tidak dapat dikembalikan lagi, konfirmasi untuk menghapus data.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Hapus</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
       </div>
     </div>
   </div>
 </div>
-

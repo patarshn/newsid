@@ -76,16 +76,16 @@
                                                   <td><?=$d->pekerjaan?></td></tr>
 
                                                   <tr><th>Alamat</th>
-                                                  <td><?=$d->alamat?>, <?=$d->rt?>>, <?=$d->rw?>, <?=$d->alamat?>, </td></tr>
+                                                  <td><?=$d->alamat?>, RT. <?=$d->rt?>>, RW. <?=$d->rw?>, <?=$d->dusun?>, </td></tr>
 
                                                   <tr><th>Status Perkawinan</th>
                                                   <td><?=$d->status_perkawinan?></td></tr>
 
                                                   <tr><th>Tempat dan Tanggal Dikeluarkan</th>
-                                                  <td><?=$d->tmpt_tgl_dikeluarkan?></td></tr>
+                                                  <td><?=$d->tmpt_ektp_dikeluarkan?>, <?=$d->tgl_ektp_dikeluarkan?></td></tr>
 
                                                   <tr><th>Hubungan Keluarga</th>
-                                                  <td><?=$d->wn?></td></tr>
+                                                  <td><?=$d->hub_keluarga?></td></tr>
                                                   
                                                   <tr><th>Kewarganegaraan</th>
                                                   <td><?=$d->wn?></td></tr>

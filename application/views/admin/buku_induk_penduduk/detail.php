@@ -54,7 +54,7 @@
                                                   <tr><th>Jenis Kelamin</th>
                                                   <td><?=$d->jenis_kelamin?></td></tr> 
 
-                                                  <tr><th>Statur Perkawinan</th>
+                                                  <tr><th>Status Perkawinan</th>
                                                   <td><?=$d->status_perkawinan?></td></tr>
 
                                                   <tr><th>Tempat Lahir</th>
@@ -79,10 +79,10 @@
                                                   <td><?=$d->wn?></td></tr>
 
                                                   <tr><th>Alamat</th>
-                                                  <td><?=$d->alamat?>, <?=$d->rt?>>, <?=$d->rw?>, <?=$d->alamat?>, </td></tr>
+                                                  <td><?=$d->alamat?>, RT. <?=$d->rt?>>, RW. <?=$d->rw?>, <?=$d->dusun?>, </td></tr>
 
                                                   <tr><th>Kedudukan di Keluarga</th>
-                                                  <td><?=$d->kedudukan_dikeluarga?></td></tr>
+                                                  <td><?=$d->hub_keluarga?></td></tr>
 
                                                   <tr><th>Keterangan</th>
                                                   <td><?=$d->ket?></td></tr>

@@ -49,6 +49,21 @@
                     </div>
 
                     <div class="col-lg-3 mt-2">
+                        <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                        <input type="text" name="kegiatan" id="kegiatan" class="form-control" required>
+                    </div>
+
+                    <div class="col-lg-3 mt-2">
+                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <input type="text" name="tanggal" id="tanggal" class="form-control" required>
+                    </div>
+
+                    <div class="col-lg-3 mt-2">
+                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <input type="text" name="uraian" id="uraian" class="form-control" required>
+                    </div>
+
+                    <div class="col-lg-3 mt-2">
                         <div class="form-group">
                             <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
                             <select name="kode_rekening" id="kode_rekening" class="form-control" required>

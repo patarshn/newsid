@@ -44,29 +44,29 @@
                 <h4>Data Anak :</h4>
                 <div class="form-row">
                     <div class="col-lg-6">
-                    <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
-                        <label for="nama_anak">Nama</label>
-                        <input type="text" name="nama_anak" id="nama_anak" class="form-control" placeholder="Nama"  value="<?=$d->nama_anak?>" required>
+                    <input type="hidden" name="id" id="id" class="form-control border-left-primary" value="<?=$d->id?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nama_anak">Nama</label>
+                        <input type="text" name="nama_anak" id="nama_anak" class="form-control border-left-primary" placeholder="Nama"  value="<?=$d->nama_anak?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir_anak">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir_anak" id="tempat_lahir_anak" class="form-control" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_anak?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_anak">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir_anak" id="tempat_lahir_anak" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_anak?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_lahir_anak">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir_anak" id="tanggal_lahir_anak" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_anak?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_anak">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir_anak" id="tanggal_lahir_anak" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_anak?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="jenis_kelamin_anak">Jenis Kelamin</label>
-                        <select name="jenis_kelamin_anak" id="jenis_kelamin_anak" class="form-control" placeholder="Jenis Kelamin" required>
+                        <label class="text-gray-900 font-weight-bold" for="jenis_kelamin_anak">Jenis Kelamin</label>
+                        <select name="jenis_kelamin_anak" id="jenis_kelamin_anak" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
                             <option>-</option>
                             <option value="PEREMPUAN" <?= $d->jenis_kelamin_anak == "PEREMPUAN" ? "selected": "" ?>>Perempuan</option>
                             <option value="LAKI-LAKI" <?= $d->jenis_kelamin_anak == "LAKI-LAKI" ? "selected": "" ?>>Laki-Laki</option>
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label for="agama_anak">Agama</label>
-                        <select name="agama_anak" id="agama_anak" class="form-control" placeholder="Agama" required>
+                        <label class="text-gray-900 font-weight-bold" for="agama_anak">Agama</label>
+                        <select name="agama_anak" id="agama_anak" class="form-control border-left-primary" placeholder="Agama" required>
                             <option>-</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
@@ -77,35 +77,35 @@
                         </select>
                     </div>
                     <div class="col-lg-6">
-                        <label for="ke_anak">Anak Ke-</label>
-                        <input type="text" name="ke_anak" id="ke_anak" class="form-control" value="<?=$d->ke_anak?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="ke_anak">Anak Ke-</label>
+                        <input type="text" name="ke_anak" id="ke_anak" class="form-control border-left-primary" value="<?=$d->ke_anak?>" required>
                     </div>
                 </div>
                 <h4>Data Ayah :</h4>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label for="nik_ayah">NIK</label>
-                        <input type="text" name="nik_ayah" id="nik_ayah" class="form-control" placeholder="NIK" value="<?=$d->nik_ayah?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nik_ayah">NIK</label>
+                        <input type="text" name="nik_ayah" id="nik_ayah" class="form-control border-left-primary" placeholder="NIK" value="<?=$d->nik_ayah?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="nama_ayah">Nama</label>
-                        <input type="text" name="nama_ayah" id="nama_ayah" class="form-control" placeholder="Nama" value="<?=$d->nama_ayah?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nama_ayah">Nama</label>
+                        <input type="text" name="nama_ayah" id="nama_ayah" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama_ayah?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir_ayah">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir_ayah" id="tempat_lahir_ayah" class="form-control" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_ayah?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_ayah">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir_ayah" id="tempat_lahir_ayah" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_ayah?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_lahir_ayah">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir_ayah" id="tanggal_lahir_ayah" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_ayah?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_ayah">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir_ayah" id="tanggal_lahir_ayah" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_ayah?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekerjaan_ayah">Pekerjaan</label>
-                        <input type="text" name="pekerjaan_ayah" id="pekerjaan_ayah" class="form-control" value="<?=$d->pekerjaan_ayah?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan_ayah">Pekerjaan</label>
+                        <input type="text" name="pekerjaan_ayah" id="pekerjaan_ayah" class="form-control border-left-primary" value="<?=$d->pekerjaan_ayah?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="agama_ayah">Agama</label>
-                        <select name="agama_ayah" id="agama_ayah" class="form-control" placeholder="Agama" required>
+                        <label class="text-gray-900 font-weight-bold" for="agama_ayah">Agama</label>
+                        <select name="agama_ayah" id="agama_ayah" class="form-control border-left-primary" placeholder="Agama" required>
                             <option>-</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
@@ -119,28 +119,28 @@
                 <h4>Data Ibu :</h4>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label for="nik_ibu">NIK</label>
-                        <input type="text" name="nik_ibu" id="nik_ibu" class="form-control" placeholder="NIK" value="<?=$d->nik_ibu?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nik_ibu">NIK</label>
+                        <input type="text" name="nik_ibu" id="nik_ibu" class="form-control border-left-primary" placeholder="NIK" value="<?=$d->nik_ibu?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="nama_ibu">Nama</label>
-                        <input type="text" name="nama_ibu" id="nama_ibu" class="form-control" placeholder="Nama" value="<?=$d->nama_ibu?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="nama_ibu">Nama</label>
+                        <input type="text" name="nama_ibu" id="nama_ibu" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama_ibu?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir_ibu">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir_ibu" id="tempat_lahir_ibu" class="form-control" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_ibu?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_ibu">Tempat Lahir</label>
+                        <input type="text" name="tempat_lahir_ibu" id="tempat_lahir_ibu" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_ibu?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_lahir_ibu">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" class="form-control" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_ibu?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_ibu">Tanggal Lahir</label>
+                        <input type="date" name="tanggal_lahir_ibu" id="tanggal_lahir_ibu" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_ibu?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekerjaan_ibu">Pekerjaan</label>
-                        <input type="text" name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control" value="<?=$d->pekerjaan_ibu?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan_ibu">Pekerjaan</label>
+                        <input type="text" name="pekerjaan_ibu" id="pekerjaan_ibu" class="form-control border-left-primary" value="<?=$d->pekerjaan_ibu?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="agama_ibu">Agama</label>
-                        <select name="agama_ibu" id="agama_ibu" class="form-control" placeholder="Agama" required>
+                        <label class="text-gray-900 font-weight-bold" for="agama_ibu">Agama</label>
+                        <select name="agama_ibu" id="agama_ibu" class="form-control border-left-primary" placeholder="Agama" required>
                             <option>-</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
@@ -155,33 +155,37 @@
                 <div class="form-row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea class="form-control" name="alamat" id="alamat" rows="3"><?=$d->alamat?></textarea>
+                            <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                            <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="3"><?=$d->alamat?></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekon">Pekon</label>
-                        <input type="text" name="pekon" id="pekon" class="form-control" value="<?=$d->pekon?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="pekon">Pekon</label>
+                        <input type="text" name="pekon" id="pekon" class="form-control border-left-primary" value="<?=$d->pekon?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="kecamatan">Kecamatan</label>
-                        <input type="text" name="kecamatan" id="kecamatan" class="form-control" value="<?=$d->kecamatan?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="kecamatan">Kecamatan</label>
+                        <input type="text" name="kecamatan" id="kecamatan" class="form-control border-left-primary" value="<?=$d->kecamatan?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="kabupaten">Kabupaten</label>
-                        <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="<?=$d->kabupaten?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="kabupaten">Kabupaten</label>
+                        <input type="text" name="kabupaten" id="kabupaten" class="form-control border-left-primary" value="<?=$d->kabupaten?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label for="rt">RT</label>
-                        <input type="text" name="rt" id="rt" class="form-control" value="<?=$d->rt?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="rt">RT</label>
+                        <input type="text" name="rt" id="rt" class="form-control border-left-primary" value="<?=$d->rt?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label for="rw">RW</label>
-                        <input type="text" name="rw" id="rw" class="form-control" value="<?=$d->rw?>" required>
+                        <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
+                        <input type="text" name="rw" id="rw" class="form-control border-left-primary" value="<?=$d->rw?>" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="text-gray-900 font-weight-bold" for="notelp">No Telp/WA</label>
+                        <input type="text" name="notelp" id="notelp" class="form-control border-left-primary" placeholder="6281245586699" value="<?=$d->notelp?>">
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="file_ktp">Upload KTP Pengaju</label>
+                            <label class="text-gray-900 font-weight-bold" for="file_ktp">Upload KTP Pengaju</label>
                             <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
                             <img id="file_ktp_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_ktp)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_ktp_old" name="file_ktp_old" value="<?=$berkas->file_ktp?>">
@@ -189,7 +193,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="file_kk">Upload KK Pengaju</label>
+                            <label class="text-gray-900 font-weight-bold" for="file_kk">Upload KK Pengaju</label>
                             <input type="file" class="form-control-file" id="file_kk" name="file_kk">
                             <img id="file_kk_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_kk)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
@@ -198,20 +202,20 @@
                     <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
                 
                     <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Lurah : </label>
-                        <input type="hidden" name="verif_lurah_old"  value="<?=$d->verif_lurah?>" class="form-control">
+                        <label class="text-gray-900 font-weight-bold" for="status" class="mr-sm-2">Verifikasi Lurah : </label>
+                        <input type="hidden" name="verif_lurah_old"  value="<?=$d->verif_lurah?>" class="form-control border-left-primary">
                         <br>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="verif_lurah" id="verif_lurah1" value="Pending" class="form-control" <?php if($d->verif_lurah == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="verif_lurah1">Pending</label>
+                          <input type="radio" name="verif_lurah" id="verif_lurah1" value="Pending" class="form-control border-left-primary" <?php if($d->verif_lurah == "Pending"){echo "checked";}?>>
+                          <label class="text-gray-900 font-weight-bold" class="form-check-label" for="verif_lurah1">Pending</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="verif_lurah" id="verif_lurah2" value="Disetujui" class="form-control" <?php if($d->verif_lurah == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="verif_lurah2">Disetujui</label>
+                          <input type="radio" name="verif_lurah" id="verif_lurah2" value="Disetujui" class="form-control border-left-primary" <?php if($d->verif_lurah == "Disetujui"){echo "checked";}?>>
+                          <label class="text-gray-900 font-weight-bold" class="form-check-label" for="verif_lurah2">Disetujui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="verif_lurah" id="verif_lurah3" value="Ditolak" class="form-control" <?php if($d->verif_lurah == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="verif_lurah3">Ditolak</label>
+                          <input type="radio" name="verif_lurah" id="verif_lurah3" value="Ditolak" class="form-control border-left-primary" <?php if($d->verif_lurah == "Ditolak"){echo "checked";}?>>
+                          <label class="text-gray-900 font-weight-bold" class="form-check-label" for="verif_lurah3">Ditolak</label>
                         </div>
                     </div>
                 </div>

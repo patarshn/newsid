@@ -159,6 +159,7 @@ class Form_pasjalan extends Admin_Controller{
                 'verif_lurah' => $_POST['verif_lurah'],
                 'updated_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
+                'notelp' => $this->notelp($_POST['notelp']),
             );
             if($_POST['verif_lurah'] != $_POST['verif_lurah_old']){
                 $data['verif_lurah_at'] = date('Y-m-d H:i:s');

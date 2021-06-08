@@ -83,13 +83,13 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tanggal" id="tanggal" class="form-control" required>
+                        <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
                     </div>
                 </div>
                 <?=form_close()?>
                 
-                  <div class="d-flex mt-3">
+                <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>
