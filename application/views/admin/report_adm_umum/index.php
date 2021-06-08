@@ -43,7 +43,7 @@
             <?php
             $total = $ditolak+$pending+$disetujui;
             
-            if($total = 0){
+            if($total == 0){
               $disetujuiPersentase = 0;
               $ditolakPersentase = 0;
               $pendingPersentase = 0;
