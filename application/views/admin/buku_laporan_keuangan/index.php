@@ -90,7 +90,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                       <td><?=$d->uraian?></td>
                       <td><?=$d->penerimaan?></td>
                       <td><?=$d->pengeluaran?></td>

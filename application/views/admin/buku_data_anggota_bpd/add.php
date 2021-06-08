@@ -95,13 +95,23 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pengangkatan</label>
-                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control border-left-primary" required>
+                        <label for="no_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Nomor Keputusan Pengangkatan</label>
+                        <input type="text" name="no_keputusan_pengangkatan" id="no_keputusan_pengangkatan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pemberhentian</label>
-                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control border-left-primary" required>
+                        <label for="tgl_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Tanggal Keputusan Pengangkatan</label>
+                        <input type="date" name="tgl_keputusan_pengangkatan" id="tgl_keputusan_pengangkatan" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Nomor Keputusan Pemberhentian</label>
+                        <input type="text" name="no_keputusan_pemberhentian" id="no_keputusan_pemberhentian" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="tgl_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Tanggal Keputusan Pemberhentian</label>
+                        <input type="date" name="tgl_keputusan_pemberhentian" id="tgl_keputusan_pemberhentian" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">

@@ -47,13 +47,18 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_surat_masuk" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat Masuk</label>
-                        <input type="text" name="no_dan_tgl_surat_masuk" id="no_dan_tgl_surat_masuk" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_surat_masuk?>" required>
+                        <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
+                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" value="<?=$d->nama_pengirim?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
-                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" value="<?=$d->nama_pengirim?>" required>
+                        <label for="no_surat_masuk" class="text-gray-900 font-weight-bold">Nomor Surat Masuk</label>
+                        <input type="text" name="no_surat_masuk" id="no_surat_masuk" class="form-control border-left-primary" value="<?=$d->no_surat_masuk?>" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="tgl_surat_masuk" class="text-gray-900 font-weight-bold">Tanggal Surat Masuk</label>
+                        <input type="date" name="tgl_surat_masuk" id="tgl_surat_masuk" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl_surat_masuk?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">

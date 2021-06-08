@@ -88,9 +88,9 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->no_dan_tgl_peraturan_desa?></td>
+                      <td><?=$d->no_peraturan_desa?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan_desa))?></td>
                       <td><?=$d->tentang?></td>
-                      <td><?=$d->no_dan_tgl_kesepakatan?></td>
+                      <td><?=$d->no_kesepakatan?> , <?= date("d-m-Y", strtotime($d->tgl_kesepakatan))?></td>
                       <td>
                         <?php 
                         if($d->verif_bpd_at == null){

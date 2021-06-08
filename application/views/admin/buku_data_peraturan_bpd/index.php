@@ -88,7 +88,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->no_dan_tgl_peraturan?></td>
+                      <td><?=$d->no_peraturan?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan))?></td>
                       <td><?=$d->tentang?></td>
                       <td><?=$d->uraian_singkat?></td>
                       <td>

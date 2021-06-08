@@ -42,8 +42,13 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_peraturan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_peraturan?>" required>
+                        <label for="no_peraturan" class="text-gray-900 font-weight-bold">Nomor Peraturan/Keputusan BPD</label>
+                        <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" value="<?=$d->no_peraturan?>" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="tgl_peraturan" class="text-gray-900 font-weight-bold">Tanggal Peraturan/Keputusan BPD</label>
+                        <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" value="<?=$d->tgl_peraturan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">

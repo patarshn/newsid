@@ -17,7 +17,8 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_surat_keluar','label' => 'Nomor dan Tanggal Surat Keluar', 'rules' => 'required'],
+            ['field' => 'no_surat_keluar','label' => 'Nomor Surat Keluar', 'rules' => 'required'],
+            ['field' => 'tgl_surat_keluar','label' => 'Tanggal Surat Keluar', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'tujuan','label' => 'Tujuan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
@@ -28,7 +29,8 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_surat_keluar','label' => 'Nomor dan Tanggal Surat Keluar', 'rules' => 'required'],
+            ['field' => 'no_surat_keluar','label' => 'Nomor Surat Keluar', 'rules' => 'required'],
+            ['field' => 'tgl_surat_keluar','label' => 'Tanggal Surat Keluar', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'tujuan','label' => 'Tujuan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
@@ -113,7 +115,8 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
             $_POST = $this->input->post();
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_dan_tgl_surat_keluar' => $_POST['no_dan_tgl_surat_keluar'],
+                'no_surat_keluar' => $_POST['no_surat_keluar'],
+                'tgl_surat_keluar' => $_POST['tgl_surat_keluar'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tujuan'=> $_POST['tujuan'],
                 'ket' => $_POST['ket'],
@@ -196,7 +199,8 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
 
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_dan_tgl_surat_keluar' => $_POST['no_dan_tgl_surat_keluar'],
+                'no_surat_keluar' => $_POST['no_surat_keluar'],
+                'tgl_surat_keluar' => $_POST['tgl_surat_keluar'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tujuan' => $_POST['tujuan'],
                 'ket' => $_POST['ket'],

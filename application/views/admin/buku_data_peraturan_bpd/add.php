@@ -39,10 +39,15 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_peraturan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control border-left-primary" required>
+                        <label for="no_peraturan" class="text-gray-900 font-weight-bold">Nomor Peraturan/Keputusan BPD</label>
+                        <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" required>
                     </div>
                     
+                    <div class="col-lg-6 mt-3">
+                        <label for="tgl_peraturan" class="text-gray-900 font-weight-bold">Tanggal Peraturan/Keputusan BPD</label>
+                        <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" required>
+                    </div>
+
                     <div class="col-lg-6 mt-3">
                         <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
                         <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
