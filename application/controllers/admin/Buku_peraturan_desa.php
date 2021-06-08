@@ -11,6 +11,7 @@ class Buku_peraturan_desa extends Admin_Controller {
         parent::__construct();
         $this->load->model('Main_m');
         $this->load->library('breadcrumbcomponent');
+        $this->load->library('pdf');
         
     }
 
@@ -103,10 +104,10 @@ class Buku_peraturan_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
+                    //echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -425,7 +426,7 @@ class Buku_peraturan_desa extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            //echo $this->upload->display_errors();
         }    
     }
 
@@ -443,6 +444,73 @@ class Buku_peraturan_desa extends Admin_Controller {
             
         }
         return true;
+    }
+
+    public function cetak2($id){
+        $where = ['id'=>$id];
+        $data = $this->Main_m->get($this->_table,$where)->row();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
+        $template->setValue('nama_1', $data->nama_1);
+        $template->setValue('tempat_lahir_1', $data->tempat_lahir_1);
+        $template->setValue('tanggal_lahir_1', longdate_indo($data->tanggal_lahir_1));
+        $template->setValue('nik_1', $data->nik_1);
+        $template->setValue('agama_1', $data->agama_1);
+        $template->setValue('pekerjaan_1', $data->pekerjaan_1);
+        $template->setValue('rt_1', $data->rt_1);
+        $template->setValue('rt_1', $data->rt_1);
+        $template->setValue('pekon_1', $data->pekon_1);
+        $template->setValue('kecamatan_1', $data->kecamatan_1);
+        $template->setValue('kabupaten_1', $data->kabupaten_1);
+        $template->setValue('nama_2', $data->nama_2);
+        $template->setValue('tempat_lahir_2', $data->tempat_lahir_2);
+        $template->setValue('tanggal_lahir_2', longdate_indo($data->tanggal_lahir_2));
+        $template->setValue('nik_2', $data->nik_2);
+        $template->setValue('agama_2', $data->agama_2);
+        $template->setValue('pekerjaan_2', $data->pekerjaan_2);
+        $template->setValue('rt_2', $data->rt_2);
+        $template->setValue('rt_2', $data->rt_2);
+        $template->setValue('pekon_2', $data->pekon_2);
+        $template->setValue('kecamatan_2', $data->kecamatan_2);
+        $template->setValue('kabupaten_2', $data->kabupaten_2);
+        $temp_filename = $this->_docxName;
+        $template->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
+        
+    }
+
+    public function cetak1(){
+        $this->load->view('admin/buku_peraturan_desa/laporan_pdf');
+    
+    }
+
+    public function cetak(){
+        $this->load->library('pdf');
+        
+        // title dari pdf
+        $this->data['title_pdf'] = 'Laporan Penjualan Toko Kita';
+        
+        // filename dari pdf ketika didownload
+        $file_pdf = 'Buku_Administrasi_Umum';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "portrait";
+		$html = $this->load->view('admin/buku_peraturan_desa/laporan_pdf',$this->data, true);	   
+        // run dompdf
+        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
     }
 }
 ?>
