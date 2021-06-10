@@ -52,7 +52,7 @@
                       <th>Tanggal</th>
                       <th>Nama/Lembaga Pihak Penyampai Aspirasi</th>
                       <th>Aspirasi yang Disampaikan</th>
-                      <th>Verif Kepala Desa</th>
+                      <th>Verif Kepala BPD</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -88,7 +88,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                       <td><?=$d->phk_aspirasi?></td>
                       <td><?=$d->aspirasi?></td>
                       <td>

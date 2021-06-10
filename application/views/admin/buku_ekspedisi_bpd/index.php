@@ -88,8 +88,8 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
-                      <td><?=$d->no_dan_tgl_surat?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
+                      <td><?=$d->no_surat?> , <?= date("d-m-Y", strtotime($d->tgl_surat))?></td>
                       <td><?=$d->uraian_singkat?></td>
                       <td>
                         <?php 

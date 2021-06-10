@@ -56,7 +56,7 @@
 
                                     <tr>
                                         <th>Tempat/Tanggal Lahir</th>
-                                        <td><?=$d->tempat_lahir?>, <?=$d->tgl_lahir?> </td>
+                                        <td><?=$d->tempat_lahir?>, <?= date("d-m-Y", strtotime($d->tgl_lahir))?> </td>
                                     </tr >
 
                                     <tr>
@@ -76,12 +76,12 @@
 
                                     <tr>
                                         <th>Nomor dan Tanggal Keputusan Pengangkatan</th>
-                                        <td><?=$d->no_tgl_keputusan_pengangkatan?></td>
+                                        <td><?=$d->no_keputusan_pengangkatan?> , <?= date("d-m-Y", strtotime($d->tgl_keputusan_pengangkatan))?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Nomor dan Tanggal Keputusan Pemberhentian</th>
-                                        <td><?=$d->no_tgl_keputusan_pemberhentian?></td>
+                                        <td><?=$d->no_keputusan_pemberhentian?> , <?= date("d-m-Y", strtotime($d->tgl_keputusan_pemberhentian))?></td>
                                     </tr >
 
                                     <tr>
@@ -97,7 +97,7 @@
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
                                         <?php else :?>
-                                        berkas Tidak ada
+                                        Berkas Tidak Ada
                                         <?php endif; ?>
                                         </td>
                                         

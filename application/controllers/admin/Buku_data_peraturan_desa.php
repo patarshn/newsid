@@ -16,10 +16,12 @@ class Buku_data_peraturan_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'no_dan_tgl_peraturan_desa','label' => 'Nomor dan Tanggal Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'no_peraturan_desa','label' => 'Nomor Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'tgl_peraturan_desa','label' => 'Tanggal Peraturan Desa', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_kesepakatan','label' => 'Nomor dan Tanggal Kesepakatan', 'rules' => 'required'],
+            ['field' => 'no_kesepakatan','label' => 'Nomor Kesepakatan', 'rules' => 'required'],
+            ['field' => 'tgl_kesepakatan','label' => 'Tanggal Kesepakatan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
@@ -27,10 +29,12 @@ class Buku_data_peraturan_desa extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_peraturan_desa','label' => 'Nomor dan Tanggal Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'no_peraturan_desa','label' => 'Nomor Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'tgl_peraturan_desa','label' => 'Tanggal Peraturan Desa', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_kesepakatan','label' => 'Nomor dan Tanggal Kesepakatan', 'rules' => 'required'],
+            ['field' => 'no_kesepakatan','label' => 'Nomor Kesepakatan', 'rules' => 'required'],
+            ['field' => 'tgl_kesepakatan','label' => 'Tanggal Kesepakatan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
@@ -111,10 +115,12 @@ class Buku_data_peraturan_desa extends Admin_Controller {
             }
             $_POST = $this->input->post();
             $data = array(
-                'no_dan_tgl_peraturan_desa' => $_POST['no_dan_tgl_peraturan_desa'],
+                'no_peraturan_desa' => $_POST['no_peraturan_desa'],
+                'tgl_peraturan_desa' => $_POST['tgl_peraturan_desa'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
-                'no_dan_tgl_kesepakatan' => $_POST['no_dan_tgl_kesepakatan'],
+                'no_kesepakatan' => $_POST['no_kesepakatan'],
+                'tgl_kesepakatan' => $_POST['tgl_kesepakatan'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'verif_bpd' => "Pending",
@@ -193,10 +199,12 @@ class Buku_data_peraturan_desa extends Admin_Controller {
                 $berkas = $_POST["old_file"];
             }
             $data = array(
-                'no_dan_tgl_peraturan_desa' => $_POST['no_dan_tgl_peraturan_desa'],
+                'no_peraturan_desa' => $_POST['no_peraturan_desa'],
+                'tgl_peraturan_desa' => $_POST['tgl_peraturan_desa'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
-                'no_dan_tgl_kesepakatan' => $_POST['no_dan_tgl_kesepakatan'],
+                'no_kesepakatan' => $_POST['no_kesepakatan'],
+                'tgl_kesepakatan' => $_POST['tgl_kesepakatan'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'verif_bpd' => $_POST['verif_bpd'],

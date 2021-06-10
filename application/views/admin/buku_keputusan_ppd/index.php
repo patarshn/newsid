@@ -86,7 +86,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                       <td><?=$d->ppu?></td>
                       <td>
                         <?php 

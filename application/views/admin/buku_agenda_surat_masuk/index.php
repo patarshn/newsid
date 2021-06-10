@@ -90,8 +90,8 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
-                      <td><?=$d->no_dan_tgl_surat_masuk?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
+                      <td><?=$d->no_surat_masuk?> , <?= date("d-m-Y", strtotime($d->tgl_surat_masuk))?></td>
                       <td><?=$d->nama_pengirim?></td>
                       <td><?=$d->uraian_singkat?></td>
                       <td>

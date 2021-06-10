@@ -29,11 +29,11 @@
           $data2 = $data;
 
           foreach($data2 as $countdata){
-            if($countdata->ver_kepala_desa == 'Pending'):
+            if($countdata->verif_bpd == 'Pending'):
               $pending++;
-            elseif($countdata->ver_kepala_desa == 'Disetujui'):
+            elseif($countdata->verif_bpd == 'Disetujui'):
               $disetujui++;
-            elseif($countdata->ver_kepala_desa == 'Ditolak'):
+            elseif($countdata->verif_bpd == 'Ditolak'):
               $ditolak++;
             endif;
           }
@@ -191,16 +191,16 @@
                     var form_name_id = form_name_lower.replace(/ /g,'');
                     console.log(form_name_id);
                     for(j=0;j<countdatalen;j++){
-                      ver_kepala_desa = countdata[j]['ver_kepala_desa'];
+                      verif_bpd = countdata[j]['verif_bpd'];
                       total = countdata[j]['total'];
-                      if(ver_kepala_desa == "Pending"){
-                        document.getElementById(form_name_id+ver_kepala_desa).innerHTML = total;
+                      if(verif_bpd == "Pending"){
+                        document.getElementById(form_name_id+verif_bpd).innerHTML = total;
                       }
-                      else if(ver_kepala_desa == "Disetujui"){
-                        document.getElementById(form_name_id+ver_kepala_desa).innerHTML = total;
+                      else if(verif_bpd == "Disetujui"){
+                        document.getElementById(form_name_id+verif_bpd).innerHTML = total;
                       }
-                      else if(ver_kepala_desa == "Ditolak"){
-                        document.getElementById(form_name_id+ver_kepala_desa).innerHTML = total;
+                      else if(verif_bpd == "Ditolak"){
+                        document.getElementById(form_name_id+verif_bpd).innerHTML = total;
                       }
                     }
                 });

@@ -1,7 +1,8 @@
-CREATE TABLE `buku_agenda_surat_keluar` (
+ CREATE TABLE `buku_agenda_surat_keluar` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `tgl` date DEFAULT NULL,
- `no_dan_tgl_surat_keluar` varchar(255) DEFAULT NULL,
+ `no_surat_keluar` varchar(255) DEFAULT NULL,
+ `tgl_surat_keluar` date DEFAULT NULL,
  `uraian_singkat` varchar(255) DEFAULT NULL,
  `tujuan` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
@@ -17,7 +18,8 @@ CREATE TABLE `buku_agenda_surat_keluar` (
 CREATE TABLE `buku_agenda_surat_masuk` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `tgl` date DEFAULT NULL,
- `no_dan_tgl_surat_masuk` varchar(255) DEFAULT NULL,
+ `no_surat_masuk` varchar(255) DEFAULT NULL,
+ `tgl_surat_masuk` date DEFAULT NULL,
  `nama_pengirim` varchar(255) DEFAULT NULL,
  `uraian_singkat` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
@@ -30,85 +32,11 @@ CREATE TABLE `buku_agenda_surat_masuk` (
  `berkas` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`));
 
-CREATE TABLE `buku_data_aspirasi_masyarakat` (
+ CREATE TABLE `buku_ekspedisi_bpd` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `tgl` date DEFAULT NULL,
- `phk_aspirasi` varchar(255) DEFAULT NULL,
- `aspirasi` varchar(255) DEFAULT NULL,
- `tindak_lanjut` varchar(255) DEFAULT NULL,
- `created_at` datetime DEFAULT NULL,
- `created_by` varchar(255) DEFAULT NULL,
- `updated_at` datetime DEFAULT NULL,
- `updated_by` varchar(255) DEFAULT NULL,
- `verif_bpd` varchar(20) DEFAULT NULL,
- `verif_bpd_at` datetime DEFAULT NULL,
- PRIMARY KEY (`id`));
-
-CREATE TABLE `buku_data_kegiatan` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `tgl` date DEFAULT NULL,
- `kegiatan` varchar(255) DEFAULT NULL,
- `pelaksana` varchar(255) DEFAULT NULL,
- `agenda_hasil` varchar(255) DEFAULT NULL,
- `ket` varchar(255) DEFAULT NULL,
- `created_at` datetime DEFAULT NULL,
- `created_by` varchar(255) DEFAULT NULL,
- `updated_at` datetime DEFAULT NULL,
- `updated_by` varchar(255) DEFAULT NULL,
- `verif_bpd` varchar(20) DEFAULT NULL,
- `verif_bpd_at` datetime DEFAULT NULL,
- PRIMARY KEY (`id`));
-
-CREATE TABLE `buku_keputusan_musyawarah` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `tgl` date DEFAULT NULL,
- `ttg` varchar(255) DEFAULT NULL,
- `ppk` varchar(255) DEFAULT NULL,
- `ket` varchar(255) DEFAULT NULL,
- `created_at` datetime DEFAULT NULL,
- `created_by` varchar(255) DEFAULT NULL,
- `updated_at` datetime DEFAULT NULL,
- `updated_by` varchar(255) DEFAULT NULL,
- `verif_bpd` varchar(20) DEFAULT NULL,
- `verif_bpd_at` datetime DEFAULT NULL,
- `berkas` varchar(255) DEFAULT NULL,
- PRIMARY KEY (`id`));
-
-CREATE TABLE `buku_keputusan_ppd` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `tgl` date DEFAULT NULL,
- `ppu` varchar(255) DEFAULT NULL,
- `ket` varchar(255) DEFAULT NULL,
- `created_at` datetime DEFAULT NULL,
- `created_by` varchar(255) DEFAULT NULL,
- `updated_at` datetime DEFAULT NULL,
- `updated_by` varchar(255) DEFAULT NULL,
- `verif_bpd` varchar(20) DEFAULT NULL,
- `verif_bpd_at` datetime DEFAULT NULL,
- `berkas` varchar(255) DEFAULT NULL,
- PRIMARY KEY (`id`));
-
-CREATE TABLE `buku_laporan_keuangan` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `tgl` date DEFAULT NULL,
- `uraian` varchar(255) DEFAULT NULL,
- `penerimaan` varchar(255) DEFAULT NULL,
- `pengeluaran` varchar(255) DEFAULT NULL,
- `jml_penerimaan` varchar(255) DEFAULT NULL,
- `jml_pengeluaran` varchar(255) DEFAULT NULL,
- `created_at` datetime DEFAULT NULL,
- `created_by` varchar(255) DEFAULT NULL,
- `updated_at` datetime DEFAULT NULL,
- `updated_by` varchar(255) DEFAULT NULL,
- `verif_bpd` varchar(20) DEFAULT NULL,
- `verif_bpd_at` datetime DEFAULT NULL,
- `berkas` varchar(255) DEFAULT NULL,
- PRIMARY KEY (`id`));
-
-CREATE TABLE `buku_ekspedisi_bpd` (
- `id` int(11) NOT NULL AUTO_INCREMENT,
- `tgl` date DEFAULT NULL,
- `no_dan_tgl_surat` varchar(255) DEFAULT NULL,
+ `no_surat` varchar(255) DEFAULT NULL,
+ `tgl_surat` date DEFAULT NULL,
  `uraian_singkat` varchar(255) DEFAULT NULL,
  `tujuan` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
@@ -121,7 +49,7 @@ CREATE TABLE `buku_ekspedisi_bpd` (
  `berkas` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`));
 
-CREATE TABLE `buku_data_inventaris_bpd` (
+ CREATE TABLE `buku_data_inventaris_bpd` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `jenis_brng_bangunan` varchar(255) DEFAULT NULL,
  `abb_apb_desa` int(11) DEFAULT NULL,
@@ -147,7 +75,24 @@ CREATE TABLE `buku_data_inventaris_bpd` (
  `berkas` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`));
 
-CREATE TABLE `buku_data_anggota_bpd` (
+ CREATE TABLE `buku_laporan_keuangan` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `tgl` date DEFAULT NULL,
+ `uraian` varchar(255) DEFAULT NULL,
+ `penerimaan` varchar(255) DEFAULT NULL,
+ `pengeluaran` varchar(255) DEFAULT NULL,
+ `jml_penerimaan` varchar(255) DEFAULT NULL,
+ `jml_pengeluaran` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `verif_bpd` varchar(20) DEFAULT NULL,
+ `verif_bpd_at` datetime DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`));
+ 
+ CREATE TABLE `buku_data_anggota_bpd` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `nama` varchar(255) DEFAULT NULL,
  `nip` varchar(255) DEFAULT NULL,
@@ -157,8 +102,10 @@ CREATE TABLE `buku_data_anggota_bpd` (
  `agama` varchar(255) DEFAULT NULL,
  `jabatan` varchar(255) DEFAULT NULL,
  `pendidikan_terakhir` varchar(255) DEFAULT NULL,
- `no_tgl_keputusan_pengangkatan` varchar(255) DEFAULT NULL,
- `no_tgl_keputusan_pemberhentian` varchar(255) DEFAULT NULL,
+ `no_keputusan_pengangkatan` varchar(255) DEFAULT NULL,
+ `tgl_keputusan_pengangkatan` date DEFAULT NULL,
+ `no_keputusan_pemberhentian` varchar(255) DEFAULT NULL,
+ `tgl_keputusan_pemberhentian` date DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
  `created_at` datetime DEFAULT NULL,
  `created_by` varchar(255) DEFAULT NULL,
@@ -168,10 +115,40 @@ CREATE TABLE `buku_data_anggota_bpd` (
  `verif_bpd_at` datetime DEFAULT NULL,
  `berkas` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`));
-
-CREATE TABLE `buku_data_peraturan_bpd` (
+ 
+ CREATE TABLE `buku_data_kegiatan` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
- `no_dan_tgl_peraturan` varchar(255) DEFAULT NULL,
+ `tgl` date DEFAULT NULL,
+ `kegiatan` varchar(255) DEFAULT NULL,
+ `pelaksana` varchar(255) DEFAULT NULL,
+ `agenda_hasil` varchar(255) DEFAULT NULL,
+ `ket` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `verif_bpd` varchar(20) DEFAULT NULL,
+ `verif_bpd_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`));
+
+CREATE TABLE `buku_data_aspirasi_masyarakat` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `tgl` date DEFAULT NULL,
+ `phk_aspirasi` varchar(255) DEFAULT NULL,
+ `aspirasi` varchar(255) DEFAULT NULL,
+ `tindak_lanjut` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `verif_bpd` varchar(20) DEFAULT NULL,
+ `verif_bpd_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`));
+
+ CREATE TABLE `buku_data_peraturan_bpd` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `no_peraturan` varchar(255) DEFAULT NULL,
+ `tgl_peraturan` date DEFAULT NULL,
  `tentang` varchar(255) DEFAULT NULL,
  `uraian_singkat` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
@@ -186,10 +163,41 @@ CREATE TABLE `buku_data_peraturan_bpd` (
 
 CREATE TABLE `buku_data_peraturan_desa` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
- `no_dan_tgl_peraturan_desa` varchar(255) DEFAULT NULL,
+ `no_peraturan_desa` varchar(255) DEFAULT NULL,
+ `tgl_peraturan_desa` date DEFAULT NULL,
  `tentang` varchar(255) DEFAULT NULL,
  `uraian_singkat` varchar(255) DEFAULT NULL,
- `no_dan_tgl_kesepakatan` varchar(255) DEFAULT NULL,
+ `no_kesepakatan` varchar(255) DEFAULT NULL,
+ `tgl_kesepakatan` date DEFAULT NULL,
+ `ket` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `verif_bpd` varchar(20) DEFAULT NULL,
+ `verif_bpd_at` datetime DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`));
+
+CREATE TABLE `buku_keputusan_musyawarah` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `tgl` date DEFAULT NULL,
+ `ttg` varchar(255) DEFAULT NULL,
+ `ppk` varchar(255) DEFAULT NULL,
+ `ket` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `created_by` varchar(255) DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `updated_by` varchar(255) DEFAULT NULL,
+ `verif_bpd` varchar(20) DEFAULT NULL,
+ `verif_bpd_at` datetime DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`));
+
+CREATE TABLE `buku_keputusan_ppd` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `tgl` date DEFAULT NULL,
+ `ppu` varchar(255) DEFAULT NULL,
  `ket` varchar(255) DEFAULT NULL,
  `created_at` datetime DEFAULT NULL,
  `created_by` varchar(255) DEFAULT NULL,

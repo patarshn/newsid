@@ -88,7 +88,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                       <td><?=$d->kegiatan?></td>
                       <td><?=$d->pelaksana?></td>
                       <td>

@@ -16,7 +16,8 @@ class Buku_data_peraturan_bpd extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'no_dan_tgl_peraturan','label' => 'Nomor dan Tanggal Peraturan/Keputusan BPD', 'rules' => 'required'],
+            ['field' => 'no_peraturan','label' => 'Nomor Peraturan/Keputusan BPD', 'rules' => 'required'],
+            ['field' => 'tgl_peraturan','label' => 'Tanggal Peraturan/Keputusan BPD', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
@@ -26,7 +27,8 @@ class Buku_data_peraturan_bpd extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_peraturan','label' => 'Nomor dan Tanggal Peraturan/Keputusan BPD', 'rules' => 'required'],
+            ['field' => 'no_peraturan','label' => 'Nomor Peraturan/Keputusan BPD', 'rules' => 'required'],
+            ['field' => 'tgl_peraturan','label' => 'Tanggal Peraturan/Keputusan BPD', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
@@ -109,7 +111,8 @@ class Buku_data_peraturan_bpd extends Admin_Controller {
             }
             $_POST = $this->input->post();
             $data = array(
-                'no_dan_tgl_peraturan' => $_POST['no_dan_tgl_peraturan'],
+                'no_peraturan' => $_POST['no_peraturan'],
+                'tgl_peraturan' => $_POST['tgl_peraturan'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'ket' => $_POST['ket'],
@@ -190,7 +193,8 @@ class Buku_data_peraturan_bpd extends Admin_Controller {
                 $berkas = $_POST["old_file"];
             }
             $data = array(
-                'no_dan_tgl_peraturan' => $_POST['no_dan_tgl_peraturan'],
+                'no_peraturan' => $_POST['no_peraturan'],
+                'tgl_peraturan' => $_POST['tgl_peraturan'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'ket' => $_POST['ket'],
