@@ -51,14 +51,19 @@
                       </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_surat_keluar" class="text-gray-900 font-weight-bold">Nomor Surat Keluar</label>
-                        <input type="text" name="no_surat_keluar" id="no_surat_keluar" class="form-control border-left-primary" required>
-                    </div>
+                    <div class="col-lg-12 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat Keluar</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_surat_keluar" id="no_surat_keluar" class="form-control border-left-primary" required>
+                          <small id="no_surat_keluar" class="text-gray-700">Nomor Surat Keluar</small>
+                        </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <label for="tgl_surat_keluar" class="text-gray-900 font-weight-bold">Tanggal Surat Keluar</label>
-                        <input type="date" name="tgl_surat_keluar" id="tgl_surat_keluar" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_surat_keluar" id="tgl_surat_keluar" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_surat_keluar" class="text-gray-700">Tanggal Surat Keluar</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-12 mt-3">

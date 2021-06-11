@@ -49,13 +49,18 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_surat_masuk" class="text-gray-900 font-weight-bold">Nomor Surat Masuk</label>
-                        <input type="text" name="no_surat_masuk" id="no_surat_masuk" class="form-control border-left-primary" required>
-                    </div>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat Masuk</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_surat_masuk" id="no_surat_masuk" class="form-control border-left-primary" required>
+                          <small id="no_surat_masuk" class="text-gray-700">Nomor Surat Masuk</small>
+                        </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <label for="tgl_surat_masuk" class="text-gray-900 font-weight-bold">Tanggal Surat Masuk</label>
-                        <input type="date" name="tgl_surat_masuk" id="tgl_surat_masuk" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_surat_masuk" id="tgl_surat_masuk" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_surat_masuk" class="text-gray-700">Tanggal Surat Masuk</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">

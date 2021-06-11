@@ -65,6 +65,20 @@
                                     </tr >
 
                                     <tr>
+                                        <th>Berkas</th>
+                                        <td>
+                                        <?php if($d->berkas != null):?>
+                                        <?=$d->berkas?>
+                                        <br>
+                                        <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
+                                        <?php else :?>
+                                        Berkas Tidak Ada
+                                        <?php endif; ?>
+                                        </td>
+                                        
+                                    </tr >
+
+                                    <tr>
                                         <th>Verifikasi Kepala BPD</th>
                                         <td><?=$d->verif_bpd?> <?=$d->verif_bpd_at?></td>
                                     </tr >
