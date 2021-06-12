@@ -5,13 +5,13 @@ use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 class Testing extends Admin_Controller{
 
-    private $_table = 'form_domisili';
-    private $_folder = 'form_domisili';
-    private $_folderUpload = 'form_domisili';
+    private $_table = 'form_belummenikah';
+    private $_folder = 'form_belummenikah';
+    private $_folderUpload = 'form_belummenikah';
     private $_docxTest = 'Sample_07_TemplateCloneRow.docx';
     private $_xlsxName = 'testing.xls';
     private $_docxName = 'form_testing.docx';
-    private $_mainTitle = 'Form Domisili';
+    private $_mainTitle = 'Form Testing';
 
     function __construct()
 	{
