@@ -6,6 +6,7 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
     private $_table = 'buku_inventaris_kekayaan_desa';
     private $_folder = 'buku_inventaris_kekayaan_desa';
     private $_mainTitle = 'Buku Inventaris Dan Kekayaan Desa';
+    private $_docxName = 'buku_inventaris_kekayaan_desa.docx';
 
     function __construct() {
         parent::__construct();
@@ -481,6 +482,52 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_umum/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'jenis_brng_bangunan' => $d->jenis_brng_bangunan,
+                'abb_dibeli_sendiri' => $d->abb_dibeli_sendiri,
+                'bantuan_pemeritah' => $d->bantuan_pemeritah,
+                'bantuan_prov' => $d->bantuan_prov,
+                'bantuan_kab_kota' => $d->bantuan_kab_kota,
+                'abb_sumbangan' => $d->abb_sumbangan,
+                'baik_awalthn' => $d->baik_awalthn,
+                'rusak_awalthn' => $d->rusak_awalthn,
+                'rusak_hps' => $d->rusak_hps,
+                'dijual_hps' => $d->dijual_hps,
+                'disumbangkan_hps' => $d->disumbangkan_hps,
+                'tgl_hapus' => $d->tgl_hapus,
+                'baik_akhirthn' => $d->baik_akhirthn,
+                'rusak_akhirthn' => $d->rusak_akhirthn,
+                'ket'=> $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
     }
 }
 ?>

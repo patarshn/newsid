@@ -47,7 +47,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th rowspan="3" width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th width="5%">No</th>
                       <th width="3%"></th>
                       <th>Nama</th>
