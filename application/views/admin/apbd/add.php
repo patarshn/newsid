@@ -46,76 +46,251 @@
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="type" class="text-gray-900 font-weight-bold">Type</label>
-                            <select name="type" id="type" class="form-control" required>
-                                <option>-</option>
+                            <select name="type" id="type" class="form-control" onchange="kode_rekening()" required>
+                                <option selected>Silahkan pilih tipe</option>
                                 <option value="PENDAPATAN">Pendapatan</option>
                                 <option value="BELANJA">Belanja</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 mt-2">
-                      <label class="text-gray-900 font-weight-bold" >Kode Rekening</label>
-                      <div class="form-row">
-                        <div class="col-lg-3">
-                          <input type="text" name="kode_rekening1" id="kode_rekening1" class="form-control" required>
-                          <small id="kode_rekening1" class="text-gray-700"></small>
-                        </div>
-                        
-                        <div class="col-lg-3">
-                          <input type="text" name="kode_rekening2" id="kode_rekening2" class="form-control" required>
-                          <small id="kode_rekening2" class="text-gray-700"></small>
-                        </div>
+<div class="wizard-v1-content mx-auto">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <br>
+                <form class="form-apbd" id="form-apbd" method="post">
 
-                        <div class="col-lg-3">
-                          <input type="text" name="kode_rekening3" id="kode_rekening3" class="form-control" required>
-                          <small id="kode_rekening3" class="text-gray-700"></small>
-                        </div>
-                        
-                        <div class="col-lg-3">
-                          <input type="text" name="kode_rekening4" id="kode_rekening4" class="form-control" required>
-                          <small id="kode_rekening4" class="text-gray-700"></small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="anggaran" class="text-gray-900 font-weight-bold">Anggaran</label>
-                        <input type="text" name="anggaran" id="anggaran" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <div class="form-group">
-                            <label for="keterangan" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" id="keterangan" rows="1" required></textarea>
-                        </div>
-                    </div>
-                </div>
-                <?=form_close()?>
-                
-                  <div class="d-flex mt-3">
-                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
+                    <div id="form-total">
+                        <!-- SECTION 1 -->
+                        <div class="content clearfix">
+                        <section>
+                            <div class="inner">
+                                <table id="invoiceitems" class=" table order-list">
+                                    <thead>
+                                        <tr>
+                                            <td>Kode Rekening</td>
+                                            <td>Uraian</td>
+                                            <td>Anggaran</td>
+                                            <td>Keterangan</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="apbd">
+                                        <div class="form-row">
+                                        <td width="50%">
+                                          <div class="row">
+                                            <div class="col-3">
+                                              <input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control kode_rekening1" diseable />
+                                            </div>
+                                            <div class="col-3">
+                                              <input type="text" name="kode_rekening2[]" class="form-control" />
+                                            </div>
+                                            <div class="col-3">
+                                              <input type="text" name="kode_rekening3[]" class="form-control" />
+                                            </div>
+                                            <div class="col-3">
+                                              <input type="text" name="kode_rekening4[]" class="form-control" />
+                                            </div>
+                                          </div>
+                                            </td>
+                                            <td width="15%">
+                                            <input type="text" name="uraian[]" id="uraian" class="form-control" required>
+                                            <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
+                                            </td>
+                                            <td width="15%">
+                                            <input type="number" name="anggaran[]" id="anggaran" class="form-control anggaran" onchange='total_anggaran()' required>
+                                            </td>
+                                            <td width="10%">
+                                            <input type="text" name="keterangan[]" id="keterangan" class="form-control" required>
+                                            <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
+                                            </td>
+                                            
+                                            <td width="5%">
+                                                <a class="deleteRow"></a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Total:</td>
+                                            <td>
+                                                Rp. <span class="grandtotal"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" style="text-align: left;">
+                                                <input type="button" class="btn btn-lg btn-block " id="buttonadd" value="Tambah Anggaran" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                
+                            </div>
+                        </section>
+                        <div class="d-flex mt-3">
+                        <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                    
-                    
-                </div>
-              </div>
+                </form>
             </div>
-          </div>
-          
-
-
         </div>
-        <!-- /.container-fluid -->
+    </div>
+    <!-- tutup side -->
+</div>
 
-      </div>
-      <!-- End of Main Content -->
 
+
+
+</section>
+
+<script>
+
+function kode_rekening(){
+  var selected = document.getElementById("type");
+  if(selected.selectedIndex == 1) {
+    $('.kode_rekening1').val(1);
+  }
+  else if(selected.selectedIndex == 2) {
+    $('.kode_rekening1').val(2);
+  }
+  
+  $('.kode_rekening1'). prop("readonly", true);
+}
+
+function total_anggaran(){
+  var anggaran = document.getElementsByName('anggaran[]');
+  var sum_anggaran = 0;
+  for (var i = 0; i < anggaran.length; i++){
+    if(anggaran[i].value == ""){
+      sub_total = 0;
+    }
+    else {
+      sub_total = anggaran[i].value;
+    }
+    sum_anggaran = sum_anggaran + parseInt(sub_total);
+  }
+  $('.grandtotal').html(sum_anggaran)
+  console.log('a');
+}
+
+$(document).ready(function () {
+  $('#buttonadd').click(function () {
+    $('#invoiceitems > tbody:last').append('<tr><td><div class="row">\
+          <div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control kode_rekening1" disable /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening2[]" class="form-control" /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control" /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control" /></div></div>\
+          <td><input type="text" name="uraian[]" class="form-control" /></td>\
+          <td><input type="number" name="anggaran[]" class="form-control" onchange="total_anggaran()" /></td>\
+          <td><input type="text" name="keterangan[]" class="form-control"/></td>\
+          <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
+    kode_rekening();
+  });
+  $('table#invoiceitems').on('click','.buttondelete',function () {
+      if($('table#invoiceitems tbody tr').length==1){
+          alert('Cant delete single row');
+          return false;
+      }
+      $(this).closest('tr').remove();
+      total_anggaran();
+  });
+
+});
+
+</script>
+
+<!--
+@section('js')
+    {{-- <script src="{{asset('investasi/mitra/js/jquery.steps.js')}}"></script> --}}
+    {{-- <script src="{{asset('investasi/mitra/js/demo/main.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script> --}}
+    <script>
+        $(document).ready(function () {
+          $counter = 1;
+          $('#buttonadd').click(function () {
+              $counter++;
+              $('#invoiceitems > tbody:last').append('<tr><td><div class="row"><div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control" disable /></div>\
+              <div class="col-3"><input type="text" name="kode_rekening1[]" class="form-control" /></div>\
+              <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control" /></div>\
+              <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control" /></div></div>\
+              <td><input type="text" name="uraian[]" class="form-control" /></td>\
+              <td><input type="text" name="anggaran[]" class="form-control" /></td>\
+              <td><input type="text" name="keterangan[]" class="form-control"/></td>\
+              <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
+      
+          });
+          $('table#invoiceitems').on('keyup', '.quantity , .price',function () {
+              UpdateTotals(this);
+          });
+      
+          $counter = 1;
+             $('table#invoiceitems').on('click','.buttondelete',function () {
+              $counter++;
+              if($('table#invoiceitems tbody tr').length==1){
+                  alert('Cant delete single row');
+                  return false;
+              }
+              $(this).closest('tr').remove();
+          });
+          CalculateSubTotals();
+          CalculateTotal();
+      });
+      
+      
+      function UpdateTotals(elem) {
+          // This will give the tr of the Element Which was changed
+          var $container = $(elem).parent().parent();
+          var quantity = $container.find('.quantity').val();
+          var price = $container.find('.price').val();
+          var subtotal = parseInt(quantity) * parseFloat(price);
+          $container.find('.subtotal').text(subtotal.toFixed(2));
+          CalculateTotal();
+      }
+      
+      function CalculateSubTotals() {
+          // Calculate the Subtotals when page loads for the 
+          // first time
+          var lineTotals = $('.subtotal');
+          var quantity = $('.quantity');
+          var price = $('.price');
+          $.each(lineTotals, function (i) {
+              var tot = parseInt($(quantity[i]).val()) * parseFloat($(price[i]).val());
+              $(lineTotals[i]).text(tot.toFixed(2));
+          });
+      }
+      
+      function CalculateTotal() {
+          // This will Itearate thru the subtotals and
+          // claculate the grandTotal and Quantity here
+          var lineTotals = $('.subtotal');
+          var quantityTotal = $('.quantity');
+          var grandTotal = 0.0;
+          var totalQuantity = 0;
+          $.each(lineTotals, function (i) {
+              grandTotal += parseFloat($(lineTotals[i]).text());
+              totalQuantity += parseInt($(quantityTotal[i]).val())
+          });
+          $('.totalquantity').text(totalQuantity);
+          $('.grandtotal').text(parseFloat(grandTotal).toFixed(2));
+      }
+
+      function kode_rekening(){
+        var selected = document.getElementById("type");
+        if(selected.selectedIndex == 1) {
+          document.getElementById('kode_rekening1').value = 1
+        }
+        else if(selected.selectedIndex == 2) {
+          document.getElementById('kode_rekening1').value = 2
+        }
+      }
+      </script>
+@endsection
+-->

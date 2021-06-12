@@ -35,7 +35,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('apbd/update'),'id="form"');
+                <?php echo form_open(base_url('rab/update'),'id="form"');
                 foreach($data as $d):
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
@@ -48,22 +48,6 @@
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
                         <input type="text" name="bidang" id="bidang" class="form-control" value="<?=$d->bidang?>" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <div class="form-group">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control" required>
-                                <option>-</option>
-                                
-                                <?php   
-                                foreach($data as $d):
-                                    $kode = $d->kode_rekening1."-".$d->kode_rekening2."-".$d->kode_rekening3."-".$d->kode_rekening4;
-                                    echo "<option value='$kode'>$kode</option>"; 
-                                endforeach;
-                                ?>
-                            </select>
-                        </div>
                     </div>
                     
                     <div class="col-lg-3 mt-2">
