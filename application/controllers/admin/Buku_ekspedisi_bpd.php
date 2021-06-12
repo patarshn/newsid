@@ -17,7 +17,8 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_surat','label' => 'Nomor dan Tanggal Surat Keluar', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
+            ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'tujuan','label' => 'Tujuan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
@@ -28,7 +29,8 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'no_dan_tgl_surat','label' => 'Nomor dan Tanggal Surat Keluar', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
+            ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'tujuan','label' => 'Tujuan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
@@ -96,10 +98,9 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -113,7 +114,8 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             $_POST = $this->input->post();
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_dan_tgl_surat' => $_POST['no_dan_tgl_surat'],
+                'no_surat' => $_POST['no_surat'],
+                'tgl_surat' => $_POST['tgl_surat'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tujuan'=> $_POST['tujuan'],
                 'ket' => $_POST['ket'],
@@ -186,6 +188,14 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -196,7 +206,8 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
 
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_dan_tgl_surat' => $_POST['no_dan_tgl_surat'],
+                'no_surat' => $_POST['no_surat'],
+                'tgl_surat' => $_POST['tgl_surat'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tujuan' => $_POST['tujuan'],
                 'ket' => $_POST['ket'],
@@ -409,7 +420,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
     

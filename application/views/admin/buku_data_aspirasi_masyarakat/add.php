@@ -48,6 +48,14 @@
                         <input type="text" name="phk_aspirasi" id="phk_aspirasi" class="form-control border-left-primary" required>
                     </div>
 
+                    <div class="col-lg-6 mt-3">
+                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
+                      <div class="custom-file">
+                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                      </div>
+                    </div>
+
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="aspirasi" class="text-gray-900 font-weight-bold">Aspirasi yang Disampaikan</label>
@@ -62,12 +70,6 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                        <div class="form-group">
-                            <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
-                        </div>
-                    </div>
                 </div>
                 <?=form_close()?>
                 

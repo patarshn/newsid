@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Ekspedisi BPD : <?=$d->tgl?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Ekspedisi BPD : <?= date("d-m-Y", strtotime($d->tgl))?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
@@ -41,12 +41,12 @@
 
                                     <tr>
                                         <th width="50%">Tanggal Pengiriman</th>
-                                        <td><?=$d->tgl?></td>
+                                        <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Nomor dan Tanggal Surat</th>
-                                        <td><?=$d->no_dan_tgl_surat?></td>
+                                        <td><?=$d->no_surat?> , <?= date("d-m-Y", strtotime($d->tgl_surat))?></td>
                                     </tr >
 
                                     <tr>
@@ -72,7 +72,7 @@
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
                                         <?php else :?>
-                                        berkas Tidak ada
+                                        Berkas Tidak Ada
                                         <?php endif; ?>
                                         </td>
                                         

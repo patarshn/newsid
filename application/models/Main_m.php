@@ -16,7 +16,7 @@ class Main_m extends MY_Model
             $status = $this->db->order_by('id','desc')->get($table);
         }
         else{
-            $status = $this->db->order_by('id','desc')->where($where)->get($table);
+            $status = $this->db->where($where)->order_by('id','desc')->get($table);
         }
         
         return $status;

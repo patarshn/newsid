@@ -47,7 +47,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th width="5%">No</th>
+                    <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th>No</th>
                       <th width="3%"></th>
                       <th>Tanggal Rapat</th>
                       <th>Agenda Rapat</th>
@@ -56,7 +57,8 @@
                   </thead>
                   <tfoot>
                     <tr>
-                    <th width="5%">No</th>
+                    <th width="5%"></th>
+                    <th>No</th>
                     <th width="3%"></th>
                     <th>Tanggal Rapat</th>
                     <th>Agenda Rapat</th>
@@ -71,7 +73,7 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
+                        <td><?=$count++;?></td>
                       </td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,7 +88,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tgl?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                       <td><?=$d->agenda?></td>
                       <td>
                         <?php 

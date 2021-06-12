@@ -47,13 +47,23 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_surat_masuk" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat Masuk</label>
-                        <input type="text" name="no_dan_tgl_surat_masuk" id="no_dan_tgl_surat_masuk" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_surat_masuk?>" required>
+                        <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
+                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" value="<?=$d->nama_pengirim?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
-                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" value="<?=$d->nama_pengirim?>" required>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat Masuk</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_surat_masuk" id="no_surat_masuk" class="form-control border-left-primary" value="<?=$d->no_surat_masuk?>" required>
+                          <small id="no_surat_masuk" class="text-gray-700">Nomor Surat Masuk</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_surat_masuk" id="tgl_surat_masuk" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_surat_masuk?>" required>
+                          <small id="tgl_surat_masuk" class="text-gray-700">Tanggal Surat Masuk</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">

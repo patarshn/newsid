@@ -165,6 +165,20 @@ class Buku_penduduk_sementara extends Admin_Controller {
                 'created_at' => date('Y-m-d H:i:s'),
                 
             );
+
+            $no_identitas = $_POST['no_identitas'];
+            $sql  = $this->db->query("SELECT no_identitas FROM penduduk_sementara where no_identitas='$no_identitas'");
+            $cek_identitas = $sql->num_rows();
+            if($cek_identitas > 0){
+                $this->session->set_flashdata('error_message', 'Nomor Indentitas/Tanda Pengenal sudah terdaftar sebelumnya');
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Nomor Indentitas/Tanda Pengenal sudah terdaftar sebelumnya',
+                    );
+               echo json_encode($callback);
+               exit();
+            }
+
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                 $callback = array(
@@ -318,6 +332,11 @@ class Buku_penduduk_sementara extends Admin_Controller {
         echo json_encode($callback);
     }
 
-
+    function cetak(){
+        $tahun = $this->input->post('tahun');
+        $where = ['tahun'=>$tahun];
+        $data=$this->Main_m->get($this->_table,$where)->result();
+        echo var_dump($data);
+    }
 
 }

@@ -91,10 +91,9 @@ class Buku_rapat_bpd extends Admin_Controller {
             if(!empty($_FILES["berkas1"]["name"])){
                 $berkas1 = $this->upload_file1();
                 if(!$berkas1){
-                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -111,10 +110,9 @@ class Buku_rapat_bpd extends Admin_Controller {
             if(!empty($_FILES["berkas2"]["name"])){
                 $berkas2 = $this->upload_file2();
                 if(!$berkas2){
-                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -203,6 +201,14 @@ class Buku_rapat_bpd extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas1"]["name"])){
                 $berkas1 = $this->upload_file1();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas1_lama = $this->destroy_file($where);
             }
 
@@ -213,6 +219,14 @@ class Buku_rapat_bpd extends Admin_Controller {
 
             if(!empty($_FILES["berkas2"]["name"])){
                 $berkas2 = $this->upload_file2();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas2_lama = $this->destroy_file($where);
             }
 
@@ -445,7 +459,7 @@ class Buku_rapat_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -465,7 +479,7 @@ class Buku_rapat_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
     
