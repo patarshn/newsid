@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Data Peraturan Desa : <?=$d->no_dan_tgl_peraturan_desa?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Data Peraturan Desa : <?=$d->no_peraturan_desa?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan_desa))?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
@@ -41,7 +41,7 @@
 
                                     <tr>
                                         <th width="50%">Nomor dan Tanggal Peraturan/Keputusan BPD</th>
-                                        <td><?=$d->no_dan_tgl_peraturan_desa?></td>
+                                        <td><?=$d->no_peraturan_desa?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan_desa))?></td>
                                     </tr >
 
                                     <tr>
@@ -51,7 +51,7 @@
 
                                     <tr>
                                         <th>Nomor dan Tanggal Kesepakatan</th>
-                                        <td><?=$d->no_dan_tgl_kesepakatan?></td>
+                                        <td><?=$d->no_kesepakatan?> , <?= date("d-m-Y", strtotime($d->tgl_kesepakatan))?></td>
                                     </tr >
 
                                     <tr>
@@ -72,7 +72,7 @@
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
                                         <?php else :?>
-                                        berkas Tidak ada
+                                        Berkas Tidak Ada
                                         <?php endif; ?>
                                         </td>
                                         

@@ -38,11 +38,21 @@
                 <?=form_open_multipart(base_url('buku_data_peraturan_bpd/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_peraturan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control border-left-primary" required>
+                    <div class="col-lg-12 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Peraturan/Keputusan BPD</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" required>
+                          <small id="no_peraturan" class="text-gray-700">Nomor Peraturan/Keputusan BPD</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_peraturan" class="text-gray-700">Tanggal Peraturan/Keputusan BPD</small>
+                        </div>
+                      </div>
                     </div>
-                    
+
                     <div class="col-lg-6 mt-3">
                         <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
                         <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>

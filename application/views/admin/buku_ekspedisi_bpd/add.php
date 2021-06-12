@@ -44,17 +44,28 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_surat" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat</label>
-                        <input type="text" name="no_dan_tgl_surat" id="no_dan_tgl_surat" class="form-control border-left-primary" required>
-                    </div>
-                    
-                    <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
+
+                    <div class="col-lg-12 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_surat" id="no_surat" class="form-control border-left-primary" required>
+                          <small id="no_surat" class="text-gray-700">Nomor Surat</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_surat" id="tgl_surat" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_surat" class="text-gray-700">Tanggal Surat</small>
+                        </div>
+                      </div>
+                    </div>
+
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">

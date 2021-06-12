@@ -62,19 +62,19 @@
                                               <table class="table table-bordered table-hover border-left-primary">
                                               <thead>
                                               <tr><th>Pemerintah</th>
-                                                  <td style="text-align:right"><?=$p->biaya_pemerintah?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=$p->biaya_pemerintah?></td></tr>
 
                                                   <tr><th>Provinsi</th>
-                                                  <td style="text-align:right"><?=$p->biaya_prov?></td></tr> 
+                                                  <td style="text-align:right">Rp. <?=$p->biaya_prov?></td></tr> 
 
                                                   <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:right"><?=$p->biaya_kab?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=$p->biaya_kab?></td></tr>
 
                                                   <tr class="border-bottom-primary"><th>Swadaya</th>
-                                                  <td style="text-align:right"><?=$p->biaya_swadaya?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=$p->biaya_swadaya?></td></tr>
 
                                                   <tr><th>Total Biaya</th>
-                                                  <td style="text-align:right"><?=$p->jumlah?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=$p->jumlah?></td></tr>
                                                  </thead>
                                               </table>
                                         </div>

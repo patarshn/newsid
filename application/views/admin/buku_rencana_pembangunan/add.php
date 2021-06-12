@@ -81,30 +81,30 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label for="biaya_pemerintah"><b>Biaya Pemerintah</b></label>
-                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-primary" placeholder="Besaran biaya pemerintah" required>
+                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-primary" placeholder="Besaran biaya pemerintah" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                         <label for="biaya_prov"><b>Biaya Provinsi</b></label>
-                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control border-left-primary" placeholder="Besaran biaya provinsi"  required>
+                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control border-left-primary" placeholder="Besaran biaya provinsi"  required>
                     </div>
 
                     <div class="col-lg-3">
                         <label for="biaya_kab"><b>Biaya Kabupaten</b></label>
-                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control border-left-primary" placeholder="Besaran biaya kabupaten"  required>
+                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control border-left-primary" placeholder="Besaran biaya kabupaten"  required>
                     </div>
 
                     <div class="col-lg-3">
                         <label for="biaya_swadaya"><b>Biaya Swadaya</b></label>
-                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-primary" placeholder="Besaran biaya swadaya"  required>
+                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-primary" placeholder="Besaran biaya swadaya"  required>
                     </div>
                     <br>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label for="jumlah"><b>Jumlah Biaya</b></label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" readonly required>
                         </div>
                     </div>
                     
@@ -151,4 +151,17 @@
 
       </div>
       <!-- End of Main Content -->
-    
+      <pre>
+            $("#volume").keyup(function(){
+            var a = parseInt($("#volume").val());
+            var b = parseInt($("#harga").val());
+            var c = a+b;
+            $("#jumlah").val(c);
+            });
+            
+            $("#harga").keyup(function(){
+            var a = parseInt($("#volume").val());
+            var b = parseInt($("#harga").val());
+            var c = a+b;
+            $("#jumlah").val(c);
+            });

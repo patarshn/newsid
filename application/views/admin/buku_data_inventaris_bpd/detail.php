@@ -133,7 +133,7 @@
 
                                     <tr>
                                         <th>Tanggal Penghapusan</th>
-                                        <td><?=$d->tgl_hapus?></td>
+                                        <td><?= date("d-m-Y", strtotime($d->tgl_hapus))?></td>
                                     </tr >
                                 </table>
 
