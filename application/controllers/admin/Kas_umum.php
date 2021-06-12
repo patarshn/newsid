@@ -128,7 +128,7 @@ class Kas_umum extends Admin_Controller {
                 'jumlah_komulatif' => $_POST['jumlah_komulatif'],
                 'saldo' => $_POST['saldo'],
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'verif_kepala_desa' => "Pending",
+                'ver_kepala_desa' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' =>  $this->session->userdata('username'),
                 
@@ -213,14 +213,14 @@ class Kas_umum extends Admin_Controller {
                 'jumlah_komulatif' => $_POST['jumlah_komulatif'],
                 'saldo' => $_POST['saldo'],
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'verif_kepala_desa' => $_POST['verif_kepala_desa'],
+                'ver_kepala_desa' => $_POST['ver_kepala_desa'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
 
-            if($_POST['verif_kepala_desa'] != $_POST['verif_kepala_desa_old']){
-                $data['verif_kepala_desa_at'] = date('Y-m-d H:i:s');
+            if($_POST['ver_kepala_desa'] != $_POST['ver_kepala_desa_old']){
+                $data['ver_kepala_desa_at'] = date('Y-m-d H:i:s');
             }
                        
             if($this->Main_m->update($data,$this->_table,$where)){
@@ -302,10 +302,10 @@ class Kas_umum extends Admin_Controller {
             $_POST = $this->input->post();
             $where = $_POST['rowdelete'];
             $data = array(              
-                'verif_kepala_desa' => "Disetujui",                             
+                'ver_kepala_desa' => "Disetujui",                             
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
-                'verif_kepala_desa_at' => date('Y-m-d H:i:s'),
+                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
             );
 
             if($this->Main_m->setuju($data,$this->_table,$where)){
@@ -341,10 +341,10 @@ class Kas_umum extends Admin_Controller {
             $_POST = $this->input->post();
             $where = $_POST['rowdelete'];
             $data = array(              
-                'verif_kepala_desa' => "Ditolak",                             
+                'ver_kepala_desa' => "Ditolak",                             
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
-                'verif_kepala_desa_at' => date('Y-m-d H:i:s'),
+                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
             );
 
             if($this->Main_m->setuju($data,$this->_table,$where)){

@@ -19,9 +19,6 @@ class Apbd extends Admin_Controller {
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'type','label' => 'type', 'rules' => 'required'],
             ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'kode_rekening2','label' => 'kode_rekening2', 'rules' => 'required'],
-            ['field' => 'kode_rekening3','label' => 'kode_rekening3', 'rules' => 'required'],
-            ['field' => 'kode_rekening4','label' => 'kode_rekening4', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
             ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
             ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
@@ -95,7 +92,58 @@ class Apbd extends Admin_Controller {
         $this->load->view('admin/partials/footer');
     }
 
+
     public function store(){
+        $_POST = $this->input->post();
+        $data = array();
+        
+        $totaldata = count($_POST['kode_rekening1']);
+        for($i=0;$i<$totaldata;$i++){
+            $subdata = array(
+                'tahun_anggaran' => $_POST['tahun_anggaran'],
+                'type' => $_POST['type'],
+                'kode_rekening1' => $_POST['kode_rekening1'][$i],
+                'kode_rekening2' => $_POST['kode_rekening2'][$i],
+                'kode_rekening3' => $_POST['kode_rekening3'][$i],
+                'kode_rekening4' => $_POST['kode_rekening4'][$i],
+                'uraian' => $_POST['uraian'][$i],
+                'anggaran' => $_POST['anggaran'][$i],
+                'keterangan' => $_POST['keterangan'][$i],
+                'ver_kepala_desa' => "Pending",
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' =>  $this->session->userdata('username'),
+            );
+            $data[] = $subdata;
+        }
+
+        
+        
+        #echo $totaldata;
+
+        #echo print_r($data);
+
+        if($this->db->insert_batch($this->_table, $data)){
+            $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+            $callback = array(
+                'status' => 'success',
+                'message' => 'Data berhasil diinput',
+                'redirect' => base_url().'admin/'.$this->_folder,
+            );
+        }
+        else{
+            $this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
+            $callback = array(
+                'status' => 'error',
+                'message' => 'Mohon Maaf, Pengisian form gagal',
+            );
+        }
+
+        echo json_encode($callback);
+        
+
+    }
+
+    public function storeOld(){
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){

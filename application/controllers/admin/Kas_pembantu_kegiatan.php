@@ -99,71 +99,42 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     }
 
     public function store(){
-        $validation = $this->form_validation;
-        $validation->set_rules($this->rulesStore());
-        if($validation->run()){
-
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                if(!$berkas){
-                    echo $this->upload->display_errors();
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
-            }
-            else{
-                $berkas = "";
-            }
-
-                $_POST = $this->input->post();
-                $data = array(
-                    'tahun_anggaran' => $_POST['tahun_anggaran'],
-                    'bidang' => $_POST['bidang'],
-                    'kegiatan' => $_POST['kegiatan'],
-                    'tanggal' => $_POST['tanggal'],
-                    'uraian' => $_POST['uraian'],
-                    'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
-                    'penerimaan_sdm' => $_POST['penerimaan_sdm'],
-                    'no_bukti' => $_POST['no_bukti'],
-                    'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
-                    'pengeluaran_bm' => $_POST['pengeluaran_bm'],
-                    'jumlah' => $_POST['jumlah'],
-                    'saldo' => $_POST['saldo'],
-                    'ver_kepala_desa' => "Pending",
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'created_by' =>  $this->session->userdata('username'),
-                    
-                );
-                if($this->Main_m->store($data,$this->_table)){
-                    $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
-                    $callback = array(
-                        'status' => 'success',
-                        'message' => 'Data berhasil diinput',
-                        'redirect' => base_url().'admin/'.$this->_folder,
-                    );
-                }
-                else{
-                    //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Mohon Maaf, Pengisian form gagal',
-                    );
-                }
-            }
+        $_POST = $this->input->post();
+        $data = array(
+                'tahun_anggaran' => $_POST['tahun_anggaran'],
+                'bidang' => $_POST['bidang'],
+                'kegiatan' => $_POST['kode_rekening'],
+                'tanggal' => $_POST['tanggal'],
+                'uraian' => $_POST['uraian'],
+                'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
+                'penerimaan_sdm' => $_POST['penerimaan_sdm'],
+                'no_bukti' => $_POST['no_bukti'],
+                'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],                    
+                'pengeluaran_bm' => $_POST['pengeluaran_bm'],
+                'jumlah' => $_POST['jumlah'],
+                'saldo' => $_POST['saldo'],
+                'ver_kepala_desa' => "Pending",
+                'created_at' => date('Y-m-d H:i:s'),
+                'created_by' =>  $this->session->userdata('username'),
+            );
         
+
+            if($this->Main_m->store($data,$this->_table)){
+                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                $callback = array(
+                    'status' => 'success',
+                    'message' => 'Data berhasil diinput',
+                    'redirect' => base_url().'admin/'.$this->_folder,
+                );
+            }
             else{
-                //$this->session->set_flashdata('error_message', validation_errors());
+                //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
                 $callback = array(
                     'status' => 'error',
-                    'message' => validation_errors(),
+                    'message' => 'Mohon Maaf, Pengisian form gagal',
                 );
             }
-            echo json_encode($callback);
-        
+        echo json_encode($callback);
     }
 
     function edit($id){
