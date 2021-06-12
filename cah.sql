@@ -129,6 +129,7 @@ CREATE TABLE `buku_agenda_surat_masuk` (
  `updated_by` varchar(255) DEFAULT NULL,
  `verif_bpd` varchar(20) DEFAULT NULL,
  `verif_bpd_at` datetime DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`));
 
 CREATE TABLE `buku_data_aspirasi_masyarakat` (
@@ -143,6 +144,7 @@ CREATE TABLE `buku_data_aspirasi_masyarakat` (
  `updated_by` varchar(255) DEFAULT NULL,
  `verif_bpd` varchar(20) DEFAULT NULL,
  `verif_bpd_at` datetime DEFAULT NULL,
+ `berkas` varchar(255) DEFAULT NULL,
  PRIMARY KEY (`id`));
 
  CREATE TABLE `buku_data_peraturan_bpd` (

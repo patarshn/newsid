@@ -41,14 +41,19 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_peraturan" class="text-gray-900 font-weight-bold">Nomor Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" value="<?=$d->no_peraturan?>" required>
-                    </div>
+                    <div class="col-lg-12 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Peraturan/Keputusan BPD</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" value="<?=$d->no_peraturan?>" required>
+                          <small id="no_peraturan" class="text-gray-700">Nomor Peraturan/Keputusan BPD</small>
+                        </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <label for="tgl_peraturan" class="text-gray-900 font-weight-bold">Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" value="<?=$d->tgl_peraturan?>" required>
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_peraturan?>" required>
+                          <small id="tgl_peraturan" class="text-gray-700">Tanggal Peraturan/Keputusan BPD</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
