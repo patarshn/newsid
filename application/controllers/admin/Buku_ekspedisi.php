@@ -17,7 +17,8 @@ class Buku_ekspedisi extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
-            ['field' => 'tgl_no_surat','label' => 'tgl_no_surat', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'no_surat', 'rules' => 'required'],
+            ['field' => 'tgl_surat','label' => 'tgl_surat', 'rules' => 'required'],
             ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
             ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
@@ -27,7 +28,8 @@ class Buku_ekspedisi extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
-            ['field' => 'tgl_no_surat','label' => 'tgl_no_surat', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'no_surat', 'rules' => 'required'],
+            ['field' => 'tgl_surat','label' => 'tgl_surat', 'rules' => 'required'],
             ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
             ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
@@ -95,10 +97,10 @@ class Buku_ekspedisi extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
+                   
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -112,7 +114,8 @@ class Buku_ekspedisi extends Admin_Controller {
             $_POST = $this->input->post();
             $data = array(
                 'tgl_pengiriman' => $_POST['tgl_pengiriman'],
-                'tgl_no_surat' => $_POST['tgl_no_surat'],
+                'no_surat' => $_POST['no_surat'],
+                'tgl_surat' => $_POST['tgl_surat'],
                 'isi_singkat_surat' => $_POST['isi_singkat_surat'],
                 'ditunjukkan_kpd' => $_POST['ditunjukkan_kpd'],
                 'ket' => $_POST['ket'],
@@ -185,6 +188,14 @@ class Buku_ekspedisi extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -195,7 +206,8 @@ class Buku_ekspedisi extends Admin_Controller {
 
             $data = array(
                 'tgl_pengiriman' => $_POST['tgl_pengiriman'],
-                'tgl_no_surat' => $_POST['tgl_no_surat'],
+                'no_surat' => $_POST['no_surat'],
+                'tgl_surat' => $_POST['tgl_surat'],
                 'isi_singkat_surat' => $_POST['isi_singkat_surat'],
                 'ditunjukkan_kpd' => $_POST['ditunjukkan_kpd'],
                 'ket' => $_POST['ket'],
@@ -409,7 +421,7 @@ class Buku_ekspedisi extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -418,6 +430,10 @@ class Buku_ekspedisi extends Admin_Controller {
         foreach ($berkas_id as $b_id) {
             
             if(empty($b_id->berkas)){
+                return true;
+            }
+
+            if (!file_exists($b_id->berkas)){
                 return true;
             }
 

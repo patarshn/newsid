@@ -46,7 +46,7 @@
 
                                     <tr>
                                         <th>Tanggal Dan Nomor Surat</th>
-                                        <td><?=$d->tgl_no_surat?></td>
+                                        <td><?=$d->tgl_surat?>, <?=$d->no_surat?></td>
                                     </tr >
 
                                     <tr>

@@ -26,8 +26,10 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
             ['field' => 'pangkat_golongan','label' => 'pangkat_golongan', 'rules' => 'required'],
             ['field' => 'jabatan','label' => 'jabatan', 'rules' => 'required'],
             ['field' => 'pendidikan_terakhir','label' => 'pendidikan_terakhir', 'rules' => 'required'],
-            ['field' => 'no_tgl_keputusan_pengangkatan','label' => 'no_tgl_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_tgl_keputusan_pemberhentian','label' => 'no_tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pengangkatan','label' => 'no_keputusan_pengangkatan', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
@@ -44,8 +46,10 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
             ['field' => 'pangkat_golongan','label' => 'pangkat_golongan', 'rules' => 'required'],
             ['field' => 'jabatan','label' => 'jabatan', 'rules' => 'required'],
             ['field' => 'pendidikan_terakhir','label' => 'pendidikan_terakhir', 'rules' => 'required'],
-            ['field' => 'no_tgl_keputusan_pengangkatan','label' => 'no_tgl_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_tgl_keputusan_pemberhentian','label' => 'no_tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pengangkatan','label' => 'no_keputusan_pengangkatan', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
@@ -111,10 +115,10 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
+                    
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -136,8 +140,10 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
                     'pangkat_golongan' => $_POST['pangkat_golongan'],
                     'jabatan ' => $_POST['jabatan'],
                     'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
-                    'no_tgl_keputusan_pengangkatan' => $_POST['no_tgl_keputusan_pengangkatan'],
-                    'no_tgl_keputusan_pemberhentian' => $_POST['no_tgl_keputusan_pemberhentian'],
+                    'no_keputusan_pengangkatan' => $_POST['no_keputusan_pengangkatan'],
+                    'tgl_keputusan_pengangkatan' => $_POST['tgl_keputusan_pengangkatan'],
+                    'no_keputusan_pemberhentian' => $_POST['no_keputusan_pemberhentian'],
+                    'tgl_keputusan_pemberhentian' => $_POST['tgl_keputusan_pemberhentian'],
                     'ket' => $_POST['ket'],
                     'berkas' => $berkas,
                     'ver_kepala_desa' => "Pending",
@@ -210,6 +216,15 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
+                if(!$berkas){
+                    //echo $this->upload->display_errors();
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -229,8 +244,10 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
                 'pangkat_golongan' => $_POST['pangkat_golongan'],
                 'jabatan ' => $_POST['jabatan'],
                 'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
-                'no_tgl_keputusan_pengangkatan' => $_POST['no_tgl_keputusan_pengangkatan'],
-                'no_tgl_keputusan_pemberhentian' => $_POST['no_tgl_keputusan_pemberhentian'],
+                'no_keputusan_pengangkatan' => $_POST['no_keputusan_pengangkatan'],
+                'tgl_keputusan_pengangkatan' => $_POST['tgl_keputusan_pengangkatan'],
+                'no_keputusan_pemberhentian' => $_POST['no_keputusan_pemberhentian'],
+                'tgl_keputusan_pemberhentian' => $_POST['tgl_keputusan_pemberhentian'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'],
@@ -442,7 +459,7 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -451,6 +468,10 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
         foreach ($berkas_id as $b_id) {
 
             if(empty($b_id->berkas)){
+                return true;
+            }
+
+            if (!file_exists($b_id->berkas)){
                 return true;
             }
             

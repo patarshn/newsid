@@ -108,13 +108,33 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pengangkatan</label>
-                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_pengangkatan?>" required>
-                    </div>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Pengangkatan</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_keputusan_pengangkatan" id="no_keputusan_pengangkatan" class="form-control border-left-primary" value="<?=$d->no_keputusan_pengangkatan?>" required>
+                          <small id="no_keputusan_pengangkatan" class="text-gray-700">Nomor Keputusan Pengangkatan</small>
+                        </div>
 
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_keputusan_pengangkatan" id="tgl_keputusan_pengangkatan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_keputusan_pengangkatan?>" required>
+                          <small id="tgl_keputusan_pengangkatan" class="text-gray-700">Tanggal Keputusan Pengangkatan</small>
+                        </div>
+                      </div>
+                    </div>
+                    
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pemberhentian</label>
-                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_pemberhentian?>" required>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Pemberhentian</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_keputusan_pemberhentian" id="no_keputusan_pemberhentian" class="form-control border-left-primary" value="<?=$d->no_keputusan_pemberhentian?>" required>
+                          <small id="no_keputusan_pemberhentian" class="text-gray-700">Nomor Keputusan Pemberhentian</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_keputusan_pemberhentian" id="tgl_keputusan_pemberhentian" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_keputusan_pemberhentian?>" required>
+                          <small id="tgl_keputusan_pemberhentian" class="text-gray-700">Tanggal Keputusan Pemberhentian</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -122,7 +142,7 @@
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
                       </div>
                     </div>
 

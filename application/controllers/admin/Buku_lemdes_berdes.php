@@ -17,7 +17,8 @@ class Buku_lemdes_berdes extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'jns_peraturan_desa','label' => 'jns_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_tgl_ditetapkan','label' => 'no_tgl_ditetapkan', 'rules' => 'required'],
+            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
+            ['field' => 'tgl_ditetapkan','label' => 'tgl_ditetapkan', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
             ['field' => 'tgl_diundangkan','label' => 'tgl_diundangkan', 'rules' => 'required'],
             ['field' => 'no_diundangkan','label' => 'no_diundangkan', 'rules' => 'required'],
@@ -28,7 +29,8 @@ class Buku_lemdes_berdes extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'jns_peraturan_desa','label' => 'jns_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_tgl_ditetapkan','label' => 'no_tgl_ditetapkan', 'rules' => 'required'],
+            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
+            ['field' => 'tgl_ditetapkan','label' => 'tgl_ditetapkan', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
             ['field' => 'tgl_diundangkan','label' => 'tgl_diundangkan', 'rules' => 'required'],
             ['field' => 'no_diundangkan','label' => 'no_diundangkan', 'rules' => 'required'],
@@ -97,10 +99,10 @@ class Buku_lemdes_berdes extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
+                    
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -114,7 +116,8 @@ class Buku_lemdes_berdes extends Admin_Controller {
                 $data = array(
                     'jns_peraturan_desa' => $_POST['jns_peraturan_desa'],
                     'tentang' => $_POST['tentang'],
-                    'no_tgl_ditetapkan' => $_POST['no_tgl_ditetapkan'],
+                    'no_ditetapkan' => $_POST['no_ditetapkan'],
+                    'tgl_ditetapkan' => $_POST['tgl_ditetapkan'],
                     'tgl_diundangkan' => $_POST['tgl_diundangkan'],
                     'no_diundangkan' => $_POST['no_diundangkan'],
                     'ket' => $_POST['ket'],
@@ -189,6 +192,14 @@ class Buku_lemdes_berdes extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -200,7 +211,8 @@ class Buku_lemdes_berdes extends Admin_Controller {
             $data = array(
                 'jns_peraturan_desa' => $_POST['jns_peraturan_desa'],
                 'tentang' => $_POST['tentang'],
-                'no_tgl_ditetapkan' => $_POST['no_tgl_ditetapkan'],
+                'no_ditetapkan' => $_POST['no_ditetapkan'],
+                'tgl_ditetapkan' => $_POST['tgl_ditetapkan'],
                 'tgl_diundangkan' => $_POST['tgl_diundangkan'],
                 'no_diundangkan' => $_POST['no_diundangkan'],
                 'ket' => $_POST['ket'],
@@ -414,7 +426,7 @@ class Buku_lemdes_berdes extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -423,6 +435,10 @@ class Buku_lemdes_berdes extends Admin_Controller {
         foreach ($berkas_id as $b_id) {
 
             if(empty($b_id->berkas)){
+                return true;
+            }
+
+            if (!file_exists($b_id->berkas)){
                 return true;
             }
             

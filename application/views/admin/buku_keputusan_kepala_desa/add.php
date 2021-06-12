@@ -37,27 +37,47 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open_multipart(base_url('buku_peraturan_desa/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
-                <div class="form-row">
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_keputusan_kepala_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Kepala Desa</label>
-                        <input type="text" name="no_tgl_keputusan_kepala_desa" id="no_tgl_keputusan_kepala_desa" class="form-control border-left-primary" required>
-                    </div>
-
+                <div class="form-row">  
                     <div class="col-lg-6 mt-3">
                         <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
                         <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
-                        <input type="text" name="no_tgl_dilaporkan" id="no_tgl_dilaporkan" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                      </div>
+                    </div>
+                                                          
+                    <div class="col-lg-6 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Kepala Desa</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_keputusan_kepala_desa" id="no_keputusan_kepala_desa" class="form-control border-left-primary" required>
+                          <small id="no_keputusan_kepala_desa" class="text-gray-700">Nomor Keputusan Kepala Desa</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_keputusan_kepala_desa" id="tgl_keputusan_kepala_desa" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_keputusan_kepala_desa" class="text-gray-700">Tanggal Keputusan Kepala Desa</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Dilaporkan</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_dilaporkan_kpd" id="no_dilaporkan_kpd" class="form-control border-left-primary" required>
+                          <small id="no_dilaporkan_kpd" class="text-gray-700">Nomor Dilaporkan</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_dilaporkan_kpd" id="tgl_dilaporkan_kpd" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_dilaporkan_kpd" class="text-gray-700">Tanggal Dilaporkan</small>
+                        </div>
                       </div>
                     </div>
 

@@ -47,6 +47,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
+                      <th rowspan="3" width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th rowspan="3" width="5%">No</th>
                       <th rowspan="3" width="3%"></th>
                       <th rowspan="3">Jenis Barang atau Bangunan</th>
@@ -70,6 +71,7 @@
                   </thead>
                   <tfoot>
                     <tr>
+                        <th width="5%"></th>
                         <th width="5%">No</th>
                         <th width="3%"></th>
                         <th>Jenis Barang atau Bangunan</th>
@@ -84,10 +86,8 @@
                   $count = 1;
                   foreach ($data as $d): ?>
                     <tr>
-                    <td>
-                        <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
-                      </td>
+                      <td><input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete"></td>
+                      <td><?=$count++;?></td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
