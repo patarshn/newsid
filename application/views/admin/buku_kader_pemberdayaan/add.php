@@ -41,17 +41,17 @@
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
-                        <label for="nama"><b>Nama</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="umur"><b>Umur</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
                         <input type="text" name="umur" id="umur" class="form-control border-left-primary " placeholder="Umur Anda" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="jkelamin"><b>Jenis Kelamin</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="jkelamin">Jenis Kelamin</label>
                         <select name="jkelamin" id="jkelamin" class="form-control" placeholder="Jenis Kelamin" required>
                             <option>- Pilih -</option>
                             <option value="Laki-Laki">Laki-Laki</option>
@@ -60,7 +60,7 @@
                     </div> 
                     </div>
                     <div class="col-lg-6">
-                        <label for="pendidikan"><b>Pendidikan</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
                         <select name="pendidikan" id="pendidikan" class="form-control" placeholder="pendidikan" required>
                             <option>- Pilih -</option> 
                             <option value="SD">SD</option>
@@ -76,19 +76,19 @@
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="bidang"><b>Bidang</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="bidang">Bidang</label>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="Posisi bidang saat ini" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <label for="alamat"><b>Alamat</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
                         <input type="text" name="alamat" id="alamat" class="form-control border-left-primary" placeholder="Alamat Anda"  required>
                     </div>
                 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="ket"><b>Keterangan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Isi Keterangan (jika ada)"></textarea>
                         </div>                   
                     </div>

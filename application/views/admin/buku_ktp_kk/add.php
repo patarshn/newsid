@@ -1,3 +1,4 @@
+
           <!-- Begin Page Content -->
           <div class="container-fluid">
           <!-- Content Row -->
@@ -42,49 +43,49 @@
 
                 <div class="col-lg-12">
                         <div class="form-group">
-                        <label for="tahun_ektp"><b>Tahun Pembuatan E-KTP</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="tahun_ektp">Tahun Pembuatan E-KTP</label>
                         <input type="number" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" placeholder="Tahun Pembuatan E-KTP"  required>
                     </div>
                     </div>
                     
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="nik"><b>Nomor Induk Penduduk (NIK)</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="nik">Nomor Induk Penduduk (NIK)</label>
                             <input type="number" name="nik" id="nik" class="form-control border-left-primary" placeholder="Masukan 16 digit nomoe NIK"  required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="nkk"><b>Nomor Kartu Keluarga</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="nkk">Nomor Kartu Keluarga</label>
                             <input type="text" name="nkk" id="nkk" class="form-control border-left-primary " placeholder="Masukan 16 digit nomor KK" required>
                         </div>
                         </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="nama"><b>Nama Lengkap/Panggilan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap/Panggilan</label>
                             <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan"  required>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                            <label for="ayah"><b>Nama Ayah</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="ayah">Nama Ayah</label>
                             <input type="text" name="ayah" id="ayah" class="form-control border-left-primary" placeholder="Nama Ayah" required>
                         </div>
                         </div>
 
                         <div class="col-lg-3">
                         <div class="form-group">
-                            <label for="ibu"><b>Nama Ibu</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="ibu">Nama Ibu</label>
                             <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu"  required>
                         </div>
                         </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="jenis_kelamin"><b>Jenis Kelamin</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
                             <option>- Pilih -</option>
                             <option value="L">L</option>
@@ -96,21 +97,21 @@
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tempat_lahir"><b>Tempat Lahir</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" required>
                     </div>
                     </div>
 
                 <div class="col-lg-3">
                     <div class="form-group">
-                            <label for="tanggal_lahir"><b>Tanggal Lahir</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="tanggal_lahir">Tanggal Lahir</label>
                             <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control border-left-primary " placeholder="Tanggal Lahir"  required>
                         </div>
                         </div>
 
                 <div class="col-lg-3">
                     <div class="form-group">
-                            <label for="goldar"><b>Golongan Darah</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="goldar">Golongan Darah</label>
                             <select name="goldar" id="goldar" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
                             <option value="A">A</option>
@@ -123,7 +124,7 @@
                                                      
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="agama"><b>Agama</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
                         <select name="agama" id="agama" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
                             <option value="Islam">Islam</option>
@@ -138,7 +139,7 @@
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="pendidikan"><b>Pendidikan</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
                         <select name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option> 
                             <option value="SD">SD</option>
@@ -155,42 +156,57 @@
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="pekerjaan"><b>Pekerjaan</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan">Pekerjaan</label>
                         <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary" placeholder="Pekerjaan" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                            <label for="alamat"><b>Alamat</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
                             <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="2" placeholder="Alamat" required></textarea>
                      </div>
                      </div>
 
                      <div class="col-lg-1">
                     <div class="form-group">
-                            <label for="rt"><b>RT</b></label>
-                            <input type="number" class="form-control border-left-primary" name="rt" id="rt" placeholder="RT" required>
+                            <label class="text-gray-900 font-weight-bold" for="rt">RT</label>
+                            <select name="rt" id="rt" class="form-control border-left-primary" placeholder="" required>
+                            <option>- Pilih -</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                        </select>
                      </div>
                      </div>
 
                      <div class="col-lg-1">
                     <div class="form-group">
-                            <label for="rw"><b>RW</b></label>
-                            <input type="number" class="form-control border-left-primary" name="rw" id="rw" placeholder="RW" required>
+                            <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
+                            <select name="rw" id="rw" class="form-control border-left-primary" placeholder="" required>
+                            <option>- Pilih -</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                        </select>
                      </div>
                      </div>
 
                      <div class="col-lg-4">
                     <div class="form-group">
-                            <label for="dusun"><b>Nama Dusun</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="dusun">Nama Dusun</label>
                             <input type="text" class="form-control border-left-primary" name="dusun" id="dusun" placeholder="Nama Dusun" required>
                      </div>
                      </div>
 
                      <div class="col-lg-6">
                      <div class="form-group">
-                            <label for="status_perkawinan"><b>Status Perkawinan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="status_perkawinan">Status Perkawinan</label>
                             <select name="status_perkawinan" id="status_perkawinan" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
                             <option value="K">K</option>
@@ -205,7 +221,7 @@
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="hub_keluarga"><b>Status Hubungan Keluarga</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="hub_keluarga">Status Hubungan Keluarga</label>
                             <select name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
                             <option value="Kepala Keluarga">Kepala Keluarga</option>
@@ -225,7 +241,7 @@
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="wn"><b>Kewarganegaraan</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
                         <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
                             <option value="WNI">WNI</option>
@@ -236,7 +252,7 @@
                    
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="baca_huruf"><b>Dapat Baca Huruf</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="baca_huruf">Dapat Baca Huruf</label>
                         <select name="baca_huruf" id="baca_huruf" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
                             <option value="L">L</option>
@@ -252,28 +268,28 @@
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label for="tgl_tinggal_desa"><b>Tanggal Tinggal di Desa</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="tgl_tinggal_desa">Tanggal Tinggal di Desa</label>
                         <input type="date" name="tgl_tinggal_desa" id="tgl_tinggal_desa" class="form-control border-left-primary" placeholder=""  required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tmpt_ektp_dikeluarkan"><b>Tempat Keluarnya E-KTP</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="tmpt_ektp_dikeluarkan">Tempat Keluarnya E-KTP</label>
                         <input type="text" name="tmpt_ektp_dikeluarkan" id="tmpt_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tempat Keluarnya E-KTP"  required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tgl_ektp_dikeluarkan"><b>Tanggal Keluarnya E-KTP</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="tgl_ektp_dikeluarkan">Tanggal Keluarnya E-KTP</label>
                         <input type="date" name="tgl_ektp_dikeluarkan" id="tgl_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tanggal Keluarnya E-KTP"  required>
                     </div>
                     </div>                    
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="ket"><b>Keterangan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" placeholder="Isi keterangan jika diperlukan" rows="3"></textarea>
                         </div>                   
                     </div>

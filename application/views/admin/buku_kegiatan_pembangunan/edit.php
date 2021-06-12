@@ -45,7 +45,7 @@
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="id_rencana"><b>Nama Proyek/Kegiatan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="id_rencana">Nama Proyek/Kegiatan</label>
                             <select name="id_rencana" id="id_rencana" class="form-control">
                                 <option value=" ">- Pilih -</option> 
                                 
@@ -58,58 +58,58 @@
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="volume"><b>Volume</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
                             <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="volume" value="<?=$d->volume?>" required>
                         </div>
                     </div>
                     
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="biaya_pemerintah"><b>Biaya Pemerintah</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
                         <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-primary" placeholder="biaya" value="<?=$d->biaya_pemerintah?>" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
-                        <label for="biaya_prov"><b>Biaya Provinsi</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
                         <input type="text" name="biaya_prov" id="biaya_prov" class="form-control border-left-primary" placeholder="biaya" value="<?=$d->biaya_prov?>" required>
                     </div>
 
                     <div class="col-lg-3">
-                        <label for="biaya_kab"><b>Biaya Kabupaten</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
                         <input type="text" name="biaya_kab" id="biaya_kab" class="form-control border-left-primary" placeholder="biaya" value="<?=$d->biaya_kab?>" required>
                     </div>
 
                     <div class="col-lg-3">
-                        <label for="biaya_swadaya"><b>Biaya Swadaya</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
                         <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-primary" placeholder="biaya" value="<?=$d->biaya_swadaya?>" required>
                     </div>
                     <br>
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                        <label for="jumlah"><b>Jumlah Biaya</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
                         <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="lokasi"  value="<?=$d->jumlah?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="waktu"><b>Waktu Kegiatan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="waktu">Waktu Kegiatan</label>
                             <input type="text" name="waktu" id="waktu" class="form-control border-left-primary " placeholder="waktu" value="<?=$d->waktu?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="sifat"><b>Sifat Kegiatan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="sifat">Sifat Kegiatan</label>
                             <input type="text" name="sifat" id="sifat" class="form-control border-left-primary " placeholder="sifat" value="<?=$d->sifat?>" required>
                         </div>
                     </div>
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="pelaksana"><b>Pelaksana Kegiatan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
                             <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="pelaksana" value="<?=$d->pelaksana?>" required>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                    
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="ket"><b>Keterangan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3"><?=$d->ket?></textarea>
                         </div>                   
                     </div>

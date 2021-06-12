@@ -332,6 +332,11 @@ class Buku_penduduk_sementara extends Admin_Controller {
         echo json_encode($callback);
     }
 
-
+    function cetak(){
+        $tahun = $this->input->post('tahun');
+        $where = ['tahun'=>$tahun];
+        $data=$this->Main_m->get($this->_table,$where)->result();
+        echo var_dump($data);
+    }
 
 }

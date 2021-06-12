@@ -312,5 +312,12 @@ class Buku_mutasi_penduduk extends Admin_Controller {
         }
         echo json_encode($callback);
     }
+
+    function cetak(){
+        $bulan_tahun = $this->input->post('bulan_tahun');
+        $where = ['bulan_tahun'=>$bulan_tahun];
+        $data=$this->Main_m->get($this->_table,$where)->result();
+        echo var_dump($data);
+    }
 }
 

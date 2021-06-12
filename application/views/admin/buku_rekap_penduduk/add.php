@@ -42,14 +42,14 @@
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                        <label for="bulan_tahun"><b>Bulan dan Tahun Periode</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="bulan_tahun">Bulan dan Tahun Periode</label>
                         <input type="month" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" required>
                     </div>
                     </div>
 
                     <div class="col-lg-12 ">
                     <div class="form-group">
-                        <label for="dusun"><b>Nam Dusun / Lingkungan</b></label>
+                        <label class="text-gray-900 font-weight-bold" for="dusun">Nam Dusun / Lingkungan</label>
                         <input type="text" name="dusun" id="dusun" class="form-control border-left-primary " placeholder="Nama dusun/lingkungan" required>
                     </div>
                     </div>
@@ -60,55 +60,55 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><b><center>Jumlah Penduduk Awal Bulan</b><br></h5>
+                    <h5><center>Jumlah Penduduk Awal Bulan<br></h5>
                     </div>
                     </div>
                    
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_wna_l">WNA Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_wna_l">WNA Laki-Laki</label>
                         <input type="number" name="awal_wna_l" id="awal_wna_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_wna_p">WNA Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_wna_p">WNA Perempuan</label>
                         <input type="number" name="awal_wna_p" id="awal_wna_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_wni_l">WNI Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_wni_l">WNI Laki-Laki</label>
                         <input type="number" name="awal_wni_l" id="awal_wni_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_wni_p">WNI Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_wni_p">WNI Perempuan</label>
                         <input type="number" name="awal_wni_p" id="awal_wni_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_jml_kk">Jumlah Kartu Keluarga</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_jml_kk">Jumlah Kartu Keluarga</label>
                         <input type="number" name="awal_jml_kk" id="awal_jml_kk" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_jml_anggota_keluarga">Jumlah Anggota Keluarga</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_jml_anggota_keluarga">Jumlah Anggota Keluarga</label>
                         <input type="number" name="awal_jml_anggota_keluarga" id="awal_jml_anggota_keluarga" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="awal_jml_jiwa">Jumlah Jiwa</label>
+                        <label class="text-gray-900 font-weight-bold" for="awal_jml_jiwa">Jumlah Jiwa</label>
                         <input type="number" name="awal_jml_jiwa" id="awal_jml_jiwa" class="form-control border-left-primary" required>
                     </div>
                     </div>
@@ -119,70 +119,70 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><b><center> Penambahan Penduduk (Kelahiran) </b></h5>
+                    <h5><center> Penambahan Penduduk (Kelahiran) </h5>
                     </div>
                     </div>
 
                    
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_lahir_wna_l">WNA Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_lahir_wna_l">WNA Laki-Laki</label>
                         <input type="number" name="tambah_lahir_wna_l" id="tambah_lahir_wna_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_lahir_wna_p">WNA Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_lahir_wna_p">WNA Perempuan</label>
                         <input type="number" name="tambah_lahir_wna_p" id="tambah_lahir_wna_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_lahir_wni_l">WNI Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_lahir_wni_l">WNI Laki-Laki</label>
                         <input type="number" name="tambah_lahir_wni_l" id="tambah_lahir_wni_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_lahir_wni_p">WNI Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_lahir_wni_p">WNI Perempuan</label>
                         <input type="number" name="tambah_lahir_wni_p" id="tambah_lahir_wni_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><b><center>Penambahan Penduduk (Kedatangan) </b></h5>
+                    <h5><center>Penambahan Penduduk (Kedatangan) </h5>
                     </div>
                     </div>
 
                    
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_datang_wna_l">WNA Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_datang_wna_l">WNA Laki-Laki</label>
                         <input type="number" name="tambah_datang_wna_l" id="tambah_datang_wna_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_datang_wna_p">WNA Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_datang_wna_p">WNA Perempuan</label>
                         <input type="number" name="tambah_datang_wna_p" id="tambah_datang_wna_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_datang_wni_l">WNI Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_datang_wni_l">WNI Laki-Laki</label>
                         <input type="number" name="tambah_datang_wni_l" id="tambah_datang_wni_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tambah_datang_wni_p">WNI Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="tambah_datang_wni_p">WNI Perempuan</label>
                         <input type="number" name="tambah_datang_wni_p" id="tambah_datang_wni_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
@@ -193,70 +193,70 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><b><center>Pengurangan Penduduk (Meninggal) </b></h5>
+                    <h5><center>Pengurangan Penduduk (Meninggal) </h5>
                     </div>
                     </div>
 
                    
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_meninggal_wna_l">WNA Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_meninggal_wna_l">WNA Laki-Laki</label>
                         <input type="number" name="kurang_meninggal_wna_l" id="kurang_meninggal_wna_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_meninggal_wna_p">WNA Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_meninggal_wna_p">WNA Perempuan</label>
                         <input type="number" name="kurang_meninggal_wna_p" id="kurang_meninggal_wna_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_meninggal_wni_l">WNI Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_meninggal_wni_l">WNI Laki-Laki</label>
                         <input type="number" name="kurang_meninggal_wni_l" id="kurang_meninggal_wni_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_meninggal_wni_p">WNI Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_meninggal_wni_p">WNI Perempuan</label>
                         <input type="number" name="kurang_meninggal_wni_p" id="kurang_meninggal_wni_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><b><center>Pengurangan Penduduk (Pindah) </b></h5>
+                    <h5><center>Pengurangan Penduduk (Pindah) </h5>
                     </div>
                     </div>
 
                    
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_pindah_wna_l">WNA Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_pindah_wna_l">WNA Laki-Laki</label>
                         <input type="number" name="kurang_pindah_wna_l" id="kurang_pindah_wna_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_pindah_wna_p">WNA Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_pindah_wna_p">WNA Perempuan</label>
                         <input type="number" name="kurang_pindah_wna_p" id="kurang_pindah_wna_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_pindah_wni_l">WNI Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_pindah_wni_l">WNI Laki-Laki</label>
                         <input type="number" name="kurang_pindah_wni_l" id="kurang_pindah_wni_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="kurang_pindah_wni_p">WNI Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="kurang_pindah_wni_p">WNI Perempuan</label>
                         <input type="number" name="kurang_pindah_wni_p" id="kurang_pindah_wni_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
@@ -267,63 +267,63 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><b><center>Jumlah Penduduk Akhir Bulan</b></h5>
+                    <h5><center>Jumlah Penduduk Akhir Bulan</h5>
                     </div>
                     </div>
 
                    
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_wna_l">WNA Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_wna_l">WNA Laki-Laki</label>
                         <input type="number" name="akhir_wna_l" id="akhir_wna_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_wna_p">WNA Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_wna_p">WNA Perempuan</label>
                         <input type="number" name="akhir_wna_p" id="akhir_wna_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_wni_l">WNI Laki-Laki</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_wni_l">WNI Laki-Laki</label>
                         <input type="number" name="akhir_wni_l" id="akhir_wni_l" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_wni_p">WNI Perempuan</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_wni_p">WNI Perempuan</label>
                         <input type="number" name="akhir_wni_p" id="akhir_wni_p" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_jml_kk">Jumlah Kartu Keluarga</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_jml_kk">Jumlah Kartu Keluarga</label>
                         <input type="number" name="akhir_jml_kk" id="akhir_jml_kk" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_jml_anggota_keluarga">Jumlah Anggota Keluarga</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_jml_anggota_keluarga">Jumlah Anggota Keluarga</label>
                         <input type="number" name="akhir_jml_anggota_keluarga" id="akhir_jml_anggota_keluarga" class="form-control border-left-primary" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="akhir_jml_jiwa">Jumlah Jiwa</label>
+                        <label class="text-gray-900 font-weight-bold" for="akhir_jml_jiwa">Jumlah Jiwa</label>
                         <input type="number" name="akhir_jml_jiwa" id="akhir_jml_jiwa" class="form-control border-left-primary" required>
                     </div>
                     </div>
                 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="ket"><b>Keterangan</b></label>
+                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Isikan Keterangan jika diperlukan"></textarea>
                         </div>                   
                     </div>
