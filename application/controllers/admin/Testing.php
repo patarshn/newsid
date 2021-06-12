@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 class Testing extends Admin_Controller{
@@ -185,6 +184,7 @@ class Testing extends Admin_Controller{
                         //    we want to set these values (default is A1)
         );
 
+        //styleArray untuk ngasih border ke data yang dilooping
         $styleArray = [
             'borders' => [
                 'allBorders' => [
