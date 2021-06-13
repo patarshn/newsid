@@ -241,17 +241,6 @@ class Apbd extends Admin_Controller {
             $_POST = $this->input->post();
             $id = $_POST['id'];
             $where = ['id'=>$id];
-            
-            //jika ada file yang baru
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                $berkas_lama = $this->destroy_file($where);
-            }
-
-            //jika tidak ada file baru
-            else {
-                $berkas = $_POST["old_file"];
-            }
 
             $data = array(
                 'id' => $_POST['id'],
@@ -275,7 +264,7 @@ class Apbd extends Admin_Controller {
             }
 
             if($this->Main_m->update($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil diinput',
@@ -283,7 +272,7 @@ class Apbd extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, edit form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',

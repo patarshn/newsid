@@ -42,7 +42,7 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" value="<?=$d->tahun_anggaran?>" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">

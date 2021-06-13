@@ -204,6 +204,7 @@ class Kas_umum extends Admin_Controller {
                 $berkas = $_POST["old_file"];
             }
             $data = array(
+                'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'tanggal' => $_POST['tanggal'],
                 'kode_rekening' => $_POST['kode_rekening'],
                 'uraian' => $_POST['uraian'],
@@ -212,7 +213,6 @@ class Kas_umum extends Admin_Controller {
                 'no_bukti' => $_POST['no_bukti'],
                 'jumlah_komulatif' => $_POST['jumlah_komulatif'],
                 'saldo' => $_POST['saldo'],
-                'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
