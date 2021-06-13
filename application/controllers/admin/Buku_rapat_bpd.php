@@ -6,6 +6,7 @@ class Buku_rapat_bpd extends Admin_Controller {
     private $_table = 'buku_rapat_bpd';
     private $_folder = 'buku_rapat_bpd';
     private $_mainTitle = 'Buku Rapat BPD';
+    private $_docxName = 'buku_rapat_bpd.docx';
 
     function __construct() {
         parent::__construct();
@@ -491,6 +492,10 @@ class Buku_rapat_bpd extends Admin_Controller {
                 return true;
             }
 
+            if (!file_exists($b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b1_id->berkas1)) {
                 return false;
             }
@@ -507,12 +512,48 @@ class Buku_rapat_bpd extends Admin_Controller {
                 return true;
             }
 
+            if (!file_exists($b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b2_id->berkas2)) {
                 return false;
             }
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'tgl' => $d->tgl,
+                'agenda' => $d->agenda
+            );
+            $values[] = $subvalues;
+        }
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
     }
 }
 ?>
