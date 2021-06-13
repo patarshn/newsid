@@ -40,7 +40,7 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" required>
+                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -55,7 +55,7 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="rekening" class="text-gray-900 font-weight-bold">Rekening. No</label>
-                        <input type="text" name="rekening" id="rekening" class="form-control border-left-primary" required>
+                        <input type="number" name="rekening" id="rekening" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -69,11 +69,8 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
-                      <div class="custom-file">
-                          <label for="bukti_trans" class="custom-file-label border-left-primary">Pilih Bukti Transaksi</label>
-                          <input type="file" class="custom-file-input" id="bukti_trans" name="bukti_trans">
-                      </div>
+                        <label for="bukti_trans" class="text-gray-900 font-weight-bold">Bukti Transaksi</label>
+                        <input type="text" name="bukti_trans" id="bukti_trans" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
