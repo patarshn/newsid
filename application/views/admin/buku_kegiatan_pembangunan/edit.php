@@ -40,14 +40,23 @@
                   echo form_open(base_url($folder.'/update'),'id="form"','enctype="multipart/form-data"');
                   foreach($data as $d):
                 ?>
+                <h5 class="modal-title"><center>Data Kegiatan Penduduk : <?=$d->nama_kegiatan?></h5>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 
                 <div class="form-row">
+
                 <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" value="<?=$d->tahun?>" required>
+                    </div>
+                    </div>
+
+                <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="id_rencana">Nama Proyek/Kegiatan</label>
                             <select name="id_rencana" id="id_rencana" class="form-control">
-                                <option value=" ">- Pilih -</option> 
+                                <option><?=$d->nama_kegiatan?></option> 
                                 
                                 <?php foreach($data_option as $p) : ?>
                                   <option value="<?php echo $p->id;?>"> <?php echo $p->nama_proyek; ?> </option>
@@ -89,7 +98,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="lokasi"  value="<?=$d->jumlah?>" required>
+                        <input type="text" name="jumlah_biaya" id="jumlah_biaya" class="form-control border-left-primary" placeholder="lokasi"  value="<?=$d->jumlah_biaya?>" required>
                         </div>
                     </div>
 
@@ -102,10 +111,14 @@
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="sifat">Sifat Kegiatan</label>
-                            <input type="text" name="sifat" id="sifat" class="form-control border-left-primary " placeholder="sifat" value="<?=$d->sifat?>" required>
+                            <label class="text-gray-900 font-weight-bold" for="sifat_kegiatan">Sifat Kegiatan</label>
+                            <select name="sifat_kegiatan" id="sifat_kegiatan" class="form-control border-left-primary" placeholder=" " required>
+                            <option><?=$d->sifat_kegiatan?></option>
+                            <option value="Baru">Baru</option>
+                            <option value="Lanjutan">Lanjutan</option>
+                        </select>
                         </div>
-                    </div>
+                    </div>   
 
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -122,6 +135,14 @@
                         </div>                   
                     </div>
                 </div>
+                
+      <script>
+                $(document).ready(function(){
+                  var id_rencana = "<?=$d->id_rencana?>";
+                  console.log(id_rencana);
+                  $('#id_rencana').val(id_rencana);
+                });
+                </script>
               <?php
                 endforeach;
                 form_close();
@@ -145,3 +166,4 @@
       </div>
       <!-- End of Main Content -->
 
+            

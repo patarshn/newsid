@@ -39,7 +39,15 @@
                 <h3 class="text-gray-900"></h3>
 
                 <div class="form-row">
-                    <div class="col-lg-12">
+
+                <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="id_rencana">Nama Proyek/Kegiatan</label>
                             <select name="id_rencana" id="id_rencana" class="form-control border-left-primary">
@@ -52,7 +60,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
                             <input type="text" name="volume" id="volume" class="form-control border-left-primary " rows="3" placeholder="Volume bagunan"  required>
@@ -84,8 +92,8 @@
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya keseluruhan" required>
+                        <label class="text-gray-900 font-weight-bold" for="jumlah_biaya">Jumlah Biaya</label>
+                        <input type="text" name="jumlah_biaya" id="jumlah_biaya" class="form-control border-left-primary" placeholder="Total biaya keseluruhan" required>
                         </div>
                     </div>
 
@@ -98,10 +106,14 @@
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="sifat">Sifat Kegiatan</label>
-                            <input type="text" name="sifat" id="sifat" class="form-control border-left-primary " placeholder="Sifat kegitana" required>
+                            <label class="text-gray-900 font-weight-bold" for="sifat_kegiatan">Sifat Kegiatan</label>
+                            <select name="sifat_kegiatan" id="sifat_kegiatan" class="form-control border-left-primary" placeholder=" " required>
+                            <option>- Pilih - </option>
+                            <option value="Baru">Baru</option>
+                            <option value="Lanjutan">Lanjutan</option>
+                        </select>
                         </div>
-                    </div>
+                    </div>              
 
                     <div class="col-lg-12">
                         <div class="form-group">

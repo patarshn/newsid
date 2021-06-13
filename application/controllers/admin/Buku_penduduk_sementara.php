@@ -6,13 +6,14 @@ class Buku_penduduk_sementara extends Admin_Controller {
     private $_table = 'penduduk_sementara';
     private $_folder = 'buku_penduduk_sementara';
     private $_mainTitle = 'Buku Penduduk Sementara';
+    private $_docxName = 'buku_penduduk_sementara.docx';
 
     function __construct()
 	{
         parent::__construct();
         $this->load->model('Main_m');
         $this->load->library('breadcrumbcomponent'); 
-    }    
+    }     
     
     function rulesStore() {
         return [
@@ -333,10 +334,62 @@ class Buku_penduduk_sementara extends Admin_Controller {
     }
 
     function cetak(){
-        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->get('tahun');
         $where = ['tahun'=>$tahun];
-        $data=$this->Main_m->get($this->_table,$where)->result();
-        echo var_dump($data);
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'nama' => $d->nama,
+                'no_identitas' => $d->no_identitas,
+                'tempat_lahir' => $d->tempat_lahir,
+                'tgl_lahir' => $d->tgl_lahir,
+                'umur' => $d->umur,
+                'pekerjaan' => $d->pekerjaan,
+                'kebangsaan' => $d->kebangsaan,
+                'keturunan' => $d->keturunan,
+                'datang_dari' => $d->datang_dari,
+                'maksud_tujuan' => $d->maksud_tujuan,
+                'nama_yg_didatangi' => $d->nama_yg_didatangi,
+                'alamat_yg_didatangi' => $d->alamat_yg_didatangi,
+                'tgl_datang' => $d->tgl_datang,
+                'tgl_pergi' => $d->tgl_pergi,
+                'ket' => $d->ket
+            );
+            if($d->jk == 'Laki-Laki'){
+                $subvalues['jkl'] ='L';
+                $subvalues['jkp'] = '';
+            }
+            else{
+                $subvalues['jkp'] = 'P';
+                $subvalues['jkl'] = '';
+            }
+
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $templateProcessor->setValue('tahun', $tahun);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;      
     }
 
 }
