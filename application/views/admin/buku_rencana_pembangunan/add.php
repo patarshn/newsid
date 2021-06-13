@@ -104,7 +104,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" readonly required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" required>
                         </div>
                     </div>
                     
@@ -151,17 +151,3 @@
 
       </div>
       <!-- End of Main Content -->
-      <pre>
-            $("#volume").keyup(function(){
-            var a = parseInt($("#volume").val());
-            var b = parseInt($("#harga").val());
-            var c = a+b;
-            $("#jumlah").val(c);
-            });
-            
-            $("#harga").keyup(function(){
-            var a = parseInt($("#volume").val());
-            var b = parseInt($("#harga").val());
-            var c = a+b;
-            $("#jumlah").val(c);
-            });

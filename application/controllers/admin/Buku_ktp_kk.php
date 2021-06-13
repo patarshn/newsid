@@ -11,6 +11,7 @@ class Buku_ktp_kk extends Admin_Controller {
 	{
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Kependudukan_m');
         $this->load->library('breadcrumbcomponent'); 
     }    
 
@@ -83,27 +84,71 @@ class Buku_ktp_kk extends Admin_Controller {
         ];
     }
 
+    function get_data_user()
+    {
+        $list = $this->Kependudukan_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row = array();
+            $row[] = "";
+            $row[] = $no;
+            $row[] = '<div class="dropdown no-arrow">  
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" href="'.base_url('admin/'.$this->_folder.'/edit/'.$field->nik).'">Edit</a>
+                    <a class="dropdown-item" href="'.base_url('admin/'.$this->_folder.'/detail/'.$field->nik).'">Detail</a>
+                </div>
+            </div>';
+            $row[] = $field->nkk;
+            $row[] = $field->nik;
+            $row[] = $field->nama;
+            $row[] = $field->jenis_kelamin;
+            $row[] = $field->tempat_lahir;
+            $row[] = $field->tanggal_lahir;
+            $row[] = $field->alamat;
+            $row[] = $field->ayah;
+            $row[] = $field->ibu;
+ 
+            $data[] = $row;
+        }
+ 
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Kependudukan_m->count_all(),
+            "recordsFiltered" => $this->Kependudukan_m->count_filtered(),
+            "data" => $data,
+        );
+        //output dalam format JSON
+        echo json_encode($output);
+    }
+
     function index(){
-            
-            $this->breadcrumbcomponent->add('Home', base_url());
-            $this->breadcrumbcomponent->add('Admin', base_url('admin'));  
-            $this->breadcrumbcomponent->add($this->_mainTitle, base_url('admin/'.$this->_folder.'/'));
+        $this->breadcrumbcomponent->add('Home', base_url());
+        $this->breadcrumbcomponent->add('Admin', base_url('admin'));  
+        $this->breadcrumbcomponent->add($this->_mainTitle, base_url('admin/'.$this->_folder.'/'));
+        
+        $breadcrumb = $this->breadcrumbcomponent->output();
+        $getData = $this->Main_m->get($this->_table,null);
+        $data = array(
+            'breadcrumb' => $breadcrumb,
+            'data' => $getData->result(),
+            'title' => $this->_mainTitle,
+            'uri' => $this->uri->segment_array(),
+            'folder' => $this->_folder,
+            'total' => count($getData->result()),
+        );
 
-            $breadcrumb = $this->breadcrumbcomponent->output();
-            $data = array(
-                'breadcrumb' => $breadcrumb,
-                'data' => $this->Main_m->get($this->_table,null)->result(),
-                'title' => $this->_mainTitle,
-                'uri' => $this->uri->segment_array(),
-                'folder' => $this->_folder,
-            );
-
-            $this->load->view('admin/partials/header');
-            $this->load->view('admin/partials/content_sidebar');
-            $this->load->view('admin/partials/content_navbar');
-            $this->load->view('admin/'.$this->_folder.'/index',$data);
-            $this->load->view('admin/partials/content_footer');
-            $this->load->view('admin/partials/footer');
+        $this->load->view('admin/partials/header');
+        $this->load->view('admin/partials/content_sidebar');
+        $this->load->view('admin/partials/content_navbar');
+        $this->load->view('admin/'.$this->_folder.'/index',$data);
+        $this->load->view('admin/partials/content_footer');
+        $this->load->view('admin/partials/footer');
     }
 
     function detail($id){
@@ -365,8 +410,8 @@ class Buku_ktp_kk extends Admin_Controller {
     }
 
     function cetak(){
-        $tahun = $this->input->post('tahun');
-        $where = ['tahun'=>$tahun];
+        $tahun_ektp = $this->input->post('tahun_ektp');
+        $where = ['tahun_ektp'=>$tahun_ektp];
         $data=$this->Main_m->get($this->_table,$where)->result();
         echo var_dump($data);
     }

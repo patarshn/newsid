@@ -6,6 +6,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
     private $_table = 'inventaris_pembangunan';
     private $_folder = 'buku_inventaris_pembangunan';
     private $_mainTitle = 'Inventaris Hasil-Hasil Pembangunan';
+    private $_docxName = 'buku_inventaris_pembangunan.docx';
 
     function __construct()
 	{
@@ -345,6 +346,42 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
             
         }
         return true;
+    }
+
+    function cetak(){
+        $data = $this->Main_m->getAsc($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
+        $values = array();
+
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $d->id,
+                'nama_hasil' => $d->nama_hasil,
+                'volume' => $d->volume,
+                'biaya' => $d->biaya,
+                'lokasi' => $d->lokasi,
+                'ket' => $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
     }
 }
 ?>

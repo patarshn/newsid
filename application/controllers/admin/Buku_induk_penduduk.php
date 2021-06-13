@@ -6,6 +6,7 @@ class Buku_induk_penduduk extends Admin_Controller {
     private $_table = 'ktp_kk';
     private $_folder = 'buku_induk_penduduk';
     private $_mainTitle = 'Buku Induk Penduduk';
+    private $_docxName = 'buku_induk_penduduk.docx';
 
     function __construct()
 	{
@@ -367,6 +368,50 @@ class Buku_induk_penduduk extends Admin_Controller {
         echo json_encode($callback);
     }
 
+    function cetak(){
+        $data = $this->Main_m->getAsc($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
+        $values = array();
 
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $d->id,
+                'nama' => $d->nama,
+                'jenis_kelamin' => $d->jenis_kelamin,
+                'status_perkawinan' => $d->status_perkawinan,
+                'tempat_lahir' => $d->tempat_lahir,
+                'tanggal_lahir' => $d->tanggal_lahir,
+                'agama' => $d->agama,
+                'pendidikan' => $d->pendidikan,
+                'pekerjaan' => $d->pekerjaan,
+                'baca_huruf' => $d->baca_huruf,
+                'wn' => $d->wn,
+                'alamat' => $d->alamat,
+                'hub_keluarga' => $d->hub_keluarga,
+                'nik' => $d->nik,
+                'nkk' => $d->nkk,
+                'ket' => $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
+    }
 
 }
