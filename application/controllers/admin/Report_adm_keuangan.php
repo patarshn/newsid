@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Report_adm_umum extends Admin_Controller{
+class Report_adm_keuangan extends Admin_Controller{
 
     private $_folder = 'report_adm_umum';
     private $_mainTitle = 'Report Administasi Umum';
@@ -11,7 +11,7 @@ class Report_adm_umum extends Admin_Controller{
         parent::__construct();
         $this->load->model('Report_adm_umum_m');        
         $this->load->library('breadcrumbcomponent'); 
-    }
+    }    
 
     function index(){
 

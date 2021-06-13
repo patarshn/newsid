@@ -35,7 +35,9 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?=form_open_multipart(base_url('apbd/store'),'id="form"')?>
+                <?php echo form_open(base_url('kas_pembantu_kegiatan/update'),'id="form"');
+                foreach($data as $d):
+                ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
@@ -44,14 +46,13 @@
                     </div>
 
                     <div class="col-lg-3 mt-2">
-                        <label for="bidang" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" value="<?=$d->uraian?>" required>
+                        <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
+                        <input type="text" name="bidang" id="bidang" class="form-control" value="<?=$d->bidang?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
-                        <div class="form-group">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control" value="<?=$d->tahun_anggaran?>" required>
+                        <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                        <select name="kegiatan" id="kegiatan" class="form-control" value="<?=$d->kegiatan?>" required>
                                 <option>-</option>
                                 
                                 <?php   
@@ -61,11 +62,19 @@
                                 endforeach;
                                 ?>
                             </select>
-                        </div>
                     </div>
 
+                    <div class="col-lg-6 mt-3">
+                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control" value="<?=$d->tanggal?>" required>
+                    </div>
 
                     <div class="col-lg-3 mt-2">
+                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <input type="text" name="uraian" id="uraian" class="form-control" value="<?=$d->uraian?>" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-2">
                       <label class="text-gray-900 font-weight-bold" >Penerimaan</label>
                       <div class="form-row">
                         <div class="col-lg-3">
@@ -78,7 +87,6 @@
                           <small id="penerimaan_sdm" class="text-gray-700"></small>
                         </div>
                       </div>
-                    </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
@@ -98,22 +106,17 @@
                           <small id="pengeluaran_bm" class="text-gray-700"></small>
                         </div>
                       </div>
-                    </div>
 
                     <div class="col-lg-3 mt-2">
-                        <div class="form-group">
                             <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian Ke Bendahara</label>
-                            <textarea class="form-control" name="jumlah" id="jumlah" rows="1" required></textarea>
-                        </div>
+                            <input type="text" name="jumlah" id="jumlah" class="form-control" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
-                        <div class="form-group">
                             <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                            <textarea class="form-control" name="saldo" id="saldo" rows="1" required></textarea>
-                        </div>
+                            <input type="form-control" name="saldo" id="saldo" class="form-control" required>
                     </div>
-                </div>
+
                 <?=form_close()?>
                 
                   <div class="d-flex mt-3">
@@ -129,6 +132,9 @@
             </div>
           </div>
           
+          <?php
+                endforeach;
+                echo form_close();?>
 
 
         </div>

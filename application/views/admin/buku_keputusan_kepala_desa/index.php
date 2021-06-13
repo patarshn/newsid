@@ -47,6 +47,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
+                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th width="5%">No</th>
                       <th width="3%"></th>
                       <th>Nomor dan Tanggal Keputusan Kepala Desa</th>
@@ -58,6 +59,7 @@
                   </thead>
                   <tfoot>
                     <tr>
+                      <th width="5%"></th>
                       <th width="5%">No</th>
                       <th width="3%"></th>
                       <th>Nomor dan Tanggal Keputusan Kepala Desa</th>
@@ -73,10 +75,10 @@
                   $count = 1;
                   foreach ($data as $d): ?>
                     <tr>
-                    <td>
+                      <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
                       </td>
+                      <td><?=$count++;?></td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -90,7 +92,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->no_tgl_keputusan_kepala_desa?></td>
+                      <td><?=$d->no_keputusan_kepala_desa?>, <?=$d->tgl_keputusan_kepala_desa?></td>
                       <td><?=$d->tentang?></td>
                       <td><?=$d->uraian_singkat?></td>
                       <td>

@@ -45,7 +45,7 @@
 
                                     <tr>
                                         <th width="30%">Nomor dan Tanggal ditetapkan</th>
-                                        <td><?=$d->no_tgl_ditetapkan?></td>
+                                        <td><?=$d->no_ditetapkan?>, <?=$d->tgl_ditetapkan?></td>
                                     </tr >
 
                                     <tr>

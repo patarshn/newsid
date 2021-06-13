@@ -86,12 +86,12 @@
 
                                     <tr>
                                         <th>Nomor dan Tanggal Keputusan Pengangkatan</th>
-                                        <td><?=$d->no_tgl_keputusan_pengangkatan?></td>
+                                        <td><?=$d->no_keputusan_pengangkatan?>, <?=$d->tgl_keputusan_pengangkatan?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Nomor dan Tanggal Keputusan Pemberhentian</th>
-                                        <td><?=$d->no_tgl_keputusan_pemberhentian?></td>
+                                        <td><?=$d->no_keputusan_pemberhentian?>, <?=$d->tgl_keputusan_pemberhentian?></td>
                                     </tr >
 
                                     <tr>

@@ -6,6 +6,7 @@ class Buku_tnh_desa extends Admin_Controller {
     private $_table = 'buku_tnh_desa';
     private $_folder = 'buku_tnh_desa';
     private $_mainTitle = 'Buku Tanah Di Desa';
+    private $_docxName = 'buku_tnh_desa.docx';
 
     function __construct() {
         parent::__construct();
@@ -133,10 +134,10 @@ class Buku_tnh_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
+                    
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -244,6 +245,14 @@ class Buku_tnh_desa extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -488,7 +497,7 @@ class Buku_tnh_desa extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -500,12 +509,54 @@ class Buku_tnh_desa extends Admin_Controller {
                 return true;
             }
 
+            if (!file_exists($b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_umum/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'no_keputusan_kepala_desa' => $d->no_keputusan_kepala_desa,
+                'tgl_keputusan_kepala_desa' => $d->tgl_keputusan_kepala_desa,
+                'tentang' => $d->tentang,
+                'uraian_singkat' => $d->uraian_singkat,
+                'no_dilaporkan_kpd' => $d->no_dilaporkan_kpd,
+                'tgl_dilaporkan_kpd' => $d->tgl_dilaporkan_kpd,
+                'ket'=> $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
     }
 }
 ?>

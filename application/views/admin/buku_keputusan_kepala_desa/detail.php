@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Keputusan Kepala Desa: <?=$d->no_tgl_keputusan_kepala_desa?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Keputusan Kepala Desa: <?=$d->no_keputusan_kepala_desa?>, <?=$d->tgl_keputusan_kepala_desa?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
@@ -41,7 +41,7 @@
 
                                     <tr>
                                         <th width="50%">Nomor dan Tanggal Keputusan Kepala Desa</th>
-                                        <td><?=$d->no_tgl_keputusan_kepala_desa?></td>
+                                        <td><?=$d->no_keputusan_kepala_desa?>, <?=$d->tgl_keputusan_kepala_desa?></td>
                                     </tr >
 
                                     <tr>
@@ -51,7 +51,7 @@
 
                                     <tr>
                                         <th>Nomor dan Tanggal Dilaporkan</th>
-                                        <td><?=$d->no_tgl_dilaporkan?></td>
+                                        <td><?=$d->no_dilaporkan_kpd?>, <?=$d->tgl_dilaporkan_kpd?></td>
                                     </tr >
                                     
                                     <tr>
