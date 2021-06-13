@@ -49,7 +49,7 @@
                                           <div class="card mb-4 py-3 border-bottom-primary">
                                             <div class="card-body">
                                               <div class="form-group">
-                                                <form method="get" action="buku_penduduk_sementara/cetak">
+                                                <form method="get" action="buku_penduduk_sementara/cetakExc">
                                                 <label for="tahun"><b>Masukan Periode Tahun</b></label>
                                                 <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
                                                 
@@ -90,7 +90,7 @@
                     <th width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th>No</th>
                       <th width="3%"></th>
-                      <th>Nomor Identitas/Tanda Pengenal</th>
+                      <th>Nomor Identitas / Tanda Pengenal</th>
                       <th>Nama Lengkap</th>
                       <th>Jenis Kelamin</th>
                       <th>Datang Dari (asal)</th>
@@ -103,7 +103,7 @@
                     <th width="2%"></th>
                     <th>No</th>
                     <th width="3%"></th>
-                    <th>Nomor Identitas/Tanda Pengenal</th>
+                    <th>Nomor Identitas / Tanda Pengenal</th>
                       <th>Nama Lengkap</th>
                       <th>Jenis Kelamin</th>
                       <th>Datang Dari (asal)</th>

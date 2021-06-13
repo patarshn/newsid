@@ -21,7 +21,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
             ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
 
@@ -32,7 +32,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
             ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
 

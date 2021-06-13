@@ -1,11 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 class Buku_rekap_penduduk extends Admin_Controller {
 
     private $_table = 'rekap_penduduk';
     private $_folder = 'buku_rekap_penduduk';
     private $_mainTitle = 'Data Rekapitulasi Jumlah Penduduk';
+    private $_exelName = 'buku_rekap_penduduk.xls';
 
     function __construct()
 	{
@@ -50,7 +54,7 @@ class Buku_rekap_penduduk extends Admin_Controller {
             ['field' => 'akhir_jml_jiwa','label' => 'Jumlah Jiwa Akhir Bulan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
-    } 
+    }  
     
     function rulesUpdate(){
         return [
@@ -389,5 +393,96 @@ class Buku_rekap_penduduk extends Admin_Controller {
         $where = ['bulan_tahun'=>$bulan_tahun];
         $data=$this->Main_m->get($this->_table,$where)->result();
         echo var_dump($data);
+    }
+
+    public function cetakExc(){
+        $bulan_tahun = $this->input->get('bulan_tahun');
+        $where = ['bulan_tahun'=>$bulan_tahun];
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_penduduk/'.$this->_exelName);
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){           
+            $subvalues = array(
+                $no++,
+                $d->dusun,         
+                $d->awal_wna_l,
+                $d->awal_wna_p,
+                $d->awal_wni_l,
+                $d->awal_wna_p,
+                $d->awal_jml_kk,
+                $d->awal_jml_anggota_keluarga,
+                $d->awal_jml_jiwa,
+                $d->tambah_lahir_wna_l,
+                $d->tambah_lahir_wna_p,
+                $d->tambah_lahir_wni_l,
+                $d->tambah_lahir_wni_p,
+                $d->tambah_datang_wna_l,
+                $d->tambah_datang_wna_p,
+                $d->tambah_datang_wni_l,
+                $d->tambah_datang_wni_p,
+                $d->kurang_meninggal_wna_l,
+                $d->kurang_meninggal_wna_p,
+                $d->kurang_meninggal_wni_l,
+                $d->kurang_meninggal_wni_p,
+                $d->kurang_pindah_wna_l,
+                $d->kurang_pindah_wna_p,
+                $d->kurang_pindah_wni_l,
+                $d->kurang_pindah_wni_p,
+                $d->akhir_wna_l,
+                $d->akhir_wna_p,
+                $d->akhir_wni_l,
+                $d->akhir_wna_p,
+                $d->akhir_jml_kk,
+                $d->akhir_jml_anggota_keluarga,
+                $d->akhir_jml_jiwa,
+                $d->ket
+            );
+           
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A15'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 6;
+
+        $sheet->getStyle('A15:J'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A15:J'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A15:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A15:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 15;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
     }
 }
