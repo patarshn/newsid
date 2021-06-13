@@ -6,12 +6,12 @@ class Buku_agenda_surat_masuk extends Admin_Controller {
     private $_table = 'buku_agenda_surat_masuk';
     private $_folder = 'buku_agenda_surat_masuk';
     private $_mainTitle = 'Buku Agenda Surat Masuk BPD';
+    private $_docxName = 'buku_agenda_surat_masuk.docx';
 
     function __construct() {
         parent::__construct();
         $this->load->model('Main_m');
-        $this->load->library('breadcrumbcomponent');
-        
+        $this->load->library('breadcrumbcomponent');        
     }
 
     function rulesStore() {
@@ -431,12 +431,53 @@ class Buku_agenda_surat_masuk extends Admin_Controller {
                 return true;
             }
 
+            if (!file_exists($b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'tgl' => $d->tgl,
+                'no_surat_masuk' => $d->no_surat_masuk,
+                'tgl_surat_masuk' => $d->tgl_surat_masuk,
+                'nama_pengirim' => $d->nama_pengirim,
+                'uraian_singkat' => $d->uraian_singkat,
+                'ket'=> $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
     }
 }
 ?>

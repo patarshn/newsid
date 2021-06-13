@@ -81,7 +81,7 @@
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
                       </div>
                     </div>
 

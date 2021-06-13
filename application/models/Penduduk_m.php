@@ -16,5 +16,13 @@ class Penduduk_m extends MY_Model
         return $status;
     }
 
+    public function getMutasiTahunBulan($bulan_tahun){
+        $this->db->select('*');
+        $this->db->from('mutasi_penduduk');
+        $this->db->like('bulan_tahun', $bulan_tahun,'after');
+        $status = $this->db->get();
+        #print_r($status->result());
+        return $status;
+    }
 
 }

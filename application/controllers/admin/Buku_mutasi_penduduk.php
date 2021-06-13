@@ -11,6 +11,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
 	{
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Penduduk_m');
         $this->load->library('breadcrumbcomponent'); 
     }    
 
@@ -315,8 +316,8 @@ class Buku_mutasi_penduduk extends Admin_Controller {
 
     function cetak(){
         $bulan_tahun = $this->input->post('bulan_tahun');
-        $where = ['bulan_tahun'=>$bulan_tahun];
-        $data=$this->Main_m->get($this->_table,$where)->result();
+        echo $bulan_tahun;
+        $data=$this->Penduduk_m->getMutasiTahunBulan($bulan_tahun)->result();
         echo var_dump($data);
     }
 }
