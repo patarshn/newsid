@@ -156,16 +156,6 @@ class Buku_mutasi_penduduk extends Admin_Controller {
                 
             );
 
-            $sql = $this->db->query("SELECT nik FROM ktp_kk where nik='$nik'");
-            $cek_nik = $sql->num_rows();
-            if($cek_nik > 0){
-                $this->session->set_flashdata('message', 'Nomor KTP Sudah digunakan sebelumnya');
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Nomor KTP sudah diinput sebelumnya',
-                );
-            }
-
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                 $callback = array(

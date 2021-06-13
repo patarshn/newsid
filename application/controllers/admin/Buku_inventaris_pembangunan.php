@@ -354,10 +354,10 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
         $values = array();
-
+        $no = 1;
         foreach($data as $d){
             $subvalues = array(
-                'no' => $d->id,
+                'no' => $no++,
                 'nama_hasil' => $d->nama_hasil,
                 'volume' => $d->volume,
                 'biaya' => $d->biaya,

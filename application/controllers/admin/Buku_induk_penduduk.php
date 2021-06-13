@@ -374,10 +374,10 @@ class Buku_induk_penduduk extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
         $values = array();
-
+        $no = 1;
         foreach($data as $d){
             $subvalues = array(
-                'no' => $d->id,
+                'no' => $no++,
                 'nama' => $d->nama,
                 'jenis_kelamin' => $d->jenis_kelamin,
                 'status_perkawinan' => $d->status_perkawinan,

@@ -298,10 +298,10 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     }
 
     function cetak(){
-        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->get('tahun');
         $where = ['tahun'=>$tahun];
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        echo var_dump($data);
+        #   echo var_dump($data);
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
