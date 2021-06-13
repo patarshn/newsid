@@ -6,6 +6,7 @@ class Apbd extends Admin_Controller {
     private $_table = 'apbd';
     private $_folder = 'apbd';
     private $_mainTitle = 'Buku Anggaran Pendapatan dan Belanja Desa ';
+    private $_docxName = 'buku_anggaran_dan_pendapatan_desa.docx';
 
     function __construct() {
         parent::__construct();
@@ -481,5 +482,46 @@ class Apbd extends Admin_Controller {
         }
         return true;
     }
+    function cetak(){
+        $tahun_anggaran = $this->input->get('tahun_anggaran');
+        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $values = array();
+
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $d->id,
+                'kode_rekening1' => $d->kode_rekening1,
+                'kode_rekening2' => $d->kode_rekening2,
+                'kode_rekening3' => $d->kode_rekening3,
+                'kode_rekening4' => $d->kode_rekening4,
+                'uraian' => $d->uraian,
+                'anggaran' => $d->anggaran,
+                'keterangan' => $d->keterangan
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
+    }
+
 }
 ?>
