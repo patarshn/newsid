@@ -4,8 +4,8 @@ class Kependudukan_m extends MY_Model
 {
     private $_table = 'ktp_kk';
     var $table = 'ktp_kk'; //nama tabel dari database
-    var $column_order = array(null, 'nkk','nik','nama','rt','rw','created_at'); //field yang ada di table user
-    var $column_search = array('nkk','nik','nama','rt','rw','created_at'); //field yang diizin untuk pencarian 
+    var $column_order = array(null, 'id',null,'nkk','nik','nama','jenis_kelamin','tempat_lahir','tanggal_lahir','alamat'); //field yang ada di table user
+    var $column_search = array('nkk','nik','nama','jenis_kelamin','tempat_lahir','tanggal_lahir','alamat'); //field yang diizin untuk pencarian 
     var $order = array('id' => 'asc'); // default order 
     function __construct(){
 		  parent::__construct();
