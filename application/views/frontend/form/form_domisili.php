@@ -78,18 +78,6 @@
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
                     </div>
-                    <div class="col-lg-6">
-                        <label for="agama">Agama</label>
-                        <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
-                            <option>-</option>
-                            <option value="Islam">Islam</option>
-                            <option value="Kristen">Kristen</option>
-                            <option value="Katholik">Katholik</option>
-                            <option value="Buddha">Buddha</option>
-                            <option value="Hindu">Hindu</option>
-                            <option value="Konghucu">Konghucu</option>
-                        </select>
-                    </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="persyaratan">Peruntukkan</label>
@@ -107,14 +95,14 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="file_ktp">Upload KTP Pengaju</label>
-                            <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
+                            <input type="file" class="form-control-file" accept="image/jpeg,image/png" id="file_ktp" name="file_ktp">
                             <img id="file_ktp_preview" src="#" alt="your image" width="200"/>
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="file_kk">Upload KK Pengaju</label>
-                            <input type="file" class="form-control-file" id="file_kk" name="file_kk">
+                            <input type="file" class="form-control-file" accept="image/jpeg,image/png" id="file_kk" name="file_kk">
                             <img id="file_kk_preview" src="#" alt="your image" width="200" />
                         </div>
                     </div>

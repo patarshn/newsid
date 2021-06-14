@@ -21,7 +21,7 @@
             <?php endif ?>
                 <div class="alert alert-danger col d-none" id="error-message"></div>
           </div>
-        
+         
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -90,8 +90,8 @@
                     <th width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                     <th>No</th>
                       <th width="3%"></th>
-                      <th>NIK</th>
                       <th>Nomor KK</th>
+                      <th>NIK</th>
                       <th>Nama</th>
                       <th>Jenis Kelamin</th>
                       <th>Tempat Lahir</th>
@@ -104,8 +104,8 @@
                     <th width="2%"></th>
                     <th>No</th>
                     <th width="3%"></th>
-                    <th>NIK</th>
-                      <th>Nomor KK</th>
+                    <th>Nomor KK</th>
+                      <th>NIK</th>
                       <th>Nama</th>
                       <th>Jenis Kelamin</th>
                       <th>Tempat Lahir</th>

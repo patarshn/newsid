@@ -67,7 +67,7 @@
 <script src='<?php echo base_url("assets/sb2/js/demo/chart-pie-demo.js")?>'></script>
 <script src='<?=base_url("assets/sb2/js/demo/datatables-demo.js")?>'></script>
 -->
-  <script src="<?=base_url('assets/my/script.js')?>"></script>
+  <script src="<?=base_url('assets/my/script.js')?>?<?= date('l jS \of F Y h:i:s A'); ?>"></script>
 
   <!--script custom upload file-->
   <script>

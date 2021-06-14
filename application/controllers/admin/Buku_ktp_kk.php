@@ -47,7 +47,7 @@ class Buku_ktp_kk extends Admin_Controller {
             ['field' => 'tgl_tinggal_desa','label' => 'Tanggal Mulai Tinggal di Desa', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
-    }
+    } 
     
     function rulesUpdate(){
         return [

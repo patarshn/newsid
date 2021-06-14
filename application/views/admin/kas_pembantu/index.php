@@ -135,7 +135,7 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           <!--<div class="dropdown-divider"></div>-->
@@ -146,9 +146,9 @@
                       <td><?=$d->pajak?></td>
                       <td><?=$d->ret?></td>
                       <td><?=$d->pl?></td>
-                      <td><?=$d->pemotongan?></td>
-                      <td><?=$d->penyetoran?></td>
-                      <td><?=$d->saldo?></td>
+                      <td>Rp. <?=number_format($d->pemotongan,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->penyetoran,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->saldo,0,',','.');?></td>
                       <td><?=$d->tahun_anggaran?></td>
 
                       </td>

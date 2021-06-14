@@ -50,36 +50,36 @@
                     
                         <div class="col-lg-4 mt-2">
                         <label class="text-gray-900 font-weight-bold" >Pajak</label>
-                          <input type="text" name="pajak" id="pajak" class="form-control border-left-primary" placeholder="Uraian Pajak" required>
+                          <input type="number" name="pajak" id="pajak" class="form-control border-left-primary" placeholder="Uraian Pajak" required>
                           <small id="pajak" class="text-gray-700"></small>
                         </div>
                         
                         <div class="col-lg-4 mt-2">
                         <label class="text-gray-900 font-weight-bold" >RET</label>
-                          <input type="text" name="ret" id="ret" class="form-control border-left-primary" placeholder="Uraian Retribusi" required>
+                          <input type="number" name="ret" id="ret" class="form-control border-left-primary" placeholder="Uraian Retribusi" required>
                           <small id="ret" class="text-gray-700"></small>
                         </div>
 
                         <div class="col-lg-4 mt-2">
                         <label class="text-gray-900 font-weight-bold" >PL</label>
-                          <input type="text" name="pl" id="pl" class="form-control border-left-primary" placeholder="Uraian Penerimaan Lainnya" required>
+                          <input type="number" name="pl" id="pl" class="form-control border-left-primary" placeholder="Uraian Penerimaan Lainnya" required>
                           <small id="pl" class="text-gray-700"></small>
                         </div>
                   
 
                     <div class="col-lg-4 mt-2">
                         <label for="pemotongan" class="text-gray-900 font-weight-bold">Pemotongan (Rp.)</label>
-                        <input type="text" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Jumlah Pemotongan" required>
+                        <input type="number" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Jumlah Pemotongan" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penyetoran" class="text-gray-900 font-weight-bold">Penyetoran (Rp.)</label>
-                        <input type="text" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Jumlah Penyetoran" required>
+                        <input type="number" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Jumlah Penyetoran" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="saldo" class="text-gray-900 font-weight-bold">Saldo (Rp.)</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo" required>
+                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo" required>
                     </div>
                 </div>
                 <?=form_close()?>

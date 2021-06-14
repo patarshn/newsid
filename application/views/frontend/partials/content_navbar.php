@@ -3,7 +3,7 @@
 <header id="header">
     <nav class="navbar navbar-expand-lg navbar-light mybg-light">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="<?=base_url('assets/my/img/basic/logo_pekon.png')?>" width="128px" alt="" srcset=""></a>
+            <a class="navbar-brand" href="<?=base_url()?>"><img src="<?=base_url('assets/my/img/basic/logo_pekon.png')?>" width="128px" alt="" srcset=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -17,6 +17,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url()?>"><b>LIHAT SEMUA</b></a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_domisili')?>">SK Domisili</a>
+                        <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_tm_jampersal')?>">SK Jampersal</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_ahliwaris')?>">SK Ahli Waris</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_belummenikah')?>">SK Belum Menikah</a>
                         <a class="nav-item nav-link dropdown-item" href="<?=base_url('form_covid')?>">SK Covid</a>

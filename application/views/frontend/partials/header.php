@@ -10,6 +10,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     
+    <link href='<?=base_url("assets/sb2/vendor/datatables/dataTables.bootstrap4.min.css")?>' rel="stylesheet">
+    <!-- Page level plugins -->
+    <script src='<?=base_url("assets/sb2/vendor/chart.js/Chart.min.js")?>'></script>
+    <script src='<?=base_url("assets/sb2/vendor/datatables/jquery.dataTables.min.js")?>'></script>
+    <script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.bootstrap4.min.js")?>'></script>
+    <script src='<?=base_url("assets/sb2/vendor/datatables/dataTables.buttons.min.js")?>'></script>
+    <script src='<?=base_url("assets/sb2/vendor/datatables/buttons.print.min.js")?>'></script>
     <script>
     base_url = "<?=base_url()?>";
     function base_url(url){

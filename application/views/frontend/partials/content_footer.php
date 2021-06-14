@@ -4,7 +4,7 @@
     <div class="container mt-4">
         <div class="row content">
             <div class="col-lg">
-                <h5>LOGO</h5>
+                <h5><a class="navbar-brand" href="<?=base_url()?>"><img src="<?=base_url('assets/my/img/basic/logo_pekon.png')?>" width="128px" alt="" srcset=""></a></h5>
                 <p>Pekon Wonodadi berkomitmen untuk memperbaiki dalam Penyelenggaraan Pemerintahan dan Pelaksanaan Pembangunan di Pekon Wonodadi baik secara individu maupun kelembagaan. Dengan harapan Pekon Wonodadi  mengalami suatu perubahan yang lebih baik dan peningkatan kesejahteraan masyarakat dalam segi ekonomi yang dilandasi semangat kebersamaan dalam Penyelenggaraan Pemerintahan dan Pelaksanaan Pembangunan.</p>
                 <div class="social-media">
                     <img src="<?=base_url('assets/my/img/icon/Icon simple-facebook.png')?>" alt="Facebook">

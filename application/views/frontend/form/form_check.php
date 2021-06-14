@@ -37,6 +37,7 @@ else{
                       <th>ID</th>
                       <th>NIK</th>
                       <th>Nama</th>
+                      <th>Jenis Form</th>
                       <th>Pengajuan</th>
                       <th width="10%">Verif Lurah</th>
                     </tr>
@@ -47,6 +48,7 @@ else{
                       <th>ID</th>
                       <th>NIK</th>
                       <th>Nama</th>
+                      <th>Jenis Form</th>
                       <th>Pengajuan</th>
                       <th>Verif Lurah</th>
                     </tr>
@@ -66,6 +68,7 @@ else{
                       <td><?=$d->id?></td>
                       <td><?=$d->nik?></td>
                       <td><?=$d->nama?></td>
+                      <td><?=$d->table_name?></td>
                       <td>
                       <?php
                       $pengajuan  = explode(" ",$d->created_at);

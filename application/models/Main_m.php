@@ -66,6 +66,8 @@ class Main_m extends MY_Model
             UNION SELECT id,nik_p,nama_p,verif_lurah, verif_lurah_at,created_at, 'form_tatin' as table_name FROM form_tatin
             UNION SELECT id,nik_orangtua,nama_orangtua,verif_lurah, verif_lurah_at,created_at, 'form_tidakmampu' as table_name FROM form_tidakmampu
             UNION SELECT id,nik,nama,verif_lurah, verif_lurah_at,created_at, 'form_usaha' as table_name FROM form_usaha
+            UNION SELECT id,nik,nama,verif_lurah, verif_lurah_at,created_at, 'form_domisili' as table_name FROM form_domisili
+            UNION SELECT id,nik_l,nama_l,verif_lurah, verif_lurah_at,created_at, 'form_tm_jampersal' as table_name FROM form_tm_jampersal
             ORDER BY `created_at` DESC
             ";
 
@@ -92,6 +94,8 @@ class Main_m extends MY_Model
             UNION SELECT id,nik_p,nama_p,verif_lurah, verif_lurah_at,created_at, 'form_tatin' as table_name FROM form_tatin WHERE nik_p = '$nik'
             UNION SELECT id,nik_orangtua,nama_orangtua,verif_lurah, verif_lurah_at,created_at, 'form_tidakmampu' as table_name FROM form_tidakmampu WHERE nik_orangtua = '$nik'
             UNION SELECT id,nik,nama,verif_lurah, verif_lurah_at,created_at, 'form_usaha' as table_name FROM form_usaha WHERE nik = '$nik'
+            UNION SELECT id,nik,nama,verif_lurah, verif_lurah_at,created_at, 'form_domisili' as table_name FROM form_domisili WHERE nik = '$nik'
+            UNION SELECT id,nik_l,nama_l,verif_lurah, verif_lurah_at,created_at, 'form_tm_jampersal' as table_name FROM form_tm_jampersal WHERE nik_l = '$nik'
             ORDER BY `created_at` DESC
             ";
 
