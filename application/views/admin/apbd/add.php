@@ -39,8 +39,8 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                 <div class="col-lg-6 mt-3">
-                        <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
+                        <label for="tahun_anggaran"  class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <input type="numeric" maxlength="4" pattern="[0-9]" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">

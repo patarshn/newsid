@@ -73,7 +73,7 @@
                            </div>
                         </div>
 <!-- Modal -->                    
-                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Hapus</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
                       <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
@@ -137,17 +137,16 @@
                           <div class="dropdown-header">Actions:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
                           <!--<div class="dropdown-divider"></div>-->
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tanggal?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tanggal))?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->penerimaan_bendahara?></td>
-                      <td><?=$d->penerimaan_sdm?></td>
-                      <td><?=$d->pengeluaran_bbj?></td>
-                      <td><?=$d->pengeluaran_bm?></td>
+                      <td>Rp. <?=number_format($d->penerimaan_bendahara,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->penerimaan_sdm,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pengeluaran_bbj,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pengeluaran_bm,0,',','.');?></td>
                       <td><?=$d->tahun_anggaran?></td>
                       </td>
                       <td>

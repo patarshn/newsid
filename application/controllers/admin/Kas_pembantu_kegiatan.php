@@ -253,7 +253,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -261,7 +261,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -432,13 +432,13 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 'id' => $no++,
                 'tanggal' => $d->tanggal,
                 'uraian' => $d->uraian,
-                'penerimaan_bendahara' => $d->penerimaan_bendahara,
-                'penerimaan_sdm' => $d->penerimaan_sdm,
+                'penerimaan_bendahara' => number_format($d->penerimaan_bendahara,0,',','.'),
+                'penerimaan_sdm' => number_format($d->penerimaan_sdm,0,',','.'),
                 'no_bukti' => $d->no_bukti,
-                'pengeluaran_bbj' => $d->pengeluaran_bbj,
-                'pengeluaran_bm' => $d->pengeluaran_bm,
-                'jumlah' => $d->jumlah,
-                'saldo' => $d->saldo
+                'pengeluaran_bbj' => number_format($d->pengeluaran_bbj,0,',','.'),
+                'pengeluaran_bm' => number_format($d->pengeluaran_bm,0,',','.'),
+                'jumlah' => number_format($d->jumlah,0,',','.'),
+                'saldo' => number_format($d->saldo,0,',','.')
             );
             $values[] = $subvalues;
         }

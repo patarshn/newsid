@@ -70,12 +70,12 @@
 
                                                   <tr>
                                                   <th>Harga Satuan</th>
-                                                  <td style="text-align:right">Rp. <?=$d->harga_satuan?></td>
+                                                  <td style="text-align:right">Rp.<?=number_format($d->harga_satuan,0,',','.');?></td>
                                                   </tr>
 
                                                   <tr>
                                                   <th>Jumlah</th>
-                                                  <td style="text-align:right">Rp. <?=$d->jumlah?></td>
+                                                  <td style="text-align:right">Rp.<?=number_format($d->jumlah,0,',','.');?></td>
                                                   </tr>
 
                                                   <tr>

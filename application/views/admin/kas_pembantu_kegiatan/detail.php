@@ -68,13 +68,12 @@
 
                                                   <tr>
                                                   <th>Penerimaan Dari Bendahara</th>
-                                                  <td style="text-align:right">Rp. <?=$d->penerimaan_bendahara?></td>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->penerimaan_bendahara,0,',','.');?></td>
                                                   </tr>
 
                                                   <tr>
                                                   <th>Penerimaan Dari Swadaya Masyarakat</th>
-                                                  <td style="text-align:right">Rp. <?=$d->penerimaan_sdm?></td>
-                                                  </tr>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->penerimaan_sdm,0,',','.');?></td>                                                  </tr>
 
                                                   <tr>
                                                   <th>Nomor Bukti</th>
@@ -83,22 +82,21 @@
 
                                                   <tr>
                                                   <th>Pengeluaran Belanja Barang dan Jasa</th>
-                                                  <td style="text-align:right"><?=$d->pengeluaran_bbj?></td>
-                                                  </tr>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->pengeluaran_bbj,0,',','.');?></td>                                                  </tr>
 
                                                   <tr>
                                                   <th>Pengeluaran Belanja Modal</th>
-                                                  <td style="text-align:right">Rp. <?=$d->pengeluaran_bm?></td>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->pengeluaran_bm,0,',','.');?></td>
                                                   </tr>
 
                                                   <tr>
                                                   <th>Jumlah</th>
-                                                  <td style="text-align:right">Rp. <?=$d->jumlah?></td>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->jumlah,0,',','.');?></td>
                                                   </tr>
 
                                                   <tr>
                                                   <th>saldo</th>
-                                                  <td style="text-align:right">Rp. <?=$d->saldo?></td>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->saldo,0,',','.');?></td>
                                                   </tr>
 
                                                   <tr>

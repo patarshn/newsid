@@ -56,7 +56,7 @@
 
                                     <tr>
                                         <th>anggaran</th>
-                                        <td><?=$d->anggaran?></td>
+                                        <td>Rp.<?=number_format($d->anggaran,0,',','.');?></td>
                                     </tr >
                                     
                                     <tr>

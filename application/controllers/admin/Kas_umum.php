@@ -194,16 +194,6 @@ class Kas_umum extends Admin_Controller {
             $id = $_POST['id'];
             $where = ['id'=>$id];
             
-            //jika ada file yang baru
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                $berkas_lama = $this->destroy_file($where);
-            }
-
-            //jika tidak ada file baru
-            else {
-                $berkas = $_POST["old_file"];
-            }
             $data = array(
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'tanggal' => $_POST['tanggal'],

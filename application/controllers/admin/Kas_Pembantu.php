@@ -193,16 +193,6 @@ class Kas_pembantu extends Admin_Controller {
             $id = $_POST['id'];
             $where = ['id'=>$id];
             
-            //jika ada file yang baru
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                $berkas_lama = $this->destroy_file($where);
-            }
-
-            //jika tidak ada file baru
-            else {
-                $berkas = $_POST["old_file"];
-            }
 
             $data = array(
                 'id' => $_POST['id'],

@@ -116,8 +116,6 @@ class Rab extends Admin_Controller {
             $data[] = $subdata;
         }
 
-        
-        
         #echo $totaldata;
 
         #echo print_r($data);
@@ -434,8 +432,8 @@ class Rab extends Admin_Controller {
                 'id' => $no++,
                 'uraian' => $d->uraian,
                 'volume' => $d->volume,
-                'harga_satuan' => $d->harga_satuan,
-                'jumlah' => $d->jumlah
+                'harga_satuan' => number_format($d->harga_satuan,0,',','.'),
+                'jumlah' => number_format($d->jumlah,0,',','.')
             );
             $values[] = $subvalues;
         }

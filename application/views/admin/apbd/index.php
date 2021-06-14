@@ -152,7 +152,7 @@
                       <td><?=$d->kode_rekening3?></td>
                       <td><?=$d->kode_rekening4?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->anggaran?></td>
+                      <td>Rp. <?=number_format($d->anggaran,0,',','.');?></td>
                       <td><?=$d->keterangan?></td>
 
                       </td>

@@ -500,7 +500,7 @@ class Apbd extends Admin_Controller {
                 'kode_rekening3' => $d->kode_rekening3,
                 'kode_rekening4' => $d->kode_rekening4,
                 'uraian' => $d->uraian,
-                'anggaran' => $d->anggaran,
+                'anggaran' => number_format($d->anggaran,0,',','.'),
                 'keterangan' => $d->keterangan
             );
             $values[] = $subvalues;

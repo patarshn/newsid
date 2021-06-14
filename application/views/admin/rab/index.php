@@ -133,7 +133,6 @@
                           <div class="dropdown-header">Actions:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
                           <!--<div class="dropdown-divider"></div>-->
                           </div>
                         </div>
@@ -143,7 +142,7 @@
                       <td><?=$d->uraian?></td>
                       <td><?=$d->tahun_anggaran?></td>
                       <td><?=$d->volume?></td>
-                      <td><?=$d->jumlah?></td>
+                      <td>Rp. <?=number_format($d->jumlah,0,',','.');?></td>
 
                       </td>
                       <td>
