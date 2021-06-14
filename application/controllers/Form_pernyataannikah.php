@@ -85,10 +85,10 @@ class Form_pernyataannikah extends Frontend_Controller{
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
                 $berkas_tmp = $this->upload_file('file_ktp',$upload_path,$file_name);
                 if(!$berkas_tmp){
-                    echo $this->upload->display_errors();
+                    #echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file ktp gagal diupload',
+                        'message' => 'Mohon Maaf, file ktp gagal diupload'. $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -105,10 +105,10 @@ class Form_pernyataannikah extends Frontend_Controller{
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
                 $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
                 if(!$berkas_tmp){
-                    echo $this->upload->display_errors();
+                    #echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file kk gagal diupload',
+                        'message' => 'Mohon Maaf, file ktp gagal diupload'. $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;

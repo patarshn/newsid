@@ -62,7 +62,7 @@ class Frontend_Controller extends MY_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
