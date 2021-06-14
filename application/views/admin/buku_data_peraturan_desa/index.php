@@ -31,6 +31,7 @@
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
+                    <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/cetak/');?>">Cetak</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
@@ -49,7 +50,7 @@
                     <tr>
                     <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nomor dan Tanggal Peraturan Desa</th>
                       <th>Tentang</th>
                       <th>Nomor dan Tanggal Kesepakatan</th>
@@ -60,7 +61,7 @@
                     <tr>
                     <th width="5%"></th>
                     <th>No</th>
-                    <th width="3%"></th>
+                    <th width="3%">Aksi</th>
                     <th>Nomor dan Tanggal Peraturan Desa</th>
                     <th>Tentang</th>
                     <th>Nomor dan Tanggal Kesepakatan</th>
@@ -82,10 +83,9 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
                           <!--<div class="dropdown-divider"></div>-->
                           </div>
                         </div>

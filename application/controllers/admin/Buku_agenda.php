@@ -1,11 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_agenda extends Admin_Controller {
 
     private $_table = 'buku_agenda';
     private $_folder = 'buku_agenda';
     private $_mainTitle = 'Buku Agenda';
+    private $_exelName = 'buku_agenda.xls';
 
     function __construct() {
         parent::__construct();
@@ -15,8 +20,29 @@ class Buku_agenda extends Admin_Controller {
     }
 
     function rulesStore() {
+        if($this->input->post('status_surat') == "PENERIMAAN"){
+            return [
+                ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
+                ['field' => 'sm_no','label' => 'sm_no', 'rules' => 'required'],
+                ['field' => 'sm_tgl','label' => 'sm_tgl', 'rules' => 'required'],
+                ['field' => 'sm_pengirim','label' => 'sm_pengirim', 'rules' => 'required'],
+                ['field' => 'sm_isi','label' => 'sm_isi', 'rules' => 'required'],
+                ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ];
+        }
+        else if($this->input->post('status_surat') == "PENGIRIMAN"){
+            return [
+                ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
+                ['field' => 'sk_no','label' => 'sk_no', 'rules' => 'required'],
+                ['field' => 'sk_tgl','label' => 'sk_tgl', 'rules' => 'required'],
+                ['field' => 'sk_ditunjukkan','label' => 'sk_ditunjukkan', 'rules' => 'required'],
+                ['field' => 'sk_isi','label' => 'sk_isi', 'rules' => 'required'],
+                ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ];
+        }
+
         return [
-            ['field' => 'status_surat','label' => 'status_surat', 'rules' => 'required'],
+            ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
             ['field' => 'sm_no','label' => 'sm_no', 'rules' => 'required'],
             ['field' => 'sm_tgl','label' => 'sm_tgl', 'rules' => 'required'],
             ['field' => 'sm_pengirim','label' => 'sm_pengirim', 'rules' => 'required'],
@@ -27,11 +53,33 @@ class Buku_agenda extends Admin_Controller {
             ['field' => 'sk_isi','label' => 'sk_isi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
+        
     }
 
     function rulesUpdate() {
+        if($this->input->post('status_surat') == "PENERIMAAN"){
+            return [
+                ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
+                ['field' => 'sm_no','label' => 'sm_no', 'rules' => 'required'],
+                ['field' => 'sm_tgl','label' => 'sm_tgl', 'rules' => 'required'],
+                ['field' => 'sm_pengirim','label' => 'sm_pengirim', 'rules' => 'required'],
+                ['field' => 'sm_isi','label' => 'sm_isi', 'rules' => 'required'],
+                ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ];
+        }
+        else if($this->input->post('status_surat') == "PENGIRIMAN"){
+            return [
+                ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
+                ['field' => 'sk_no','label' => 'sk_no', 'rules' => 'required'],
+                ['field' => 'sk_tgl','label' => 'sk_tgl', 'rules' => 'required'],
+                ['field' => 'sk_ditunjukkan','label' => 'sk_ditunjukkan', 'rules' => 'required'],
+                ['field' => 'sk_isi','label' => 'sk_isi', 'rules' => 'required'],
+                ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ];
+        }
+
         return [
-            ['field' => 'status_surat','label' => 'status_surat', 'rules' => 'required'],
+            ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
             ['field' => 'sm_no','label' => 'sm_no', 'rules' => 'required'],
             ['field' => 'sm_tgl','label' => 'sm_tgl', 'rules' => 'required'],
             ['field' => 'sm_pengirim','label' => 'sm_pengirim', 'rules' => 'required'],
@@ -121,6 +169,7 @@ class Buku_agenda extends Admin_Controller {
                 $_POST = $this->input->post();
                 $data = array(
                     'status_surat' => $_POST['status_surat'],
+                    'tanggal_surat' => $_POST['tanggal_surat'],
                     'sm_no' => $_POST['sm_no'],
                     'sm_tgl' => $_POST['sm_tgl'],
                     'sm_pengirim' => $_POST['sm_pengirim'],
@@ -134,8 +183,31 @@ class Buku_agenda extends Admin_Controller {
                     'ver_kepala_desa' => "Pending",
                     'created_at' => date('Y-m-d H:i:s'),
                     'created_by' =>  $this->session->userdata('username'),
-                    
                 );
+
+                if($_POST['status_surat'] == "PENERIMAAN"){   
+                    $data['sk_no'] = NULL;
+                    $data['sk_tgl'] = NULL;
+                    $data['sk_ditunjukkan'] = NULL;
+                    $data['sk_isi'] = NULL;
+                }
+                else if($_POST['status_surat'] == "PENGIRIMAN"){
+                    $data['sm_no'] = NULL;
+                    $data['sm_tgl'] = NULL;
+                    $data['sm_pengirim'] = NULL;
+                    $data['sm_isi'] = NULL;
+                }
+                else{
+                    $data['sm_no'] = NULL;
+                    $data['sm_tgl'] = NULL;
+                    $data['sm_pengirim'] = NULL;
+                    $data['sm_isi'] = NULL;
+                    $data['sk_no'] = NULL;
+                    $data['sk_tgl'] = NULL;
+                    $data['sk_ditunjukkan'] = NULL;
+                    $data['sk_isi'] = NULL;
+                }
+
                 if($this->Main_m->store($data,$this->_table)){
                     $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                     $callback = array(
@@ -219,6 +291,7 @@ class Buku_agenda extends Admin_Controller {
 
             $data = array(
                 'status_surat' => $_POST['status_surat'],
+                'tanggal_surat' => $_POST['tanggal_surat'],
                 'sm_no' => $_POST['sm_no'],
                 'sm_tgl' => $_POST['sm_tgl'],
                 'sm_pengirim' => $_POST['sm_pengirim'],
@@ -234,6 +307,29 @@ class Buku_agenda extends Admin_Controller {
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
+
+            if($_POST['status_surat'] == "PENERIMAAN"){   
+                $data['sk_no'] = NULL;
+                $data['sk_tgl'] = NULL;
+                $data['sk_ditunjukkan'] = NULL;
+                $data['sk_isi'] = NULL;
+            }
+            else if($_POST['status_surat'] == "PENGIRIMAN"){
+                $data['sm_no'] = NULL;
+                $data['sm_tgl'] = NULL;
+                $data['sm_pengirim'] = NULL;
+                $data['sm_isi'] = NULL;
+            }
+            else{
+                $data['sm_no'] = NULL;
+                $data['sm_tgl'] = NULL;
+                $data['sm_pengirim'] = NULL;
+                $data['sm_isi'] = NULL;
+                $data['sk_no'] = NULL;
+                $data['sk_tgl'] = NULL;
+                $data['sk_ditunjukkan'] = NULL;
+                $data['sk_isi'] = NULL;
+            }
 
             if($_POST['ver_kepala_desa'] != $_POST['ver_kepala_desa_old']){
                 $data['ver_kepala_desa_at'] = date('Y-m-d H:i:s');
@@ -450,7 +546,7 @@ class Buku_agenda extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists($b_id->berkas)){
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
 
@@ -460,6 +556,72 @@ class Buku_agenda extends Admin_Controller {
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                $no++,
+                $d->tanggal_surat,
+                $d->sm_no,
+                $d->sm_tgl,
+                $d->sm_pengirim,
+                $d->sm_isi,
+                $d->sk_no,
+                $d->sk_tgl,
+                $d->sk_ditunjukkan,
+                $d-> sk_isi,
+                $d->ket
+            );
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A8'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 7;
+
+        $sheet->getStyle('A8:J'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A8:J'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A8:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A8:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 8;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
     }
 }
 ?>

@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
                     </div>
                   </div>
                 </div>
@@ -51,28 +51,28 @@
 
                                     <tr>
                                         <th>Penerimaan</th>
-                                        <td><?=$d->penerimaan?></td>
+                                        <td><?=number_format($d->penerimaan,0,',','.');?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Jumlah Penerimaan</th>
-                                        <td><?=$d->jml_penerimaan?></td>
+                                        <td><?=number_format($d->jml_penerimaan,0,',','.');?></td>
                                     </tr >
                                     
                                     <tr>
                                         <th>Pengeluaran</th>
-                                        <td><?=$d->pengeluaran?></td>
+                                        <td><?=number_format($d->pengeluaran,0,',','.');?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Jumlah Pengeluaran</th>
-                                        <td><?=$d->jml_pengeluaran?></td>
+                                        <td><?=number_format($d->jml_pengeluaran,0,',','.');?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Berkas</th>
                                         <td>
-                                        <?php if($d->berkas != null):?>
+                                        <?php if($d->berkas != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas)):?>
                                         <?=$d->berkas?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>

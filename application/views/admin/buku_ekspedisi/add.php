@@ -61,11 +61,13 @@
                         <div class="col-lg-6 mt-3">
                         <label for="isi_singkat_surat" class="text-gray-900 font-weight-bold">Isi Singkat Surat Yang Dikirim</label>
                         <input type="text" name="isi_singkat_surat" id="isi_singkat_surat" class="form-control border-left-primary"  required>
+                        <small id="isi_singkat_surat" class="text-gray-700">Diisi dengan perihal surat yang dikirim</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="ditunjukkan_kpd" class="text-gray-900 font-weight-bold">Ditunjukkan Kepada</label>
                         <input type="text" name="ditunjukkan_kpd" id="ditunjukkan_kpd" class="form-control border-left-primary" required>
+                        <small id="ditunjukkan_kpd" class="text-gray-700">Diisi dengan nama pihak yang dituju </small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -73,6 +75,7 @@
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -80,6 +83,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

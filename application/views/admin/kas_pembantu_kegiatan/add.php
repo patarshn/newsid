@@ -40,18 +40,17 @@
                 <div class="form-row">
                     <div class="col-lg-4 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" required>
+                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="Nama Bidang" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <div class="form-group">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control" required>
+                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <select name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" required>
                                 <option>-</option>
                                 
                                 <?php   
@@ -61,52 +60,51 @@
                                 endforeach;
                                 ?>
                             </select>
-                        </div>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tanggal" id="tanggal" class="form-control" required>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control" required>
+                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" placeholder="Uraian Transaksi" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan Dari Bendahara</label>
-                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control" required>
+                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" placeholder="Penerimaan dari Bendahara" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
-                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control" required>
+                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" placeholder="Penerimaan Swadaya Masyarakat" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
-                        <input type="text" name="no_bukti" id="no_bukti" class="form-control" required>
+                        <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" placeholder="Nomor Bukti" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">pengeluaran Belanja Barang dan Jasa</label>
-                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control" required>
+                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa</label>
+                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" placeholder="Belanja Barang dan Jasa" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
-                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control" required>
+                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" placeholder="Belanja Modal" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control" required>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control" required>
+                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo Kas" required>
                     </div>
                     
                         <div class="d-flex mt-3">

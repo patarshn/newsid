@@ -38,50 +38,53 @@
                 <?=form_open_multipart(base_url('kas_umum/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
-                    <div class="col-lg-3 mt-2">
-                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tanggal" id="tanggal" class="form-control" required>
-                    </div>
 
-                    <div class="col-lg-3 mt-2">
-                        <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                        <input type="text" name="kode_rekening" id="kode_rekening" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
-                        <input type="text" name="no_bukti" id="no_bukti" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran Komulatif</label>
-                        <input type="text" name="jumlah_komulatif" id="jumlah_komulatif" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
+                    <div class="col-lg-4 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
+                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" required>
                     </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
+                        <input type="text" name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" placeholder="Masukan Kode Rekening" required>
+                    </div>
+
+                    <div class="col-lg-12 mt-2">
+                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" placeholder="Uraian" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" placeholder="Jumlah Penerimaani" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" placeholder="Jumlah Pengeluaran" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
+                        <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" placeholder="Nomor Bukti" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-2">
+                        <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran Komulatif</label>
+                        <input type="text" name="jumlah_komulatif" id="jumlah_komulatif" class="form-control border-left-primary" placeholder="Jumlah Komulatif" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-2">
+                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
+                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo" required>
+                    </div>
+
+                   
                 </div>
                 <?=form_close()?>
                 

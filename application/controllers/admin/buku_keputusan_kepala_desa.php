@@ -1,12 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_keputusan_kepala_desa extends Admin_Controller {
 
     private $_table = 'buku_keputusan_kepala_desa';
     private $_folder = 'buku_keputusan_kepala_desa';
     private $_mainTitle = 'Buku Keputusan Kepala Desa';
-    private $_docxName = 'buku_keputusan_kepala_desa.docx';
+    private $_exelName = 'buku_keputusan_kepala_desa.xls';
 
     function __construct() {
         parent::__construct();
@@ -437,7 +441,8 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
             if(empty($b_id->berkas)){
                 return true;
             }
-            if (!file_exists($b_id->berkas)){
+            
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
             
@@ -450,41 +455,64 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
     }
 
     public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
         $data = $this->Main_m->get($this->_table,null)->result();
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_umum/'.$this->_docxName);
         $values = array();
+        $i = 0;
         $no = 1;
         foreach($data as $d){
             $subvalues = array(
-                'no' => $no++,
-                'no_keputusan_kepala_desa' => $d->no_keputusan_kepala_desa,
-                'tgl_keputusan_kepala_desa' => $d->tgl_keputusan_kepala_desa,
-                'tentang' => $d->tentang,
-                'uraian_singkat' => $d->uraian_singkat,
-                'no_dilaporkan_kpd' => $d->no_dilaporkan_kpd,
-                'tgl_dilaporkan_kpd' => $d->tgl_dilaporkan_kpd,
-                'ket'=> $d->ket
+                $no++,
+                $d->no_keputusan_kepala_desa.",".$d->tgl_keputusan_kepala_desa,
+                $d->tentang,
+                $d->uraian_singkat,
+                $d->tgl_dilaporkan_kpd.",".$d->no_dilaporkan_kpd,
+                $d->ket
             );
             $values[] = $subvalues;
+            $i++;
         }
 
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A7'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 6;
+
+        $sheet->getStyle('A7:F'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 7;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
         header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
         header('Content-Transfer-Encoding: binary');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;
+        $writer->save('php://output');
     }
 }
 ?>

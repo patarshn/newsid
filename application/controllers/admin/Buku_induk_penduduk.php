@@ -1,11 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
 class Buku_induk_penduduk extends Admin_Controller {
 
     private $_table = 'ktp_kk';
     private $_folder = 'buku_induk_penduduk';
     private $_mainTitle = 'Buku Induk Penduduk';
+    private $_docxName = 'buku_induk_penduduk.docx';
+    private $_exelName = 'buku_induk_penduduk.xls';
 
     function __construct()
 	{
@@ -183,7 +188,6 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'rw' => $_POST['rw'],
                 'dusun' => $_POST['dusun'],
                 'baca_huruf' => $_POST['baca_huruf'],
-                'kedudukan_dikeluarga' => $_POST['kedudukan_dikeluarga'],
                 'ayah' => $_POST['ayah'],
                 'ibu' => $_POST['ibu'],
                 'tgl_tinggal_desa' => $_POST['tgl_tinggal_desa'],
@@ -285,7 +289,6 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'rw' => $_POST['rw'],
                 'dusun' => $_POST['dusun'],
                 'baca_huruf' => $_POST['baca_huruf'],
-                'kedudukan_dikeluarga' => $_POST['kedudukan_dikeluarga'],
                 'ayah' => $_POST['ayah'],
                 'ibu' => $_POST['ibu'],
                 'tgl_tinggal_desa' => $_POST['tgl_tinggal_desa'],
@@ -367,6 +370,131 @@ class Buku_induk_penduduk extends Admin_Controller {
         echo json_encode($callback);
     }
 
+    function cetak(){
+        $data = $this->Main_m->getAsc($this->_table,null)->result();
+        $data = $this->Penduduk_m->getWhere()->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'nama' => $d->nama,
+                'jenis_kelamin' => $d->jenis_kelamin,
+                'status_perkawinan' => $d->status_perkawinan,
+                'tempat_lahir' => $d->tempat_lahir,
+                'tanggal_lahir' => $d->tanggal_lahir,
+                'agama' => $d->agama,
+                'pendidikan' => $d->pendidikan,
+                'pekerjaan' => $d->pekerjaan,
+                'baca_huruf' => $d->baca_huruf,
+                'wn' => $d->wn,
+                'alamat' => $d->alamat,
+                'hub_keluarga' => $d->hub_keluarga,
+                'nik' => $d->nik,
+                'nkk' => $d->nkk,
+                'ket' => $d->ket
+            );
+            $values[] = $subvalues;
+        }
 
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
+    }
+
+    public function cetakExc(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_penduduk/'.$this->_exelName);
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $data = $this->Penduduk_m->getWhere()->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+
+            if($d->jenis_kelamin == 'LAKI-LAKI'){
+                $jkelamin = "L";
+            }
+            else{
+                $jkelamin = "P";
+            }
+            $subvalues = array(
+                $no++,                
+                $d->nama,
+                $jkelamin, 
+                $d->status_perkawinan,
+                $d->tempat_lahir,
+                $d->tanggal_lahir,
+                $d->agama,
+                $d->pendidikan,
+                $d->pekerjaan,
+                $d->baca_huruf,
+                $d->wn,
+                $d->alamat,
+                $d->hub_keluarga,
+                $d->nkk,
+                $d->nik,
+                $d->ket
+            );
+           
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A12'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 6;
+
+        $sheet->getStyle('A12:J'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A12:J'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A12:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A12:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 12;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
+    }
 
 }

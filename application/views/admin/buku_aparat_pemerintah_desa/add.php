@@ -41,11 +41,13 @@
                     <div class="col-lg-6 mt-3">
                         <label for="nama" class="text-gray-900 font-weight-bold">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" required>
+                        <small id="nama" class="text-gray-700">Diisi dengan nama lengkap</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="niap" class="text-gray-900 font-weight-bold">NIAP</label>
                         <input type="text" name="niap" id="niap" class="form-control border-left-primary" required>
+                        <small id="niap" class="text-gray-700">Diisi dengan Nomor Induk Aparat Pemerintah Desa</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -62,16 +64,22 @@
                     <div class="col-lg-6 mt-3">
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
                         <input type="text" name="nip" id="nip" class="form-control border-left-primary" required>
+                        <small id="nip" class="text-gray-700">Diisi dengan Nomor Induk Pegawai</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tempat" class="text-gray-900 font-weight-bold">Tempat Lahir</label>
-                        <input type="text" name="tempat" id="tempat" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal Lahir</label>
-                        <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" required>
+                      <label class="text-gray-900 font-weight-bold" >Tempat dan Tanggal Lahir</label>
+                      <div class="form-row">
+                          <div class="col-lg-6">
+                              <input type="text" name="tempat" id="tempat" class="form-control border-left-primary" required>
+                              <small id="tempat" class="text-gray-700">Tempat Lahir</small>
+                          </div>
+                          
+                          <div class="col-lg-6">
+                              <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" required>
+                              <small id="tgl" class="text-gray-700">Tanggal Lahir</small>
+                          </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -139,6 +147,7 @@
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -146,6 +155,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

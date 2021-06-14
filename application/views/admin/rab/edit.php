@@ -42,42 +42,42 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" value="<?=$d->tahun_anggaran?>" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" value="<?=$d->bidang?>" required>
+                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" value="<?=$d->bidang?>" required>
                     </div>
                     
                     <div class="col-lg-3 mt-2">
                         <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
-                        <input type="text" name="kegiatan" id="kegiatan" class="form-control" value="<?=$d->kegiatan?>" required>
+                        <input type="text" name="kegiatan" id="kegiatan" class="form-control border-left-primary" value="<?=$d->kegiatan?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="waktu_pelaksanaan" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
-                        <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control" value="<?=$d->waktu_pelaksanaan?>" required>
+                        <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control border-left-primary" value="<?=$d->waktu_pelaksanaan?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control" value="<?=$d->uraian?>" required>
+                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="volume" class="text-gray-900 font-weight-bold">Volume</label>
-                        <input type="text" name="volume" id="volume" class="form-control" value="<?=$d->volume?>" required>
+                        <input type="text" name="volume" id="volume" class="form-control border-left-primary" value="<?=$d->volume?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="harga_satuan" class="text-gray-900 font-weight-bold">Harga Satuan</label>
-                        <input type="text" name="harga_satuan" id="harga_satuan" class="form-control" value="<?=$d->harga_satuan?>" required>
+                        <input type="text" name="harga_satuan" id="harga_satuan" class="form-control border-left-primary" value="<?=$d->harga_satuan?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control" value="<?=$d->jumlah?>" required>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" value="<?=$d->jumlah?>" required>
                     </div>
 
                     <div class="col-lg-12 form-inline">
@@ -85,15 +85,15 @@
                         <br>
                         <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
+                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
                           <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
+                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
                           <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
+                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
                           <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
                         </div>
                     </div>                    

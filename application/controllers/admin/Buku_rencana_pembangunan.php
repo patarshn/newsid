@@ -6,6 +6,7 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     private $_table = 'rencana_pembangunan';
     private $_folder = 'buku_rencana_pembangunan';
     private $_mainTitle = 'Buku Rencana Kerja Pembangunan';
+    private $_docxName = 'buku_rencana_pembangunan.docx';
 
     function __construct()
 	{ 
@@ -283,7 +284,7 @@ class Buku_rencana_pembangunan extends Admin_Controller {
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
                 );
-            }
+            } 
         }
         else{
             $this->session->set_flashdata('error_message', validation_errors());
@@ -297,10 +298,48 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     }
 
     function cetak(){
-        $tahun = $this->input->post('tahun');
+        $tahun = $this->input->get('tahun');
         $where = ['tahun'=>$tahun];
-        $data=$this->Main_m->get($this->_table,$where)->result();
-        echo var_dump($data);
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'nama_proyek' => $d->nama_proyek,
+                'lokasi' => $d->lokasi,
+                'biaya_pemerintah' => $d->biaya_pemerintah,
+                'biaya_prov' => $d->biaya_prov,
+                'biaya_kab' => $d->biaya_kab,
+                'biaya_swadaya' => $d->biaya_swadaya,
+                'jumlah' => $d->jumlah,
+                'pelaksana' => $d->pelaksana,
+                'manfaat' => $d->manfaat,
+                'ket' => $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $templateProcessor->setValue('tahun', $tahun);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
     }
 
 }

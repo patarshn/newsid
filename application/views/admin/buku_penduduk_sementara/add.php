@@ -42,14 +42,7 @@
                 <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Kedatangan Penduduk</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="" required>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Induk Penduduk (no_identitas)</label>
-                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor identitas/tanda pengenal"  required>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Tahun kedatangan penduduk, contoh: 2019" required>
                         </div>
                     </div>
 
@@ -62,31 +55,37 @@
 
                     <div class="col-lg-6">
                         <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Induk Penduduk (no_identitas)</label>
+                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor identitas / tanda pengenal"  required>
+                        </div>
+                    </div>                   
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
-                            <select name="jk" id="jk" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
-                            <option>- Pilih -</option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
+                            <select name="jk" id="jk" class="form-control border-left-primary"  required>
+                            <option><?=$d->jk?></option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
-                        <small id="jk" class="text-gray-700">L = Laki-Laki ; P = Perempuan</small>
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir"  required>
                     </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_lahir">Tanggal Lahir </label>
                         <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" placeholder=""  required>
                     </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-1">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur </label>
                         <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" required>
@@ -96,7 +95,7 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="pekerjaan">Pekerjaan</label>
-                          <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary " placeholder="Pekerjaan"  required>
+                          <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary " placeholder="Pekerjaan penduduk"  required>
                       </div>
                     </div>
 
@@ -104,9 +103,10 @@
                       <div class="form-group">
                       <label class="text-gray-900 font-weight-bold" for="kebangsaan">Kebangsaan</label>
                       <select name="kebangsaan" id="kebangsaan" class="form-control border-left-primary" placeholder="" >
-                            <option>- Isi disini jika penduduk adalah WNI -</option>
+                            <option> </option>
                             <option value="WNI">WNI</option>
                         </select>
+                        <small id="jk" class="text-gray-700">note* : isi disini jika penduduk adalah WNI</small>
                     </div>
                     </div>
 
@@ -118,18 +118,18 @@
                         </div>
                     </div>
                                     
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="datang_dari">Datang Dari (Asal)</label>
-                          <input type="text" name="datang_dari" id="datang_dari" class="form-control border-left-primary " placeholder="Lokasi/tempat kedatangan asal" required>
+                          <input type="text" name="datang_dari" id="datang_dari" class="form-control border-left-primary " placeholder="Lokasi / Tempat Kedatangan / Asal " required>
                           
                       </div>
                     </div>                
                  
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="maksud_tujuan">Maksud dan Tujuan</label>
-                        <textarea class="form-control border-left-primary" name="maksud_tujuan" id="maksud_tujuan" placeholder="Jelaskan maksud dan tujujuan kedatangan" rows="2"></textarea>
+                        <textarea class="form-control border-left-primary" name="maksud_tujuan" id="maksud_tujuan" placeholder="Jelaskan maksud dan tujujuan kedatangan" rows="3"></textarea>
                     </div>
                     </div>
 
@@ -164,7 +164,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" placeholder="Isi keterangan jika diperlukan" rows="3">></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" placeholder="Isi keterangan jika diperlukan" rows="3"></textarea>
                         </div>                   
                     </div>
                 </div>

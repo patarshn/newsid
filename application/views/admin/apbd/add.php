@@ -39,14 +39,14 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                 <div class="col-lg-6 mt-3">
-                        <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
+                        <label for="tahun_anggaran"  class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <input type="numeric" maxlength="4" pattern="[0-9]" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="type" class="text-gray-900 font-weight-bold">Type</label>
-                            <select name="type" id="type" class="form-control" onchange="kode_rekening()" required>
+                            <select name="type" id="type" class="form-control border-left-primary" onchange="kode_rekening()" required>
                                 <option selected>Silahkan pilih tipe</option>
                                 <option value="PENDAPATAN">Pendapatan</option>
                                 <option value="BELANJA">Belanja</option>
@@ -77,31 +77,32 @@
                                     <tbody>
                                         <tr class="apbd">
                                         <div class="form-row">
-                                        <td width="50%">
+                                        <td width="40%">
                                           <div class="row">
                                             <div class="col-3">
-                                              <input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control kode_rekening1" diseable />
+                                              <input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control border-left-primary kode_rekening1" diseable />
                                             </div>
                                             <div class="col-3">
-                                              <input type="text" name="kode_rekening2[]" class="form-control" />
+                                              <input type="text" name="kode_rekening2[]" class="form-control border-left-primary" />
                                             </div>
                                             <div class="col-3">
-                                              <input type="text" name="kode_rekening3[]" class="form-control" />
+                                              <input type="text" name="kode_rekening3[]" class="form-control border-left-primary" />
                                             </div>
                                             <div class="col-3">
-                                              <input type="text" name="kode_rekening4[]" class="form-control" />
+                                              <input type="text" name="kode_rekening4[]" class="form-control border-left-primary" />
                                             </div>
                                           </div>
                                             </td>
-                                            <td width="15%">
-                                            <input type="text" name="uraian[]" id="uraian" class="form-control" required>
+                                            <td width="25%">
+                                            <input type="text" name="uraian[]" id="uraian" class="form-control border-left-primary" required>
                                             <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
                                             </td>
                                             <td width="15%">
-                                            <input type="number" name="anggaran[]" id="anggaran" class="form-control anggaran" onchange='total_anggaran()' required>
+                                            <input type="number" name="anggaran[]" id="anggaran" class="form-control border-left-primary anggaran" onchange='total_anggaran()' required>
+                                            <small id="apbd" class="text-gray-700">contoh : 20000 </small>
                                             </td>
-                                            <td width="10%">
-                                            <input type="text" name="keterangan[]" id="keterangan" class="form-control" required>
+                                            <td width="25%">
+                                            <input type="text" name="keterangan[]" id="keterangan" class="form-control border-left-primary" required>
                                             <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
                                             </td>
                                             
@@ -183,13 +184,13 @@ function total_anggaran(){
 $(document).ready(function () {
   $('#buttonadd').click(function () {
     $('#invoiceitems > tbody:last').append('<tr><td><div class="row">\
-          <div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control kode_rekening1" disable /></div>\
-          <div class="col-3"><input type="text" name="kode_rekening2[]" class="form-control" /></div>\
-          <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control" /></div>\
-          <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control" /></div></div>\
-          <td><input type="text" name="uraian[]" class="form-control" /></td>\
-          <td><input type="number" name="anggaran[]" class="form-control" onchange="total_anggaran()" /></td>\
-          <td><input type="text" name="keterangan[]" class="form-control"/></td>\
+          <div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control border-left-primary kode_rekening1" disable /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening2[]" class="form-control border-left-primary" /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control border-left-primary" /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control border-left-primary" /></div></div>\
+          <td><input type="text" name="uraian[]" class="form-control border-left-primary" /></td>\
+          <td><input type="number" name="anggaran[]" class="form-control border-left-primary" onchange="total_anggaran()" /></td>\
+          <td><input type="text" name="keterangan[]" class="form-control border-left-primary"/></td>\
           <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
     kode_rekening();
   });
@@ -217,7 +218,7 @@ $(document).ready(function () {
           $counter = 1;
           $('#buttonadd').click(function () {
               $counter++;
-              $('#invoiceitems > tbody:last').append('<tr><td><div class="row"><div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control" disable /></div>\
+              $('#invoiceitems > tbody:last').append('<tr><td><div class="row"><div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control border-left-primary" disable /></div>\
               <div class="col-3"><input type="text" name="kode_rekening1[]" class="form-control" /></div>\
               <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control" /></div>\
               <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control" /></div></div>\

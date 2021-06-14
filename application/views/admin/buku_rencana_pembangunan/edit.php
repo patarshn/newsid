@@ -43,6 +43,14 @@
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$p->id?>" required>
                 
                 <div class="form-row">
+
+                <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" value="<?=$p->tahun?>" required>
+                    </div>
+                    </div>
+                    
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_proyek">Nama Proyek/Kegiatan</label>

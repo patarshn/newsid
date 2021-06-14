@@ -60,7 +60,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><center>Jumlah Penduduk Awal Bulan<br></h5>
+                    <h5 class="text-gray-900 font-weight-bold"><center> <br> Jumlah Penduduk Awal Bulan<br></h5>
                     </div>
                     </div>
                    
@@ -119,7 +119,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><center> Penambahan Penduduk (Kelahiran) </h5>
+                    <h5 class="text-gray-900 font-weight-bold"><center> <br> Penambahan Penduduk (Kelahiran) </h5>
                     </div>
                     </div>
 
@@ -154,7 +154,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><center>Penambahan Penduduk (Kedatangan) </h5>
+                    <h5 class="text-gray-900 font-weight-bold"><center> <br>Penambahan Penduduk (Kedatangan) </h5>
                     </div>
                     </div>
 
@@ -193,7 +193,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><center>Pengurangan Penduduk (Meninggal) </h5>
+                    <h5 class="text-gray-900 font-weight-bold"><center> <br>Pengurangan Penduduk (Meninggal) </h5>
                     </div>
                     </div>
 
@@ -228,7 +228,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><center>Pengurangan Penduduk (Pindah) </h5>
+                    <h5 class="text-gray-900 font-weight-bold"><center> <br>Pengurangan Penduduk (Pindah) </h5>
                     </div>
                     </div>
 
@@ -267,7 +267,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h5><center>Jumlah Penduduk Akhir Bulan</h5>
+                    <h5 class="text-gray-900 font-weight-bold"><center> <br>Jumlah Penduduk Akhir Bulan</h5>
                     </div>
                     </div>
 

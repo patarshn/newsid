@@ -6,6 +6,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
     private $_table = 'buku_data_anggota_bpd';
     private $_folder = 'buku_data_anggota_bpd';
     private $_mainTitle = 'Buku Data Anggota BPD';
+    private $_docxName = 'buku_data_anggota_bpd.docx';
 
     function __construct() {
         parent::__construct();
@@ -28,7 +29,6 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
             ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
             ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -47,7 +47,6 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
             ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
             ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -307,7 +306,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -315,7 +314,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -461,6 +460,10 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             if(empty($b_id->berkas)){
                 return true;
             }
+
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
+                return true;
+            }
             
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b_id->berkas)) {
                 return false;
@@ -468,6 +471,50 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'nama' => $d->nama,
+                'nip' => $d->nip,
+                'jenis_kelamin' => $d->jenis_kelamin,
+                'tempat_lahir' => $d->tempat_lahir,
+                'tgl_lahir' => $d->tgl_lahir,
+                'agama' => $d->agama,
+                'jabatan' => $d->jabatan,
+                'pendidikan_terakhir' => $d->pendidikan_terakhir,
+                'no_keputusan_pengangkatan' => $d-> no_keputusan_pengangkatan,
+                'tgl_keputusan_pengangkatan' => $d->tgl_keputusan_pengangkatan,
+                'no_keputusan_pemberhentian' => $d->no_keputusan_pemberhentian,
+                'tgl_keputusan_pemberhentian' => $d->tgl_keputusan_pemberhentian,
+                'ket'=> $d->ket
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
     }
 }
 ?>

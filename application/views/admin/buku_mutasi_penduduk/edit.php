@@ -52,23 +52,33 @@
                     </div>
                     </div>
 
-                <div class="col-lg-12 ">
+                <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" value="<?=$d->nama?>" required>
                     </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
                         <select name="jk" id="jk" class="form-control" required>
                             <option><?=$d->jk?></option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700">L = Laki-Laki <br> P = Perempuan</small>
                     </div> 
+                    </div>
+
+                    <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
+                        <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
+                            <option><?=$d->wn?></option>
+                            <option value="WNI">WNI</option>
+                            <option value="WNA">WNA</option>
+                        </select>
+                    </div>
                     </div>
 
                     <div class="col-lg-6">
@@ -87,18 +97,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
-                        <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
-                            <option><?=$d->wn?></option>
-                            <option value="WNI">WNI</option>
-                            <option value="WNA">WNA</option>
-                        </select>
-                    </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                    <div class="form-group">
-                    <h4>Penambahan</h4>
+                    <h4 class="text-gray-900 font-weight-bold"> <br> Penambahan</h4>
                     </div>
                     </div>
 
@@ -118,7 +117,7 @@
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4>Pengurangan</h4>
+                    <h4 class="text-gray-900 font-weight-bold"> <br> Pengurangan</h4>
                     </div>
                     </div>
 

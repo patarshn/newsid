@@ -44,34 +44,21 @@
                 
                 <div class="form-row">
                 
-                <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
-                            <input list="tahun" name="tahun" id="tahun" class="form-control border-left-primary" required>
-                            <datalist id="tahun">
-                                <option value="2021">
-                                <option value="2022">
-                                <option value="2023">
-                                <option value="2024">
-                                <option value="2025">
-                                <option value="2026">
-                                <option value="2027">
-                                <option value="2028">
-                                <option value="2029">
-                                <option value="2030">
-                            </datalist>  
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
                     </div>
                     </div>
 
-                <div class="form-row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_proyek">Nama Proyek/Kegiatan</label>
                             <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-primary" placeholder="Nama proyek atau kegiatan" required>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="lokasi">Lokasi</label>
                             <textarea class="form-control border-left-primary" name="lokasi" id="lokasi" placeholder="Lokasi proyek / kegiatan" rows="2"></textarea>
@@ -104,7 +91,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" readonly required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" required>
                         </div>
                     </div>
                     
@@ -125,7 +112,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3"></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Isikan keterangan jika diperlukan"></textarea>
                         </div>                   
                     </div>
                 </div>
@@ -151,17 +138,3 @@
 
       </div>
       <!-- End of Main Content -->
-      <pre>
-            $("#volume").keyup(function(){
-            var a = parseInt($("#volume").val());
-            var b = parseInt($("#harga").val());
-            var c = a+b;
-            $("#jumlah").val(c);
-            });
-            
-            $("#harga").keyup(function(){
-            var a = parseInt($("#volume").val());
-            var b = parseInt($("#harga").val());
-            var c = a+b;
-            $("#jumlah").val(c);
-            });

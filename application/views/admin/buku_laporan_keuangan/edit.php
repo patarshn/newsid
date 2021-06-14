@@ -53,30 +53,37 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
+                        <input type="number" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
+                        <input type="number" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jml_penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
-                        <input type="text" name="jml_penerimaan" id="jml_penerimaan" class="form-control border-left-primary" value="<?=$d->jml_penerimaan?>" required>
+                        <input type="number" name="jml_penerimaan" id="jml_penerimaan" class="form-control border-left-primary" value="<?=$d->jml_penerimaan?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jml_pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
-                        <input type="text" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control border-left-primary" value="<?=$d->jml_pengeluaran?>" required>
+                        <input type="number" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control border-left-primary" value="<?=$d->jml_pengeluaran?>" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                      <label for="berkas" class="custom-file-label border-left-primary">
+                          <?php if ($d->berkas !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas)):?>
+                          <?=$d->berkas?>
+                          <?php else :?>
+                          Berkas Tidak Ada
+                          <?php endif; ?>
+                          </label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 

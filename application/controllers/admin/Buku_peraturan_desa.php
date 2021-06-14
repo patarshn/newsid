@@ -1,12 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_peraturan_desa extends Admin_Controller {
 
     private $_table = 'buku_peraturan_desa';
     private $_folder = 'buku_peraturan_desa';
     private $_mainTitle = 'Buku Peraturan Desa';
     private $_docxName = 'buku_peraturan_desa.docx';
+    private $_exelName = 'buku_peraturan_desa.xls';
 
     function __construct() {
         parent::__construct();
@@ -462,7 +467,7 @@ class Buku_peraturan_desa extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists($b_id->berkas)){
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
             
@@ -475,6 +480,73 @@ class Buku_peraturan_desa extends Admin_Controller {
     }
 
     public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                $no++,
+                $d->jenis_peraturan_desa,
+                $d->no_ditetapkan.",".$d->tgl_ditetapkan,
+                $d->tentang,
+                $d->uraian_singkat,
+                $d->tgl_kesepakatan_peraturan_desa,
+                $d->no_dilaporkan.",".$d->tgl_dilaporkan,
+                $d-> no_diundangkan_dalam_lembaran_desa.",".$d->tgl_diundangkan_dalam_lembaran_desa,
+                $d->no_diundangkan_dalam_berita_desa.",".$d->tgl_diundangkan_dalam_berita_desa,
+                $d->ket
+            );
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A7'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 6;
+
+        $sheet->getStyle('A7:J'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A7:J'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A7:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A7:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 7;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
+    }
+
+
+    public function cetak3(){
         $data = $this->Main_m->get($this->_table,null)->result();
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();

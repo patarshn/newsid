@@ -6,6 +6,7 @@ class Kas_umum extends Admin_Controller {
     private $_table = 'kas_umum';
     private $_folder = 'kas_umum';
     private $_mainTitle = 'Buku Kas Umum';
+    private $_docxName = 'buku_kas_umum.docx';
 
     function __construct() {
         parent::__construct();
@@ -193,17 +194,8 @@ class Kas_umum extends Admin_Controller {
             $id = $_POST['id'];
             $where = ['id'=>$id];
             
-            //jika ada file yang baru
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                $berkas_lama = $this->destroy_file($where);
-            }
-
-            //jika tidak ada file baru
-            else {
-                $berkas = $_POST["old_file"];
-            }
             $data = array(
+                'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'tanggal' => $_POST['tanggal'],
                 'kode_rekening' => $_POST['kode_rekening'],
                 'uraian' => $_POST['uraian'],
@@ -212,7 +204,6 @@ class Kas_umum extends Admin_Controller {
                 'no_bukti' => $_POST['no_bukti'],
                 'jumlah_komulatif' => $_POST['jumlah_komulatif'],
                 'saldo' => $_POST['saldo'],
-                'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -431,5 +422,49 @@ class Kas_umum extends Admin_Controller {
         }
         return true;
     }
+
+    function cetak(){
+        $tahun_anggaran = $this->input->get('tahun_anggaran');
+        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $values = array();
+        $no=1;
+
+        foreach($data as $d){
+            $subvalues = array(
+                'id' => $no++,
+                'tanggal' => $d->tanggal,
+                'kode_rekening' => $d->kode_rekening,
+                'uraian' => $d->uraian,
+                'penerimaan' => $d->penerimaan,
+                'pengeluaran' => $d->pengeluaran,
+                'no_bukti' => $d->no_bukti,
+                'jumlah_komulatif' => $d->jumlah_komulatif,
+                'saldo' => $d->saldo
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('id', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
+    }
+
 }
 ?>
