@@ -6,7 +6,6 @@ class Kas_pembantu extends Admin_Controller {
     private $_table = 'kas_pembantu';
     private $_folder = 'kas_pembantu';
     private $_mainTitle = 'Buku Kas Pembantu ';
-    private $_docxName = 'buku_kas_pembantu.docx';
 
     function __construct() {
         parent::__construct();
@@ -18,26 +17,30 @@ class Kas_pembantu extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
+            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
+            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pajak','label' => 'pajak', 'rules' => 'required'],
-            ['field' => 'ret','label' => 'ret', 'rules' => 'required'],
-            ['field' => 'pl','label' => 'pl', 'rules' => 'required'],
-            ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
-            ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
+            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
+            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
+            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
+            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pajak','label' => 'pajak', 'rules' => 'required'],
-            ['field' => 'ret','label' => 'ret', 'rules' => 'required'],
-            ['field' => 'pl','label' => 'pl', 'rules' => 'required'],
-            ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
-            ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
+            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
+            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
         ];
     }
 
@@ -119,12 +122,16 @@ class Kas_pembantu extends Admin_Controller {
                 $_POST = $this->input->post();
                 $data = array(
                     'tahun_anggaran' => $_POST['tahun_anggaran'],
+                    'bidang' => $_POST['bidang'],
+                    'kegiatan' => $_POST['kegiatan'],
                     'tanggal' => $_POST['tanggal'],
-                    'pajak' => $_POST['pajak'],
-                    'ret' => $_POST['ret'],
-                    'pl' => $_POST['pl'],
-                    'pemotongan' => $_POST['pemotongan'],
-                    'penyetoran' => $_POST['penyetoran'],
+                    'uraian' => $_POST['uraian'],
+                    'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
+                    'penerimaan_sdm' => $_POST['penerimaan_sdm'],
+                    'no_bukti' => $_POST['no_bukti'],
+                    'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
+                    'pengeluaran_bm' => $_POST['pengeluaran_bm'],
+                    'jumlah' => $_POST['jumlah'],
                     'saldo' => $_POST['saldo'],
                     'ver_kepala_desa' => "Pending",
                     'created_at' => date('Y-m-d H:i:s'),
@@ -193,17 +200,27 @@ class Kas_pembantu extends Admin_Controller {
             $id = $_POST['id'];
             $where = ['id'=>$id];
             
+            //jika ada file yang baru
+            if(!empty($_FILES["berkas"]["name"])){
+                $berkas = $this->upload_file();
+                $berkas_lama = $this->destroy_file($where);
+            }
+
+            //jika tidak ada file baru
+            else {
+                $berkas = $_POST["old_file"];
+            }
 
             $data = array(
                 'id' => $_POST['id'],
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'tanggal' => $_POST['tanggal'],
-                'pajak' => $_POST['pajak'],
-                'ret' => $_POST['ret'],
-                'pl' => $_POST['pl'],
-                'pemotongan' => $_POST['pemotongan'],
-                'penyetoran' => $_POST['penyetoran'],
-                'saldo' => $_POST['saldo'],
+                'bidang' => $_POST['bidang'],
+                'kegiatan' => $_POST['kegiatan'],
+                'waktu_pelaksanaan' => $_POST['waktu_pelaksanaan'],
+                'uraian' => $_POST['uraian'],
+                'volume' => $_POST['volume'],
+                'harga_satuan' => $_POST['harga_satuan'],
+                'jumlah' => $_POST['jumlah'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -432,48 +449,5 @@ class Kas_pembantu extends Admin_Controller {
         }
         return true;
     }
-
-    function cetak(){
-        $tahun_anggaran = $this->input->get('tahun_anggaran');
-        $where = ['tahun_anggaran'=>$tahun_anggaran];
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        #   echo var_dump($data);
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
-        $values = array();
-        $no=1;
-
-        foreach($data as $d){
-            $subvalues = array(
-                'id' => $no++,
-                'tanggal' => $d->tanggal,
-                'pajak' => $d->pajak,
-                'ret' => $d->ret,
-                'pl' => $d->pl,
-                'pemotongan' => $d->pemotongan,
-                'penyetoran' => $d->penyetoran,
-                'saldo' => $d->saldo
-            );
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('id', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;    
-    }
-
 }
 ?>

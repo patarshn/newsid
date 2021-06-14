@@ -31,7 +31,6 @@
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
-                    <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/cetak/');?>">Cetak</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
@@ -48,9 +47,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                    <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th>No</th>
-                      <th width="3%">Aksi</th>
+                      <th width="5%">No</th>
+                      <th width="3%"></th>
                       <th>Tanggal</th>
                       <th>Uraian</th>
                       <th>Penerimaan</th>
@@ -60,9 +58,8 @@
                   </thead>
                   <tfoot>
                     <tr>
-                    <th width="5%"></th>
-                    <th>No</th>
-                    <th width="3%">Aksi</th>
+                    <th width="5%">No</th>
+                    <th width="3%"></th>
                     <th>Tanggal</th>
                     <th>Uraian</th>
                     <th>Penerimaan</th>
@@ -78,7 +75,7 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <td><?=$count++;?></td>
+                        <?=$count++;?>
                       </td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,14 +85,15 @@
                           <div class="dropdown-header">Actions:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
+                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
                           <!--<div class="dropdown-divider"></div>-->
                           </div>
                         </div>
                       </td>
-                      <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
+                      <td><?=$d->tgl?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=number_format($d->penerimaan,0,',','.');?></td>
-                      <td><?=number_format($d->pengeluaran,0,',','.');?></td>
+                      <td><?=$d->penerimaan?></td>
+                      <td><?=$d->pengeluaran?></td>
                       <td>
                         <?php 
                         if($d->verif_bpd_at == null){

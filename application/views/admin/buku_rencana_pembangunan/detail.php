@@ -23,7 +23,8 @@
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
-                    <div class="btn-group" role="group" aria-label="Basic example"><button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Kembali</button>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <!--<button type="button" class="btn btn-warning">Cancel</button>-->
                     </div>
                   </div>
                 </div>
@@ -32,7 +33,7 @@
                   
                   <?php foreach($data as $p):?>
                     <div class="modal-header  border-bottom">
-                    <h5 class="text-gray-900 font-weight-bold">Data Rencana Pembangunan: <?=$p->nama_proyek?></h5>
+                    <h5 class="modal-title"><b>Data Rencana Pembangunan: <?=$p->nama_proyek?></b></h5>
                     </div>
                                   <div class="row">
                                       <div class="col-lg-12">
@@ -40,7 +41,7 @@
                                           <div class="card-body">
                                               <table class="table table-bordered table-hover border-left-primary border-bottom-primary">
                                               <thead>
-                                                  <tr><th width="40%">Nama Proyek/Kegiatan</th>
+                                                  <tr><th>Nama Proyek/Kegiatan</th>
                                                   <td><?=$p->nama_proyek?></td></tr>
 
                                                   <tr><th>Lokasi</th>
@@ -57,24 +58,23 @@
                                                  </thead>
                                               </table>                                            
                                         
-                                              <h6><b> Sumber Dana / Besaran Biaya</b></h6>
-                                              
+                                              <h8><b> Sumber Dana / Besaran Biaya</b></h8>
                                               <table class="table table-bordered table-hover border-left-primary">
                                               <thead>
-                                              <tr><th width="40%">Pemerintah</th>
-                                                  <td style="text-align:left">Rp. <?=number_format($p->biaya_pemerintah,0,',','.');?></td></tr>
+                                              <tr><th>Pemerintah</th>
+                                                  <td style="text-align:right"><?=$p->biaya_pemerintah?></td></tr>
 
                                                   <tr><th>Provinsi</th>
-                                                  <td style="text-align:left">Rp. <?=number_format($p->biaya_prov,0,',','.');?></td></tr> 
+                                                  <td style="text-align:right"><?=$p->biaya_prov?></td></tr> 
 
                                                   <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:left">Rp. <?=number_format($p->biaya_kab,0,',','.');?></td></tr>
+                                                  <td style="text-align:right"><?=$p->biaya_kab?></td></tr>
 
                                                   <tr class="border-bottom-primary"><th>Swadaya</th>
-                                                  <td style="text-align:left">Rp. <?=number_format($p->biaya_swadaya,0,',','.');?></td></tr>
+                                                  <td style="text-align:right"><?=$p->biaya_swadaya?></td></tr>
 
                                                   <tr><th>Total Biaya</th>
-                                                  <td style="text-align:left">Rp. <?=number_format($p->jumlah,0,',','.');?></td></tr>
+                                                  <td style="text-align:right"><?=$p->jumlah?></td></tr>
                                                  </thead>
                                               </table>
                                         </div>

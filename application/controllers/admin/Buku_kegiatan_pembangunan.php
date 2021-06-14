@@ -6,9 +6,8 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
     private $_table = 'kegiatan_pembangunan';
     private $_folder = 'buku_kegiatan_pembangunan';
     private $_mainTitle = 'Data Kegiatan Pembangunan';
-    private $_docxName = 'buku_kegiatan_pembangunan.docx';
 
-    function __construct() 
+    function __construct()
 	{
         parent::__construct();
         $this->load->model('Main_m');
@@ -32,11 +31,11 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
-            ['field' => 'jumlah_biaya','label' => 'Jumlah Biaya', 'rules' => 'required'],
+            ['field' => 'jumlah','label' => 'Jumlah Biaya', 'rules' => 'required'],
             ['field' => 'waktu','label' => 'Waktu Kegiatan', 'rules' => 'required'],
-            ['field' => 'sifat_kegiatan','label' => 'Sifat Kegiatan', 'rules' => 'required'],
+            ['field' => 'sifat','label' => 'Sifat Kegiatan', 'rules' => 'required'],
             ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
            ];
     }
 
@@ -49,11 +48,11 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
-            ['field' => 'jumlah_biaya','label' => 'Jumlah Biaya', 'rules' => 'required'],
+            ['field' => 'jumlah','label' => 'Jumlah Biaya', 'rules' => 'required'],
             ['field' => 'waktu','label' => 'Waktu Kegiatan', 'rules' => 'required'],
-            ['field' => 'sifat_kegiatan','label' => 'Sifat Kegiatan', 'rules' => 'required'],
+            ['field' => 'sifat','label' => 'Sifat Kegiatan', 'rules' => 'required'],
             ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
            ];
     }
 
@@ -134,22 +133,19 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
-        $id_rencana = $_POST['id_rencana'];
-        $rencana_pembangunan = $this->Main_m->get('rencana_pembangunan',['id' => $id_rencana])->row();
-        #echo var_dump($rencana_pembangunan);
+
+           
             $_POST = $this->input->post();
             $data = array(
                 'id_rencana' => $_POST['id_rencana'],
-                'nama_kegiatan' => $rencana_pembangunan->nama_proyek,
-                'tahun' => $_POST['tahun'],
                 'volume' => $_POST['volume'],
                 'biaya_pemerintah' => $_POST['biaya_pemerintah'],
                 'biaya_prov' => $_POST['biaya_prov'],
                 'biaya_kab' => $_POST['biaya_kab'],
                 'biaya_swadaya' => $_POST['biaya_swadaya'],
-                'jumlah_biaya' => $_POST['jumlah_biaya'],
+                'jumlah' => $_POST['jumlah'],
                 'waktu' => $_POST['waktu'],
-                'sifat_kegiatan' => $_POST['sifat_kegiatan'],
+                'sifat' => $_POST['sifat'],
                 'pelaksana' => $_POST['pelaksana'],
                 'ket' => $_POST['ket'],
                 'created_at' => date('Y-m-d'),
@@ -220,15 +216,14 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
             
             $data = array(
                 'id_rencana' => $_POST['id_rencana'],
-                'tahun' => $_POST['tahun'],
                 'volume' => $_POST['volume'],
                 'biaya_pemerintah' => $_POST['biaya_pemerintah'],
                 'biaya_prov' => $_POST['biaya_prov'],
                 'biaya_kab' => $_POST['biaya_kab'],
                 'biaya_swadaya' => $_POST['biaya_swadaya'],
-                'jumlah_biaya' => $_POST['jumlah_biaya'],
+                'jumlah' => $_POST['jumlah'],
                 'waktu' => $_POST['waktu'],
-                'sifat_kegiatan' => $_POST['sifat_kegiatan'],
+                'sifat' => $_POST['sifat'],
                 'pelaksana' => $_POST['pelaksana'],
                 'ket' => $_POST['ket'],
                 'updated_at' => date('Y-m-d'),
@@ -306,59 +301,6 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
         echo json_encode($callback);
     }
 
-    function cetak(){
-        $tahun = $this->input->get('tahun');
-        $where = ['tahun'=>$tahun];
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        #   echo var_dump($data);
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
-        $values = array();
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                'no' => $no++,
-                'nama_kegiatan' => $d->nama_kegiatan,
-                'volume' => $d->volume,
-                'biaya_pemerintah' => number_format($d->biaya_pemerintah,0,',','.'),
-                'biaya_prov' => number_format($d->biaya_prov,0,',','.'),
-                'biaya_kab' => number_format($d->biaya_kab,0,',','.'),
-                'biaya_swadaya' => number_format($d->biaya_swadaya,0,',','.'),
-                'jumlah_biaya' => number_format($d->jumlah_biaya,0,',','.'),
-                'waktu' => $d->waktu,
-                'pelaksana' => $d->pelaksana,
-                'ket' => $d->ket
-            );
-            if($d->sifat_kegiatan == 'Baru'){
-                $subvalues['baru'] = $d->sifat_kegiatan;
-                $subvalues['lanjutan'] = '';
-            }
-            else{
-                $subvalues['lanjutan'] = $d->sifat_kegiatan;
-                $subvalues['baru'] = '';
-            }
-
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $templateProcessor->setValue('tahun', $tahun);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;    
-    }
 
 }
 ?>

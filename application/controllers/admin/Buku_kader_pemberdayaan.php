@@ -6,7 +6,6 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
     private $_table = 'kader_pemberdayaan';
     private $_folder = 'buku_kader_pemberdayaan';
     private $_mainTitle = 'Data Kader Pemberdayaan Masyarakat';
-    private $_docxName = 'buku_kader_pemberdayaan.docx';
 
     function __construct()
 	{
@@ -31,7 +30,7 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
             ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
            ];
     }
 
@@ -44,7 +43,7 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
             ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
            ];
     }
 
@@ -279,44 +278,6 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
             );          
         }
         echo json_encode($callback);
-    }
-
-    function cetak(){
-        $data = $this->Main_m->getAsc($this->_table,null)->result();
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
-        $values = array();
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                'no' => $no++,
-                'nama' => $d->nama,
-                'umur' => $d->umur,
-                'jkelamin' => $d->jkelamin,
-                'pendidikan' => $d->pendidikan,
-                'bidang' => $d->bidang,
-                'alamat' => $d->alamat,
-                'ket' => $d->ket
-            );
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;    
     }
 }
 

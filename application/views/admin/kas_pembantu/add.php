@@ -38,53 +38,61 @@
                 <?=form_open_multipart(base_url('kas_pembantu/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
-                    <div class="col-lg-6 mt-2">
+                    <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" required>
+                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-6 mt-2">
+                    <div class="col-lg-6 mt-3">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
+                        <input type="text" name="tanggal" id="tanggal" class="form-control" required>
                     </div>
-                    
-                        <div class="col-lg-4 mt-2">
+
+                    <div class="col-lg-6 mt-3s">
+                      <label class="text-gray-900 font-weight-bold" >Uraian</label>
+                      <div class="form-row">
+                        <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" >Pajak</label>
-                          <input type="text" name="pajak" id="pajak" class="form-control border-left-primary" placeholder="Uraian Pajak" required>
+                          <input type="text" name="pajak" id="pajak" class="form-control" required>
                           <small id="pajak" class="text-gray-700"></small>
                         </div>
                         
-                        <div class="col-lg-4 mt-2">
+                        <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" >RET</label>
-                          <input type="text" name="ret" id="ret" class="form-control border-left-primary" placeholder="Uraian Retribusi" required>
+                          <input type="text" name="ret" id="ret" class="form-control" required>
                           <small id="ret" class="text-gray-700"></small>
                         </div>
 
-                        <div class="col-lg-4 mt-2">
+                        <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" >PL</label>
-                          <input type="text" name="pl" id="pl" class="form-control border-left-primary" placeholder="Uraian Penerimaan Lainnya" required>
+                          <input type="text" name="pl" id="pl" class="form-control" required>
                           <small id="pl" class="text-gray-700"></small>
                         </div>
-                  
+                      </div>
+                    </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="pemotongan" class="text-gray-900 font-weight-bold">Pemotongan (Rp.)</label>
-                        <input type="text" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Jumlah Pemotongan" required>
+                        <input type="text" name="pemotongan" id="pemotongan" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="penyetoran" class="text-gray-900 font-weight-bold">Penyetoran (Rp.)</label>
-                        <input type="text" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Jumlah Penyetoran" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="penyetoran" class="text-gray-900 font-weight-bold">Penyetoran (Rp.)</label>
+                            <textarea class="form-control" name="penyetoran" id="penyetoran" rows="1" required></textarea>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo (Rp.)</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
+                            <textarea class="form-control" name="saldo" id="saldo" rows="1" required></textarea>
+                        </div>
                     </div>
                 </div>
                 <?=form_close()?>
                 
-                  <div class="d-flex mt-2">
+                  <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>

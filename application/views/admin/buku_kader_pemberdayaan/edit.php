@@ -29,7 +29,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Edit <?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning">Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -40,47 +40,45 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                 <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Kader Pembangunan : <?=$d->nama?></h5>
-                <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
+                        <label for="nama"><b>Nama</b></label>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
+                        <label for="umur"><b>Umur</b></label>
                         <input type="text" name="umur" id="umur" class="form-control border-left-primary " placeholder="Umur" value="<?=$d->umur?>" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="jkelamin">Jenis Kelamin</label>
+                        <label for="jkelamin"><b>Jenis Kelamin</b></label>
                         <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-primary" placeholder="jkelamin" value="<?=$d->jkelamin?>" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
+                        <label for="pendidikan"><b>Pendidikan</b></label>
                         <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="pendidikan" value="<?=$d->pendidikan?>" required>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="bidang">Bidang</label>
+                        <label for="bidang"><b>Bidang</b></label>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="bidang" value="<?=$d->bidang?>" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                        <label for="alamat"><b>Alamat</b></label>
                         <input type="text" name="alamat" id="alamat" class="form-control border-left-primary" placeholder="alamat" value="<?=$d->alamat?>" required>
                     </div>
                 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
+                            <label for="ket"><b>Keterangan</b></label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3"><?=$d->ket?></textarea>
                         </div>                   
                     </div>

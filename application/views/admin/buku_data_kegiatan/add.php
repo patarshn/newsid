@@ -53,15 +53,6 @@
                         <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
-                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
-                      <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
-                      </div>
-                    </div>
-
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="agenda_hasil" class="text-gray-900 font-weight-bold">Agenda dan Hasil Kegiatan</label>
@@ -73,7 +64,6 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
-                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

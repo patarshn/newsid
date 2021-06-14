@@ -50,30 +50,29 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="number" name="penerimaan" id="penerimaan" class="form-control border-left-primary" required>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="number" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" required>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jml_penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
-                        <input type="number" name="jml_penerimaan" id="jml_penerimaan" class="form-control border-left-primary" required>
+                        <input type="text" name="jml_penerimaan" id="jml_penerimaan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jml_pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
-                        <input type="number" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control border-left-primary" required>
+                        <input type="text" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
                 </div>

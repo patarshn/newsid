@@ -6,7 +6,6 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
     private $_table = 'buku_ekspedisi_bpd';
     private $_folder = 'buku_ekspedisi_bpd';
     private $_mainTitle = 'Buku Ekspedisi BPD';
-    private $_docxName = 'buku_ekspedisi_bpd.docx';
 
     function __construct() {
         parent::__construct();
@@ -18,10 +17,10 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
-            ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_surat','label' => 'Nomor dan Tanggal Surat Keluar', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'tujuan','label' => 'Tujuan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -29,10 +28,10 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'tgl','label' => 'Tanggal', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
-            ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_surat','label' => 'Nomor dan Tanggal Surat Keluar', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'tujuan','label' => 'Tujuan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -97,9 +96,10 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
+                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => $this->upload->display_errors(),
+                        'message' => 'Mohon Maaf, file gagal diupload',
                     );
                     echo json_encode($callback);
                     exit;
@@ -113,8 +113,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             $_POST = $this->input->post();
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_surat' => $_POST['no_surat'],
-                'tgl_surat' => $_POST['tgl_surat'],
+                'no_dan_tgl_surat' => $_POST['no_dan_tgl_surat'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tujuan'=> $_POST['tujuan'],
                 'ket' => $_POST['ket'],
@@ -187,14 +186,6 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
-                if(!$berkas){
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => $this->upload->display_errors(),
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -205,8 +196,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
 
             $data = array(
                 'tgl' => $_POST['tgl'],
-                'no_surat' => $_POST['no_surat'],
-                'tgl_surat' => $_POST['tgl_surat'],
+                'no_dan_tgl_surat' => $_POST['no_dan_tgl_surat'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tujuan' => $_POST['tujuan'],
                 'ket' => $_POST['ket'],
@@ -276,7 +266,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -284,7 +274,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -419,7 +409,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            return false;
+            echo $this->upload->display_errors();
         }    
     }
     
@@ -431,52 +421,12 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
-                return true;
-            }
-
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
-    }
-
-    public function cetak(){
-        $data = $this->Main_m->get($this->_table,null)->result();
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
-        $values = array();
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                'no' => $no++,
-                'tgl' => $d->tgl,
-                'no_surat' => $d->no_surat,
-                'tgl_surat' => $d->tgl_surat,
-                'uraian_singkat' => $d->uraian_singkat,
-                'tujuan' => $d->tujuan,
-                'ket'=> $d->ket
-            );
-            $values[] = $subvalues;
-        }
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;
     }
 }
 ?>

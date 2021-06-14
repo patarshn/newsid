@@ -43,34 +43,40 @@
                 <div class="form-row">
                 <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
+                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="type" class="text-gray-900 font-weight-bold">Type</label>
-                        <input type="text" name="type" id="type" class="form-control border-left-primary" placeholder="type" value="<?=$d->type?>" required>
+                        <div class="form-group">
+                            <label for="type" class="text-gray-900 font-weight-bold">Type</label>
+                            <select name="type" id="type" class="form-control" value="<?=$d->type?>" value="<?=$d->type?>" required>
+                                <option>-</option>
+                                <option value="PENDAPATAN">Pendapatan</option>
+                                <option value="BELANJA">Belanja</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Kode Rekening</label>
                       <div class="form-row">
                         <div class="col-lg-2">
-                          <input type="text" name="kode_rekening1" id="kode_rekening1" class="form-control border-left-primary" value="<?=$d->kode_rekening1?>" required>
+                          <input type="text" name="kode_rekening1" id="kode_rekening1" class="form-control" value="<?=$d->kode_rekening1?>" required>
                           <small id="kode_rekening1" class="text-gray-700"></small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="text" name="kode_rekening2" id="kode_rekening2" class="form-control border-left-primary" value="<?=$d->kode_rekening2?>" required>
+                          <input type="text" name="kode_rekening2" id="kode_rekening2" class="form-control" value="<?=$d->kode_rekening2?>" required>
                           <small id="kode_rekening2" class="text-gray-700"></small>
                         </div>
 
                         <div class="col-lg-2">
-                          <input type="text" name="kode_rekening3" id="kode_rekening3" class="form-control border-left-primary" value="<?=$d->kode_rekening3?>" required>
+                          <input type="text" name="kode_rekening3" id="kode_rekening3" class="form-control" value="<?=$d->kode_rekening3?>" required>
                           <small id="kode_rekening3" class="text-gray-700"></small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="text" name="kode_rekening4" id="kode_rekening4" class="form-control border-left-primary" value="<?=$d->kode_rekening4?>" required>
+                          <input type="text" name="kode_rekening4" id="kode_rekening4" class="form-control" value="<?=$d->kode_rekening4?>" required>
                           <small id="kode_rekening4" class="text-gray-700"></small>
                         </div>
                       </div>
@@ -78,19 +84,19 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
+                        <input type="text" name="uraian" id="uraian" class="form-control" value="<?=$d->uraian?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="anggaran" class="text-gray-900 font-weight-bold">Anggaran</label>
-                        <input type="text" name="anggaran" id="anggaran" class="form-control border-left-primary" value="<?=$d->anggaran?>" required>
+                        <input type="text" name="anggaran" id="anggaran" class="form-control" value="<?=$d->anggaran?>" required>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 mt-3">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="keterangan">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="keterangan" id="keterangan" rows="3"><?=$d->keterangan?></textarea>
-                        </div>                   
+                            <label for="keterangan" class="text-gray-900 font-weight-bold">Keterangan</label>
+                            <textarea class="form-control" name="keterangan" id="keterangan" rows="3" value="<?=$d->keterangan?>" required></textarea>
+                        </div>
                     </div>
 
                     <div class="col-lg-12 form-inline">

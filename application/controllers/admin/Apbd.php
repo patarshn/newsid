@@ -6,7 +6,6 @@ class Apbd extends Admin_Controller {
     private $_table = 'apbd';
     private $_folder = 'apbd';
     private $_mainTitle = 'Buku Anggaran Pendapatan dan Belanja Desa ';
-    private $_docxName = 'buku_anggaran_dan_pendapatan_desa.docx';
 
     function __construct() {
         parent::__construct();
@@ -20,6 +19,9 @@ class Apbd extends Admin_Controller {
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'type','label' => 'type', 'rules' => 'required'],
             ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
+            ['field' => 'kode_rekening2','label' => 'kode_rekening2', 'rules' => 'required'],
+            ['field' => 'kode_rekening3','label' => 'kode_rekening3', 'rules' => 'required'],
+            ['field' => 'kode_rekening4','label' => 'kode_rekening4', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
             ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
             ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
@@ -93,58 +95,7 @@ class Apbd extends Admin_Controller {
         $this->load->view('admin/partials/footer');
     }
 
-
     public function store(){
-        $_POST = $this->input->post();
-        $data = array();
-        
-        $totaldata = count($_POST['kode_rekening1']);
-        for($i=0;$i<$totaldata;$i++){
-            $subdata = array(
-                'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'type' => $_POST['type'],
-                'kode_rekening1' => $_POST['kode_rekening1'][$i],
-                'kode_rekening2' => $_POST['kode_rekening2'][$i],
-                'kode_rekening3' => $_POST['kode_rekening3'][$i],
-                'kode_rekening4' => $_POST['kode_rekening4'][$i],
-                'uraian' => $_POST['uraian'][$i],
-                'anggaran' => $_POST['anggaran'][$i],
-                'keterangan' => $_POST['keterangan'][$i],
-                'ver_kepala_desa' => "Pending",
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' =>  $this->session->userdata('username'),
-            );
-            $data[] = $subdata;
-        }
-
-        
-        
-        #echo $totaldata;
-
-        #echo print_r($data);
-
-        if($this->db->insert_batch($this->_table, $data)){
-            $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
-            $callback = array(
-                'status' => 'success',
-                'message' => 'Data berhasil diinput',
-                'redirect' => base_url().'admin/'.$this->_folder,
-            );
-        }
-        else{
-            $this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
-            $callback = array(
-                'status' => 'error',
-                'message' => 'Mohon Maaf, Pengisian form gagal',
-            );
-        }
-
-        echo json_encode($callback);
-        
-
-    }
-
-    public function storeOld(){
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
@@ -242,6 +193,17 @@ class Apbd extends Admin_Controller {
             $_POST = $this->input->post();
             $id = $_POST['id'];
             $where = ['id'=>$id];
+            
+            //jika ada file yang baru
+            if(!empty($_FILES["berkas"]["name"])){
+                $berkas = $this->upload_file();
+                $berkas_lama = $this->destroy_file($where);
+            }
+
+            //jika tidak ada file baru
+            else {
+                $berkas = $_POST["old_file"];
+            }
 
             $data = array(
                 'id' => $_POST['id'],
@@ -265,7 +227,7 @@ class Apbd extends Admin_Controller {
             }
 
             if($this->Main_m->update($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil diinput',
@@ -273,7 +235,7 @@ class Apbd extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, edit form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -482,46 +444,5 @@ class Apbd extends Admin_Controller {
         }
         return true;
     }
-    
-    function cetak(){
-        $tahun_anggaran = $this->input->get('tahun_anggaran');
-        $where = ['tahun_anggaran'=>$tahun_anggaran];
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        #   echo var_dump($data);
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
-        $values = array();
-
-        foreach($data as $d){
-            $subvalues = array(
-                'kode_rekening1' => $d->kode_rekening1,
-                'kode_rekening2' => $d->kode_rekening2,
-                'kode_rekening3' => $d->kode_rekening3,
-                'kode_rekening4' => $d->kode_rekening4,
-                'uraian' => $d->uraian,
-                'anggaran' => number_format($d->anggaran,0,',','.'),
-                'keterangan' => $d->keterangan
-            );
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('kode_rekening1', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;    
-    }
-
 }
 ?>

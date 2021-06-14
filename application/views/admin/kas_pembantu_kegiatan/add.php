@@ -38,19 +38,20 @@
                 <?=form_open_multipart(base_url('apbd/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" required>
+                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="Nama Bidang" required>
+                        <input type="text" name="bidang" id="bidang" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kegiatan</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
+                            <select name="kode_rekening" id="kode_rekening" class="form-control" required>
                                 <option>-</option>
                                 
                                 <?php   
@@ -60,63 +61,78 @@
                                 endforeach;
                                 ?>
                             </select>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
+
+                    <div class="col-lg-3 mt-2">
+                      <label class="text-gray-900 font-weight-bold" >Penerimaan</label>
+                      <div class="form-row">
+                        <div class="col-lg-3">
+                          <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control" required>
+                          <small id="penerimaan_bendahara" class="text-gray-700"></small>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                          <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control" required>
+                          <small id="penerimaan_sdm" class="text-gray-700"></small>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" placeholder="Uraian Transaksi" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan Dari Bendahara</label>
-                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" placeholder="Penerimaan dari Bendahara" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
-                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" placeholder="Penerimaan Swadaya Masyarakat" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
-                        <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" placeholder="Nomor Bukti" required>
+                        <input type="text" name="no_bukti" id="no_bukti" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa</label>
-                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" placeholder="Belanja Barang dan Jasa" required>
+                    <div class="col-lg-3 mt-2">
+                      <label class="text-gray-900 font-weight-bold" >Pengeluaran</label>
+                      <div class="form-row">
+                        <div class="col-lg-3">
+                          <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control" required>
+                          <small id="pengeluaran_bbj" class="text-gray-700"></small>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                          <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control" required>
+                          <small id="pengeluaran_bm" class="text-gray-700"></small>
+                        </div>
+                      </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
-                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" placeholder="Belanja Modal" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian Ke Bendahara</label>
+                            <textarea class="form-control" name="jumlah" id="jumlah" rows="1" required></textarea>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
+                            <textarea class="form-control" name="saldo" id="saldo" rows="1" required></textarea>
+                        </div>
                     </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo Kas" required>
-                    </div>
-                    
-                        <div class="d-flex mt-3">
-                        <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
+                </div>
+                <?=form_close()?>
+                
+                  <div class="d-flex mt-3">
+                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                </form>
+                    
+                    
+                </div>
+              </div>
             </div>
+          </div>
+          
+
+
         </div>
-    </div>
-    <!-- tutup side -->
-</div>
-</section>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->

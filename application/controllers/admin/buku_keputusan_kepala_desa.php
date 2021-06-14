@@ -1,16 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
-
 class Buku_keputusan_kepala_desa extends Admin_Controller {
 
     private $_table = 'buku_keputusan_kepala_desa';
     private $_folder = 'buku_keputusan_kepala_desa';
     private $_mainTitle = 'Buku Keputusan Kepala Desa';
-    private $_exelName = 'buku_keputusan_kepala_desa.xls';
 
     function __construct() {
         parent::__construct();
@@ -21,23 +16,21 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_kepala_desa','label' => 'tgl_keputusan_kepala_desa', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_kepala_desa','label' => 'no_tgl_keputusan_kepala_desa', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan_kpd','label' => 'no_dilaporkan_kpd', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan_kpd','label' => 'tgl_dilaporkan_kpd', 'rules' => 'required'],
+            ['field' => 'no_tgl_dilaporkan','label' => 'no_tgl_dilaporkan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_kepala_desa','label' => 'tgl_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan_kpd','label' => 'no_dilaporkan_kpd', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan_kpd','label' => 'tgl_dilaporkan_kpd', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_kepala_desa','label' => 'Nomor dan Tanggal Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'no_tgl_dilaporkan','label' => 'Nomor dan Tanggal Dilaporkan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -102,10 +95,10 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    
+                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => $this->upload->display_errors(),
+                        'message' => 'Mohon Maaf, file gagal diupload',
                     );
                     echo json_encode($callback);
                     exit;
@@ -117,12 +110,10 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
 
                 $_POST = $this->input->post();
                 $data = array(
-                    'no_keputusan_kepala_desa' => $_POST['no_keputusan_kepala_desa'],
-                    'tgl_keputusan_kepala_desa' => $_POST['tgl_keputusan_kepala_desa'],
+                    'no_tgl_keputusan_kepala_desa' => $_POST['no_tgl_keputusan_kepala_desa'],
                     'tentang' => $_POST['tentang'],
                     'uraian_singkat' => $_POST['uraian_singkat'],
-                    'no_dilaporkan_kpd' => $_POST['no_dilaporkan_kpd'],
-                    'tgl_dilaporkan_kpd' => $_POST['tgl_dilaporkan_kpd'],
+                    'no_tgl_dilaporkan' => $_POST['no_tgl_dilaporkan'],
                     'ket' => $_POST['ket'],
                     'berkas' => $berkas,
                     'ver_kepala_desa' => "Pending",
@@ -195,15 +186,6 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
-                if(!$berkas){
-                    //echo $this->upload->display_errors();
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => $this->upload->display_errors(),
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -213,12 +195,10 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
             }
 
             $data = array(
-                'no_keputusan_kepala_desa' => $_POST['no_keputusan_kepala_desa'],
-                'tgl_keputusan_kepala_desa' => $_POST['tgl_keputusan_kepala_desa'],
+                'no_tgl_keputusan_kepala_desa' => $_POST['no_tgl_keputusan_kepala_desa'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
-                'no_dilaporkan_kpd' => $_POST['no_dilaporkan_kpd'],
-                'tgl_dilaporkan_kpd' => $_POST['tgl_dilaporkan_kpd'],
+                'no_tgl_dilaporkan' => $_POST['no_tgl_dilaporkan'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
@@ -430,7 +410,7 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            return false;
+            echo $this->upload->display_errors();
         }    
     }
 
@@ -442,77 +422,12 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
                 return true;
             }
             
-            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
-                return true;
-            }
-            
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
-    }
-
-    public function cetak(){
-        $reader = IOFactory::createReader('Xls');
-        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
-        $data = $this->Main_m->get($this->_table,null)->result();
-        $values = array();
-        $i = 0;
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                $no++,
-                $d->no_keputusan_kepala_desa.",".$d->tgl_keputusan_kepala_desa,
-                $d->tentang,
-                $d->uraian_singkat,
-                $d->tgl_dilaporkan_kpd.",".$d->no_dilaporkan_kpd,
-                $d->ket
-            );
-            $values[] = $subvalues;
-            $i++;
-        }
-
-        $sheet = $spreadsheet->getActiveSheet();
-        $sheet->fromArray(
-            $values,
-            NULL,
-            'A7'
-        );
-
-        $styleArray = [
-            'borders' => [
-                'allBorders' => [
-                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
-                ],
-            ],
-        ];
-
-        $i = $i + 6;
-
-        $sheet->getStyle('A7:F'.$i)->applyFromArray($styleArray);
-        $sheet->getStyle('A7:F'.$i)->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A7:F'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-        $sheet->getStyle('A7:F'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // foreach(range('A7','J') as $columnID) {
-        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
-        // }
-        for($r = 7;$r <= $i;$r++){
-            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
-        }
-        $writer = new Xls($spreadsheet);
-
-        $filename = $this->_exelName;
-
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment; filename='.$filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        $writer->save('php://output');
     }
 }
 ?>

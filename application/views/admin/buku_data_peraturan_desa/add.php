@@ -39,33 +39,8 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Peraturan Desa</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_peraturan_desa" id="no_peraturan_desa" class="form-control border-left-primary" required>
-                          <small id="no_peraturan_desa" class="text-gray-700">Nomor Peraturan Desa</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_peraturan_desa" id="tgl_peraturan_desa" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_peraturan_desa" class="text-gray-700">Tanggal Peraturan Desa</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Kesepakatan</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_kesepakatan" id="no_kesepakatan" class="form-control border-left-primary" required>
-                          <small id="no_kesepakatan" class="text-gray-700">Nomor Kesepakatan</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_kesepakatan" id="tgl_kesepakatan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_kesepakatan" class="text-gray-700">Tanggal Kesepakatan</small>
-                        </div>
-                      </div>
+                        <label for="no_dan_tgl_peraturan_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan Desa</label>
+                        <input type="text" name="no_dan_tgl_peraturan_desa" id="no_dan_tgl_peraturan_desa" class="form-control border-left-primary" required>
                     </div>
                     
                     <div class="col-lg-6 mt-3">
@@ -74,11 +49,15 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
+                        <label for="no_dan_tgl_kesepakatan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Kesepakatan</label>
+                        <input type="text" name="no_dan_tgl_kesepakatan" id="no_dan_tgl_kesepakatan" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
 
@@ -94,7 +73,6 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
-                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

@@ -1,16 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
-
 class Buku_ekspedisi extends Admin_Controller {
 
     private $_table = 'buku_ekspedisi';
     private $_folder = 'buku_ekspedisi';
     private $_mainTitle = 'Buku Ekspedisi';
-    private $_exelName = 'buku_ekspedisi.xls';
 
     function __construct() {
         parent::__construct();
@@ -22,8 +17,7 @@ class Buku_ekspedisi extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'no_surat', 'rules' => 'required'],
-            ['field' => 'tgl_surat','label' => 'tgl_surat', 'rules' => 'required'],
+            ['field' => 'tgl_no_surat','label' => 'tgl_no_surat', 'rules' => 'required'],
             ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
             ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
@@ -33,8 +27,7 @@ class Buku_ekspedisi extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'no_surat', 'rules' => 'required'],
-            ['field' => 'tgl_surat','label' => 'tgl_surat', 'rules' => 'required'],
+            ['field' => 'tgl_no_surat','label' => 'tgl_no_surat', 'rules' => 'required'],
             ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
             ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
             ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
@@ -102,10 +95,10 @@ class Buku_ekspedisi extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                   
+                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => $this->upload->display_errors(),
+                        'message' => 'Mohon Maaf, file gagal diupload',
                     );
                     echo json_encode($callback);
                     exit;
@@ -119,8 +112,7 @@ class Buku_ekspedisi extends Admin_Controller {
             $_POST = $this->input->post();
             $data = array(
                 'tgl_pengiriman' => $_POST['tgl_pengiriman'],
-                'no_surat' => $_POST['no_surat'],
-                'tgl_surat' => $_POST['tgl_surat'],
+                'tgl_no_surat' => $_POST['tgl_no_surat'],
                 'isi_singkat_surat' => $_POST['isi_singkat_surat'],
                 'ditunjukkan_kpd' => $_POST['ditunjukkan_kpd'],
                 'ket' => $_POST['ket'],
@@ -193,14 +185,6 @@ class Buku_ekspedisi extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
-                if(!$berkas){
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => $this->upload->display_errors(),
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -211,8 +195,7 @@ class Buku_ekspedisi extends Admin_Controller {
 
             $data = array(
                 'tgl_pengiriman' => $_POST['tgl_pengiriman'],
-                'no_surat' => $_POST['no_surat'],
-                'tgl_surat' => $_POST['tgl_surat'],
+                'tgl_no_surat' => $_POST['tgl_no_surat'],
                 'isi_singkat_surat' => $_POST['isi_singkat_surat'],
                 'ditunjukkan_kpd' => $_POST['ditunjukkan_kpd'],
                 'ket' => $_POST['ket'],
@@ -426,7 +409,7 @@ class Buku_ekspedisi extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            return false;
+            echo $this->upload->display_errors();
         }    
     }
 
@@ -438,77 +421,12 @@ class Buku_ekspedisi extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
-                return true;
-            }
-
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
-    }
-
-    public function cetak(){
-        $reader = IOFactory::createReader('Xls');
-        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
-        $data = $this->Main_m->get($this->_table,null)->result();
-        $values = array();
-        $i = 0;
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                $no++,
-                $d->tgl_pengiriman,
-                $d->tgl_surat.",".$d->no_surat,
-                $d->isi_singkat_surat,
-                $d->ditunjukkan_kpd,
-                $d->ket
-            );
-            $values[] = $subvalues;
-            $i++;
-        }
-
-        $sheet = $spreadsheet->getActiveSheet();
-        $sheet->fromArray(
-            $values,
-            NULL,
-            'A7'
-        );
-
-        $styleArray = [
-            'borders' => [
-                'allBorders' => [
-                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
-                ],
-            ],
-        ];
-
-        $i = $i + 6;
-
-        $sheet->getStyle('A7:F'.$i)->applyFromArray($styleArray);
-        $sheet->getStyle('A7:F'.$i)->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A7:F'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-        $sheet->getStyle('A7:F'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // foreach(range('A7','J') as $columnID) {
-        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
-        // }
-        for($r = 7;$r <= $i;$r++){
-            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
-        }
-        $writer = new Xls($spreadsheet);
-
-        $filename = $this->_exelName;
-
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment; filename='.$filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        $writer->save('php://output');
     }
 }
 ?>

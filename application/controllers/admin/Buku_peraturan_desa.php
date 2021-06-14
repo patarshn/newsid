@@ -1,57 +1,44 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
-
 class Buku_peraturan_desa extends Admin_Controller {
 
     private $_table = 'buku_peraturan_desa';
     private $_folder = 'buku_peraturan_desa';
     private $_mainTitle = 'Buku Peraturan Desa';
-    private $_docxName = 'buku_peraturan_desa.docx';
-    private $_exelName = 'buku_peraturan_desa.xls';
 
     function __construct() {
         parent::__construct();
         $this->load->model('Main_m');
         $this->load->library('breadcrumbcomponent');
-        $this->load->library('pdf');
         
     }
 
     function rulesStore() {
         return [
             ['field' => 'jenis_peraturan_desa','label' => 'jenis_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tgl_ditetapkan','label' => 'tanggal ditetapkan', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_ditetapkan','label' => 'no_dan_tgl_ditetapkan', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
             ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'tgl_kesepakatan_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan','label' => 'no_dilaporkan', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan','label' => 'tgl_dilaporkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_lembaran_desa','label' => 'no_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_lembaran_desa','label' => 'tgl_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_berita_desa','label' => 'no_diundangkan_dalam_berita_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_berita_desa','label' => 'tgl_diundangkan_dalam_berita_desa', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_dilaporkan','label' => 'no_dan_tgl_dilaporkan', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_diundangkan_dalam_lembaran_desa','label' => 'no_dan_tgl_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_diundangkan_dalam_berita_desa','label' => 'no_dan_tgl_diundangkan_dalam_berita_desa', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
             ['field' => 'jenis_peraturan_desa','label' => 'jenis_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tgl_ditetapkan','label' => 'tgl_ditetapkan', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_ditetapkan','label' => 'no_dan_tgl_ditetapkan', 'rules' => 'required'],
             ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
             ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
             ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'tgl_kesepakatan_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan','label' => 'no_dilaporkan', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan','label' => 'tgl_dilaporkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_lembaran_desa','label' => 'no_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_lembaran_desa','label' => 'tgl_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_berita_desa','label' => 'no_diundangkan_dalam_berita_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_berita_desa','label' => 'tgl_diundangkan_dalam_berita_desa', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_dilaporkan','label' => 'no_dan_tgl_dilaporkan', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_diundangkan_dalam_lembaran_desa','label' => 'no_dan_tgl_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
+            ['field' => 'no_dan_tgl_diundangkan_dalam_berita_desa','label' => 'no_dan_tgl_diundangkan_dalam_berita_desa', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -116,10 +103,10 @@ class Buku_peraturan_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    //echo $this->upload->display_errors();
+                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => $this->upload->display_errors(),
+                        'message' => 'Mohon Maaf, file gagal diupload',
                     );
                     echo json_encode($callback);
                     exit;
@@ -133,17 +120,13 @@ class Buku_peraturan_desa extends Admin_Controller {
             $_POST = $this->input->post();
             $data = array(
                 'jenis_peraturan_desa' => $_POST['jenis_peraturan_desa'],
-                'no_ditetapkan' => $_POST['no_ditetapkan'],
-                'tgl_ditetapkan' => $_POST['tgl_ditetapkan'],
+                'no_dan_tgl_ditetapkan' => $_POST['no_dan_tgl_ditetapkan'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tgl_kesepakatan_peraturan_desa' => $_POST['tgl_kesepakatan_peraturan_desa'],
-                'no_dilaporkan' => $_POST['no_dilaporkan'],
-                'tgl_dilaporkan' => $_POST['tgl_dilaporkan'],
-                'no_diundangkan_dalam_lembaran_desa' => $_POST['no_diundangkan_dalam_lembaran_desa'],
-                'tgl_diundangkan_dalam_lembaran_desa' => $_POST['tgl_diundangkan_dalam_lembaran_desa'],
-                'no_diundangkan_dalam_berita_desa' => $_POST['no_diundangkan_dalam_berita_desa'],
-                'tgl_diundangkan_dalam_berita_desa' => $_POST['tgl_diundangkan_dalam_berita_desa'],
+                'no_dan_tgl_dilaporkan' => $_POST['no_dan_tgl_dilaporkan'],
+                'no_dan_tgl_diundangkan_dalam_lembaran_desa' => $_POST['no_dan_tgl_diundangkan_dalam_lembaran_desa'],
+                'no_dan_tgl_diundangkan_dalam_berita_desa' => $_POST['no_dan_tgl_diundangkan_dalam_berita_desa'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => "Pending",
@@ -214,15 +197,6 @@ class Buku_peraturan_desa extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
-                if(!$berkas){
-                    //echo $this->upload->display_errors();
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => $this->upload->display_errors(),
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -233,17 +207,13 @@ class Buku_peraturan_desa extends Admin_Controller {
 
             $data = array(
                 'jenis_peraturan_desa' => $_POST['jenis_peraturan_desa'],
-                'no_ditetapkan' => $_POST['no_ditetapkan'],
-                'tgl_ditetapkan' => $_POST['tgl_ditetapkan'],
+                'no_dan_tgl_ditetapkan' => $_POST['no_dan_tgl_ditetapkan'],
                 'tentang' => $_POST['tentang'],
                 'uraian_singkat' => $_POST['uraian_singkat'],
                 'tgl_kesepakatan_peraturan_desa' => $_POST['tgl_kesepakatan_peraturan_desa'],
-                'no_dilaporkan' => $_POST['no_dilaporkan'],
-                'tgl_dilaporkan' => $_POST['tgl_dilaporkan'],
-                'no_diundangkan_dalam_lembaran_desa' => $_POST['no_diundangkan_dalam_lembaran_desa'],
-                'tgl_diundangkan_dalam_lembaran_desa' => $_POST['tgl_diundangkan_dalam_lembaran_desa'],
-                'no_diundangkan_dalam_berita_desa' => $_POST['no_diundangkan_dalam_berita_desa'],
-                'tgl_diundangkan_dalam_berita_desa' => $_POST['tgl_diundangkan_dalam_berita_desa'],
+                'no_dan_tgl_dilaporkan' => $_POST['no_dan_tgl_dilaporkan'],
+                'no_dan_tgl_diundangkan_dalam_lembaran_desa' => $_POST['no_dan_tgl_diundangkan_dalam_lembaran_desa'],
+                'no_dan_tgl_diundangkan_dalam_berita_desa' => $_POST['no_dan_tgl_diundangkan_dalam_berita_desa'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
@@ -455,156 +425,24 @@ class Buku_peraturan_desa extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            return false;
+            echo $this->upload->display_errors();
         }    
     }
 
     private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();
         foreach ($berkas_id as $b_id) {
-                 
+            
             if(empty($b_id->berkas)){
                 return true;
             }
 
-            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
-                return true;
-            }
-            
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
-    }
-
-    public function cetak(){
-        $reader = IOFactory::createReader('Xls');
-        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
-        $data = $this->Main_m->get($this->_table,null)->result();
-        $values = array();
-        $i = 0;
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                $no++,
-                $d->jenis_peraturan_desa,
-                $d->no_ditetapkan.",".$d->tgl_ditetapkan,
-                $d->tentang,
-                $d->uraian_singkat,
-                $d->tgl_kesepakatan_peraturan_desa,
-                $d->no_dilaporkan.",".$d->tgl_dilaporkan,
-                $d-> no_diundangkan_dalam_lembaran_desa.",".$d->tgl_diundangkan_dalam_lembaran_desa,
-                $d->no_diundangkan_dalam_berita_desa.",".$d->tgl_diundangkan_dalam_berita_desa,
-                $d->ket
-            );
-            $values[] = $subvalues;
-            $i++;
-        }
-
-        $sheet = $spreadsheet->getActiveSheet();
-        $sheet->fromArray(
-            $values,
-            NULL,
-            'A7'
-        );
-
-        $styleArray = [
-            'borders' => [
-                'allBorders' => [
-                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
-                ],
-            ],
-        ];
-
-        $i = $i + 6;
-
-        $sheet->getStyle('A7:J'.$i)->applyFromArray($styleArray);
-        $sheet->getStyle('A7:J'.$i)->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A7:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-        $sheet->getStyle('A7:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // foreach(range('A7','J') as $columnID) {
-        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
-        // }
-        for($r = 7;$r <= $i;$r++){
-            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
-        }
-
-        $writer = new Xls($spreadsheet);
-
-        $filename = $this->_exelName;
-
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment; filename='.$filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        $writer->save('php://output');
-    }
-
-
-    public function cetak3(){
-        $data = $this->Main_m->get($this->_table,null)->result();
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_umum/'.$this->_docxName);
-        $values = array();
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                'no' => $no++,
-                'jenis_peraturan_desa' => $d->jenis_peraturan_desa,
-                'no_ditetapkan' => $d->no_ditetapkan,
-                'tgl_ditetapkan' => $d->tgl_ditetapkan,
-                'tentang' => $d->tentang,
-                'uraian_singkat' => $d->uraian_singkat,
-                'tgl_kesepakatan_peraturan_desa' => $d->tgl_kesepakatan_peraturan_desa,
-                'no_dilaporkan' => $d->no_dilaporkan,
-                'tgl_dilaporkan' => $d->tgl_dilaporkan,
-                'no_diundangkan_dalam_lembaran_desa' => $d-> no_diundangkan_dalam_lembaran_desa,
-                'tgl_diundangkan_dalam_lembaran_desa' => $d->tgl_diundangkan_dalam_lembaran_desa,
-                'no_diundangkan_dalam_berita_desa' => $d->no_diundangkan_dalam_berita_desa,
-                'tgl_diundangkan_dalam_berita_desa' => $d->tgl_diundangkan_dalam_berita_desa,
-                'ket'=> $d->ket
-            );
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;
-    }
-
-    public function cetak2(){
-        $this->load->library('pdf');
-        
-        // title dari pdf
-        $this->data['title_pdf'] = 'Laporan Penjualan Toko Kita';
-        
-        // filename dari pdf ketika didownload
-        $file_pdf = 'Buku_Administrasi_Umum';
-        // setting paper
-        $paper = 'A4';
-        //orientasi paper potrait / landscape
-        $orientation = "portrait";
-		$html = $this->load->view('admin/buku_peraturan_desa/laporan_pdf',$this->data, true);	   
-        // run dompdf
-        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
     }
 }
 ?>

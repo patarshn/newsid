@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
                     </div>
                   </div>
                 </div>
@@ -33,31 +33,26 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Rapat BPD: <?= date("d-m-Y", strtotime($d->tgl))?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Rapat BPD: <?=$d->tgl?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
-                                    
-                                    <tr>
-                                        <th width="50%">Tanggal Rapat</th>
-                                        <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
-                                    </tr >
 
                                     <tr>
-                                        <th>Agenda Rapat</th>
+                                        <th width="50%">Agenda Rapat</th>
                                         <td><?=$d->agenda?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Berkas Daftar Hadir Rapat</th>
                                         <td>
-                                        <?php if($d->berkas1 != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas1)):?>
+                                        <?php if($d->berkas1 != null):?>
                                         <?=$d->berkas1?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas1?>" target="_blank">Unduh Berkas</a>
                                         <?php else :?>
-                                        Berkas Tidak Ada
+                                        berkas Tidak ada
                                         <?php endif; ?>
                                         </td>
                                         
@@ -66,12 +61,12 @@
                                     <tr>
                                         <th>Berkas Notulen Rapat</th>
                                         <td>
-                                        <?php if($d->berkas2 != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas2)):?>
+                                        <?php if($d->berkas2 != null):?>
                                         <?=$d->berkas2?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas2?>" target="_blank">Unduh Berkas</a>
                                         <?php else :?>
-                                        Berkas Tidak Ada
+                                        berkas Tidak ada
                                         <?php endif; ?>
                                         </td>
                                         

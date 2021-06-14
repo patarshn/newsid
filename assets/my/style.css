@@ -531,6 +531,7 @@ a{
     100% { transform: rotate(360deg); }
   }
 
+
   .vertical-center {
     margin: 0;
     position: absolute;

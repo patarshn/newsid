@@ -29,7 +29,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">Edit <?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning">Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -40,37 +40,35 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                 <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Inventaris Hasil Pembangunan : <?=$d->nama_hasil?></h5>
-                <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="nama_hasil">Jenis/Nama Hasil Pembangunan</label>
-                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder="Nama proyek/kegiatan yang dibangun di Desa" value="<?=$d->nama_hasil?>" required>
+                        <label for="nama_hasil"><b>Jenis/Nama Hasil Pembangunan</b></label>
+                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder=" " value="<?=$d->nama_hasil?>" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
-                        <input type="text" name="volume" id="volume" class="form-control border-left-primary "  placeholder="Besaran proyek/kegiatan" value="<?=$d->volume?>" required>
+                        <label for="volume"><b>Volume</b></label>
+                        <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="volume" value="<?=$d->volume?>" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="biaya">Biaya</label>
-                        <input type="number" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" required>
+                        <label for="biaya"><b>Biaya</b></label>
+                        <input type="text" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="biaya" value="<?=$d->biaya?>" required>
                     </div>
                     </div>
                     <div class="col-lg-6"> 
-                        <label class="text-gray-900 font-weight-bold" for="lokasi">Lokasi</label>
-                        <input type="text" name="lokasi" id="lokasi" class="form-control border-left-primary" placeholder="Lokasi proyek/kegiatan yang dibangun" rows="2" value="<?=$d->lokasi?>" required>
+                        <label for="lokasi"><b>Lokasi</b></label>
+                        <input type="text" name="lokasi" id="lokasi" class="form-control border-left-primary" placeholder="lokasi" rows="2" value="<?=$d->lokasi?>" required>
                     </div>
 
                 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3"  placeholder="Catatan-catatan lain yang dianggap perlu"><?=$d->ket?></textarea>
+                            <label for="ket"><b>Keterangan</b></label>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3"><?=$d->ket?></textarea>
                         </div>                   
                     </div>
                 </div>

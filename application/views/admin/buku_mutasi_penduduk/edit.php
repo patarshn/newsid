@@ -29,7 +29,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"> <?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning">Cancel</button>
                     </div>
                   </div>
                 </div>
@@ -40,39 +40,54 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                <h5 class="text-gray-900 font-weight-bold"><center>Data Penduduk Sementara : <?=$d->nama?></h5>
+                <h5 class="modal-title"><b><center>Data Penduduk Sementara : <?=$d->nama?></b></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
 
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="bulan_tahun">Bulan dan Tahun Mutasi</label>
-                        <input type="month" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" value="<?=$d->bulan_tahun?>" required>
+                        <label for="bulan_tahun"><b>Bulan dan Tahun Mutasi</b></label>
+                        <input type="bulan_number" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" value="<?=$d->bulan_tahun?>" required>
                     </div>
                     </div>
 
-                <div class="col-lg-6 ">
+                <div class="col-lg-12 ">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
+                        <label for="nama"><b>Nama</b></label>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" value="<?=$d->nama?>" required>
                     </div>
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-12">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
+                        <label for="jk"><b>Jenis Kelamin</b></label>
                         <select name="jk" id="jk" class="form-control" required>
                             <option><?=$d->jk?></option>
-                            <option value="Laki-Laki">Laki-Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                            <option value="L">L</option>
+                            <option value="P">P</option>
                         </select>
+                        <small id="abb_apb_desa" class="text-gray-700">L = Laki-Laki <br> P = Perempuan</small>
                     </div> 
                     </div>
 
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
+                        <label for="tempat_lahir"><b>Tempat Lahir</b></label>
+                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" value="<?=$d->tempat_lahir?>" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="tgl_lahir"><b>Tanggal Lahir</b></label>
+                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" value="<?=$d->tgl_lahir?>" required>
+                    </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                        <label for="wn"><b>Kewarganegaraan</b></label>
                         <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
                             <option><?=$d->wn?></option>
                             <option value="WNI">WNI</option>
@@ -81,49 +96,35 @@
                     </div>
                     </div>
 
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" value="<?=$d->tempat_lahir?>" required>
-                    </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                    <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="tgl_lahir">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" value="<?=$d->tgl_lahir?>" required>
-                    </div>
-                    </div>
-
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold"> <br> Penambahan</h4>
+                    <h4><b>Penambahan</b></h4>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="datang">Datang Dari (Tempat/Alamat Asal)</label>
+                        <label for="datang"><b>Datang Dari (Tempat/Alamat Asal)</b></label>
                         <input type="text" name="datang" id="datang" class="form-control border-left-primary" placeholder="Asal tempat dan alamat semula" value="<?=$d->datang?>" >
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="tgl_datang">Tanggal Datang</label>
+                        <label for="tgl_datang"><b>Tanggal Datang</b></label>
                         <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="Tanggal datang ke desa" value="<?=$d->tgl_datang?>" >
                     </div>
                     </div>
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold"> <br> Pengurangan</h4>
+                    <h4><b>Pengurangan</b></h4>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="pindah">Pindah Ke (Lokasi Tujuan)</label>
+                        <label for="pindah"><b>Pindah Ke (Lokasi Tujuan)</b></label>
                         <input type="text" name="pindah" id="pindah" class="form-control border-left-primary" placeholder="Lokasi tujuan pindah" value="<?=$d->pindah?>" >
                     </div>
                     </div>
@@ -131,7 +132,7 @@
 
                     <div class="col-lg-6">
                     <div class="form-group">
-                          <label class="text-gray-900 font-weight-bold" for="tgl_pindah">Tanggal Pindah</label>
+                          <label for="tgl_pindah"><b>Tanggal Pindah</b></label>
                           <input type="date" name="tgl_pindah" id="tgl_pindah" class="form-control border-left-primary" placeholder="Tanggal Kepindahan" value="<?=$d->tgl_pindah?>" >
                       </div>
                       </div>
@@ -139,14 +140,14 @@
                   
                       <div class="col-lg-6">
                       <div class="form-group">
-                          <label class="text-gray-900 font-weight-bold" for="meninggal">Tempat/Alamat Meninggal</label>
+                          <label for="meninggal"><b>Tempat/Alamat Meninggal</b></label>
                           <input type="text" name="meninggal" id="meninggal" class="form-control border-left-primary" placeholder="Tempat/Alamat Meninggal" value="<?=$d->meninggal?>" >
                       </div>
                       </div>
 
                       <div class="col-lg-6">
                       <div class="form-group">
-                          <label class="text-gray-900 font-weight-bold" for="tgl_meninggal">Tanggal Meninggal</label>
+                          <label for="tgl_meninggal"><b>Tanggal Meninggal</b></label>
                           <input type="date" name="tgl_meninggal" id="tgl_meninggal" class="form-control border-left-primary" placeholder="" value="<?=$d->tgl_meninggal?>" >
                       </div>
                       </div>
@@ -154,7 +155,7 @@
                 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
+                            <label for="ket"><b>Keterangan</b></label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Isikan Keterangan jika diperlukan"><?=$d->ket?></textarea>
                         </div>                   
                     </div>

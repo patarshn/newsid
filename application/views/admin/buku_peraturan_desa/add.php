@@ -46,80 +46,38 @@
                     <div class="col-lg-6 mt-3">
                         <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
                         <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
-                        <small id="tentang" class="text-gray-700">Diisi dengan judul/ penamaan Peraturan Desa</small>
                     </div>
 
                       <div class="col-lg-6 mt-3">
                         <label for="tgl_kesepakatan_peraturan_desa" class="text-gray-900 font-weight-bold">Tanggal Kesepakatan Peraturan Desa</label>
-                        <input type="date" name="tgl_kesepakatan_peraturan_desa" id="tgl_kesepakatan_peraturan_desa" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                        <input type="date" name="tgl_kesepakatan_peraturan_desa" id="tgl_kesepakatan_peraturan_desa" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_dan_tgl_ditetapkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal ditetapkan</label>
+                        <input type="text" name="no_dan_tgl_ditetapkan" id="no_dan_tgl_ditetapkan" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_dan_tgl_dilaporkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Dilaporkan</label>
+                        <input type="text" name="no_dan_tgl_dilaporkan" id="no_dan_tgl_dilaporkan" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_dan_tgl_diundangkan_dalam_lembaran_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</label>
+                        <input type="text" name="no_dan_tgl_diundangkan_dalam_lembaran_desa" id="no_dan_tgl_diundangkan_dalam_lembaran_desa" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_dan_tgl_diundangkan_dalam_berita_desa" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Diundangkan Dalam Berita Desa</label>
+                        <input type="text" name="no_dan_tgl_diundangkan_dalam_berita_desa" id="no_dan_tgl_diundangkan_dalam_berita_desa" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal ditetapkan</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_ditetapkan" id="no_ditetapkan" class="form-control border-left-primary" required>
-                          <small id="no_ditetapkan" class="text-gray-700">Nomor Ditetapkan</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_ditetapkan" id="tgl_ditetapkan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_ditetapkan" class="text-gray-700">Tanggal Ditetapkan</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Dilaporkan</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_dilaporkan" id="no_dilaporkan" class="form-control border-left-primary" required>
-                          <small id="no_dilaporkan" class="text-gray-700">Nomor Dilaporkan</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_dilaporkan" id="tgl_dilaporkan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_dilaporkan" class="text-gray-700">Tanggal Dilaporkan</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_diundangkan_dalam_lembaran_desa" id="no_diundangkan_dalam_lembaran_desa" class="form-control border-left-primary" required>
-                          <small id="no_diundangkan_dalam_lembaran_desa" class="text-gray-700">Nomor Diundangkan Dalam Lembaran Desa</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_diundangkan_dalam_lembaran_desa" id="tgl_diundangkan_dalam_lembaran_desa" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_diundangkan_dalam_lembaran_desa" class="text-gray-700">Tanggal Diundangkan Dalam Lembaran Desa</small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Diundangkan Dalam Berita Desa</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_diundangkan_dalam_berita_desa" id="no_diundangkan_dalam_berita_desa" class="form-control border-left-primary" required>
-                          <small id="no_diundangkan_dalam_berita_desa" class="text-gray-700">Nomor Diundangkan Dalam Berita Desa</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_diundangkan_dalam_berita_desa" id="tgl_diundangkan_dalam_berita_desa" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_diundangkan_dalam_berita_desa" class="text-gray-700">Tanggal Diundangkan Dalam Berita Desa</small>
-                        </div>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
 
@@ -127,7 +85,6 @@
                         <div class="form-group">
                             <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
                             <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
-                            <small id="uraian_singkat" class="text-gray-700">Diisi secara jelas dan singkat tentang materi pokok pada Peraturan Desa yang telah ditetapkan</small>
                         </div>
                     </div>
 
@@ -135,7 +92,6 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
-                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

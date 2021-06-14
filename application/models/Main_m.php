@@ -16,7 +16,7 @@ class Main_m extends MY_Model
             $status = $this->db->order_by('id','desc')->get($table);
         }
         else{
-            $status = $this->db->where($where)->order_by('id','desc')->get($table);
+            $status = $this->db->order_by('id','desc')->where($where)->get($table);
         }
         
         return $status;
@@ -99,14 +99,5 @@ class Main_m extends MY_Model
         return $status;
     }
 
-    public function getAsc($table,$where){
-        if($where == null){
-            $status = $this->db->order_by('id','asc')->get($table);
-        }
-        else{
-            $status = $this->db->where($where)->order_by('id','asc')->get($table);
-        }
-        
-        return $status;
-    }
+
 }

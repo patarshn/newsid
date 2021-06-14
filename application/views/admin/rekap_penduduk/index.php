@@ -26,17 +26,17 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between ">
               <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')">Add</button>
+                    <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-										  <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
+                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
 										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
-										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Delete</button>
+										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
               </div>
@@ -45,32 +45,18 @@
               <div class="table-responsive">
                <form method="POST" id="formdelete" action="/kk/destroy">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
+                  <thead> 
                     <tr>
-                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th>No</th>
+                      <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>NIK</th>
-                      <th>Nama</th>
-                      <th>Alamat</th>
-                      <th>RT</th>
-                      <th>RW</th>
-                      <th>Pengajuan</th>
-                      <th width="10%">Verif Lurah</th>
+                      
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
-                      <th width="5%"></th>
-                      <th>No</th>
+                    <th width="5%">No</th>
                       <th width="3%"></th>
-                      <th>NIK</th>
-                      <th>Nama</th>
-                      <th>Alamat</th>
-                      <th>RT</th>
-                      <th>RW</th>
-                      <th>Pengajuan</th>
-                      <th>Verif Lurah</th>
+                      
                     </tr>
                   </tfoot>
                   <tbody>
@@ -81,10 +67,10 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
+                        <?=$count++;?>
                       </td>
-                    <td><?=$count++;?></td>
                       <td><div class="dropdown no-arrow">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
@@ -92,40 +78,12 @@
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
-                          <!--<div class="dropdown-divider"></div>-->
+                          
                           </div>
                         </div>
+
                       </td>
-                      <td><?=$d->nik?></td>
-                      <td><?=$d->nama?></td>
-                      <td><?=$d->alamat?></td>
-                      <td><?=$d->rt?></td>
-                      <td><?=$d->rw?></td>
-                      <td>
-                      <?php
-                      $pengajuan  = explode(" ",$d->created_at);
-                      echo $pengajuan[0]."<br>";
-                      echo $pengajuan[1];
-                      ?>
-                      </td>
-                      <td>
-                        <?php 
-                        if($d->verif_lurah_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $verif_lurah_at  = explode(" ",$d->verif_lurah_at);
-                          $verif_time = "<br>".$verif_lurah_at[0]."<br>".$verif_lurah_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->verif_lurah == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->verif_lurah == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->verif_lurah == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
+                      
                     </tr>
                   <?php endforeach;?>
                   </tbody>

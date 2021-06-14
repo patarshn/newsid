@@ -73,7 +73,7 @@ class Data_kependudukan extends Admin_Controller{
                     <a class="dropdown-item" href="'.base_url('admin/'.$this->_folder.'/cetak/'.$field->nik).'">Cetak</a>
                 </div>
             </div>';
-            $row[] = $field->nkk; 
+            $row[] = $field->nkk;
             $row[] = $field->nik;
             $row[] = $field->nama;
             $row[] = $field->rt;

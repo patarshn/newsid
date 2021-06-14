@@ -98,49 +98,22 @@
                         <input type="text" name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control border-left-primary" value="<?=$d->pendidikan_terakhir?>" required>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Pengangkatan</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_keputusan_pengangkatan" id="no_keputusan_pengangkatan" class="form-control border-left-primary" value="<?=$d->no_keputusan_pengangkatan?>" required>
-                          <small id="no_keputusan_pengangkatan" class="text-gray-700">Nomor Keputusan Pengangkatan</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_keputusan_pengangkatan" id="tgl_keputusan_pengangkatan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_keputusan_pengangkatan?>" required>
-                          <small id="tgl_keputusan_pengangkatan" class="text-gray-700">Tanggal Keputusan Pengangkatan</small>
-                        </div>
-                      </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_tgl_keputusan_pengangkatan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pengangkatan</label>
+                        <input type="text" name="no_tgl_keputusan_pengangkatan" id="no_tgl_keputusan_pengangkatan" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_pengangkatan?>" required>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Pemberhentian</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_keputusan_pemberhentian" id="no_keputusan_pemberhentian" class="form-control border-left-primary" value="<?=$d->no_keputusan_pemberhentian?>" required>
-                          <small id="no_keputusan_pemberhentian" class="text-gray-700">Nomor Keputusan Pemberhentian</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_keputusan_pemberhentian" id="tgl_keputusan_pemberhentian" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_keputusan_pemberhentian?>" required>
-                          <small id="tgl_keputusan_pemberhentian" class="text-gray-700">Tanggal Keputusan Pemberhentian</small>
-                        </div>
-                      </div>
+                    <div class="col-lg-6 mt-3">
+                        <label for="no_tgl_keputusan_pemberhentian" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Keputusan Pemberhentian</label>
+                        <input type="text" name="no_tgl_keputusan_pemberhentian" id="no_tgl_keputusan_pemberhentian" class="form-control border-left-primary" value="<?=$d->no_tgl_keputusan_pemberhentian?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                      <label for="berkas" class="custom-file-label border-left-primary">
-                          <?php if ($d->berkas !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas)):?>
-                          <?=$d->berkas?>
-                          <?php else :?>
-                          Berkas Tidak Ada
-                          <?php endif; ?>
-                          </label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
+                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
 
@@ -148,7 +121,6 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
-                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

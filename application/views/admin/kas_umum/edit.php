@@ -1,5 +1,5 @@
-              <!-- Begin Page Content -->
-              <div class="container-fluid">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
           <!-- Content Row -->
 
           <div class="row">
@@ -29,87 +29,68 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?php echo form_open(base_url('kas_umum/update'),'id="form"');
-                foreach($data as $d):
-                ?>
+                <?=form_open_multipart(base_url('kas_umum/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
-                <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
-                <div class="col-lg-4 mt-2">
-                        <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
+                <div class="form-row">
+                    <div class="col-lg-6 mt-3">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
-                        <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" value="<?=$d->tanggal?>" required>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                        <input type="text" name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" value="<?=$d->kode_rekening?>" required>
+                        <input type="text" name="kode_rekening" id="kode_rekening" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
+                        <input type="text" name="uraian" id="uraian" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-3 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
-                        <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" value="<?=$d->no_bukti?>" required>
+                        <input type="text" name="no_bukti" id="no_bukti" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Komulatif</label>
-                        <input type="text" name="jumlah_komulatif" id="jumlah_komulatif" class="form-control border-left-primary" value="<?=$d->jumlah_komulatif?>" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran Komulatif</label>
+                            <textarea class="form-control" name="jumlah_komulatif" id="jumlah_komulatif" rows="1" required></textarea>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" value="<?=$d->saldo?>" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
+                            <textarea class="form-control" name="saldo" id="saldo" rows="1" required></textarea>
+                        </div>
                     </div>
 
-                    <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
-                        <br>
-                        <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
-                        </div>
-                    </div>                    
+                    <div class="col-lg-6 mt-3">
+                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control" required>
+                    </div>
                 </div>
-                    
-                <?php
-                endforeach;
-                echo form_close();?>
+                <?=form_close()?>
                 
                   <div class="d-flex mt-3">
-                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>
+                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>
                         </div>

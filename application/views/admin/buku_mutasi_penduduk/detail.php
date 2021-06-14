@@ -24,9 +24,6 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Kembali</button>
-                  </div>
-                    <div class="btn-group" role="group" aria-label="Basic example">
                         <!--<button type="button" class="btn btn-warning">Cancel</button>-->
                     </div>
                   </div>
@@ -36,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="modal-header  border-bottom">
-                    <h5 class="text-gray-900 font-weight-bold" >Data Mutasi Penduduk: <?=$d->nama?></h5>
+                    <h5 class="modal-title"><b>Data Mutasi Penduduk: <?=$d->nama?></b></h5>
                     </div>
                                   <div class="row">
                                       <div class="col-lg-12">
@@ -51,7 +48,7 @@
                                                   <td><?=$d->tempat_lahir?></td></tr> 
 
                                                   <tr><th>Tanggal Lahir</th>
-                                                  <td><?= date("d-m-Y", strtotime($d->tgl_lahir))?></td></tr>
+                                                  <td><?=$d->tgl_lahir?></td></tr>
 
                                                   <tr><th>Jenis Kelamin</th>
                                                   <td><?=$d->jk?></td></tr> 
@@ -67,7 +64,7 @@
                                                   <td><?=$d->datang?></td></tr>
 
                                                   <tr><th>Tanggal Kedatangan</th>
-                                                  <td class="border-bottom-primary"><?= date("d-m-Y", strtotime($d->tgl_datang))?></td></tr> 
+                                                  <td class="border-bottom-primary"><?=$d->tgl_datang?></td></tr> 
                                                   </thead>  
                                                   <h5><b>Penambahan</b></h5>  
 
@@ -78,13 +75,13 @@
                                                   <td><?=$d->pindah?></td></tr>
 
                                                   <tr><th>Tanggal Pindah</th>
-                                                  <td><?= date("d-m-Y", strtotime($d->tgl_pindah))?></td></tr> 
+                                                  <td><?=$d->tgl_pindah?></td></tr> 
 
                                                   <tr><th>Meninggal (Tempat/Lokasi) </th>
                                                   <td><?=$d->meninggal?></td></tr>
 
                                                   <tr><th>Tanggal Meninggal</th>
-                                                  <td class="border-bottom-primary"><?= date("d-m-Y", strtotime($d->tgl_meninggal))?></td></tr> 
+                                                  <td class="border-bottom-primary"><?=$d->tgl_meninggal?></td></tr> 
                                                  </thead>        
                                                  <h5><b>Pengurangan</b></h>                               
                                               </table>

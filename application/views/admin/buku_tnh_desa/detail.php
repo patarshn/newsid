@@ -24,7 +24,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                 <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
                 </div>
                 </div>
             </div>
@@ -56,13 +56,13 @@
                                 <tr>
                                     <th>Berkas</th>
                                     <td>
-                                    <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
+                                    <?php if($d->berkas != null):?>
                                     <?=$d->berkas?>
                                     <br>
                                     <a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
                                     <?php else :?>
                                     berkas Tidak ada
-                                    <?php endif;?>
+                                    <?php endif; ?>
                                     </td>
                                     
                                 </tr >
@@ -86,7 +86,7 @@
                             <h8><b>Status Hak Tanah Sudah Bersertifikat</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="30%">Hak Milik</th>
+                                    <th width="50%">Hak Milik</th>
                                     <td><?=$d->sdh_serti_hm?> m<sup>2</sup></td>
                                 </tr >
 
@@ -114,7 +114,7 @@
                             <h8><b>Status Hak Tanah Belum Bersertifikat</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                     <tr>
-                                    <th width="30%">Hak Milik Adat</th>
+                                    <th width="50%">Hak Milik Adat</th>
                                     <td><?=$d->blm_serti_ma?></td>
                                 </tr >
                                 
@@ -132,7 +132,7 @@
                             <h8><b>Penggunaan Tanah Pertanian</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="30%">Sawah</th>
+                                    <th width="50%">Sawah</th>
                                     <td><?=$d->sdh_serti_hm?></td>
                                 </tr >
 
@@ -180,7 +180,7 @@
                             <h8><b>Penggunaan Tanah Non Pertanian</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="30%">Perumahan</th>
+                                    <th width="50%">Perumahan</th>
                                     <td><?=$d->non_pertanian_perumahan?></td>
                                 </tr >
                                 
@@ -190,7 +190,7 @@
                                 </tr >
 
                                 <tr>
-                                    <th width="30%">Perkantoran</th>
+                                    <th width="50%">Perkantoran</th>
                                     <td><?=$d->non_pertanian_kantor?></td>
                                 </tr >
                                 
@@ -200,7 +200,7 @@
                                 </tr >
 
                                 <tr>
-                                    <th width="30%">Fasilitas Umum</th>
+                                    <th width="50%">Fasilitas Umum</th>
                                     <td><?=$d->non_pertanian_fasilitas_umum?></td>
                                 </tr >
                             </table>

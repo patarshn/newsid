@@ -6,7 +6,6 @@ class Buku_data_anggota_bpd extends Admin_Controller {
     private $_table = 'buku_data_anggota_bpd';
     private $_folder = 'buku_data_anggota_bpd';
     private $_mainTitle = 'Buku Data Anggota BPD';
-    private $_docxName = 'buku_data_anggota_bpd.docx';
 
     function __construct() {
         parent::__construct();
@@ -25,10 +24,9 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             ['field' => 'agama','label' => 'agama', 'rules' => 'required'],
             ['field' => 'jabatan','label' => 'jabatan', 'rules' => 'required'],
             ['field' => 'pendidikan_terakhir','label' => 'pendidikan_terakhir', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pengangkatan','label' => 'no_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pengangkatan','label' => 'no_tgl_keputusan_pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pemberhentian','label' => 'no_tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -43,10 +41,9 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             ['field' => 'agama','label' => 'agama', 'rules' => 'required'],
             ['field' => 'jabatan','label' => 'jabatan', 'rules' => 'required'],
             ['field' => 'pendidikan_terakhir','label' => 'pendidikan_terakhir', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pengangkatan','label' => 'no_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pengangkatan','label' => 'no_tgl_keputusan_pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_tgl_keputusan_pemberhentian','label' => 'no_tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
         ];
     }
 
@@ -110,10 +107,11 @@ class Buku_data_anggota_bpd extends Admin_Controller {
 
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
-                if(!$berkas){                    
+                if(!$berkas){
+                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => $this->upload->display_errors(),
+                        'message' => 'Mohon Maaf, file gagal diupload',
                     );
                     echo json_encode($callback);
                     exit;
@@ -133,10 +131,8 @@ class Buku_data_anggota_bpd extends Admin_Controller {
                     'agama' => $_POST['agama'],
                     'jabatan ' => $_POST['jabatan'],
                     'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
-                    'no_keputusan_pengangkatan' => $_POST['no_keputusan_pengangkatan'],
-                    'tgl_keputusan_pengangkatan' => $_POST['tgl_keputusan_pengangkatan'],
-                    'no_keputusan_pemberhentian' => $_POST['no_keputusan_pemberhentian'],
-                    'tgl_keputusan_pemberhentian' => $_POST['tgl_keputusan_pemberhentian'],
+                    'no_tgl_keputusan_pengangkatan' => $_POST['no_tgl_keputusan_pengangkatan'],
+                    'no_tgl_keputusan_pemberhentian' => $_POST['no_tgl_keputusan_pemberhentian'],
                     'ket' => $_POST['ket'],
                     'berkas' => $berkas,
                     'verif_bpd' => "Pending",
@@ -209,14 +205,6 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
-                if(!$berkas){
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => $this->upload->display_errors(),
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -234,10 +222,8 @@ class Buku_data_anggota_bpd extends Admin_Controller {
                 'agama' => $_POST['agama'],
                 'jabatan ' => $_POST['jabatan'],
                 'pendidikan_terakhir' => $_POST['pendidikan_terakhir'],
-                'no_keputusan_pengangkatan' => $_POST['no_keputusan_pengangkatan'],
-                'tgl_keputusan_pengangkatan' => $_POST['tgl_keputusan_pengangkatan'],
-                'no_keputusan_pemberhentian' => $_POST['no_keputusan_pemberhentian'],
-                'tgl_keputusan_pemberhentian' => $_POST['tgl_keputusan_pemberhentian'],
+                'no_tgl_keputusan_pengangkatan' => $_POST['no_tgl_keputusan_pengangkatan'],
+                'no_tgl_keputusan_pemberhentian' => $_POST['no_tgl_keputusan_pemberhentian'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'verif_bpd' => $_POST['verif_bpd'],
@@ -306,7 +292,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -314,7 +300,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -449,7 +435,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            return false;
+            echo $this->upload->display_errors();
         }    
     }
 
@@ -460,10 +446,6 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             if(empty($b_id->berkas)){
                 return true;
             }
-
-            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
-                return true;
-            }
             
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b_id->berkas)) {
                 return false;
@@ -471,50 +453,6 @@ class Buku_data_anggota_bpd extends Admin_Controller {
             
         }
         return true;
-    }
-
-    public function cetak(){
-        $data = $this->Main_m->get($this->_table,null)->result();
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
-        $values = array();
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                'no' => $no++,
-                'nama' => $d->nama,
-                'nip' => $d->nip,
-                'jenis_kelamin' => $d->jenis_kelamin,
-                'tempat_lahir' => $d->tempat_lahir,
-                'tgl_lahir' => $d->tgl_lahir,
-                'agama' => $d->agama,
-                'jabatan' => $d->jabatan,
-                'pendidikan_terakhir' => $d->pendidikan_terakhir,
-                'no_keputusan_pengangkatan' => $d-> no_keputusan_pengangkatan,
-                'tgl_keputusan_pengangkatan' => $d->tgl_keputusan_pengangkatan,
-                'no_keputusan_pemberhentian' => $d->no_keputusan_pemberhentian,
-                'tgl_keputusan_pemberhentian' => $d->tgl_keputusan_pemberhentian,
-                'ket'=> $d->ket
-            );
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;
     }
 }
 ?>

@@ -6,8 +6,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     private $_table = 'kas_pembantu_kegiatan';
     private $_folder = 'kas_pembantu_kegiatan';
     private $_mainTitle = 'Buku Kas Pembantu Kegiatan ';
-    private $_docxName = 'buku_kas_pembantu_kegiatan.docx';
-
 
     function __construct() {
         parent::__construct();
@@ -101,42 +99,71 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     }
 
     public function store(){
-        $_POST = $this->input->post();
-        $data = array(
-                'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'bidang' => $_POST['bidang'],
-                'kegiatan' => $_POST['kode_rekening'],
-                'tanggal' => $_POST['tanggal'],
-                'uraian' => $_POST['uraian'],
-                'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
-                'penerimaan_sdm' => $_POST['penerimaan_sdm'],
-                'no_bukti' => $_POST['no_bukti'],
-                'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],                    
-                'pengeluaran_bm' => $_POST['pengeluaran_bm'],
-                'jumlah' => $_POST['jumlah'],
-                'saldo' => $_POST['saldo'],
-                'ver_kepala_desa' => "Pending",
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_by' =>  $this->session->userdata('username'),
-            );
-        
+        $validation = $this->form_validation;
+        $validation->set_rules($this->rulesStore());
+        if($validation->run()){
 
-            if($this->Main_m->store($data,$this->_table)){
-                $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
-                $callback = array(
-                    'status' => 'success',
-                    'message' => 'Data berhasil diinput',
-                    'redirect' => base_url().'admin/'.$this->_folder,
-                );
+            if(!empty($_FILES["berkas"]["name"])){
+                $berkas = $this->upload_file();
+                if(!$berkas){
+                    echo $this->upload->display_errors();
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, file gagal diupload',
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
             }
             else{
-                //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
+                $berkas = "";
+            }
+
+                $_POST = $this->input->post();
+                $data = array(
+                    'tahun_anggaran' => $_POST['tahun_anggaran'],
+                    'bidang' => $_POST['bidang'],
+                    'kegiatan' => $_POST['kegiatan'],
+                    'tanggal' => $_POST['tanggal'],
+                    'uraian' => $_POST['uraian'],
+                    'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
+                    'penerimaan_sdm' => $_POST['penerimaan_sdm'],
+                    'no_bukti' => $_POST['no_bukti'],
+                    'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
+                    'pengeluaran_bm' => $_POST['pengeluaran_bm'],
+                    'jumlah' => $_POST['jumlah'],
+                    'saldo' => $_POST['saldo'],
+                    'ver_kepala_desa' => "Pending",
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'created_by' =>  $this->session->userdata('username'),
+                    
+                );
+                if($this->Main_m->store($data,$this->_table)){
+                    $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
+                    $callback = array(
+                        'status' => 'success',
+                        'message' => 'Data berhasil diinput',
+                        'redirect' => base_url().'admin/'.$this->_folder,
+                    );
+                }
+                else{
+                    //$this->session->set_flashdata('error_message', 'Mohon maaf, pengisian form gagal');
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'Mohon Maaf, Pengisian form gagal',
+                    );
+                }
+            }
+        
+            else{
+                //$this->session->set_flashdata('error_message', validation_errors());
                 $callback = array(
                     'status' => 'error',
-                    'message' => 'Mohon Maaf, Pengisian form gagal',
+                    'message' => validation_errors(),
                 );
             }
-        echo json_encode($callback);
+            echo json_encode($callback);
+        
     }
 
     function edit($id){
@@ -173,20 +200,27 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             $id = $_POST['id'];
             $where = ['id'=>$id];
             
+            //jika ada file yang baru
+            if(!empty($_FILES["berkas"]["name"])){
+                $berkas = $this->upload_file();
+                $berkas_lama = $this->destroy_file($where);
+            }
+
+            //jika tidak ada file baru
+            else {
+                $berkas = $_POST["old_file"];
+            }
+
             $data = array(
                 'id' => $_POST['id'],
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'bidang' => $_POST['bidang'],
                 'kegiatan' => $_POST['kegiatan'],
-                'tanggal' => $_POST['tanggal'],
+                'waktu_pelaksanaan' => $_POST['waktu_pelaksanaan'],
                 'uraian' => $_POST['uraian'],
-                'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
-                'penerimaan_sdm' => $_POST['penerimaan_sdm'],
-                'no_bukti' => $_POST['no_bukti'],
-                'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
-                'pengeluaran_bm' => $_POST['pengeluaran_bm'],
+                'volume' => $_POST['volume'],
+                'harga_satuan' => $_POST['harga_satuan'],
                 'jumlah' => $_POST['jumlah'],
-                'saldo' => $_POST['saldo'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -253,7 +287,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -261,7 +295,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -414,50 +448,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             
         }
         return true;
-    }
-
-    function cetak(){
-        $tahun_anggaran = $this->input->get('tahun_anggaran');
-        $where = ['tahun_anggaran'=>$tahun_anggaran];
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        #   echo var_dump($data);
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
-        $values = array();
-        $no=1;
-
-        foreach($data as $d){
-            $subvalues = array(
-                'id' => $no++,
-                'tanggal' => $d->tanggal,
-                'uraian' => $d->uraian,
-                'penerimaan_bendahara' => number_format($d->penerimaan_bendahara,0,',','.'),
-                'penerimaan_sdm' => number_format($d->penerimaan_sdm,0,',','.'),
-                'no_bukti' => $d->no_bukti,
-                'pengeluaran_bbj' => number_format($d->pengeluaran_bbj,0,',','.'),
-                'pengeluaran_bm' => number_format($d->pengeluaran_bm,0,',','.'),
-                'jumlah' => number_format($d->jumlah,0,',','.'),
-                'saldo' => number_format($d->saldo,0,',','.')
-            );
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('id', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;    
     }
 }
 ?>

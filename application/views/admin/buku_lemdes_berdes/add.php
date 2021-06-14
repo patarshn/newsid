@@ -44,24 +44,13 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
-                        <small id="tentang" class="text-gray-700">Diisi dengan materi Peraturan Desa</small>
+                        <label for="no_tgl_ditetapkan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal ditetapkan</label>
+                        <input type="text" name="no_tgl_ditetapkan" id="no_tgl_ditetapkan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal ditetapkan</label>
-                      <div class="form-row">
-                        <div class="col-lg-6">
-                          <input type="text" name="no_ditetapkan" id="no_ditetapkan" class="form-control border-left-primary" required>
-                          <small id="no_ditetapkan" class="text-gray-700">Nomor ditetapkan</small>
-                        </div>
-
-                        <div class="col-lg-6">                        
-                          <input type="date" name="tgl_ditetapkan" id="tgl_ditetapkan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_ditetapkan" class="text-gray-700">Tanggal ditetapkan</small>
-                        </div>
-                      </div>
+                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
+                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -83,7 +72,7 @@
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
                       </div>
                     </div>
 
@@ -91,7 +80,6 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
-                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

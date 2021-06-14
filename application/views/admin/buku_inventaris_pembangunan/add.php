@@ -29,7 +29,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning">Batal</button>
                     </div>
                   </div>
                 </div> 
@@ -42,30 +42,30 @@
                 
                 <div class="col-lg-6 ">
                 <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="nama_hasil">Jenis/Nama Hasil Pembangunan</label>
-                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder="Nama proyek/kegiatan yang dibangun di Desa" required>
+                        <label for="nama_hasil"><b>Jenis/Nama Hasil Pembangunan</b></label>
+                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder=" " required>
                     </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
-                        <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Besaran proyek/kegiatan" required>
+                        <label for="volume"><b>Volume</b></label>
+                        <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Volume bangunan" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="biaya">Biaya</label>
-                        <input type="text" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" required>
+                        <label for="biaya"><b>Biaya</b></label>
+                        <input type="text" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Total biaya kegiatan" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="lokasi">Lokasi</label>
-                        <input type="text" name="lokasi" id="lokasi" class="form-control border-left-primary" placeholder="Lokasi proyek/kegiatan yang dibangun" rows="2" required>
+                        <label for="lokasi"><b>Lokasi</b></label>
+                        <input type="text" name="lokasi" id="lokasi" class="form-control border-left-primary" placeholder="Lokasi bagunanan" rows="2" required>
                     </div>
                 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Catatan-catatan lain yang dianggap perlu"></textarea>
+                            <label for="ket"><b>Keterangan</b></label>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3"></textarea>
                         </div>                   
                     </div>
                 </div>

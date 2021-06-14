@@ -21,38 +21,17 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
-
-<!--
       <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('admin/report')?>">
           <i class="fas fa-chart-pie"></i>
           <span>Report</span></a>
       </li>
--->
-
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#report" aria-expanded="true" aria-controls="report">
-          <i class="fas fa-chart-pie"></i>
-          <span>Report</span>
-        </a>
-        <div id="report" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-          
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/report')?>">Data Pengajuan</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/report_adm_umum')?>">Adm. Umum</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/report_adm_lain')?>">Adm. Lainnya</a>
-
-    
-          </div>
-        </div>
-      </li>
-<!--
       <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('admin/data_kependudukan')?>">
           <i class="fas fa-users"></i>
           <span>Data Kependudukan</span></a>
       </li>
--->
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -70,8 +49,6 @@
         <div id="dataPengajuan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/form_domisili')?>">SK Domisili</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/form_tm_jampersal')?>">SK Jampersal</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_ahliwaris')?>">SK Ahli Waris</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_belummenikah')?>">SK Belum Menikah</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_covid')?>">SK Covid</a>
@@ -129,7 +106,7 @@
           
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_induk_penduduk')?>">Buku Induk Penduduk</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_mutasi_penduduk')?>">Buku Mutasi Penduduk Desa</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_rekap_penduduk')?>">Buku Rekapitulasi Jumlah Penduduk</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/rekap_penduduk')?>">Buku Rekapitulasi Jumlah Penduduk</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_penduduk_sementara')?>">Buku Penduduk Sementara</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ktp_kk')?>">Buku KTP dan Buku KK</a>
          
@@ -162,12 +139,12 @@
         <div id="administrasi_keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/apbd')?>">Buku Anggaran Pendapatan dan Belanja Desa</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/rab')?>">Buku Rencana Anggaran Biaya</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu_kegiatan')?>">Buku Kas Pembantu Kegiatan</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_umum')?>">Buku Kas Umum</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu')?>">Buku Kas Pembantu</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/bank_desa')?>">Buku Bank Desa</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/apbd')?>"><b>Buku Anggaran Pendapatan dan Belanja Desa</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/rab')?>"><b>Buku Rencana Anggaran Biaya</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu_kegiatan')?>"><b>Buku Kas Pembantu Kegiatan</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_umum')?>"><b>Buku Kas Umum</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/kas_pembantu')?>"><b>Buku Kas Pembantu</b></a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/bank_desa')?>"><b>Buku Bank Desa</b></a>
          
           </div>
         </div>

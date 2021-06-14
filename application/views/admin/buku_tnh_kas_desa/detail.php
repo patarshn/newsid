@@ -24,7 +24,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                 <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
                 </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                                 <tr>
                                     <th>Berkas</th>
                                     <td>
-                                    <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
+                                    <?php if($d->berkas != null):?>
                                     <?=$d->berkas?>
                                     <br>
                                     <a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
@@ -117,7 +117,7 @@
                             <h8><b>Perolehan TKD</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="30%">Asli Milik Desa</th>
+                                    <th width="50%">Asli Milik Desa</th>
                                     <td><?=$d->peroleh_asli_milik_desa?></td>
                                 </tr >
 
@@ -150,7 +150,7 @@
                             <h8><b>Jenis TKD</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                     <tr>
-                                    <th width="30%">Sawah</th>
+                                    <th width="50%">Sawah</th>
                                     <td><?=$d->jenis_sawah?></td>
                                 </tr >
                                 
@@ -178,7 +178,7 @@
                             <h8><b>Patok Tanda Batas</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                     <tr>
-                                    <th width="30%">Ada</th>
+                                    <th width="50%">Ada</th>
                                     <td><?=$d->patok_ada?></td>
                                 </tr >
                                 
@@ -191,7 +191,7 @@
                             <h8><b>Papan Nama</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                     <tr>
-                                    <th width="30%">Ada</th>
+                                    <th width="50%">Ada</th>
                                     <td><?=$d->papan_ada?></td>
                                 </tr >
                                 

@@ -11,7 +11,7 @@ class Report_adm_umum extends Admin_Controller{
         parent::__construct();
         $this->load->model('Report_adm_umum_m');        
         $this->load->library('breadcrumbcomponent'); 
-    }
+    }    
 
     function index(){
 

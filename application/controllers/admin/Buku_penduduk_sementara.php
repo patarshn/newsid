@@ -1,24 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xls;
-
 class Buku_penduduk_sementara extends Admin_Controller {
 
     private $_table = 'penduduk_sementara';
     private $_folder = 'buku_penduduk_sementara';
     private $_mainTitle = 'Buku Penduduk Sementara';
-    private $_docxName = 'buku_penduduk_sementara.docx';
-    private $_exelName = 'buku_penduduk_sementara.xls';
 
     function __construct()
 	{
         parent::__construct();
         $this->load->model('Main_m');
         $this->load->library('breadcrumbcomponent'); 
-    }     
+    }    
     
     function rulesStore() {
         return [
@@ -36,7 +30,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
             ['field' => 'maksud_tujuan','label' => 'Maksud dan Tujuan', 'rules' => 'required'],
             ['field' => 'nama_yg_didatangi','label' => 'Nama Penduduk yang Didatangi', 'rules' => 'required'],
             ['field' => 'alamat_yg_didatangi','label' => 'Alamat Penduduk yang Didatangi', 'rules' => 'required'],
-            ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan', 'rules' => 'required'],
+            ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan'],
             ['field' => 'tgl_pergi','label' => 'Tanggal Kepergian'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -171,20 +165,6 @@ class Buku_penduduk_sementara extends Admin_Controller {
                 'created_at' => date('Y-m-d H:i:s'),
                 
             );
-
-            $no_identitas = $_POST['no_identitas'];
-            $sql  = $this->db->query("SELECT no_identitas FROM penduduk_sementara where no_identitas='$no_identitas'");
-            $cek_identitas = $sql->num_rows();
-            if($cek_identitas > 0){
-                $this->session->set_flashdata('error_message', 'Nomor Indentitas/Tanda Pengenal sudah terdaftar sebelumnya');
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Nomor Indentitas/Tanda Pengenal sudah terdaftar sebelumnya',
-                    );
-               echo json_encode($callback);
-               exit();
-            }
-
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                 $callback = array(
@@ -338,146 +318,6 @@ class Buku_penduduk_sementara extends Admin_Controller {
         echo json_encode($callback);
     }
 
-    function cetak(){
-        $tahun = $this->input->get('tahun');
-        $where = ['tahun'=>$tahun];
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        #   echo var_dump($data);
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
-        $values = array();
-        $no = 1;
-        foreach($data as $d){
-            $subvalues = array(
-                'no' => $no++,
-                'nama' => $d->nama,
-                'no_identitas' => $d->no_identitas,
-                'tempat_lahir' => $d->tempat_lahir,
-                'tgl_lahir' => $d->tgl_lahir,
-                'umur' => $d->umur,
-                'pekerjaan' => $d->pekerjaan,
-                'kebangsaan' => $d->kebangsaan,
-                'keturunan' => $d->keturunan,
-                'datang_dari' => $d->datang_dari,
-                'maksud_tujuan' => $d->maksud_tujuan,
-                'nama_yg_didatangi' => $d->nama_yg_didatangi,
-                'alamat_yg_didatangi' => $d->alamat_yg_didatangi,
-                'tgl_datang' => $d->tgl_datang,
-                'tgl_pergi' => $d->tgl_pergi,
-                'ket' => $d->ket
-            );
-            if($d->jk == 'Laki-Laki'){
-                $subvalues['jkl'] ='L';
-                $subvalues['jkp'] = '';
-            }
-            else{
-                $subvalues['jkp'] = 'P';
-                $subvalues['jkl'] = '';
-            }
 
-            $values[] = $subvalues;
-        }
-
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $templateProcessor->setValue('tahun', $tahun);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;      
-    }
-
-    public function cetakExc(){
-        $tahun = $this->input->get('tahun');
-        $where = ['tahun'=>$tahun];
-        $reader = IOFactory::createReader('Xls');
-        $spreadsheet = $reader->load('./assets/buku_adm_penduduk/'.$this->_exelName);
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
-        $values = array();
-        $i = 0;
-        $no = 1;
-        foreach($data as $d){
-
-            if($d->jk == 'Laki-Laki'){
-                $lakilaki = "L";
-                $perempuan = ""; 
-            }
-            else{
-                $perempuan = "P";
-                $lakilaki = "";
-            }
-            $subvalues = array(
-                $no++,
-                $d->nama,
-                $lakilaki,
-                $perempuan,
-                $d->no_identitas,
-                $d->tempat_lahir.",".date("d-m-Y", strtotime($d->tgl_lahir))."/".$d->umur,
-                $d->pekerjaan,
-                $d->kebangsaan,
-                $d->keturunan,
-                $d->datang_dari,
-                $d->maksud_tujuan,
-                $d->nama_yg_didatangi.",".$d->alamat_yg_didatangi,
-                date("d-m-Y", strtotime($d->tgl_datang)),
-                date("d-m-Y", strtotime($d->tgl_pergi)),
-                $d->ket
-            );
-           
-            $values[] = $subvalues;
-            $i++;
-        }
-
-        $sheet = $spreadsheet->getActiveSheet();
-        $sheet->fromArray(
-            $values,
-            NULL,
-            'A13'
-        );
-
-        
-        $styleArray = [
-            'borders' => [
-                'allBorders' => [
-                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
-                ],
-            ],
-        ];
-
-        $i = $i + 6;
-
-        $sheet->getStyle('A13:J'.$i)->applyFromArray($styleArray);
-        $sheet->getStyle('A13:J'.$i)->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A13:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-        $sheet->getStyle('A13:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        // foreach(range('A7','J') as $columnID) {
-        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
-        // }
-        for($r = 13;$r <= $i;$r++){
-            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
-        }
-        $writer = new Xls($spreadsheet);
-
-        $filename = $this->_exelName;
-
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/vnd.ms-excel');
-        header('Content-Disposition: attachment; filename='.$filename);
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-        header('Pragma: public');
-        $writer->save('php://output');
-    }
 
 }
