@@ -482,6 +482,7 @@ class Apbd extends Admin_Controller {
         }
         return true;
     }
+    
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
         $where = ['tahun_anggaran'=>$tahun_anggaran];
@@ -494,7 +495,6 @@ class Apbd extends Admin_Controller {
 
         foreach($data as $d){
             $subvalues = array(
-                'no' => $d->id,
                 'kode_rekening1' => $d->kode_rekening1,
                 'kode_rekening2' => $d->kode_rekening2,
                 'kode_rekening3' => $d->kode_rekening3,
@@ -506,7 +506,7 @@ class Apbd extends Admin_Controller {
             $values[] = $subvalues;
         }
 
-        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $templateProcessor->cloneRowAndSetValues('kode_rekening1', $values);
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

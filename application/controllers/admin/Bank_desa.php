@@ -6,6 +6,8 @@ class Bank_desa extends Admin_Controller {
     private $_table = 'bank_desa';
     private $_folder = 'bank_desa';
     private $_mainTitle = 'Buku Bank Desa ';
+    private $_docxName = 'buku_bank_desa.docx';
+
 
     function __construct() {
         parent::__construct();
@@ -448,5 +450,50 @@ class Bank_desa extends Admin_Controller {
         }
         return true;
     }
+
+    function cetak(){
+        $tahun_anggaran = $this->input->get('tahun_anggaran');
+        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $values = array();
+        $no=1;
+
+        foreach($data as $d){
+            $subvalues = array(
+                'id' => $no++,
+                'tgl_trans' => $d->tgl_trans,
+                'uraian_trans' => $d->uraian_trans,
+                'bukti_trans' => $d->bukti_trans,
+                'pmskn_setoran' => $d->pmskn_setoran,
+                'pmskn_bungabank' => $d->pmskn_bungabank,
+                'pngl_penarikan' => $d->pngl_penarikan,
+                'pngl_pajak' => $d->pngl_pajak,
+                'pngl_biaya_adm' => $d->pngl_biaya_adm,
+                'saldo' => $d->saldo
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('id', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
+    }
+
 }
 ?>

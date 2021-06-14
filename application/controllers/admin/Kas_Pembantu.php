@@ -6,6 +6,7 @@ class Kas_pembantu extends Admin_Controller {
     private $_table = 'kas_pembantu';
     private $_folder = 'kas_pembantu';
     private $_mainTitle = 'Buku Kas Pembantu ';
+    private $_docxName = 'buku_kas_pembantu.docx';
 
     function __construct() {
         parent::__construct();
@@ -441,5 +442,48 @@ class Kas_pembantu extends Admin_Controller {
         }
         return true;
     }
+
+    function cetak(){
+        $tahun_anggaran = $this->input->get('tahun_anggaran');
+        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $values = array();
+        $no=1;
+
+        foreach($data as $d){
+            $subvalues = array(
+                'id' => $no++,
+                'tanggal' => $d->tanggal,
+                'pajak' => $d->pajak,
+                'ret' => $d->ret,
+                'pl' => $d->pl,
+                'pemotongan' => $d->pemotongan,
+                'penyetoran' => $d->penyetoran,
+                'saldo' => $d->saldo
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('id', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
+    }
+
 }
 ?>

@@ -6,6 +6,8 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     private $_table = 'kas_pembantu_kegiatan';
     private $_folder = 'kas_pembantu_kegiatan';
     private $_mainTitle = 'Buku Kas Pembantu Kegiatan ';
+    private $_docxName = 'buku_kas_pembantu_kegiatan.docx';
+
 
     function __construct() {
         parent::__construct();
@@ -412,6 +414,50 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             
         }
         return true;
+    }
+
+    function cetak(){
+        $tahun_anggaran = $this->input->get('tahun_anggaran');
+        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        #   echo var_dump($data);
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $values = array();
+        $no=1;
+
+        foreach($data as $d){
+            $subvalues = array(
+                'id' => $no++,
+                'tanggal' => $d->tanggal,
+                'uraian' => $d->uraian,
+                'penerimaan_bendahara' => $d->penerimaan_bendahara,
+                'penerimaan_sdm' => $d->penerimaan_sdm,
+                'no_bukti' => $d->no_bukti,
+                'pengeluaran_bbj' => $d->pengeluaran_bbj,
+                'pengeluaran_bm' => $d->pengeluaran_bm,
+                'jumlah' => $d->jumlah,
+                'saldo' => $d->saldo
+            );
+            $values[] = $subvalues;
+        }
+
+        $templateProcessor->cloneRowAndSetValues('id', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;    
     }
 }
 ?>

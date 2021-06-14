@@ -40,7 +40,7 @@
                 <div class="form-row">
                     <div class="col-lg-4 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control" placeholder="Tahun kegiatan, co: 2021" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">

@@ -40,12 +40,12 @@
                 <div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control" placeholder="Tahun kegiatan, co: 2021" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" required>
+                        <input type="text" name="bidang" id="bidang" class="form-control" placeholder="Nama Bidang"required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
@@ -94,14 +94,15 @@
                                         <tr class="rab">
                                             <td width="15%">
                                             <input type="text" name="uraian[]" id="uraian" class="form-control" required>
-                                            <small id="rab" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
-                                            </td>
-                                            <td width="15%">
-                                            <input type="text" name="volume[]" onchange="jumlah_rp(0)" id="volume" class="form-control volume-0" required>
                                             <small id="rab" class="text-gray-700">contoh : Kursi </small>
                                             </td>
                                             <td width="15%">
+                                            <input type="text" name="volume[]" onchange="jumlah_rp(0)" id="volume" class="form-control volume-0" required>
+                                            <small id="rab" class="text-gray-700">contoh : 1 set </small>
+                                            </td>
+                                            <td width="15%">
                                             <input type="number" name="harga_satuan[]" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control harga_satuan-0" required>
+                                            <small id="rab" class="text-gray-700">contoh : 50000 </small>
                                             </td>
                                             <td width="10%">
                                             <input type="text" name="jumlah[]" id="jumlah" class="form-control jumlah-0" readonly required>

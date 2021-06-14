@@ -40,7 +40,7 @@
                 <div class="form-row">
                 <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary " required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -77,7 +77,7 @@
                                     <tbody>
                                         <tr class="apbd">
                                         <div class="form-row">
-                                        <td width="50%">
+                                        <td width="40%">
                                           <div class="row">
                                             <div class="col-3">
                                               <input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control border-left-primary kode_rekening1" diseable />
@@ -93,14 +93,15 @@
                                             </div>
                                           </div>
                                             </td>
-                                            <td width="15%">
+                                            <td width="25%">
                                             <input type="text" name="uraian[]" id="uraian" class="form-control border-left-primary" required>
                                             <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
                                             </td>
                                             <td width="15%">
                                             <input type="number" name="anggaran[]" id="anggaran" class="form-control border-left-primary anggaran" onchange='total_anggaran()' required>
+                                            <small id="apbd" class="text-gray-700">contoh : 20000 </small>
                                             </td>
-                                            <td width="10%">
+                                            <td width="25%">
                                             <input type="text" name="keterangan[]" id="keterangan" class="form-control border-left-primary" required>
                                             <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
                                             </td>
