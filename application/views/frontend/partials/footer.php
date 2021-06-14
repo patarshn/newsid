@@ -32,6 +32,6 @@
         });
         
     </script>
-    <script src="<?=base_url('assets/my/script.js');?>"></script>
+    <script src="<?=base_url('assets/my/script.js');?>?<?= date('l jS \of F Y h:i:s A'); ?>"></script>
   </body>
 </html>
