@@ -96,8 +96,8 @@ class Buku_ktp_kk extends Admin_Controller {
         foreach ($list as $field) {
             $no++;
             $row = array();
-            $row[] = '<input type="checkbox" name="rowdelete[]" value="<?=$row->id?>" class="rowdelete">';
-            $row[] = $no;
+            $row[] = '<input type="checkbox" name="rowdelete[]" value="'.$field->id.'" class="rowdelete">';
+            $row[] = $no; 
             $row[] = '<div class="dropdown no-arrow">  
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -113,7 +113,7 @@ class Buku_ktp_kk extends Admin_Controller {
             $row[] = $field->nama;
             $row[] = $field->jenis_kelamin;
             $row[] = $field->tempat_lahir;
-            $row[] = $field->tanggal_lahir;
+            $row[] = date("d-m-Y", strtotime($field->tanggal_lahir));
             $row[] = $field->alamat;
  
             $data[] = $row;
@@ -434,19 +434,19 @@ class Buku_ktp_kk extends Admin_Controller {
                 $d->nama,
                 $d->nik,
                 $jkelamin,                 
-                $d->tempat_lahir.' / '.$d->tanggal_lahir, 
+                $d->tempat_lahir.' / '.date("d-m-Y", strtotime($d->tanggal_lahir)),
                 $d->goldar,               
                 $d->agama,
                 $d->pendidikan,
                 $d->pekerjaan,
                 $d->alamat,
                 $d->status_perkawinan,
-                $d->tmpt_ektp_dikeluarkan.','.$d->tgl_ektp_dikeluarkan,                               
+                $d->tmpt_ektp_dikeluarkan.','.date("d-m-Y", strtotime($d->tgl_ektp_dikeluarkan)),                               
                 $d->hub_keluarga,   
                 $d->wn, 
                 $d->ayah, 
                 $d->ibu, 
-                $d->tgl_tinggal_desa, 
+                date("d-m-Y", strtotime($d->tgl_tinggal_desa)),
                 $d->ket
             );
            

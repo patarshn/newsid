@@ -48,7 +48,7 @@
                     <tr>
                     <th width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                     <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nama</th>
                       <th>Umur</th>
                       <th>Jenis Kelamin</th>
@@ -62,7 +62,7 @@
                     <tr>
                     <th width="2%"></th>
                     <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nama</th>
                       <th>Umur</th>
                       <th>Jenis Kelamin</th>
@@ -87,7 +87,7 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           

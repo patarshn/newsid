@@ -64,34 +64,41 @@
                             <textarea class="form-control border-left-primary" name="lokasi" id="lokasi" placeholder="Lokasi proyek / kegiatan" rows="2"></textarea>
                         </div>
                     </div>
+
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                    <h4 class="text-gray-900 font-weight-bold">Besaran Perolehan Biaya</h4>
+                    <small class="text-gray-900 font-weight-bold">Catatan: Isi Nol (0) jika tidak ada biaya yg diperoleh. <br></small>
+                    </div>
+                    </div>
                     
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
-                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-primary" placeholder="Besaran biaya pemerintah" required>
-                    </div>
+                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  placeholder="Besaran biaya pemerintah" required>
+                        </div>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
-                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control border-left-primary" placeholder="Besaran biaya provinsi"  required>
+                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" placeholder="Besaran biaya provinsi"  required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
-                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control border-left-primary" placeholder="Besaran biaya kabupaten"  required>
+                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  placeholder="Besaran biaya kabupaten"  required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
-                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-primary" placeholder="Besaran biaya swadaya"  required>
+                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  placeholder="Besaran biaya swadaya"  required>
                     </div>
                     <br>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Total biaya" required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control jumlah-0" placeholder="Total biaya" readonly required>
                         </div>
                     </div>
                     
@@ -138,3 +145,17 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+function sum() {
+      var biaya_pemerintah = document.getElementById('biaya_pemerintah').value;
+      var biaya_prov = document.getElementById('biaya_prov').value;
+      var biaya_kab = document.getElementById('biaya_kab').value;
+      var biaya_swadaya = document.getElementById('biaya_swadaya').value;
+      var result = parseInt(biaya_pemerintah) + parseInt(biaya_prov) + parseInt(biaya_kab) + parseInt(biaya_swadaya);
+     
+      if (!isNaN(result)) {
+         document.getElementById('jumlah').value = result;
+      }
+}
+</script>

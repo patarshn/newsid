@@ -88,9 +88,10 @@
                 <thead>
                     <tr>
                     <th width="2%" rowspan="3"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                    <th rowspan="3">No</th>
-                    <th rowspan="3" width="3%"></th>
-                    <th rowspan="3"> Nama Dusun/Lingkungan</th>
+                    <th rowspan="3" width="2%">No</th>
+                    <th rowspan="3" width="2%">Aksi</th>
+                    <th rowspan="3"> Nama Dusun / Lingkungan</th>
+                    <th rowspan="3">Periode</th>
                       <th colspan="7"><center>Jumlah Penduduk Awal Bulan</th>       
                       <th colspan="7"><center>Jumlah Penduduk Akhir Bulan</th>       
                     </tr>
@@ -123,9 +124,10 @@
                   <tfoot>
                     <tr>
                     <th width="2%"></th>
-                    <th>No</th>
-                    <th width="3%"></th>
+                    <th width="2%">No</th>
+                    <th width="2%">Aksi</th>
                     <th> Nama Dusun</th>
+                    <th>Periode</th>
                     <th colspan="7"><center>Jumlah Penduduk Awal Bulan</th>       
                     <th colspan="7"><center>Jumlah Penduduk Akhir Bulan</th>       
                     </tr>
@@ -146,13 +148,14 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           
                           </div>
                         </div>
                       <td><?=$d->dusun?></td>
+                      <td><?= date("m-Y", strtotime($d->bulan_tahun))?></td>
                       <td><?=$d->awal_wna_l?></td>
                       <td><?=$d->awal_wna_p?></td>
                       <td><?=$d->awal_wni_l?></td>

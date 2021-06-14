@@ -16,7 +16,7 @@
 
           <!-- Content Row -->
 
-          <div class="row">
+          <div class="row"> 
             <div class="col-xl-12 col-lg-12">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <!--<button type="button" class="btn btn-warning">Cancel</button>-->
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Kembali</button>
                     </div>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="modal-header  border-bottom">
-                    <h5 class="modal-title"><b>Data Kegiatan Pembangunan: <?=$d->nama_kegiatan?></b></h5>
+                    <h5 class="text-gray-900 font-weight-bold">Data Kegiatan Pembangunan: <?=$d->nama_kegiatan?></h5>
                     </div>
                                   <div class="row">
                                       <div class="col-lg-12">
@@ -66,19 +66,19 @@
                                               <table class="table table-bordered table-hover border-left-primary">
                                               <thead>
                                               <tr><th>Pemerintah</th>
-                                                  <td style="text-align:right"><?=$d->biaya_pemerintah?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_pemerintah,0,',','.');?></td></tr>
 
                                                   <tr><th>Provinsi</th>
-                                                  <td style="text-align:right"><?=$d->biaya_prov?></td></tr> 
+                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_prov,0,',','.');?></td></tr> 
 
                                                   <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:right"><?=$d->biaya_kab?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_kab,0,',','.');?></td></tr>
 
                                                   <tr class="border-bottom-primary"><th>Swadaya</th>
-                                                  <td style="text-align:right"><?=$d->biaya_swadaya?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_swadaya,0,',','.');?></td></tr>
 
                                                   <tr><th>Total Biaya</th>
-                                                  <td style="text-align:right"><?=$d->jumlah?></td></tr>
+                                                  <td style="text-align:right">Rp. <?=number_format($d->jumlah_biaya,0,',','.');?></td></tr>
                                                  </thead>
                                               </table>
                                         </div>

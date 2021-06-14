@@ -321,11 +321,11 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
                 'no' => $no++,
                 'nama_kegiatan' => $d->nama_kegiatan,
                 'volume' => $d->volume,
-                'biaya_pemerintah' => $d->biaya_pemerintah,
-                'biaya_prov' => $d->biaya_prov,
-                'biaya_kab' => $d->biaya_kab,
-                'biaya_swadaya' => $d->biaya_swadaya,
-                'jumlah_biaya' => $d->jumlah_biaya,
+                'biaya_pemerintah' => number_format($d->biaya_pemerintah,0,',','.'),
+                'biaya_prov' => number_format($d->biaya_prov,0,',','.'),
+                'biaya_kab' => number_format($d->biaya_kab,0,',','.'),
+                'biaya_swadaya' => number_format($d->biaya_swadaya,0,',','.'),
+                'jumlah_biaya' => number_format($d->jumlah_biaya,0,',','.'),
                 'waktu' => $d->waktu,
                 'pelaksana' => $d->pelaksana,
                 'ket' => $d->ket
@@ -343,6 +343,7 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
         }
 
         $templateProcessor->cloneRowAndSetValues('no', $values);
+        $templateProcessor->setValue('tahun', $tahun);
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

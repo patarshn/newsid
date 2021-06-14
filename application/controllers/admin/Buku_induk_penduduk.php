@@ -439,7 +439,7 @@ class Buku_induk_penduduk extends Admin_Controller {
                 $jkelamin, 
                 $d->status_perkawinan,
                 $d->tempat_lahir,
-                $d->tanggal_lahir,
+                date("d-m-Y", strtotime($d->tanggal_lahir)),
                 $d->agama,
                 $d->pendidikan,
                 $d->pekerjaan,

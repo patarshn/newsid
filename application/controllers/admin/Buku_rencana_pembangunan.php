@@ -298,11 +298,11 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     }
 
     function cetak(){
-        $tahun = $this->input->get('tahun');
+        $tahun = $this->input->get('tahun'); 
         $where = ['tahun'=>$tahun];
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
         #   echo var_dump($data);
-        $today = date('Y-m-d');
+        $today = date('Y-m-d'); 
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
         $values = array();
@@ -312,11 +312,11 @@ class Buku_rencana_pembangunan extends Admin_Controller {
                 'no' => $no++,
                 'nama_proyek' => $d->nama_proyek,
                 'lokasi' => $d->lokasi,
-                'biaya_pemerintah' => $d->biaya_pemerintah,
-                'biaya_prov' => $d->biaya_prov,
-                'biaya_kab' => $d->biaya_kab,
-                'biaya_swadaya' => $d->biaya_swadaya,
-                'jumlah' => $d->jumlah,
+                'biaya_pemerintah' => number_format($d->biaya_pemerintah,0,',','.'),
+                'biaya_prov' => number_format($d->biaya_prov,0,',','.'),
+                'biaya_kab' => number_format($d->biaya_kab,0,',','.'),
+                'biaya_swadaya' => number_format($d->biaya_swadaya,0,',','.'),
+                'jumlah' => number_format($d->jumlah,0,',','.'),
                 'pelaksana' => $d->pelaksana,
                 'manfaat' => $d->manfaat,
                 'ket' => $d->ket
