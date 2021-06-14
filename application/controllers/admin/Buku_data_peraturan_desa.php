@@ -23,7 +23,6 @@ class Buku_data_peraturan_desa extends Admin_Controller {
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'no_kesepakatan','label' => 'Nomor Kesepakatan', 'rules' => 'required'],
             ['field' => 'tgl_kesepakatan','label' => 'Tanggal Kesepakatan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -36,7 +35,6 @@ class Buku_data_peraturan_desa extends Admin_Controller {
             ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
             ['field' => 'no_kesepakatan','label' => 'Nomor Kesepakatan', 'rules' => 'required'],
             ['field' => 'tgl_kesepakatan','label' => 'Tanggal Kesepakatan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -281,7 +279,7 @@ class Buku_data_peraturan_desa extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -289,7 +287,7 @@ class Buku_data_peraturan_desa extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -436,7 +434,7 @@ class Buku_data_peraturan_desa extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists($b_id->berkas)){
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
                 return true;
             }
 
