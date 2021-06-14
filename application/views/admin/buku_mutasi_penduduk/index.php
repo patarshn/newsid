@@ -32,6 +32,48 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+                    <a class="btn btn-warning"  data-toggle="modal" data-target="#myModal" >Cetak</a>
+<!-- Modal -->
+                      <div id="myModal" class="modal fade" role="dialog">
+                          <div class="modal-dialog modal-lg">
+                              <!-- konten modal-->
+                              <div class="modal-content">
+                              <!-- heading modal -->
+                              <div class="modal-header border-bottom-primary">
+                                  <h8 class="modal-title"><b>Cetak Buku Mutasi Penduduk</b></h8>
+                              </div>
+                              <!-- body modal -->
+                              <div class="modal-body">
+                                  <div class="row">
+                                      <div class="col-lg-12">
+                                          <div class="card mb-4 py-3 border-bottom-primary">
+                                            <div class="card-body">
+                                              <div class="form-group">
+                                                <form method="get" action="buku_mutasi_penduduk/cetakExc">
+                                                <label for="bulan_tahun"><b>Masukan Periode Bulan & Tahun</b></label>
+                                                <input type="month" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
+                                                
+                                                <div class="d-flex mt-3">
+                                                <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
+                                                <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
+                                                <span class="sr-only">Loading...</span>
+                                                </div>
+                                                </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                            </div>
+                                <!-- footer modal -->
+                                  <div class="modal-footer ">
+                                      <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
+                                  </div>
+                              </div>
+                           </div>
+                        </div>
+<!-- Modal -->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
                       <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
@@ -45,12 +87,14 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead> 
                     <tr>
-                      <th rowspan="2" width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
-                      <th rowspan="2" width="3%"></th>
+                      <th width="2%" rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2">No</th>
+                      <th rowspan="2" width="3%">Aksi</th>
                       <th rowspan="2">Nama Lengkap/Panggilan</th>
                       <th colspan="2"><center>Tempat & Tanggal Lahir</th> 
                       <th rowspan="2">Jenis Kelamin</th>
                       <th rowspan="2">Kewarganegaraan</th>
+                      <th rowspan="2">Periode Mutasi</th>
                       <th rowspan="2">Keterangan</th>
                     </tr>
                     
@@ -62,12 +106,14 @@
                   </thead>
                   <tfoot>
                     <tr>
-                    <th width="5%">No</th>
-                      <th width="3%"></th>
+                    <th width="2%"></th>
+                    <th>No</th>
+                      <th width="3%">Aksi</th>
                       <th>Nama Lengkap/Panggilan</th>
                       <th colspan="2"><center>Tempat & Tanggal Lahir</th>
                       <th>Jenis Kelamin</th>
                       <th>Kewarganegaraan</th>
+                      <th>Periode Mutasi</th>
                       <th>Keterangan</th>
                     </tr>
                   </tfoot>
@@ -79,14 +125,14 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
-                      </td>
+                        </td>
+                    <td><?=$count++;?></td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           
@@ -96,9 +142,10 @@
                       </td>
                       <td><?=$d->nama?></td>
                       <td><?=$d->tempat_lahir?></td>
-                      <td><?=$d->tgl_lahir?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl_lahir))?></td>
                       <td><?=$d->jk?></td>
                       <td><?=$d->wn?></td>
+                      <td><?= date("m-Y", strtotime($d->bulan_tahun))?></td>
                       <td><?=$d->ket?></td>
                     </tr>
                   <?php endforeach;?>

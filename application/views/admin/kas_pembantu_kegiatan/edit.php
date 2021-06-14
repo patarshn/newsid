@@ -29,95 +29,102 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
-                <?=form_open_multipart(base_url('apbd/store'),'id="form"')?>
+                <?php echo form_open(base_url('kas_pembantu_kegiatan/update'),'id="form"');
+                foreach($data as $d):
+                ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
-                <div class="form-row">
-                    <div class="col-lg-6 mt-3">
+                <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
+                    <div class="col-lg-4 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" value="<?=$d->tahun_anggaran?>" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary " value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
-                    <div class="col-lg-3 mt-2">
-                        <label for="bidang" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" value="<?=$d->uraian?>" required>
+                    <div class="col-lg-4 mt-2">
+                        <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
+                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" value="<?=$d->bidang?>" required>
+                    </div>
+                    
+                    <div class="col-lg-4 mt-2">
+                        <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                        <input type="text" name="kegiatan" id="kegiatan" class="form-control border-left-primary" value="<?=$d->kegiatan?>" required>
                     </div>
 
-                    <div class="col-lg-3 mt-2">
-                        <div class="form-group">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control" value="<?=$d->tahun_anggaran?>" required>
-                                <option>-</option>
-                                
-                                <?php   
-                                foreach($data as $d):
-                                    $kode = $d->kode_rekening1."-".$d->kode_rekening2."-".$d->kode_rekening3."-".$d->kode_rekening4;
-                                    echo "<option value='$kode'>$kode</option>"; 
-                                endforeach;
-                                ?>
-                            </select>
+                    <div class="col-lg-4 mt-2">
+                        <label for="tanggal" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
+                        <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" value="<?=$d->tanggal?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan dari Bendahara</label>
+                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" value="<?=$d->penerimaan_bendahara?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
+                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" value="<?=$d->penerimaan_sdm?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="no_bukti" class="text-gray-900 font-weight-bold">Nomor Bukti</label>
+                        <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" value="<?=$d->no_bukti?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasat</label>
+                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" value="<?=$d->pengeluaran_bbj?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
+                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" value="<?=$d->pengeluaran_bm?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian Ke Bendahara</label>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" value="<?=$d->jumlah?>" required>
+                    </div>
+
+                    <div class="col-lg-4 mt-2">
+                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas </label>
+                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" value="<?=$d->saldo?>" required>
+                    </div>
+
+                    <div class="col-lg-12 form-inline">
+                        <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
+                        <br>
+                        <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
+                        <div class="form-check form-check-inline">
+                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
+                          <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
                         </div>
-                    </div>
-
-
-                    <div class="col-lg-3 mt-2">
-                      <label class="text-gray-900 font-weight-bold" >Penerimaan</label>
-                      <div class="form-row">
-                        <div class="col-lg-3">
-                          <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control" required>
-                          <small id="penerimaan_bendahara" class="text-gray-700"></small>
+                        <div class="form-check form-check-inline">
+                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
+                          <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
                         </div>
-                        
-                        <div class="col-lg-3">
-                          <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control" required>
-                          <small id="penerimaan_sdm" class="text-gray-700"></small>
+                        <div class="form-check form-check-inline">
+                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
+                          <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
                         </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
-                        <input type="text" name="no_bukti" id="no_bukti" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                      <label class="text-gray-900 font-weight-bold" >Pengeluaran</label>
-                      <div class="form-row">
-                        <div class="col-lg-3">
-                          <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control" required>
-                          <small id="pengeluaran_bbj" class="text-gray-700"></small>
-                        </div>
-                        
-                        <div class="col-lg-3">
-                          <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control" required>
-                          <small id="pengeluaran_bm" class="text-gray-700"></small>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <div class="form-group">
-                            <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian Ke Bendahara</label>
-                            <textarea class="form-control" name="jumlah" id="jumlah" rows="1" required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <div class="form-group">
-                            <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                            <textarea class="form-control" name="saldo" id="saldo" rows="1" required></textarea>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
-                <?=form_close()?>
+                    
+                <?php
+                endforeach;
+                echo form_close();?>
                 
                   <div class="d-flex mt-3">
-                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
+                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>
                         </div>

@@ -41,9 +41,19 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
-                    <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_peraturan" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Peraturan/Keputusan BPD</label>
-                        <input type="text" name="no_dan_tgl_peraturan" id="no_dan_tgl_peraturan" class="form-control border-left-primary" value="<?=$d->no_dan_tgl_peraturan?>" required>
+                    <div class="col-lg-12 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Peraturan/Keputusan BPD</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" value="<?=$d->no_peraturan?>" required>
+                          <small id="no_peraturan" class="text-gray-700">Nomor Peraturan/Keputusan BPD</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_peraturan?>" required>
+                          <small id="tgl_peraturan" class="text-gray-700">Tanggal Peraturan/Keputusan BPD</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -55,8 +65,15 @@
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                      <label for="berkas" class="custom-file-label border-left-primary">
+                          <?php if ($d->berkas !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas)):?>
+                          <?=$d->berkas?>
+                          <?php else :?>
+                          Berkas Tidak Ada
+                          <?php endif; ?>
+                          </label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -71,6 +88,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
 

@@ -40,12 +40,12 @@
                 <div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control" placeholder="Tahun kegiatan, co: 2021" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" required>
+                        <input type="text" name="bidang" id="bidang" class="form-control" placeholder="Nama Bidang"required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
@@ -69,46 +69,141 @@
                         <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control" required>
                     </div>
 
-                    <div class="col-lg-3 mt-2">
-                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control" required>
-                    </div>
 
-                    <div class="col-lg-3 mt-2">
-                        <label for="volume" class="text-gray-900 font-weight-bold">Volume</label>
-                        <input type="text" name="volume" id="volume" class="form-control" required>
-                    </div>
+<div class="wizard-v1-content mx-auto">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <br>
+                <form class="form-rab" id="form-rab" method="post">
 
-                    <div class="col-lg-3 mt-2">
-                        <label for="harga_satuan" class="text-gray-900 font-weight-bold">Harga Satuan</label>
-                        <input type="text" name="harga_satuan" id="harga_satuan" class="form-control" required>
-                    </div>
-
-                    <div class="col-lg-3 mt-2">
-                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control" required>
-                    </div>
-                </div>
-                <?=form_close()?>
-                
-                  <div class="d-flex mt-3">
-                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
+                    <div id="form-total">
+                        <!-- SECTION 1 -->
+                        <div class="content clearfix">
+                        <section>
+                            <div class="inner">
+                                <table id="invoiceitems" class=" table order-list">
+                                    <thead>
+                                        <tr>
+                                            <td>Uraian</td>
+                                            <td>Volume</td>
+                                            <td>Harga Satuan (Rp.)</td>
+                                            <td>Jumlah (Rp.)</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="rab">
+                                            <td width="15%">
+                                            <input type="text" name="uraian[]" id="uraian" class="form-control" required>
+                                            <small id="rab" class="text-gray-700">contoh : Kursi </small>
+                                            </td>
+                                            <td width="15%">
+                                            <input type="text" name="volume[]" onchange="jumlah_rp(0)" id="volume" class="form-control volume-0" required>
+                                            <small id="rab" class="text-gray-700">contoh : 1 set </small>
+                                            </td>
+                                            <td width="15%">
+                                            <input type="number" name="harga_satuan[]" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control harga_satuan-0" required>
+                                            <small id="rab" class="text-gray-700">contoh : 50000 </small>
+                                            </td>
+                                            <td width="10%">
+                                            <input type="text" name="jumlah[]" id="jumlah" class="form-control jumlah-0" readonly required>
+                                            </td>
+                                            <td width="5%">
+                                                <a class="deleteRow"></a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Jumlah:</td>
+                                            <td>
+                                                Rp. <span class="grandtotal"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" style="text-align: left;">
+                                                <input type="button" class="btn btn-lg btn-block " id="buttonadd" value="Tambah Rincian" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                
+                            </div>
+                        </section>
+                        <div class="d-flex mt-3">
+                        <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                    
-                    
-                </div>
-              </div>
+                </form>
             </div>
-          </div>
-          
-
-
         </div>
-        <!-- /.container-fluid -->
+    </div>
+    <!-- tutup side -->
+</div>
 
-      </div>
-      <!-- End of Main Content -->
 
+
+
+</section>
+
+<script>
+
+function total_jumlah(){
+  var jumlah = document.getElementsByName('jumlah[]');
+  var sum_jumlah = 0;
+  for (var i = 0; i < jumlah.length; i++){
+    if(jumlah[i].value == ""){
+      sub_total = 0;
+    }
+    else {
+      sub_total = jumlah[i].value;
+    }
+    sum_jumlah = sum_jumlah + parseInt(sub_total);
+  }
+  $('.grandtotal').html(sum_jumlah)
+  console.log('a');
+}
+
+function jumlah_rp(x){
+  var volume = $('.volume-'+x).val();
+  var harga_satuan = $('.harga_satuan-'+x).val();
+  if(volume == ""){
+    volume = 0;
+  }
+  if(harga_satuan == ""){
+    harga_satuan = 0;
+  }
+  var sum = parseInt(volume) * parseInt(harga_satuan);
+  $('.jumlah-'+x).val(sum);
+}
+
+$(document).ready(function () {
+  var countadd = 1;
+  $('#buttonadd').click(function () {
+    
+    $('#invoiceitems > tbody:last').append('<tr class="rab">\
+          <td><input type="text" name="uraian[]" class="form-control" /></td>\
+          <td><input type="text" name="volume[]" class="form-control volume-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
+          <td><input type="number" name="harga_satuan[]" class="form-control harga_satuan-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
+          <td><input type="text" name="jumlah[]" class="form-control jumlah-'+countadd+'" readonly/></td>\
+          <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
+    countadd = countadd + 1;
+  });
+  $('table#invoiceitems').on('click','.buttondelete',function () {
+      if($('table#invoiceitems tbody tr').length==1){
+          alert('Cant delete single row');
+          return false;
+      }
+      $(this).closest('tr').remove();
+      total_jumlah();
+  });
+
+});
+
+</script>

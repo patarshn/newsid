@@ -51,11 +51,13 @@
                     <div class="col-lg-6 mt-3">
                         <label for="luas" class="text-gray-900 font-weight-bold">Luas</label>
                         <input type="text" name="luas" id="luas" class="form-control border-left-primary" required>
+                        <small id="luas" class="text-gray-700">Diisi dalam meter persegi (m2)</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="kelas" class="text-gray-900 font-weight-bold">Kelas</label>
                         <input type="text" name="kelas" id="kelas" class="form-control border-left-primary" required>
+                        <small id="kelas" class="text-gray-700">Contoh Kelas Tanah SI, DI, dan sebagainya</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -166,13 +168,15 @@
                     <div class="col-lg-6 mt-3">
                         <label for="mutasi" class="text-gray-900 font-weight-bold">Mutasi</label>
                         <input type="date" name="mutasi" id="mutasi" class="form-control border-left-primary" required>
+                        <small id="mutasi" class="text-gray-700">Diisi setiap terjadi mutasi tanah kas Desa</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -180,6 +184,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

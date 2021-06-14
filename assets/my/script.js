@@ -158,7 +158,7 @@ $(document).ready(function() {
         "order": [], 
          
         "ajax": {
-            "url": base_url+'admin/data_kependudukan/get_data_user',
+            "url": base_url+'admin/buku_ktp_kk/get_data_user',
             "type": "POST"
         },
 

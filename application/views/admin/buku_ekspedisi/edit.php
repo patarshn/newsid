@@ -47,26 +47,45 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tgl_no_surat" class="text-gray-900 font-weight-bold">Tanggal Dan Nomor Surat</label>
-                        <input type="text" name="tgl_no_surat" id="tgl_no_surat" class="form-control border-left-primary" value="<?=$d->tgl_no_surat?>" required>
+                      <label class="text-gray-900 font-weight-bold" >Tanggal Dan Nomor Surat</label>
+                      <div class="form-row">
+                      <div class="col-lg-6">                        
+                          <input type="date" name="tgl_surat" id="tgl_surat" class="form-control border-left-primary" placeholder="mm/dd/yyyy" value="<?=$d->tgl_surat?>" required>
+                          <small id="tgl_surat" class="text-gray-700">Tanggal Surat</small>
+                        </div>
+
+                        <div class="col-lg-6">
+                          <input type="text" name="no_surat" id="no_surat" class="form-control border-left-primary" value="<?=$d->no_surat?>" required>
+                          <small id="no_surat" class="text-gray-700">Nomor Surat</small>
+                        </div>
+                      </div>
                     </div>
 
                         <div class="col-lg-6 mt-3">
                         <label for="isi_singkat_surat" class="text-gray-900 font-weight-bold">Isi Singkat Surat Yang Dikirim</label>
                         <input type="text" name="isi_singkat_surat" id="isi_singkat_surat" class="form-control border-left-primary" value="<?=$d->isi_singkat_surat?>" required>
+                        <small id="isi_singkat_surat" class="text-gray-700">Diisi dengan perihal surat yang dikirim</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="ditunjukkan_kpd" class="text-gray-900 font-weight-bold">Ditunjukkan Kepada</label>
                         <input type="text" name="ditunjukkan_kpd" id="ditunjukkan_kpd" class="form-control border-left-primary" value="<?=$d->ditunjukkan_kpd?>" required>
+                        <small id="ditunjukkan_kpd" class="text-gray-700">Diisi dengan nama pihak yang dituju </small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <label for="berkas" class="custom-file-label border-left-primary">
+                            <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
+                              <?=$d->berkas?>
+                              <?php else :?>
+                              berkas Tidak ada
+                              <?php endif;?>
+                          </label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -74,6 +93,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
 

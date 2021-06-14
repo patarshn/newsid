@@ -32,6 +32,7 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+                    <a class="btn btn-warning" href="<?=base_url('admin/'.$uri[2].'/cetakExc/')?>">Cetak</a>
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
@@ -45,8 +46,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                    <th rowspan="2" width="5%"><input type="checkbox" class="rowdelete" id="selectAll">No</th>
-                    <th rowspan="2" width="3%"></th>
+                    <th width="2%" rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                    <th rowspan="2">No</th>
+                    <th rowspan="2" width="3%">Aksi</th>
                     <th rowspan="2"> NIK</th>
                       <th rowspan="2">No. KK</th>
                       <th rowspan="2">Nama</th>
@@ -62,9 +64,10 @@
                   </thead>
                   <tfoot>
                     <tr>
-                    <th width="5%">No</th>
-                    <th width="3%"></th>
-                    <th>NIK</th>
+                    <th width="2%"></th>
+                    <th>No</th>
+                    <th width="3%">Aksi</th>
+                    <th>NIK</th> 
                       <th>No. KK</th>
                       <th>Nama</th>
                       <th>Jenis Kelamin</th>
@@ -79,14 +82,14 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
-                      </td>
+                        </td>
+                    <td><?=$count++;?></td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           
@@ -97,7 +100,7 @@
                       <td><?=$d->nama?></td>
                       <td><?=$d->jenis_kelamin?></td>
                       <td><?=$d->tempat_lahir?></td>
-                      <td><?=$d->tanggal_lahir?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tanggal_lahir))?></td>
                       <td><?=$d->alamat?></td>
                     </tr>
                   <?php endforeach;?>

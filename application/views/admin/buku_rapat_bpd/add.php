@@ -62,7 +62,7 @@
                     <label class="text-gray-900 font-weight-bold">Upload Berkas Daftar Hadir Rapat</label>
                       <div class="custom-file">
                           <label for="berkas1" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas1" name="berkas1">
+                          <input type="file" class="custom-file-input" id="berkas1" name="berkas1" accept=".pdf">
                       </div>
                     </div>
 
@@ -70,7 +70,8 @@
                     <label class="text-gray-900 font-weight-bold">Upload Berkas Notulen Rapat</label>
                       <div class="custom-file">
                           <label for="berkas2" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas2" name="berkas2">
+                          <input type="file" class="custom-file-input" id="berkas2" name="berkas2" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 

@@ -16,6 +16,16 @@ class Pembangunan_m extends MY_Model
         return $status;
     }
 
+    public function getAsc2($table,$tahun){
+        if($tahun == null){
+            $status = $this->db->order_by('id','asc')->get($table);
+        }
+        else{
+            $status = $this->db->where($tahun)->order_by('id','asc')->get($table);
+        }
+        
+        return $status;
+    }
 
 
 }

@@ -1,11 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_tnh_kas_desa extends Admin_Controller {
 
     private $_table = 'buku_tnh_kas_desa';
     private $_folder = 'buku_tnh_kas_desa';
     private $_mainTitle = 'Buku Tanah Kas Desa';
+    private $_exelName = 'buku_tnh_kas_desa.xls';
 
     function __construct() {
         parent::__construct();
@@ -129,10 +134,10 @@ class Buku_tnh_kas_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                    echo $this->upload->display_errors();
+                    
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -238,6 +243,14 @@ class Buku_tnh_kas_desa extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas_lama = $this->destroy_file($where);
             }
 
@@ -480,7 +493,7 @@ class Buku_tnh_kas_desa extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -492,12 +505,96 @@ class Buku_tnh_kas_desa extends Admin_Controller {
                 return true;
             }
 
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                $no++,
+                $d->asal_tnh_kas,
+                $d->no_serti_letterc_persil,
+                $d->luas,
+                $d->kelas,
+                $d->peroleh_asli_milik_desa,
+                $d->bantuan_pem,
+                $d->bantuan_prov,
+                $d->bantuan_kab_kota,
+                $d->peroleh_lain,
+                $d->tgl_peroleh,
+                $d->jenis_sawah,
+                $d->jenis_tegal,
+                $d->jenis_kebun,
+                $d->jenis_tambak,
+                $d->jenis_darat,
+                $d->patok_ada,
+                $d->patok_tdkada,
+                $d->papan_ada,
+                $d-> papan_tdkada,
+                $d->lokasi,
+                $d->peruntukkan,
+                $d->mutasi,
+                $d->ket
+            );
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A9'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 8;
+
+        $sheet->getStyle('A9:X'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A9:X'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A9:X'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A9:X'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 9;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
     }
 }
 ?>

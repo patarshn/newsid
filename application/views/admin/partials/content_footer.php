@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" onclick="store(base_url+'admin/<?=$uri[2]?>/setuju','#formdelete')">Setujui</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-warning" onclick="store(base_url+'admin/<?=$uri[2]?>/tolak','#formdelete')">Tolak</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
       </div>
     </div>
   </div>

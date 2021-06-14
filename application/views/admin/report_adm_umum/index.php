@@ -37,16 +37,23 @@
               $ditolak++;
             endif;
           }
-
           ?>
 
 <div class="row"> <!--row2 start-->
             <?php
             $total = $ditolak+$pending+$disetujui;
-            $disetujuiPersentase = $disetujui/$total*100;
-            $ditolakPersentase = $ditolak/$total*100;
-            $pendingPersentase = $pending/$total*100;
             
+            if($total == 0){
+              $disetujuiPersentase = 0;
+              $ditolakPersentase = 0;
+              $pendingPersentase = 0;
+            }
+
+            else {
+              $disetujuiPersentase = $disetujui/$total*100;
+              $ditolakPersentase = $ditolak/$total*100;
+              $pendingPersentase = $pending/$total*100;
+            }
             ?>
             <!-- Project Card Example -->
             <div class="col-8">
