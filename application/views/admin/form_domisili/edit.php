@@ -111,8 +111,12 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="alamat">Persyaratan</label>
-                            <textarea class="form-control border-left-primary" name="persyaratan" id="persyaratan" rows="2" required><?=$d->persyaratan?></textarea>
+                            <label for="persyaratan">Peruntukkan</label>
+                            <select name="persyaratan" id="persyaratan" class="form-control border-left-primary" placeholder="Pilih Jenis Form" required>
+                            <option>Pilih Jenis Form</option>
+                            <option value="Warga Permanen">Warga Permanen</option>
+                            <option value="Warga Non Permanen">Warga Non Permanen</option>
+                        </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -158,6 +162,8 @@
                 $(document).ready(function(){
                   var agama = "<?=$d->agama?>";
                   $('#agama').val(agama);
+                  var persyaratan = "<?=$d->persyaratan?>";
+                  $('#persyaratan').val(persyaratan);
                 });
                 </script>
               <?php

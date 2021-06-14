@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <!--<button type="button" class="btn btn-warning">Cancel</button>-->
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url();?>admin/<?=$folder?>'">Kembali</button>
                     </div>
                   </div>
                 </div>
@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="modal-header  border-bottom">
-                    <h5 class="modal-title"><b>Data Penduduk Sementara: <?=$d->nama?></b></h5>
+                    <h5 class="text-gray-900 font-weight-bold">Data Penduduk Sementara: <?=$d->nama?></h5>
                     </div>
                                   <div class="row">
                                       <div class="col-lg-12">
@@ -73,10 +73,10 @@
                                                   <td><?=$d->nama_yg_didatangi?>, <?=$d->alamat_yg_didatangi?></td></tr>
 
                                                   <tr><th>Tanggal Kedatangan</th>
-                                                  <td><?=$d->tgl_datang?></td></tr>
+                                                  <td><?= date("d-m-Y", strtotime($d->tgl_datang))?></td></tr>
 
                                                   <tr><th>Tanggal Kepergian</th>
-                                                  <td><?=$d->tgl_pergi?></td></tr>
+                                                  <td><?= date("d-m-Y", strtotime($d->tgl_pergi))?></td></tr>
 
                                                   <tr><th>Keterangan</th>
                                                   <td><?=$d->ket?></td></tr>

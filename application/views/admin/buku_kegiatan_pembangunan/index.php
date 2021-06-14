@@ -94,14 +94,14 @@
                     <tr>
                     <th  width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                     <th >No</th>
-                      <th  width="3%"></th>
+                      <th  width="3%">Aksi</th>
                       <th >Nama Kegiatan</th>
                       <th >Volume</th>
-                      <th >Jumlah Biaya</th>
+                      <th width="12%">Jumlah Biaya</th>
                       <th >Waktu</th>
+                      <th width="3%">Tahun Kegiatan</th>
                       <th <center>Sifat Kegiatan</th>
                       <th >Pelaksana</th>
-                      <th >Tanggal Kegiatan</th>
                     </tr>
 
                   </thead>
@@ -109,14 +109,14 @@
                     <tr>
                     <th width="2%"></th>
                     <th>No</th>
-                    <th width="3%"></th>
+                    <th width="3%">Aksi</th> 
                       <th>Nama Kegiatan</th>
                       <th>Volume</th>
-                      <th>Jumlah Biaya</th>
+                      <th width="12%">Jumlah Biaya</th>
                       <th>Waktu</th>
+                      <th width="3%">Tahun Kegiatan</th>
                       <th>Sifat Kegiatan</th>
                       <th>Pelaksana</th>
-                      <th>Tanggal Kegiatan</th>
                     </tr>
                   </tfoot>
                   <tbody>
@@ -136,7 +136,7 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           
@@ -145,11 +145,11 @@
                       
                       <td><?=$d->nama_proyek?></td>
                       <td><?=$d->volume?></td>
-                      <td><?=$d->jumlah?></td>
+                      <td>Rp. <?=number_format($d->jumlah_biaya,0,',','.');?></td>
                       <td><?=$d->waktu?></td>
+                      <td><?=$d->tahun?></td>
                       <td><?=$d->sifat_kegiatan?></td>
                       <td><?=$d->pelaksana?></td>
-                      <td><?=$d->created_at?></td>
                         </div>
                       </td>
                     </tr>

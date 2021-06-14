@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
                             <select name="jk" id="jk" class="form-control border-left-primary"  required>
-                            <option><?=$d->jk?></option>
+                            <option>- Pilih -</option>
                             <option value="Laki-Laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>

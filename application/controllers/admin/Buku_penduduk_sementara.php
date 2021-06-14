@@ -36,7 +36,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
             ['field' => 'maksud_tujuan','label' => 'Maksud dan Tujuan', 'rules' => 'required'],
             ['field' => 'nama_yg_didatangi','label' => 'Nama Penduduk yang Didatangi', 'rules' => 'required'],
             ['field' => 'alamat_yg_didatangi','label' => 'Alamat Penduduk yang Didatangi', 'rules' => 'required'],
-            ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan'],
+            ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan', 'rules' => 'required'],
             ['field' => 'tgl_pergi','label' => 'Tanggal Kepergian'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -401,7 +401,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
         $tahun = $this->input->get('tahun');
         $where = ['tahun'=>$tahun];
         $reader = IOFactory::createReader('Xls');
-        $spreadsheet = $reader->load('./assets/buku_pembangunan/'.$this->_exelName);
+        $spreadsheet = $reader->load('./assets/buku_adm_penduduk/'.$this->_exelName);
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
         $values = array();
         $i = 0;
@@ -410,7 +410,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
 
             if($d->jk == 'Laki-Laki'){
                 $lakilaki = "L";
-                $perempuan = "";
+                $perempuan = ""; 
             }
             else{
                 $perempuan = "P";
@@ -422,15 +422,15 @@ class Buku_penduduk_sementara extends Admin_Controller {
                 $lakilaki,
                 $perempuan,
                 $d->no_identitas,
-                $d->tempat_lahir.",".$d->tgl_lahir."/".$d->umur,
+                $d->tempat_lahir.",".date("d-m-Y", strtotime($d->tgl_lahir))."/".$d->umur,
                 $d->pekerjaan,
                 $d->kebangsaan,
                 $d->keturunan,
                 $d->datang_dari,
                 $d->maksud_tujuan,
                 $d->nama_yg_didatangi.",".$d->alamat_yg_didatangi,
-                $d->tgl_datang,
-                $d->tgl_pergi,
+                date("d-m-Y", strtotime($d->tgl_datang)),
+                date("d-m-Y", strtotime($d->tgl_pergi)),
                 $d->ket
             );
            
@@ -445,6 +445,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
             'A13'
         );
 
+        
         $styleArray = [
             'borders' => [
                 'allBorders' => [

@@ -40,7 +40,7 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                 <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Inventaris Pembangunan : <?=$d->nama_hasil?></h5>
+                 <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Inventaris Hasil Pembangunan : <?=$d->nama_hasil?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
                 
@@ -58,7 +58,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya">Biaya</label>
-                        <input type="text" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" required>
+                        <input type="number" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" required>
                     </div>
                     </div>
                     <div class="col-lg-6"> 

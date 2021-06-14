@@ -6,7 +6,10 @@ class Form_domisili extends Admin_Controller{
     private $_table = 'form_domisili';
     private $_folder = 'form_domisili';
     private $_folderUpload = 'form_domisili';
-    private $_docxName = 'form_domisili.docx';
+    private $_docxName = array(
+        'Warga Permanen' => 'form_domisili_permanen.docx',
+        'Warga Non Permanen' => 'form_domisili_non_permanen.docx',
+    );
     private $_mainTitle = 'Form Domisili';
 
     function __construct()
@@ -343,7 +346,7 @@ class Form_domisili extends Admin_Controller{
         $data = $this->Main_m->get($this->_table,$where)->row();
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
+        $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName[$data->persyaratan]);
         $template->setValue('nama', $data->nama);
         $template->setValue('tempat_lahir', $data->tempat_lahir);
         $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
@@ -351,6 +354,8 @@ class Form_domisili extends Admin_Controller{
         $template->setValue('kewarganegaraan', $data->kewarganegaraan);
         $template->setValue('agama', $data->agama);
         $template->setValue('alamat', $data->alamat);
+        $template->setValue('status_perkawinan', $data->status_perkawinan);
+        $template->setValue('pekerjaan', $data->pekerjaan);
         $template->setValue('rt', $data->rt);
         $template->setValue('rw', $data->rw);
         $template->setValue('pekon', $data->pekon);
@@ -358,7 +363,7 @@ class Form_domisili extends Admin_Controller{
         $template->setValue('kabupaten', $data->kabupaten);
         $template->setValue('persyaratan', $data->persyaratan);
         $template->setValue('today', longdate_indo($today));
-        $temp_filename = $this->_docxName;
+        $temp_filename = $this->_docxName[$data->persyaratan];
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');

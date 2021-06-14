@@ -89,11 +89,12 @@
                     <tr>
                       <th width="2%" rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th rowspan="2">No</th>
-                      <th rowspan="2" width="3%"></th>
+                      <th rowspan="2" width="3%">Aksi</th>
                       <th rowspan="2">Nama Lengkap/Panggilan</th>
                       <th colspan="2"><center>Tempat & Tanggal Lahir</th> 
                       <th rowspan="2">Jenis Kelamin</th>
                       <th rowspan="2">Kewarganegaraan</th>
+                      <th rowspan="2">Periode Mutasi</th>
                       <th rowspan="2">Keterangan</th>
                     </tr>
                     
@@ -107,11 +108,12 @@
                     <tr>
                     <th width="2%"></th>
                     <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nama Lengkap/Panggilan</th>
                       <th colspan="2"><center>Tempat & Tanggal Lahir</th>
                       <th>Jenis Kelamin</th>
                       <th>Kewarganegaraan</th>
+                      <th>Periode Mutasi</th>
                       <th>Keterangan</th>
                     </tr>
                   </tfoot>
@@ -130,7 +132,7 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           
@@ -140,9 +142,10 @@
                       </td>
                       <td><?=$d->nama?></td>
                       <td><?=$d->tempat_lahir?></td>
-                      <td><?=$d->tgl_lahir?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl_lahir))?></td>
                       <td><?=$d->jk?></td>
                       <td><?=$d->wn?></td>
+                      <td><?= date("m-Y", strtotime($d->bulan_tahun))?></td>
                       <td><?=$d->ket?></td>
                     </tr>
                   <?php endforeach;?>

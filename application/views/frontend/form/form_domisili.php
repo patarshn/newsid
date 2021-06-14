@@ -69,6 +69,7 @@
                         <label for="kabupaten">Kabupaten</label>
                         <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="Pringsewiu">
                     </div>
+                    
                     <div class="col-lg-3">
                         <label for="rt">RT</label>
                         <input type="text" name="rt" id="rt" class="form-control" placeholder="RT">
@@ -77,10 +78,26 @@
                         <label for="rw">RW</label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
                     </div>
+                    <div class="col-lg-6">
+                        <label for="agama">Agama</label>
+                        <select name="agama" id="agama" class="form-control" placeholder="Agama" required>
+                            <option>-</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Katholik">Katholik</option>
+                            <option value="Buddha">Buddha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghucu">Konghucu</option>
+                        </select>
+                    </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat">Peruntukkan</label>
-                            <textarea class="form-control" name="persyaratan" id="persyaratan" rows="2"></textarea>
+                            <label for="persyaratan">Peruntukkan</label>
+                            <select name="persyaratan" id="persyaratan" class="form-control" placeholder="Pilih Jenis Form" required>
+                            <option>Pilih Jenis Form</option>
+                            <option value="Warga Permanen">Warga Permanen</option>
+                            <option value="Warga Non Permanen">Warga Non Permanen</option>
+                        </select>
                         </div>
                     </div>
                     <div class="col-lg-6">
