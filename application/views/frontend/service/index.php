@@ -9,7 +9,20 @@
 
 
         <div class="row justify-content-center mt-4 col-12">
-            
+            <a href="form_domisili" class="card col-3-lg mb-4" style="border:0; box-shadow:6px 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <img src="https://2.bp.blogspot.com/-PniqEJmBXu8/W4kBpPqPQ7I/AAAAAAAAD00/k12XtrachKcdS5ArBDkFNQncqhG7zWtaQCLcBGAs/s1600/Peta%2BLampung.jpg" class="card-img-top" alt="product 5">
+                    <div class="card-body">
+                        <h6>Form Domisili</h6>
+                    </div>
+            </a>
+
+            <a href="form_tm_jampersal" class="card col-3-lg mb-4" style="border:0; box-shadow:6px 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <img src="https://media.suara.com/pictures/970x544/2019/01/09/34244-ilustrasi-bayi-usai-mandi-anak-sudah-mandi-bayi-pakai-handuk-bayi-minyak-telon-shutterstock.jpg" class="card-img-top" alt="product 5">
+                    <div class="card-body">
+                        <h6>Form Jampersal</h6>
+                    </div>
+            </a>
+
             <a href="form_ahliwaris" class="card col-3-lg mb-4" style="border:0; box-shadow:6px 6px 20px 0 rgba(0, 0, 0, 0.19);">
                 <img src="https://www.daaruttauhiid.org/wp-content/uploads/2019/08/Harta-yang-Menyelamatkan-734x321.jpg" class="card-img-top" alt="product 5">
                     <div class="card-body">

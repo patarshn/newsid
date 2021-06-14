@@ -1,16 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Form_domisili extends Admin_Controller{
+class Form_tm_jampersal extends Admin_Controller{
 
-    private $_table = 'form_domisili';
-    private $_folder = 'form_domisili';
-    private $_folderUpload = 'form_domisili';
-    private $_docxName = array(
-        'Warga Permanen' => 'form_domisili_permanen.docx',
-        'Warga Non Permanen' => 'form_domisili_non_permanen.docx',
-    );
-    private $_mainTitle = 'Form Domisili';
+    private $_table = 'form_tm_jampersal';
+    private $_folder = 'form_tm_jampersal';
+    private $_folderUpload = 'form_tm_jampersal';
+    private $_docxName = 'form_tm_jampersal.docx';
+    private $_mainTitle = 'Form Jaminan Persalinan';
 
     function __construct()
 	{
@@ -92,7 +89,7 @@ class Form_domisili extends Admin_Controller{
             $id = $_POST['id'];
             $where = ['id'=>$id];
 
-            $nik = $_POST['nik'];
+            $nik = $_POST['nik_l'];
             if(!empty($_FILES["file_ktp"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
@@ -137,30 +134,42 @@ class Form_domisili extends Admin_Controller{
             else{
                 $berkas['file_kk'] = $_POST['file_kk_old'];
             }
-
+            
             $data = array(
                 'id' => $_POST['id'],
-                'nik' => $_POST['nik'],
-                'nama' => $_POST['nama'],
-                'tempat_lahir' => $_POST['tempat_lahir'],
-                'tanggal_lahir' => $_POST['tanggal_lahir'],
-                'kewarganegaraan' => $_POST['kewarganegaraan'],
-                'agama' => $_POST['agama'],
-                'status_perkawinan' => $_POST['status_perkawinan'],
-                'pekerjaan' => $_POST['pekerjaan'],
-                'alamat' => $_POST['alamat'],
-                'rt' => $_POST['rt'],
-                'rw' => $_POST['rw'],
-                'pekon' => $_POST['pekon'],
-                'kecamatan' => $_POST['kecamatan'],
-                'kabupaten' => $_POST['kabupaten'],
-                'persyaratan' => $_POST['persyaratan'],
-                'verif_lurah' => $_POST['verif_lurah'],
+                'nik_l' => $_POST['nik_l'],
+                'nama_l' => $_POST['nama_l'],
+                'tempat_lahir_l' => $_POST['tempat_lahir_l'],
+                'tanggal_lahir_l' => $_POST['tanggal_lahir_l'],
+                'agama_l' => $_POST['agama_l'],
+                'pekerjaan_l' => $_POST['pekerjaan_l'],
+                'alamat_l' => $_POST['alamat_l'],
+                'rt_l' => $_POST['rt_l'],
+                'rw_l' => $_POST['rw_l'],
+                'pekon_l' => $_POST['pekon_l'],
+                'kecamatan_l' => $_POST['kecamatan_l'],
+                'kabupaten_l' => $_POST['kabupaten_l'],
+                'nik_p' => $_POST['nik_p'],
+                'nama_p' => $_POST['nama_p'],
+                'tempat_lahir_p' => $_POST['tempat_lahir_p'],
+                'tanggal_lahir_p' => $_POST['tanggal_lahir_p'],
+                'agama_p' => $_POST['agama_p'],
+                'pekerjaan_p' => $_POST['pekerjaan_p'],
+                'alamat_p' => $_POST['alamat_p'],
+                'rt_p' => $_POST['rt_p'],
+                'rw_p' => $_POST['rw_p'],
+                'pekon_p' => $_POST['pekon_p'],
+                'kecamatan_p' => $_POST['kecamatan_p'],
+                'kabupaten_p' => $_POST['kabupaten_p'],
+                'verif_lurah' => $_POST['verif_lurah'],                                           
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'berkas' => json_encode($berkas),
                 'notelp' => $this->notelp($_POST['notelp']),
             );
+            if($_POST['verif_lurah'] != $_POST['verif_lurah_old']){
+                $data['verif_lurah_at'] = date('Y-m-d H:i:s');
+            }
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
@@ -262,7 +271,7 @@ class Form_domisili extends Admin_Controller{
         echo json_encode($callback);
     }
 
-
+    
     public function setuju(){
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesDestroy());
@@ -345,25 +354,40 @@ class Form_domisili extends Admin_Controller{
         $where = ['id'=>$id];
         $data = $this->Main_m->get($this->_table,$where)->row();
         $today = date('Y-m-d');
+        $todaydt = new DateTime('today');
+        $tanggal_lahir_l_dt = new DateTime($data->tanggal_lahir_l);
+        $tanggal_lahir_p_dt = new DateTime($data->tanggal_lahir_p);
+        $usia_l = $todaydt->diff($tanggal_lahir_l_dt)->y;
+        $usia_p = $todaydt->diff($tanggal_lahir_p_dt)->y;
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName[$data->persyaratan]);
-        $template->setValue('nama', $data->nama);
-        $template->setValue('tempat_lahir', $data->tempat_lahir);
-        $template->setValue('tanggal_lahir', longdate_indo($data->tanggal_lahir));
-        $template->setValue('nik', $data->nik);
-        $template->setValue('kewarganegaraan', $data->kewarganegaraan);
-        $template->setValue('agama', $data->agama);
-        $template->setValue('alamat', $data->alamat);
-        $template->setValue('status_perkawinan', $data->status_perkawinan);
-        $template->setValue('pekerjaan', $data->pekerjaan);
-        $template->setValue('rt', $data->rt);
-        $template->setValue('rw', $data->rw);
-        $template->setValue('pekon', $data->pekon);
-        $template->setValue('kecamatan', $data->kecamatan);
-        $template->setValue('kabupaten', $data->kabupaten);
-        $template->setValue('persyaratan', $data->persyaratan);
+        $template = $phpWord->loadTemplate('./assets/form/'.$this->_docxName);
+        $template->setValue('nama_l', $data->nama_l);
+        $template->setValue('tempat_lahir_l', $data->tempat_lahir_l);
+        $template->setValue('tanggal_lahir_l', longdate_indo($data->tanggal_lahir_l));
+        $template->setValue('agama_l', $data->agama_l);
+        $template->setValue('pekerjaan_l', $data->pekerjaan_l);
+        $template->setValue('rt_l', $data->rt_l);
+        $template->setValue('rw_l', $data->rw_l);
+        $template->setValue('pekon_l', $data->pekon_l);
+        $template->setValue('kecamatan_l', $data->kecamatan_l);
+        $template->setValue('kabupaten_l', $data->kabupaten_l);
+        $template->setValue('usia_l', $usia_l);
+
+        $template->setValue('nama_p', $data->nama_p);
+        $template->setValue('tempat_lahir_p', $data->tempat_lahir_p);
+        $template->setValue('tanggal_lahir_p', longdate_indo($data->tanggal_lahir_p));
+        $template->setValue('agama_p', $data->agama_p);
+        $template->setValue('pekerjaan_p', $data->pekerjaan_p);
+        $template->setValue('rt_p', $data->rt_p);
+        $template->setValue('rw_p', $data->rw_p);
+        $template->setValue('pekon_p', $data->pekon_p);
+        $template->setValue('kecamatan_p', $data->kecamatan_p);
+        $template->setValue('kabupaten_p', $data->kabupaten_p);
+        $template->setValue('usia_p', $usia_p);
+
+
         $template->setValue('today', longdate_indo($today));
-        $temp_filename = $this->_docxName[$data->persyaratan];
+        $temp_filename = $this->_docxName;
         $template->saveAs($temp_filename);
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
@@ -414,5 +438,5 @@ class Form_domisili extends Admin_Controller{
         }
         return true;
     }
-    
+
 }
