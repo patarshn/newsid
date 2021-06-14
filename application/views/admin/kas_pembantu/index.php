@@ -101,15 +101,14 @@
                           </div>
                         </div>
                       </td>
+                      <td><?=$d->tanggal?></td>
+                      <td><?=$d->pajak?></td>
+                      <td><?=$d->ret?></td>
+                      <td><?=$d->pl?></td>
+                      <td><?=$d->pemotongan?></td>
+                      <td><?=$d->penyetoran?></td>
+                      <td><?=$d->saldo?></td>
                       <td><?=$d->tahun_anggaran?></td>
-                      <td><?=$d->type?></td>
-                      <td><?=$d->kode_rekening1?></td>
-                      <td><?=$d->kode_rekening2?></td>
-                      <td><?=$d->kode_rekening3?></td>
-                      <td><?=$d->kode_rekening4?></td>
-                      <td><?=$d->uraian?></td>
-                      <td><?=$d->anggaran?></td>
-                      <td><?=$d->keterangan?></td>
 
                       </td>
                       <td>

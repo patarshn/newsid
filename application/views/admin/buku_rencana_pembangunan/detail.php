@@ -41,7 +41,7 @@
                                           <div class="card-body">
                                               <table class="table table-bordered table-hover border-left-primary border-bottom-primary">
                                               <thead>
-                                                  <tr><th>Nama Proyek/Kegiatan</th>
+                                                  <tr><th width="40%">Nama Proyek/Kegiatan</th>
                                                   <td><?=$p->nama_proyek?></td></tr>
 
                                                   <tr><th>Lokasi</th>
@@ -58,23 +58,24 @@
                                                  </thead>
                                               </table>                                            
                                         
-                                              <h8><b> Sumber Dana / Besaran Biaya</b></h8>
+                                              <h6><b> Sumber Dana / Besaran Biaya</b></h6>
+                                              
                                               <table class="table table-bordered table-hover border-left-primary">
                                               <thead>
-                                              <tr><th>Pemerintah</th>
-                                                  <td style="text-align:right">Rp. <?=$p->biaya_pemerintah?></td></tr>
+                                              <tr><th width="40%">Pemerintah</th>
+                                                  <td style="text-align:left">Rp. <?=$p->biaya_pemerintah?></td></tr>
 
                                                   <tr><th>Provinsi</th>
-                                                  <td style="text-align:right">Rp. <?=$p->biaya_prov?></td></tr> 
+                                                  <td style="text-align:left">Rp. <?=$p->biaya_prov?></td></tr> 
 
                                                   <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:right">Rp. <?=$p->biaya_kab?></td></tr>
+                                                  <td style="text-align:left">Rp. <?=$p->biaya_kab?></td></tr>
 
                                                   <tr class="border-bottom-primary"><th>Swadaya</th>
-                                                  <td style="text-align:right">Rp. <?=$p->biaya_swadaya?></td></tr>
+                                                  <td style="text-align:left">Rp. <?=$p->biaya_swadaya?></td></tr>
 
                                                   <tr><th>Total Biaya</th>
-                                                  <td style="text-align:right">Rp. <?=$p->jumlah?></td></tr>
+                                                  <td style="text-align:left">Rp. <?=$p->jumlah?></td></tr>
                                                  </thead>
                                               </table>
                                         </div>

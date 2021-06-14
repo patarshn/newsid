@@ -48,15 +48,16 @@
                                           <div class="card mb-4 py-3 border-bottom-primary">
                                             <div class="card-body">
                                               <div class="form-group">
-                                                <form action="" id="cetak">
+                                                <form method="get" action="buku_rencana_pembangunan/cetak">
                                                 <label for="tahun"><b>Masukan Periode Tahun</b></label>
                                                 <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                </form>
-                                                </div>
+                                                
                                                 <div class="d-flex mt-3">
-                                                <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/cetak','#cetak')">Cetak</button>
+                                                <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                                                 <span class="sr-only">Loading...</span>
+                                                </div>
+                                                </form>
                                                 </div>
                                               </div>
                                             </div>

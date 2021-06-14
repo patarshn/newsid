@@ -14,7 +14,7 @@
                   <?=$breadcrumb?>
                   </h6>
                 </div>
-              </div>
+              </div> 
             </div>
             <?php if($this->session->flashdata('success_message')): ?>
 	            <div class="alert alert-success col" id="success-message"><?= $this->session->flashdata('success_message');?></div>
@@ -40,7 +40,7 @@
                               <div class="modal-content">
                               <!-- heading modal -->
                               <div class="modal-header border-bottom-primary">
-                                  <h8 class="modal-title"><b>Cetak Buku Penduduk Sementara</b></h8>
+                                  <h8 class="modal-title"><b>Cetak Buku Rencana Kerja Pembangunan</b></h8>
                               </div>
                               <!-- body modal -->
                               <div class="modal-body">
@@ -49,16 +49,16 @@
                                           <div class="card mb-4 py-3 border-bottom-primary">
                                             <div class="card-body">
                                               <div class="form-group">
-                                                <form action="" id="cetak">
+                                                <form method="get" action="buku_penduduk_sementara/cetakExc">
                                                 <label for="tahun"><b>Masukan Periode Tahun</b></label>
                                                 <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                </form>
-                                          
+                                                
                                                 <div class="d-flex mt-3">
-                                                <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/cetak','#cetak')">Cetak</button>
+                                                <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                                                 <span class="sr-only">Loading...</span>
                                                 </div>
+                                                </form>
                                                 </div>
                                               </div>
                                             </div>
@@ -90,7 +90,7 @@
                     <th width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th>No</th>
                       <th width="3%"></th>
-                      <th>Nomor Identitas/Tanda Pengenal</th>
+                      <th>Nomor Identitas / Tanda Pengenal</th>
                       <th>Nama Lengkap</th>
                       <th>Jenis Kelamin</th>
                       <th>Datang Dari (asal)</th>
@@ -103,7 +103,7 @@
                     <th width="2%"></th>
                     <th>No</th>
                     <th width="3%"></th>
-                    <th>Nomor Identitas/Tanda Pengenal</th>
+                    <th>Nomor Identitas / Tanda Pengenal</th>
                       <th>Nama Lengkap</th>
                       <th>Jenis Kelamin</th>
                       <th>Datang Dari (asal)</th>
