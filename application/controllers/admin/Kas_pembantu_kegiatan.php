@@ -430,7 +430,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
         foreach($data as $d){
             $subvalues = array(
                 'id' => $no++,
-                'tanggal' => $d->tanggal,
+                'tanggal' => date("d-m-Y", strtotime($d->tanggal)),
                 'uraian' => $d->uraian,
                 'penerimaan_bendahara' => number_format($d->penerimaan_bendahara,0,',','.'),
                 'penerimaan_sdm' => number_format($d->penerimaan_sdm,0,',','.'),

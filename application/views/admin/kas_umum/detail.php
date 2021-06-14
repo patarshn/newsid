@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
                     </div>
                   </div>
                 </div>
@@ -61,12 +61,12 @@
 
                                     <tr>
                                         <th>Penerimaan</th>
-                                        <td style="text-align:right">Rp. <?=$d->penerimaan?></td>
+                                        <td style="text-align:right">Rp. <?=number_format($d->penerimaan,0,',','.');?></td>
                                     </tr >
                                     
                                     <tr>
                                         <th>Pengeluaran</th>
-                                        <td style="text-align:right">Rp. <?=$d->pengeluaran?></td>
+                                        <td style="text-align:right">Rp. <?=number_format($d->pengeluaran,0,',','.');?></td>
                                     </tr >
 
                                     <tr>
@@ -76,12 +76,12 @@
 
                                     <tr>
                                         <th>Jumlah Pengeluaran Komulatif</th>
-                                        <td style="text-align:right">Rp. <?=$d->jumlah_komulatif?></td>
+                                        <td style="text-align:right">Rp. <?=number_format($d->jumlah_komulatif,0,',','.');?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Saldo</th>
-                                        <td style="text-align:right">Rp. <?=$d->saldo?></td>
+                                        <td style="text-align:right">Rp. <?=number_format($d->saldo,0,',','.');?></td>
                                     </tr >
 
                                     <tr>

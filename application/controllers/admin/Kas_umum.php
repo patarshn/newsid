@@ -440,11 +440,11 @@ class Kas_umum extends Admin_Controller {
                 'tanggal' => $d->tanggal,
                 'kode_rekening' => $d->kode_rekening,
                 'uraian' => $d->uraian,
-                'penerimaan' => $d->penerimaan,
-                'pengeluaran' => $d->pengeluaran,
+                'penerimaan' => number_format($d->penerimaan_sdm,0,',','.'),
+                'pengeluaran' => number_format($d->penerimaan_sdm,0,',','.'),
                 'no_bukti' => $d->no_bukti,
-                'jumlah_komulatif' => $d->jumlah_komulatif,
-                'saldo' => $d->saldo
+                'jumlah_komulatif' => number_format($d->penerimaan_sdm,0,',','.'),
+                'saldo' => $d-> number_format($d->penerimaan_sdm,0,',','.'),
             );
             $values[] = $subvalues;
         }

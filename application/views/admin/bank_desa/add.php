@@ -75,32 +75,32 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="pmskn_setoran" class="text-gray-900 font-weight-bold">Setoran</label>
-                        <input type="text" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" required>
+                        <input type="number" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pmskn_bungabank" class="text-gray-900 font-weight-bold">Bunga Bank</label>
-                        <input type="text" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" required>
+                        <input type="number" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_penarikan" class="text-gray-900 font-weight-bold">Penarikan</label>
-                        <input type="text" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" required>
+                        <input type="number" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_pajak" class="text-gray-900 font-weight-bold">Pajak</label>
-                        <input type="text" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" required>
+                        <input type="number" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_biaya_adm" class="text-gray-900 font-weight-bold">Biaya Administrasi</label>
-                        <input type="text" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" required>
+                        <input type="number" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" required>
+                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" required>
                     </div>
                 </div>
                 <?=form_close()?>
