@@ -24,7 +24,7 @@
                 <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                 <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
+                    <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
                 </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
                                     <th width="30%">Tanggal Penerimaan/Pengiriman Surat</th>
-                                    <td><?=$d->status_surat?></td>
+                                    <td><?=$d->tanggal_surat?></td>
                                 </tr >
 
                                 <tr>
@@ -51,13 +51,13 @@
                                 <tr>
                                     <th>Berkas</th>
                                     <td>
-                                    <?php if($d->berkas != null):?>
+                                    <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
                                     <?=$d->berkas?>
                                     <br>
                                     <a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
                                     <?php else :?>
                                     berkas Tidak ada
-                                    <?php endif; ?>
+                                    <?php endif;?>
                                     </td>
                                 </tr >
 
@@ -76,11 +76,11 @@
                                     <td><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
                                 </tr >
                             </table>
-
+                            <?php if($d->status_surat == "PENERIMAAN"):?>
                             <h8><b>Surat Masuk</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="50%">Nomor</th>
+                                    <th width="30%">Nomor</th>
                                     <td><?=$d->sm_no?></td>
                                 </tr >
 
@@ -100,10 +100,11 @@
                                 </tr >
                             </table>
 
+                            <?php elseif($d->status_surat == "PENGIRIMAN"):?>
                             <h8><b>Surat Keluar</b></h8>
                             <table class="table table-bordered table-hover border-left-primary mt-3">
                                 <tr>
-                                    <th width="50%">Nomor</th>
+                                    <th width="30%">Nomor</th>
                                     <td><?=$d->sk_no?></td>
                                 </tr >
 
@@ -122,6 +123,7 @@
                                     <td><?=$d->sk_isi?></td>
                                 </tr >
                             </table>
+                            <?php endif;?>
                         </div>
                     </div>
                 <?php endforeach;?>

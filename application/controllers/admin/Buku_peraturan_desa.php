@@ -467,7 +467,7 @@ class Buku_peraturan_desa extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists($b_id->berkas)){
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
             
@@ -530,6 +530,7 @@ class Buku_peraturan_desa extends Admin_Controller {
         for($r = 7;$r <= $i;$r++){
             $sheet->getRowDimension((string)$r)->setRowHeight(-1);
         }
+
         $writer = new Xls($spreadsheet);
 
         $filename = $this->_exelName;

@@ -1,12 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
+
 class Buku_inventaris_kekayaan_desa extends Admin_Controller {
 
     private $_table = 'buku_inventaris_kekayaan_desa';
     private $_folder = 'buku_inventaris_kekayaan_desa';
     private $_mainTitle = 'Buku Inventaris Dan Kekayaan Desa';
-    private $_docxName = 'buku_inventaris_kekayaan_desa.docx';
+    private $_exelName = 'buku_inventaris_kekayaan_desa.xls';
 
     function __construct() {
         parent::__construct();
@@ -472,7 +477,7 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists($b_id->berkas)){
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
 
@@ -485,49 +490,74 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
     }
 
     public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
         $data = $this->Main_m->get($this->_table,null)->result();
-        $today = date('Y-m-d');
-        $phpWord = new \PhpOffice\PhpWord\PhpWord();
-        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_umum/'.$this->_docxName);
         $values = array();
+        $i = 0;
         $no = 1;
         foreach($data as $d){
             $subvalues = array(
-                'no' => $no++,
-                'jenis_brng_bangunan' => $d->jenis_brng_bangunan,
-                'abb_dibeli_sendiri' => $d->abb_dibeli_sendiri,
-                'bantuan_pemeritah' => $d->bantuan_pemeritah,
-                'bantuan_prov' => $d->bantuan_prov,
-                'bantuan_kab_kota' => $d->bantuan_kab_kota,
-                'abb_sumbangan' => $d->abb_sumbangan,
-                'baik_awalthn' => $d->baik_awalthn,
-                'rusak_awalthn' => $d->rusak_awalthn,
-                'rusak_hps' => $d->rusak_hps,
-                'dijual_hps' => $d->dijual_hps,
-                'disumbangkan_hps' => $d->disumbangkan_hps,
-                'tgl_hapus' => $d->tgl_hapus,
-                'baik_akhirthn' => $d->baik_akhirthn,
-                'rusak_akhirthn' => $d->rusak_akhirthn,
-                'ket'=> $d->ket
+                $no++,
+                $d->jenis_brng_bangunan,
+                $d->abb_dibeli_sendiri,
+                $d->bantuan_pemeritah,
+                $d->bantuan_prov,
+                $d->bantuan_kab_kota,
+                $d->abb_sumbangan,
+                $d->baik_awalthn,
+                $d->rusak_awalthn,
+                $d->rusak_hps,
+                $d->dijual_hps,
+                $d->disumbangkan_hps,
+                $d->tgl_hapus,
+                $d-> baik_akhirthn,
+                $d->rusak_akhirthn,
+                $d->ket
             );
             $values[] = $subvalues;
+            $i++;
         }
 
-        $templateProcessor->cloneRowAndSetValues('no', $values);
-        $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A9'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 8;
+
+        $sheet->getStyle('A9:P'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A9:P'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A9:P'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A9:P'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 9;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
         header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
         header('Content-Transfer-Encoding: binary');
         header('Expires: 0');
         header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
         header('Pragma: public');
-        header('Content-Length: ' . filesize($temp_filename));
-        flush();
-        readfile($temp_filename);
-        unlink($temp_filename);
-        exit;
+        $writer->save('php://output');
     }
 }
 ?>
