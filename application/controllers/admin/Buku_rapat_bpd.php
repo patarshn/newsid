@@ -6,6 +6,7 @@ class Buku_rapat_bpd extends Admin_Controller {
     private $_table = 'buku_rapat_bpd';
     private $_folder = 'buku_rapat_bpd';
     private $_mainTitle = 'Buku Rapat BPD';
+    private $_docxName = 'buku_rapat_bpd.docx';
 
     function __construct() {
         parent::__construct();
@@ -91,10 +92,9 @@ class Buku_rapat_bpd extends Admin_Controller {
             if(!empty($_FILES["berkas1"]["name"])){
                 $berkas1 = $this->upload_file1();
                 if(!$berkas1){
-                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -111,10 +111,9 @@ class Buku_rapat_bpd extends Admin_Controller {
             if(!empty($_FILES["berkas2"]["name"])){
                 $berkas2 = $this->upload_file2();
                 if(!$berkas2){
-                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
+                        'message' => $this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;
@@ -203,6 +202,14 @@ class Buku_rapat_bpd extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas1"]["name"])){
                 $berkas1 = $this->upload_file1();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas1_lama = $this->destroy_file($where);
             }
 
@@ -213,6 +220,14 @@ class Buku_rapat_bpd extends Admin_Controller {
 
             if(!empty($_FILES["berkas2"]["name"])){
                 $berkas2 = $this->upload_file2();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
                 $berkas2_lama = $this->destroy_file($where);
             }
 
@@ -300,7 +315,7 @@ class Buku_rapat_bpd extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -308,7 +323,7 @@ class Buku_rapat_bpd extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -445,7 +460,7 @@ class Buku_rapat_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
 
@@ -465,7 +480,7 @@ class Buku_rapat_bpd extends Admin_Controller {
             return $this->upload->data("file_name");
         }
         else{
-            echo $this->upload->display_errors();
+            return false;
         }    
     }
     
@@ -474,6 +489,10 @@ class Buku_rapat_bpd extends Admin_Controller {
         foreach ($berkas1_id as $b1_id) {
             
             if(empty($b1_id->berkas1)){
+                return true;
+            }
+
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
                 return true;
             }
 
@@ -493,12 +512,48 @@ class Buku_rapat_bpd extends Admin_Controller {
                 return true;
             }
 
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
+                return true;
+            }
+
             if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b2_id->berkas2)) {
                 return false;
             }
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'tgl' => $d->tgl,
+                'agenda' => $d->agenda
+            );
+            $values[] = $subvalues;
+        }
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
     }
 }
 ?>

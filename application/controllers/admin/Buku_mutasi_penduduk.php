@@ -1,16 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_mutasi_penduduk extends Admin_Controller {
 
     private $_table = 'mutasi_penduduk';
     private $_folder = 'buku_mutasi_penduduk';
     private $_mainTitle = 'Data Mutasi Penduduk Desa';
+    private $_exelName = 'buku_mutasi_penduduk.xls';
 
     function __construct()
 	{
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Penduduk_m');
         $this->load->library('breadcrumbcomponent'); 
     }    
 
@@ -154,6 +160,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
                 'created_at' => date('Y-m-d'),
                 
             );
+
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
                 $callback = array(
@@ -300,6 +307,91 @@ class Buku_mutasi_penduduk extends Admin_Controller {
             );          
         }
         echo json_encode($callback);
+    }
+
+    function cetak(){
+        $bulan_tahun = $this->input->post('bulan_tahun');
+        echo $bulan_tahun;
+        $data=$this->Penduduk_m->getMutasiTahunBulan($bulan_tahun)->result();
+        echo var_dump($data);
+    }
+
+    public function cetakExc(){
+        $bulan_tahun = $this->input->get('bulan_tahun');
+        $where = ['bulan_tahun'=>$bulan_tahun];
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_penduduk/'.$this->_exelName);
+        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+
+            if($d->jk == 'Laki-Laki'){
+                $jkelamin = "L";
+            }
+            else{
+                $jkelamin = "P";
+            }
+            $subvalues = array(
+                $no++,
+                $d->nama,         
+                $d->tempat_lahir,
+                date("d-m-Y", strtotime($d->tgl_lahir)),
+                $jkelamin,
+                $d->wn,
+                $d->datang,
+                date("d-m-Y", strtotime($d->tgl_datang)),
+                $d->pindah,
+                date("d-m-Y", strtotime($d->tgl_pindah)),
+                $d->meninggal,
+                date("d-m-Y", strtotime($d->tgl_meninggal)),
+                $d->ket
+            );
+           
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A13'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 6;
+
+        $sheet->getStyle('A13:J'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A13:J'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A13:J'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A13:J'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 13;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
     }
 }
 

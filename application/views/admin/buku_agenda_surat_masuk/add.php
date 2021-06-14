@@ -44,20 +44,31 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="no_dan_tgl_surat_masuk" class="text-gray-900 font-weight-bold">Nomor dan Tanggal Surat Masuk</label>
-                        <input type="text" name="no_dan_tgl_surat_masuk" id="no_dan_tgl_surat_masuk" class="form-control border-left-primary" required>
-                    </div>
-                    
-                    <div class="col-lg-6 mt-3">
                         <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
                         <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" required>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat Masuk</label>
+                      <div class="form-row">
+                        <div class="col-lg-6">
+                          <input type="text" name="no_surat_masuk" id="no_surat_masuk" class="form-control border-left-primary" required>
+                          <small id="no_surat_masuk" class="text-gray-700">Nomor Surat Masuk</small>
+                        </div>
+
+                        <div class="col-lg-6">                        
+                          <input type="date" name="tgl_surat_masuk" id="tgl_surat_masuk" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
+                          <small id="tgl_surat_masuk" class="text-gray-700">Tanggal Surat Masuk</small>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -73,6 +84,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

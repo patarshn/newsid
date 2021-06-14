@@ -6,6 +6,7 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
     private $_table = 'buku_data_aspirasi_masyarakat';
     private $_folder = 'buku_data_aspirasi_masyarakat';
     private $_mainTitle = 'Buku Data Aspirasi Masyarakat';
+    private $_docxName = 'buku_data_aspirasi_masyarakat.docx';
 
     function __construct() {
         parent::__construct();
@@ -20,7 +21,6 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
             ['field' => 'phk_aspirasi','label' => 'Nama/Lembaga Pihak Penyampai Aspirasi', 'rules' => 'required'],
             ['field' => 'aspirasi','label' => 'Aspirasi yang Disampaikan', 'rules' => 'required'],
             ['field' => 'tindak_lanjut','label' => 'Tindak Lanjut', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -31,7 +31,6 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
             ['field' => 'phk_aspirasi','label' => 'Nama/Lembaga Pihak Penyampai Aspirasi', 'rules' => 'required'],
             ['field' => 'aspirasi','label' => 'Aspirasi yang Disampaikan', 'rules' => 'required'],
             ['field' => 'tindak_lanjut','label' => 'Tindak Lanjut', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -92,13 +91,30 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
+            
+            if(!empty($_FILES["berkas"]["name"])){
+                $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
+            }
+
+            else{
+                $berkas = "";
+            }
+
             $_POST = $this->input->post();
             $data = array(
                 'tgl' => $_POST['tgl'],
                 'phk_aspirasi' => $_POST['phk_aspirasi'],
                 'aspirasi' => $_POST['aspirasi'],
                 'tindak_lanjut'=> $_POST['tindak_lanjut'],
-                'ket' => $_POST['ket'],
+                'berkas' => $berkas,
                 'verif_bpd' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' =>  $this->session->userdata('username'),
@@ -163,12 +179,32 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
             $_POST = $this->input->post();
             $id = $_POST['id'];
             $where = ['id'=>$id];
+            
+            //jika ada file yang baru
+            if(!empty($_FILES["berkas"]["name"])){
+                $berkas = $this->upload_file();
+                if(!$berkas){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $this->upload->display_errors(),
+                    );
+                    echo json_encode($callback);
+                    exit;
+                }
+                $berkas_lama = $this->destroy_file($where);
+            }
+
+            //jika tidak ada file baru
+            else {
+                $berkas = $_POST["old_file"];
+            }
+
             $data = array(
                 'tgl' => $_POST['tgl'],
                 'phk_aspirasi' => $_POST['phk_aspirasi'],
                 'aspirasi' => $_POST['aspirasi'],
                 'tindak_lanjut' => $_POST['tindak_lanjut'],
-                'ket' => $_POST['ket'],
+                'berkas' => $berkas,
                 'verif_bpd' => $_POST['verif_bpd'],
                 'updated_by' => $this->session->userdata('username'), 
                 'updated_at' => date('Y-m-d H:i:s'),
@@ -235,7 +271,7 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
 
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus form berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -243,7 +279,7 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus form gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
@@ -365,6 +401,75 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
         $this->load->view('admin/partials/footer');
     }
 
+    public function upload_file(){
+        $config['upload_path']      = "./administrasilainnya/".$this->_folder."/"; //lokasi
+        $config['allowed_types']    = 'pdf'; //file dizinkan
+        $config['file_name']        = $this->_folder.uniqid();
+        $config['overwrite']        = true;
+        $config['max_size']         = 2000; // 2MB
+
+        $this->load->library('upload',$config);
+
+        if ($this->upload->do_upload('berkas')) {
+            return $this->upload->data("file_name");
+        }
+        else{
+            return false;
+        }    
+    }
     
+    private function destroy_file($id) {
+        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
+        foreach ($berkas_id as $b_id) {
+            
+            if(empty($b_id->berkas)){
+                return true;
+            }
+
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
+                return true;
+            }
+
+            if (!unlink(FCPATH."administrasilainnya/".$this->_folder."/".$b_id->berkas)) {
+                return false;
+            }
+            
+        }
+        return true;
+    }
+    
+    public function cetak(){
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $today = date('Y-m-d');
+        $phpWord = new \PhpOffice\PhpWord\PhpWord();
+        $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
+        $values = array();
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                'no' => $no++,
+                'tgl' => $d->tgl,
+                'phk_aspirasi' => $d->phk_aspirasi,
+                'aspirasi' => $d->aspirasi,
+                'tindak_lanjut' => $d->tindak_lanjut,
+            );
+            $values[] = $subvalues;
+        }
+        $templateProcessor->cloneRowAndSetValues('no', $values);
+        $temp_filename = $this->_docxName;
+        $templateProcessor->saveAs($temp_filename);
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$temp_filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($temp_filename));
+        flush();
+        readfile($temp_filename);
+        unlink($temp_filename);
+        exit;
+    }
 }
 ?>

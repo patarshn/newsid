@@ -32,6 +32,48 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+                    <a class="btn btn-warning"  data-toggle="modal" data-target="#myModal" >Cetak</a>
+<!-- Modal -->
+                      <div id="myModal" class="modal fade" role="dialog">
+                          <div class="modal-dialog modal-lg">
+                              <!-- konten modal-->
+                              <div class="modal-content">
+                              <!-- heading modal -->
+                              <div class="modal-header border-bottom-primary">
+                                  <h8 class="modal-title"><b>Cetak Buku Anggaran Pendapatan dan Belanja Desa</b></h8>
+                              </div>
+                              <!-- body modal -->
+                              <div class="modal-body">
+                                  <div class="row">
+                                      <div class="col-lg-12">
+                                          <div class="card mb-4 py-3 border-bottom-primary">
+                                            <div class="card-body">
+                                              <div class="form-group">
+                                                <form method="get" action="apbd/cetak">
+                                                <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
+                                                <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
+                                                
+                                                <div class="d-flex mt-3">
+                                                <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
+                                                <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
+                                                <span class="sr-only">Loading...</span>
+                                                </div>
+                                                </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                            </div>
+                                <!-- footer modal -->
+                                  <div class="modal-footer ">
+                                      <button type="button" class="btn btn-warning" data-dismiss="modal">Tutup</button>
+                                  </div>
+                              </div>
+                           </div>
+                        </div>
+<!-- Modal -->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
                       <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
@@ -47,7 +89,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="5%">No</th>
+                      <th rowspan="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="5%">No</th>
                       <th rowspan="2" width="3%"></th>
                       <th rowspan="2">Tahun Anggaran</th>
                       <th rowspan="2">Type</th>
@@ -68,6 +111,7 @@
                   </thead>
                   <tfoot>
                     <tr>
+                        <th width="3%"></th>
                         <th width="5%">No</th>
                         <th width="3%"></th>
                         <th>Tahun Anggaran</th>
@@ -87,7 +131,7 @@
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
-                        <?=$count++;?>
+                        <td><?=$count++;?></td>
                       </td>
                       <td><div class="dropdown no-arrow">
                       <a class="dropdown-toggle btn btn-sm btn-secondary " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -97,7 +141,6 @@
                           <div class="dropdown-header">Actions:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
-                          <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/cetak/'.$d->id)?>">Cetak</a>
                           <!--<div class="dropdown-divider"></div>-->
                           </div>
                         </div>
@@ -109,7 +152,7 @@
                       <td><?=$d->kode_rekening3?></td>
                       <td><?=$d->kode_rekening4?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->anggaran?></td>
+                      <td>Rp. <?=number_format($d->anggaran,0,',','.');?></td>
                       <td><?=$d->keterangan?></td>
 
                       </td>

@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
                     </div>
                   </div>
                 </div>
@@ -56,22 +56,22 @@
 
                                     <tr>
                                         <th>Nomor dan Tanggal ditetapkan</th>
-                                        <td><?=$d->no_dan_tgl_ditetapkan?></td>
+                                        <td><?=$d->no_ditetapkan?>, <?=$d->tgl_ditetapkan?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Nomor dan Tanggal Dilaporkan</th>
-                                        <td><?=$d->no_dan_tgl_dilaporkan?></td>
+                                        <td><?=$d->no_dilaporkan?>, <?=$d->tgl_dilaporkan?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</th>
-                                        <td><?=$d->no_dan_tgl_diundangkan_dalam_lembaran_desa?></td>
+                                        <td><?=$d->no_diundangkan_dalam_lembaran_desa?>, <?=$d->tgl_diundangkan_dalam_lembaran_desa?></td>
                                     </tr >
 
                                     <tr>
-                                        <th>Nomor dan Tanggal Diundangkan Dalam Berita Desa</th>
-                                        <td><?=$d->no_dan_tgl_diundangkan_dalam_berita_desa?></td>
+                                        <th>Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</th>
+                                        <td><?=$d->no_diundangkan_dalam_berita_desa?>, <?=$d->tgl_diundangkan_dalam_berita_desa?></td>
                                     </tr >
                                     
                                     <tr>
@@ -87,7 +87,7 @@
                                     <tr>
                                         <th>Berkas</th>
                                         <td>
-                                        <?php if($d->berkas != null):?>
+                                        <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
                                         <?=$d->berkas?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>

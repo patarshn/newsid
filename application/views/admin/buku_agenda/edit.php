@@ -41,64 +41,102 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
+
+                <div class="col-lg-12 mt-3">
+                          <div class="form-group">
+                              <label for="status_surat" class="text-gray-900 font-weight-bold">Jenis Penerimaan/Pengiriman Surat</label>
+                              <select name="status_surat" id="status_surat" class="form-control border-left-primary" required>
+                                  <option>-</option>
+                                  <option value="PENERIMAAN">Penerimaan Surat</option>
+                                  <option value="PENGIRIMAN">Pengiriman Surat</option>
+                              </select>
+                          </div>
+                      </div>
+
+                  <script>
+                  $(document).ready(function(){
+                      var status = "<?=$d->status_surat?>";
+                      $('#status_surat').val(status);
+                      if(status == "PENERIMAAN"){
+                          $('#surat_keluar').hide();
+                          $('#surat_masuk').show();
+                        }
+                        else if(status == "PENGIRIMAN"){
+                          $('#surat_masuk').hide();
+                          $('#surat_keluar').show();
+                        }
+                        else{
+                          $('#surat_masuk').hide();
+                          $('#surat_keluar').hide();
+                        }
+                  });
+                  </script>
+
                     <div class="col-lg-6 mt-3">
-                        <label for="status_surat" class="text-gray-900 font-weight-bold">Tanggal Penerimaan/Pengiriman Surat</label>
-                        <input type="date" name="status_surat" id="status_surat" class="form-control border-left-primary" value="<?=$d->status_surat?>" required>
+                        <label for="tanggal_surat" class="text-gray-900 font-weight-bold">Tanggal Penerimaan/Pengiriman Surat</label>
+                        <input type="date" name="tanggal_surat" id="tanggal_surat" class="form-control border-left-primary" value="<?=$d->tanggal_surat?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas">
+                          <label for="berkas" class="custom-file-label border-left-primary">
+                            <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
+                              <?=$d->berkas?>
+                              <?php else :?>
+                              berkas Tidak ada
+                              <?php endif;?>
+                          </label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-12 mt-3" id="surat_masuk" style="display: none;">
                       <label class="text-gray-900 font-weight-bold" >Surat Masuk</label>
                       <div class="form-row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                           <input type="text" name="sm_no" id="sm_no" class="form-control border-left-primary" value="<?=$d->sm_no?>" required>
                           <small id="sm_no" class="text-gray-700">nomor</small>
                         </div>
                         
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                           <input type="date" name="sm_tgl" id="sm_tgl" class="form-control border-left-primary" value="<?=$d->sm_tgl?>" required>
                           <small id="sm_tgl" class="text-gray-700">Tanggal</small>
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                           <input type="text" name="sm_pengirim" id="sm_pengirim" class="form-control border-left-primary" value="<?=$d->sm_pengirim?>" required>
                           <small id="sm_pengirim" class="text-gray-700">Pengirim</small>
                         </div>
                         
-                        <div class="col-lg-12 mt-2">
+                        <div class="col-lg-6">
                           <input type="text" name="sm_isi" id="sm_isi" class="form-control border-left-primary" value="<?=$d->sm_isi?>" required>
                           <small id="sm_isi" class="text-gray-700">Isi Singkat</small>
                         </div>
                       </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-12 mt-3" id="surat_keluar" style="display: none;">
                       <label class="text-gray-900 font-weight-bold" >Surat Keluar</label>
                       <div class="form-row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                           <input type="text" name="sk_no" id="sk_no" class="form-control border-left-primary" value="<?=$d->sk_no?>" required>
                           <small id="sk_no" class="text-gray-700">nomor</small>
                         </div>
                         
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                           <input type="date" name="sk_tgl" id="sk_tgl" class="form-control border-left-primary" value="<?=$d->sk_tgl?>" required>
                           <small id="sk_tgl" class="text-gray-700">Tanggal</small>
                         </div>
 
-                        <div class="col-lg-4">
+                        <div class="col-lg-2">
                           <input type="text" name="sk_ditunjukkan" id="sk_ditunjukkan" class="form-control border-left-primary" value="<?=$d->sk_ditunjukkan?>" required>
                           <small id="sk_ditunjukkan" class="text-gray-700">Ditunjukkan Kepada</small>
                         </div>
                         
-                        <div class="col-lg-12 mt-2">
+                        <div class="col-lg-6">
                           <input type="text" name="sk_isi" id="sk_isi" class="form-control border-left-primary" value="<?=$d->sk_isi?>" required>
                           <small id="sk_isi" class="text-gray-700">Isi Surat</small>
                         </div>
@@ -109,6 +147,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
 
@@ -156,3 +195,25 @@
 
       </div>
       <!-- End of Main Content -->
+  <script>
+function cek_status_surat(){
+  var status = $('#status_surat').val();
+  console.log(status);
+  if(status == "PENERIMAAN"){
+    $('#surat_keluar').hide();
+    $('#surat_masuk').show();
+  }
+  else if(status == "PENGIRIMAN"){
+    $('#surat_masuk').hide();
+    $('#surat_keluar').show();
+  }
+  else{
+    $('#surat_masuk').hide();
+    $('#surat_keluar').hide();
+  }
+}
+
+$('#status_surat').change(function(){
+    cek_status_surat();
+}); 
+</script>

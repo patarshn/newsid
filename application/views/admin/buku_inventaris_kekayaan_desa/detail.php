@@ -24,7 +24,7 @@
                   <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Batal</button>
+                        <button type="button" class="btn btn-warning" onclick="window.location.href='<?=base_url()?>admin/<?=$folder?>'">Kembali</button>
                     </div>
                   </div>
                 </div>
@@ -51,7 +51,7 @@
                                     <tr>
                                         <th>Berkas</th>
                                         <td>
-                                        <?php if($d->berkas != null):?>
+                                        <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
                                         <?=$d->berkas?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>
@@ -81,7 +81,7 @@
                                 <h8><b>Asal Barang atau Bangunan</b></h8>
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
                                     <tr>
-                                        <th width="50%">Dibeli Sendiri</th>
+                                        <th width="30%">Dibeli Sendiri</th>
                                         <td><?=$d->abb_dibeli_sendiri?></td>
                                     </tr >
 
@@ -109,7 +109,7 @@
                                 <h8><b>Penghapusan Barang dan Bangunan</b></h8>
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
                                      <tr>
-                                        <th width="50%">Rusak</th>
+                                        <th width="30%">Rusak</th>
                                         <td><?=$d->rusak_hps?></td>
                                     </tr >
                                     
@@ -132,7 +132,7 @@
                                 <h8><b>Keadaan Barang atau Bangunan Awal Tahun</b></h8>
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
                                      <tr>
-                                        <th width="50%">Baik</th>
+                                        <th width="30%">Baik</th>
                                         <td><?=$d->baik_awalthn?></td>
                                     </tr >
                                     
@@ -145,7 +145,7 @@
                                 <h8><b>Keadaan Barang atau Bangunan Akhir Tahun</b></h8>
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
                                      <tr>
-                                        <th width="50%">Rusak</th>
+                                        <th width="30%">Rusak</th>
                                         <td><?=$d->baik_akhirthn?></td>
                                     </tr >
                                     
