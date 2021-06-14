@@ -337,15 +337,15 @@ class Buku_mutasi_penduduk extends Admin_Controller {
                 $no++,
                 $d->nama,         
                 $d->tempat_lahir,
-                $d->tgl_lahir,
+                date("d-m-Y", strtotime($d->tgl_lahir)),
                 $jkelamin,
                 $d->wn,
                 $d->datang,
-                $d->tgl_datang,
+                date("d-m-Y", strtotime($d->tgl_datang)),
                 $d->pindah,
-                $d->tgl_pindah,
+                date("d-m-Y", strtotime($d->tgl_pindah)),
                 $d->meninggal,
-                $d->tgl_meninggal,
+                date("d-m-Y", strtotime($d->tgl_meninggal)),
                 $d->ket
             );
            

@@ -89,7 +89,7 @@
                     <tr>
                     <th width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nomor Identitas / Tanda Pengenal</th>
                       <th>Nama Lengkap</th>
                       <th>Jenis Kelamin</th>
@@ -102,7 +102,7 @@
                     <tr>
                     <th width="2%"></th>
                     <th>No</th>
-                    <th width="3%"></th>
+                    <th width="3%">Aksi</th>
                     <th>Nomor Identitas / Tanda Pengenal</th>
                       <th>Nama Lengkap</th>
                       <th>Jenis Kelamin</th>
@@ -125,7 +125,7 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$d->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$d->id)?>">Detail</a>
                           
@@ -136,7 +136,7 @@
                       <td><?=$d->jk?></td>
                       <td><?=$d->datang_dari?></td>
                       <td><?=$d->nama_yg_didatangi?>, <?=$d->alamat_yg_didatangi?></td>
-                      <td><?=$d->tgl_datang?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tgl_datang))?></td>
                      
                     </tr>
                   <?php endforeach;?>

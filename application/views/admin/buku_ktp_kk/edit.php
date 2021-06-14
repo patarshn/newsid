@@ -40,7 +40,7 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                  <h5 class="modal-title"><center>Data Penduduk Sementara : <?=$d->nama?></h5>
+                  <h5 class="text-gray-900 font-weight-bold" ><center>Data Penduduk : <?=$d->nama?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
 
@@ -225,7 +225,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="hub_keluarga">Status Hubungan Keluarga</label>
-                            <select name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="" value="<?=$d->hub_keluarga?>" required>
+                            <select name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="" required>
                             <option><?=$d->hub_keluarga?></option>
                             <option value="Kepala Keluarga">Kepala Keluarga</option>
                             <option value="Suami">Suami</option>

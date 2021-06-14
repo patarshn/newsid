@@ -40,6 +40,8 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $p):
                 ?>
+                 <h5 class="text-gray-900 font-weight-bold"><center>Data Rencana Pembangunan: <?=$p->nama_proyek?></h5>
+                 
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$p->id?>" required>
                 
                 <div class="form-row">
@@ -65,33 +67,41 @@
                         </div>
                     </div>
                     
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                    <h4 class="text-gray-900 font-weight-bold">Besaran Perolehan Biaya</h4>
+                    <small class="text-gray-900 font-weight-bold">Catatan: Isi Nol (0) jika tidak ada biaya yg diperoleh. <br></small>
+                    </div>
+                    </div>
+
+                    
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
-                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control border-left-primary" placeholder="biaya" value="<?=$p->biaya_pemerintah?>" required>
-                    </div>
+                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  placeholder="Besaran biaya pemerintah" value="<?=$p->biaya_pemerintah?>"  required>
+                        </div>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
-                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control border-left-primary" placeholder="biaya" value="<?=$p->biaya_prov?>" required>
+                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" placeholder="Besaran biaya provinsi" value="<?=$p->biaya_prov?>" required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
-                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control border-left-primary" placeholder="biaya" value="<?=$p->biaya_kab?>" required>
+                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  placeholder="Besaran biaya kabupaten" value="<?=$p->biaya_kab?>" required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
-                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control border-left-primary" placeholder="biaya" value="<?=$p->biaya_swadaya?>" required>
+                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  placeholder="Besaran biaya swadaya" value="<?=$p->biaya_swadaya?>"  required>
                     </div>
                     <br>
 
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="lokasi"  value="<?=$p->jumlah?>" required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control jumlah-0" placeholder="Total biaya" value="<?=$p->jumlah?>" readonly required>
                         </div>
                     </div>
                     
@@ -139,3 +149,16 @@
       </div>
       <!-- End of Main Content -->
 
+<script>
+      function sum() {
+      var biaya_pemerintah = document.getElementById('biaya_pemerintah').value;
+      var biaya_prov = document.getElementById('biaya_prov').value;
+      var biaya_kab = document.getElementById('biaya_kab').value;
+      var biaya_swadaya = document.getElementById('biaya_swadaya').value;
+      var result = parseInt(biaya_pemerintah) + parseInt(biaya_prov) + parseInt(biaya_kab) + parseInt(biaya_swadaya);
+                
+      if (!isNaN(result)) {
+         document.getElementById('jumlah').value = result;
+      }
+}
+</script>

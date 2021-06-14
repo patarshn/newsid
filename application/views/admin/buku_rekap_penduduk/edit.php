@@ -40,7 +40,7 @@
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
                 ?>
-                <h5 class="modal-title"><center>Data Rekapitulasi Jumlah Penduduk Dusun: <?=$d->dusun?></h5>
+                <h5 class="text-gray-900 font-weight-bold"><center>Data Rekapitulasi Jumlah Penduduk Dusun: <?=$d->dusun?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
 

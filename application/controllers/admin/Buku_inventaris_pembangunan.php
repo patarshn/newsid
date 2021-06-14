@@ -358,7 +358,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
                 'no' => $no++,
                 'nama_hasil' => $d->nama_hasil,
                 'volume' => $d->volume,
-                'biaya' => $d->biaya,
+                'biaya' => number_format($d->biaya,0,',','.'),
                 'lokasi' => $d->lokasi,
                 'ket' => $d->ket
             );

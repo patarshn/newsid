@@ -90,11 +90,10 @@
                     <tr>
                       <th width="2%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nama/Jenis</th>
                       <th>Lokasi</th>
-                      <th>Total Biaya</th>
-                      <th>Pelaksana</th>
+                      <th width="15%">Jumlah Biaya</th>
                       <th>Manfaat</th>
                     </tr>
                   </thead>
@@ -102,11 +101,10 @@
                     <tr>
                     <th width="2%"></th>
                     <th>No</th>
-                      <th width="3%"></th>
+                      <th width="3%">Aksi</th>
                       <th>Nama/Jenis</th>
                       <th>Lokasi</th>
-                      <th>Total Biaya</th>
-                      <th>Pelaksana</th>
+                      <th width="15%">Jumlah Biaya</th>
                       <th>Manfaat</th>
                     </tr>
                   </tfoot>
@@ -125,7 +123,7 @@
                           <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                          <div class="dropdown-header">Actions:</div>
+                          <div class="dropdown-header">Aksi:</div>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/edit/'.$p->id)?>">Edit</a>
                           <a class="dropdown-item" href="<?=base_url('admin/'.$uri[2].'/detail/'.$p->id)?>">Detail</a>
                           <!--<div class="dropdown-divider"></div>-->
@@ -135,8 +133,7 @@
                       </td>
                       <td><?=$p->nama_proyek?></td>
                       <td><?=$p->lokasi?></td>
-                      <td><?=$p->jumlah?></td>
-                      <td><?=$p->pelaksana?></td>
+                      <td>Rp. <?=number_format($p->jumlah,0,',','.');?></td>
                       <td><?=$p->manfaat?></td>
                      
                     </tr>
