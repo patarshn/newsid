@@ -62,7 +62,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nkk">Nomor Kartu Keluarga</label>
-                            <input type="text" name="nkk" id="nkk" class="form-control border-left-primary"  placeholder="Masukan 16 digit nomor KK" value="<?=$d->nkk?>"required>
+                            <input type="number" name="nkk" id="nkk" class="form-control border-left-primary"  placeholder="Masukan 16 digit nomor KK" value="<?=$d->nkk?>"required>
                         </div>
                         </div>
 
