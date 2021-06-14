@@ -49,16 +49,16 @@
                                           <div class="card mb-4 py-3 border-bottom-primary">
                                             <div class="card-body">
                                               <div class="form-group">
-                                                <form action="" id="cetak">
-                                                <label for="tahun"><b>Masukan Periode Tahun</b></label>
-                                                <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                </form>
-                                          
+                                                <form method="get" action="buku_ktp_kk/cetakExc">
+                                                <label for="tahun_ektp"><b>Masukan Periode Tahun</b></label>
+                                                <input type="number" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
+                                                
                                                 <div class="d-flex mt-3">
-                                                <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/cetak','#cetak')">Cetak</button>
+                                                <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                                                 <span class="sr-only">Loading...</span>
                                                 </div>
+                                                </form>
                                                 </div>
                                               </div>
                                             </div>
@@ -97,8 +97,6 @@
                       <th>Tempat Lahir</th>
                       <th>Tanggal Lahir</th>
                       <th>Alamat</th>
-                      <th>Nama Ayah</th>
-                      <th>Nama Ibu</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -113,8 +111,6 @@
                       <th>Tempat Lahir</th>
                       <th>Tanggal Lahir</th>
                       <th>Alamat</th>
-                      <th>Nama Ayah</th>
-                      <th>Nama Ibu</th>
                     </tr>
                   </tfoot>
                   <tbody>

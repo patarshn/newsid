@@ -76,7 +76,7 @@
                                                   <td><?=$d->pekerjaan?></td></tr>
 
                                                   <tr><th>Alamat</th>
-                                                  <td><?=$d->alamat?>, RT. <?=$d->rt?>>, RW. <?=$d->rw?>, <?=$d->dusun?>, </td></tr>
+                                                  <td><?=$d->alamat?>, RT. <?=$d->rt?>, RW. <?=$d->rw?>, <?=$d->dusun?>. </td></tr>
 
                                                   <tr><th>Status Perkawinan</th>
                                                   <td><?=$d->status_perkawinan?></td></tr>

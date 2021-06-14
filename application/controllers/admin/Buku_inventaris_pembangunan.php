@@ -21,7 +21,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
             ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
 
@@ -32,7 +32,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
             ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
 
@@ -142,7 +142,6 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
                 'volume' => $_POST['volume'],
                 'biaya' => $_POST['biaya'],
                 'lokasi' => $_POST['lokasi'],
-                'berkas' => json_encode($berkas),
                 'ket' => $_POST['ket'],
                 'updated_at' => date('Y-m-d H:i:s'),
                 
@@ -212,7 +211,6 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
                 'volume' => $_POST['volume'],
                 'biaya' => $_POST['biaya'],
                 'lokasi' => $_POST['lokasi'],
-                'berkas' => json_encode($berkas),
                 'ket' => $_POST['ket'],
                 'updated_at' => date('Y-m-d H:i:s'),
             );

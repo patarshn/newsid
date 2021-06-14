@@ -64,10 +64,9 @@
                         <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
                         <select name="jk" id="jk" class="form-control" required>
                             <option><?=$d->jk?></option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700">L = Laki-Laki ; P = Perempuan</small>
                     </div> 
                     </div>
 

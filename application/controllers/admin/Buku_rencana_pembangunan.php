@@ -306,16 +306,17 @@ class Buku_rencana_pembangunan extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_pembangunan/'.$this->_docxName);
         $values = array();
-
+        $no = 1;
         foreach($data as $d){
             $subvalues = array(
-                'no' => $d->id,
+                'no' => $no++,
                 'nama_proyek' => $d->nama_proyek,
                 'lokasi' => $d->lokasi,
                 'biaya_pemerintah' => $d->biaya_pemerintah,
                 'biaya_prov' => $d->biaya_prov,
                 'biaya_kab' => $d->biaya_kab,
                 'biaya_swadaya' => $d->biaya_swadaya,
+                'jumlah' => $d->jumlah,
                 'pelaksana' => $d->pelaksana,
                 'manfaat' => $d->manfaat,
                 'ket' => $d->ket
@@ -324,6 +325,7 @@ class Buku_rencana_pembangunan extends Admin_Controller {
         }
 
         $templateProcessor->cloneRowAndSetValues('no', $values);
+        $templateProcessor->setValue('tahun', $tahun);
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

@@ -94,10 +94,9 @@
                             <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
                             <option>- Pilih -</option>
-                            <option value="L">L</option>
-                            <option value="P">P</option>
+                            <option value="LAKI-LAKI">LAKI-LAKI</option>
+                            <option value="PEREMPUAN">PEREMPUAN</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700">L = Laki-Laki <br> P = Perempuan</small>
                         </div>
                     </div>
 
@@ -177,14 +176,29 @@
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="rt">RT</label>
-                            <input type="number" class="form-control border-left-primary" name="rt" id="rt" placeholder="RT" required>
+                            <select name="rt" id="rt" class="form-control border-left-primary" placeholder="" required>
+                            <option>- Pilih -</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                        </select>
                      </div>
                      </div>
 
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
-                            <input type="number" class="form-control border-left-primary" name="rw" id="rw" placeholder="RW" required>
+                            <select name="rw" id="rw" class="form-control border-left-primary" placeholder="" required>
+                            <option>- Pilih -</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                        </select>
                      </div>
                      </div>
 

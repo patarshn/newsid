@@ -31,7 +31,7 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
             ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
 
@@ -44,7 +44,7 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
             ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
 
