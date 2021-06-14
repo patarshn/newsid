@@ -112,6 +112,16 @@ class Report extends Admin_Controller{
             "form_name" => "Form Usaha",
         );
 
+        $formdata['form_domisili'] = array(
+            "countdata" => $this->Main_m->countDataVerifForm('form_domisili')->result_array(),
+            "form_name" => "Form Domisili",
+        );
+
+        $formdata['form_tm_jampersal'] = array(
+            "countdata" => $this->Main_m->countDataVerifForm('form_tm_jampersal')->result_array(),
+            "form_name" => "Form Jaminan Persalinan",
+        );
+
         $data = array(
             
             'breadcrumb' => $breadcrumb,
