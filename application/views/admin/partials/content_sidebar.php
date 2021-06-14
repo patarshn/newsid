@@ -21,17 +21,38 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
+
+<!--
       <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('admin/report')?>">
           <i class="fas fa-chart-pie"></i>
           <span>Report</span></a>
       </li>
+-->
+
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#report" aria-expanded="true" aria-controls="report">
+          <i class="fas fa-chart-pie"></i>
+          <span>Report</span>
+        </a>
+        <div id="report" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/report')?>">Data Pengajuan</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/report_adm_umum')?>">Adm. Umum</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/report_adm_lain')?>">Adm. Lainnya</a>
+
+    
+          </div>
+        </div>
+      </li>
+<!--
       <li class="nav-item active">
         <a class="nav-link" href="<?= base_url('admin/data_kependudukan')?>">
           <i class="fas fa-users"></i>
           <span>Data Kependudukan</span></a>
       </li>
-
+-->
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -49,6 +70,8 @@
         <div id="dataPengajuan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/form_domisili')?>">SK Domisili</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/form_tm_jampersal')?>">SK Jampersal</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_ahliwaris')?>">SK Ahli Waris</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_belummenikah')?>">SK Belum Menikah</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/form_covid')?>">SK Covid</a>
