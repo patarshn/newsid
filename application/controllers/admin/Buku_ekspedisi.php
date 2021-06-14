@@ -1,11 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_ekspedisi extends Admin_Controller {
 
     private $_table = 'buku_ekspedisi';
     private $_folder = 'buku_ekspedisi';
     private $_mainTitle = 'Buku Ekspedisi';
+    private $_exelName = 'buku_ekspedisi.xls';
 
     function __construct() {
         parent::__construct();
@@ -433,7 +438,7 @@ class Buku_ekspedisi extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists($b_id->berkas)){
+            if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
 
@@ -443,6 +448,67 @@ class Buku_ekspedisi extends Admin_Controller {
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                $no++,
+                $d->tgl_pengiriman,
+                $d->tgl_surat.",".$d->no_surat,
+                $d->isi_singkat_surat,
+                $d->ditunjukkan_kpd,
+                $d->ket
+            );
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A7'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 6;
+
+        $sheet->getStyle('A7:F'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 7;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
     }
 }
 ?>

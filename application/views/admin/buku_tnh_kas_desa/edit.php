@@ -54,11 +54,13 @@
                     <div class="col-lg-6 mt-3">
                         <label for="luas" class="text-gray-900 font-weight-bold">Luas</label>
                         <input type="text" name="luas" id="luas" class="form-control border-left-primary" value="<?=$d->luas?>" required>
+                        <small id="luas" class="text-gray-700">Diisi dalam meter persegi (M2)</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="kelas" class="text-gray-900 font-weight-bold">Kelas</label>
                         <input type="text" name="kelas" id="kelas" class="form-control border-left-primary" value="<?=$d->kelas?>" required>
+                        <small id="kelas" class="text-gray-700">Contoh Kelas Tanah SI, DI, dan sebagainya</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -175,8 +177,15 @@
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
                       <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary"><?=$d->berkas?></label>
+                          <label for="berkas" class="custom-file-label border-left-primary">
+                            <?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
+                              <?=$d->berkas?>
+                              <?php else :?>
+                              berkas Tidak ada
+                              <?php endif;?>
+                          </label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -184,6 +193,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold border-left-primary">Keterangan</label>
                             <textarea class="form-control" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

@@ -37,21 +37,8 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open_multipart(base_url('buku_peraturan_desa/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
-                <div class="form-row">  
-                    <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
-                      <div class="custom-file">
-                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
-                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
-                      </div>
-                    </div>
-                                                          
-                    <div class="col-lg-6 mt-3">
+                <div class="form-row">
+                <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Kepala Desa</label>
                       <div class="form-row">
                         <div class="col-lg-6">
@@ -71,13 +58,28 @@
                       <div class="form-row">
                         <div class="col-lg-6">
                           <input type="text" name="no_dilaporkan_kpd" id="no_dilaporkan_kpd" class="form-control border-left-primary" required>
-                          <small id="no_dilaporkan_kpd" class="text-gray-700">Nomor Dilaporkan</small>
+                          <small id="no_dilaporkan_kpd" class="text-gray-700">Nomor Dilaporkan kepada Bupati/Walikota</small>
                         </div>
 
                         <div class="col-lg-6">                        
                           <input type="date" name="tgl_dilaporkan_kpd" id="tgl_dilaporkan_kpd" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_dilaporkan_kpd" class="text-gray-700">Tanggal Dilaporkan</small>
+                          <small id="tgl_dilaporkan_kpd" class="text-gray-700">Tanggal Dilaporkan kepada Bupati/Walikota</small>
                         </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
+                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" required>
+                        <small id="tentang" class="text-gray-700">Diisi dengan judul/ penamaan keputusan Kepala Desa</small>
+                    </div>
+
+                    <div class="col-lg-6 mt-3">
+                    <label class="text-gray-900 font-weight-bold">Upload Berkas</label>
+                      <div class="custom-file">
+                          <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
+                          <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -85,6 +87,7 @@
                         <div class="form-group">
                             <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
                             <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
+                            <small id="uraian_singkat" class="text-gray-700">Diisi secara jelas dan singkat tentang materi pokok</small>
                         </div>
                     </div>
 
@@ -92,6 +95,7 @@
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required></textarea>
+                            <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
                 </div>

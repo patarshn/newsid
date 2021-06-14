@@ -56,8 +56,15 @@
                     <input type="hidden" name="old_file" value=<?=$d->berkas1?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas Daftar Hadir Rapat</label>
                       <div class="custom-file">
-                          <label for="berkas1" class="custom-file-label border-left-primary"><?=$d->berkas1?></label>
+                          <label for="berkas1" class="custom-file-label border-left-primary">
+                          <?php if ($d->berkas1 !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas1)):?>
+                          <?=$d->berkas1?>
+                          <?php else :?>
+                          Berkas Tidak Ada
+                          <?php endif; ?>
+                          </label>
                           <input type="file" class="custom-file-input" id="berkas1" name="berkas1" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
@@ -65,8 +72,15 @@
                     <input type="hidden" name="old_file" value=<?=$d->berkas2?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas Notulen Rapat</label>
                       <div class="custom-file">
-                          <label for="berkas2" class="custom-file-label border-left-primary"><?=$d->berkas2?></label>
+                      <label for="berkas2" class="custom-file-label border-left-primary">
+                          <?php if ($d->berkas2 !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas2)):?>
+                          <?=$d->berkas2?>
+                          <?php else :?>
+                          Berkas Tidak Ada
+                          <?php endif; ?>
+                          </label>
                           <input type="file" class="custom-file-input" id="berkas2" name="berkas2" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 

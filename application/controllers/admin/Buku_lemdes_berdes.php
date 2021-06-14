@@ -1,11 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xls;
+
 class Buku_lemdes_berdes extends Admin_Controller {
 
     private $_table = 'buku_lemdes_berdes';
     private $_folder = 'buku_lemdes_berdes';
     private $_mainTitle = 'Buku Lembaran Desa dan Berita Desa';
+    private $_exelName = 'buku_lemdes_berdes.xls';
 
     function __construct() {
         parent::__construct();
@@ -448,6 +453,68 @@ class Buku_lemdes_berdes extends Admin_Controller {
             
         }
         return true;
+    }
+
+    public function cetak(){
+        $reader = IOFactory::createReader('Xls');
+        $spreadsheet = $reader->load('./assets/buku_adm_umum/'.$this->_exelName);
+        $data = $this->Main_m->get($this->_table,null)->result();
+        $values = array();
+        $i = 0;
+        $no = 1;
+        foreach($data as $d){
+            $subvalues = array(
+                $no++,
+                $d->jns_peraturan_desa,
+                $d->no_ditetapkan.", ".$d->tgl_ditetapkan,
+                $d->tentang,
+                $d->tgl_diundangkan,
+                $d->no_diundangkan,
+                $d->ket
+            );
+            $values[] = $subvalues;
+            $i++;
+        }
+
+        $sheet = $spreadsheet->getActiveSheet();
+        $sheet->fromArray(
+            $values,
+            NULL,
+            'A8'
+        );
+
+        $styleArray = [
+            'borders' => [
+                'allBorders' => [
+                    'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,  
+                ],
+            ],
+        ];
+
+        $i = $i + 7;
+
+        $sheet->getStyle('A8:G'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A8:G'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A8:G'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A8:G'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        // foreach(range('A7','J') as $columnID) {
+        //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        // }
+        for($r = 8;$r <= $i;$r++){
+            $sheet->getRowDimension((string)$r)->setRowHeight(-1);
+        }
+        $writer = new Xls($spreadsheet);
+
+        $filename = $this->_exelName;
+
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment; filename='.$filename);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        header('Pragma: public');
+        $writer->save('php://output');
     }
 }
 ?>

@@ -53,6 +53,7 @@
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
