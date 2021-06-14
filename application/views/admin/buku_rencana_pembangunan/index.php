@@ -157,7 +157,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete Modal</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Hapus Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -166,8 +166,8 @@
         Data yang akan dihapus tidak dapat dikembalikan lagi, konfirmasi untuk menghapus data.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Hapus</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
       </div>
     </div>
   </div>
