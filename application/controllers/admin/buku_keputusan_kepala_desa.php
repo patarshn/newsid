@@ -18,7 +18,7 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
         $this->load->library('breadcrumbcomponent');
         
     }
-
+ 
     function rulesStore() {
         return [
             ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
