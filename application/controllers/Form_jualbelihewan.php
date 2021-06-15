@@ -75,7 +75,7 @@ class Form_jualbelihewan extends Frontend_Controller{
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
             $_POST = $this->input->post();
-            $nik = $_POST['nik1'];
+            $nik = $_POST['nik_1'];
             if(!empty($_FILES["file_ktp"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
