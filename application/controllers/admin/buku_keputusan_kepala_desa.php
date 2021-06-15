@@ -24,7 +24,7 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
         $this->load->library('breadcrumbcomponent');
         
     }
-
+ 
     function rulesStore() {
         return [
 <<<<<<< HEAD
