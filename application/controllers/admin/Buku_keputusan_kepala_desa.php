@@ -5,13 +5,12 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xls;
 
+class Buku_keputusan_kepala_desa extends Admin_Controller {
 
-class Buku_inventaris_kekayaan_desa extends Admin_Controller {
-
-    private $_table = 'buku_inventaris_kekayaan_desa';
-    private $_folder = 'buku_inventaris_kekayaan_desa';
-    private $_mainTitle = 'Buku Inventaris Dan Kekayaan Desa';
-    private $_exelName = 'buku_inventaris_kekayaan_desa.xls';
+    private $_table = 'buku_keputusan_kepala_desa';
+    private $_folder = 'buku_keputusan_kepala_desa';
+    private $_mainTitle = 'Buku Keputusan Kepala Desa';
+    private $_exelName = 'buku_keputusan_kepala_desa.xls';
 
     function __construct() {
         parent::__construct();
@@ -19,44 +18,26 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
         $this->load->library('breadcrumbcomponent');
         
     }
-
+ 
     function rulesStore() {
         return [
-            ['field' => 'jenis_brng_bangunan','label' => 'jenis_brng_bangunan', 'rules' => 'required'],
-            ['field' => 'abb_dibeli_sendiri','label' => 'abb_dibeli_sendiri', 'rules' => 'required'],
-            ['field' => 'bantuan_pemeritah','label' => 'bantuan_pemeritah', 'rules' => 'required'],
-            ['field' => 'bantuan_prov','label' => 'bantuan_prov', 'rules' => 'required'],
-            ['field' => 'bantuan_kab_kota','label' => 'bantuan_kab_kota', 'rules' => 'required'],
-            ['field' => 'abb_sumbangan','label' => 'abb_sumbangan', 'rules' => 'required'],
-            ['field' => 'baik_awalthn','label' => 'baik_awalthn', 'rules' => 'required'],
-            ['field' => 'rusak_awalthn','label' => 'rusak_awalthn', 'rules' => 'required'],
-            ['field' => 'rusak_hps','label' => 'rusak_hps', 'rules' => 'required'],
-            ['field' => 'dijual_hps','label' => 'dijual_hps', 'rules' => 'required'],
-            ['field' => 'disumbangkan_hps','label' => 'disumbangkan_hps', 'rules' => 'required'],
-            ['field' => 'tgl_hapus','label' => 'tgl_hapus', 'rules' => 'required'],
-            ['field' => 'baik_akhirthn','label' => 'baik_akhirthn', 'rules' => 'required'],
-            ['field' => 'rusak_akhirthn','label' => 'rusak_akhirthn', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_kepala_desa','label' => 'tgl_keputusan_kepala_desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
+            ['field' => 'no_dilaporkan_kpd','label' => 'no_dilaporkan_kpd', 'rules' => 'required'],
+            ['field' => 'tgl_dilaporkan_kpd','label' => 'tgl_dilaporkan_kpd', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'jenis_brng_bangunan','label' => 'jenis_brng_bangunan', 'rules' => 'required'],
-            ['field' => 'abb_dibeli_sendiri','label' => 'abb_dibeli_sendiri', 'rules' => 'required'],
-            ['field' => 'bantuan_pemeritah','label' => 'bantuan_pemeritah', 'rules' => 'required'],
-            ['field' => 'bantuan_prov','label' => 'bantuan_prov', 'rules' => 'required'],
-            ['field' => 'bantuan_kab_kota','label' => 'bantuan_kab_kota', 'rules' => 'required'],
-            ['field' => 'abb_sumbangan','label' => 'abb_sumbangan', 'rules' => 'required'],
-            ['field' => 'baik_awalthn','label' => 'baik_awalthn', 'rules' => 'required'],
-            ['field' => 'rusak_awalthn','label' => 'rusak_awalthn', 'rules' => 'required'],
-            ['field' => 'rusak_hps','label' => 'rusak_hps', 'rules' => 'required'],
-            ['field' => 'dijual_hps','label' => 'dijual_hps', 'rules' => 'required'],
-            ['field' => 'disumbangkan_hps','label' => 'disumbangkan_hps', 'rules' => 'required'],
-            ['field' => 'tgl_hapus','label' => 'tgl_hapus', 'rules' => 'required'],
-            ['field' => 'baik_akhirthn','label' => 'baik_akhirthn', 'rules' => 'required'],
-            ['field' => 'rusak_akhirthn','label' => 'rusak_akhirthn', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_kepala_desa','label' => 'tgl_keputusan_kepala_desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
+            ['field' => 'no_dilaporkan_kpd','label' => 'no_dilaporkan_kpd', 'rules' => 'required'],
+            ['field' => 'tgl_dilaporkan_kpd','label' => 'tgl_dilaporkan_kpd', 'rules' => 'required'],
         ];
     }
 
@@ -121,7 +102,7 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
             if(!empty($_FILES["berkas"]["name"])){
                 $berkas = $this->upload_file();
                 if(!$berkas){
-                   
+                    
                     $callback = array(
                         'status' => 'error',
                         'message' => $this->upload->display_errors(),
@@ -136,20 +117,12 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
 
                 $_POST = $this->input->post();
                 $data = array(
-                    'jenis_brng_bangunan' => $_POST['jenis_brng_bangunan'],
-                    'abb_dibeli_sendiri' => $_POST['abb_dibeli_sendiri'],
-                    'bantuan_pemeritah' => $_POST['bantuan_pemeritah'],
-                    'bantuan_prov' => $_POST['bantuan_prov'],
-                    'bantuan_kab_kota' => $_POST['bantuan_kab_kota'],
-                    'abb_sumbangan' => $_POST['abb_sumbangan'],
-                    'baik_awalthn' => $_POST['baik_awalthn'],
-                    'rusak_awalthn' => $_POST['rusak_awalthn'],
-                    'rusak_hps' => $_POST['rusak_hps'],
-                    'dijual_hps' => $_POST['dijual_hps'],
-                    'disumbangkan_hps' => $_POST['disumbangkan_hps'],
-                    'tgl_hapus' => $_POST['tgl_hapus'],
-                    'baik_akhirthn' => $_POST['baik_akhirthn'],
-                    'rusak_akhirthn' => $_POST['rusak_akhirthn'],
+                    'no_keputusan_kepala_desa' => $_POST['no_keputusan_kepala_desa'],
+                    'tgl_keputusan_kepala_desa' => $_POST['tgl_keputusan_kepala_desa'],
+                    'tentang' => $_POST['tentang'],
+                    'uraian_singkat' => $_POST['uraian_singkat'],
+                    'no_dilaporkan_kpd' => $_POST['no_dilaporkan_kpd'],
+                    'tgl_dilaporkan_kpd' => $_POST['tgl_dilaporkan_kpd'],
                     'ket' => $_POST['ket'],
                     'berkas' => $berkas,
                     'ver_kepala_desa' => "Pending",
@@ -240,20 +213,12 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
             }
 
             $data = array(
-                'jenis_brng_bangunan' => $_POST['jenis_brng_bangunan'],
-                'abb_dibeli_sendiri' => $_POST['abb_dibeli_sendiri'],
-                'bantuan_pemeritah' => $_POST['bantuan_pemeritah'],
-                'bantuan_prov' => $_POST['bantuan_prov'],
-                'bantuan_kab_kota' => $_POST['bantuan_kab_kota'],
-                'abb_sumbangan' => $_POST['abb_sumbangan'],
-                'baik_awalthn' => $_POST['baik_awalthn'],
-                'rusak_awalthn' => $_POST['rusak_awalthn'],
-                'rusak_hps' => $_POST['rusak_hps'],
-                'dijual_hps' => $_POST['dijual_hps'],
-                'disumbangkan_hps' => $_POST['disumbangkan_hps'],
-                'tgl_hapus' => $_POST['tgl_hapus'],
-                'baik_akhirthn' => $_POST['baik_akhirthn'],
-                'rusak_akhirthn' => $_POST['rusak_akhirthn'],
+                'no_keputusan_kepala_desa' => $_POST['no_keputusan_kepala_desa'],
+                'tgl_keputusan_kepala_desa' => $_POST['tgl_keputusan_kepala_desa'],
+                'tentang' => $_POST['tentang'],
+                'uraian_singkat' => $_POST['uraian_singkat'],
+                'no_dilaporkan_kpd' => $_POST['no_dilaporkan_kpd'],
+                'tgl_dilaporkan_kpd' => $_POST['tgl_dilaporkan_kpd'],
                 'ket' => $_POST['ket'],
                 'berkas' => $berkas,
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
@@ -472,15 +437,15 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
     private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
-            
+
             if(empty($b_id->berkas)){
                 return true;
             }
-
+            
             if (!file_exists(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)){
                 return true;
             }
-
+            
             if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
                 return false;
             }
@@ -499,20 +464,10 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
         foreach($data as $d){
             $subvalues = array(
                 $no++,
-                $d->jenis_brng_bangunan,
-                $d->abb_dibeli_sendiri,
-                $d->bantuan_pemeritah,
-                $d->bantuan_prov,
-                $d->bantuan_kab_kota,
-                $d->abb_sumbangan,
-                $d->baik_awalthn,
-                $d->rusak_awalthn,
-                $d->rusak_hps,
-                $d->dijual_hps,
-                $d->disumbangkan_hps,
-                $d->tgl_hapus,
-                $d-> baik_akhirthn,
-                $d->rusak_akhirthn,
+                $d->no_keputusan_kepala_desa.",".$d->tgl_keputusan_kepala_desa,
+                $d->tentang,
+                $d->uraian_singkat,
+                $d->tgl_dilaporkan_kpd.",".$d->no_dilaporkan_kpd,
                 $d->ket
             );
             $values[] = $subvalues;
@@ -523,7 +478,7 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
         $sheet->fromArray(
             $values,
             NULL,
-            'A9'
+            'A7'
         );
 
         $styleArray = [
@@ -534,16 +489,16 @@ class Buku_inventaris_kekayaan_desa extends Admin_Controller {
             ],
         ];
 
-        $i = $i + 8;
+        $i = $i + 6;
 
-        $sheet->getStyle('A9:P'.$i)->applyFromArray($styleArray);
-        $sheet->getStyle('A9:P'.$i)->getAlignment()->setWrapText(true);
-        $sheet->getStyle('A9:P'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
-        $sheet->getStyle('A9:P'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A7:F'.$i)->applyFromArray($styleArray);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setWrapText(true);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT);
+        $sheet->getStyle('A7:F'.$i)->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         // foreach(range('A7','J') as $columnID) {
         //     $sheet->getColumnDimension($columnID)->setAutoSize(true);
         // }
-        for($r = 9;$r <= $i;$r++){
+        for($r = 7;$r <= $i;$r++){
             $sheet->getRowDimension((string)$r)->setRowHeight(-1);
         }
         $writer = new Xls($spreadsheet);
