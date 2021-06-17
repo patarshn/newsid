@@ -16,6 +16,11 @@ application/logs/*
 !application/logs/.htaccess
 application/config/database.php
 application/config/config.php
+
+uploads/*/*
+!uploads/*/index.php
+
+
 /vendor/
 .vscode/launch.json
 newsid20201111.zip
