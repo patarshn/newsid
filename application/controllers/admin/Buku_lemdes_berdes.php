@@ -21,25 +21,23 @@ class Buku_lemdes_berdes extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'jns_peraturan_desa','label' => 'jns_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tgl_ditetapkan','label' => 'tgl_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan','label' => 'tgl_diundangkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan','label' => 'no_diundangkan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'jns_peraturan_desa','label' => 'Jenis Peraturan di Desa', 'rules' => 'required'],
+            ['field' => 'no_ditetapkan','label' => 'Nomor ditetapkan', 'rules' => 'required'],
+            ['field' => 'tgl_ditetapkan','label' => 'Tanggal ditetapkan', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'tgl_diundangkan','label' => 'Tanggal Diundangkan', 'rules' => 'required'],
+            ['field' => 'no_diundangkan','label' => 'Nomor Diundangkan', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'jns_peraturan_desa','label' => 'jns_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tgl_ditetapkan','label' => 'tgl_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan','label' => 'tgl_diundangkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan','label' => 'no_diundangkan', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'jns_peraturan_desa','label' => 'Jenis Peraturan di Desa', 'rules' => 'required'],
+            ['field' => 'no_ditetapkan','label' => 'Nomor ditetapkan', 'rules' => 'required'],
+            ['field' => 'tgl_ditetapkan','label' => 'Tanggal ditetapkan', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'tgl_diundangkan','label' => 'Tanggal Diundangkan', 'rules' => 'required'],
+            ['field' => 'no_diundangkan','label' => 'Nomor Diundangkan', 'rules' => 'required'],
         ];
     }
 

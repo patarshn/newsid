@@ -22,36 +22,33 @@ class Buku_agenda extends Admin_Controller {
     function rulesStore() {
         if($this->input->post('status_surat') == "PENERIMAAN"){
             return [
-                ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
-                ['field' => 'sm_no','label' => 'sm_no', 'rules' => 'required'],
-                ['field' => 'sm_tgl','label' => 'sm_tgl', 'rules' => 'required'],
-                ['field' => 'sm_pengirim','label' => 'sm_pengirim', 'rules' => 'required'],
-                ['field' => 'sm_isi','label' => 'sm_isi', 'rules' => 'required'],
-                ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+                ['field' => 'tanggal_surat','label' => 'Tanggal Penerimaan Surat', 'rules' => 'required'],
+                ['field' => 'sm_no','label' => 'Nomor Surat Masuk', 'rules' => 'required'],
+                ['field' => 'sm_tgl','label' => 'Tanggal Surat Masuk', 'rules' => 'required'],
+                ['field' => 'sm_pengirim','label' => 'Pengirim', 'rules' => 'required'],
+                ['field' => 'sm_isi','label' => 'Isi Singkat', 'rules' => 'required'],
             ];
         }
         else if($this->input->post('status_surat') == "PENGIRIMAN"){
             return [
-                ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
-                ['field' => 'sk_no','label' => 'sk_no', 'rules' => 'required'],
-                ['field' => 'sk_tgl','label' => 'sk_tgl', 'rules' => 'required'],
-                ['field' => 'sk_ditunjukkan','label' => 'sk_ditunjukkan', 'rules' => 'required'],
-                ['field' => 'sk_isi','label' => 'sk_isi', 'rules' => 'required'],
-                ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+                ['field' => 'tanggal_surat','label' => 'Tanggal Pengiriman Surat', 'rules' => 'required'],
+                ['field' => 'sk_no','label' => 'Nomor Surat Keluar', 'rules' => 'required'],
+                ['field' => 'sk_tgl','label' => 'Tanggal Surat Keluar', 'rules' => 'required'],
+                ['field' => 'sk_ditunjukkan','label' => 'Ditunjukkan Kepada', 'rules' => 'required'],
+                ['field' => 'sk_isi','label' => 'Isi Surat', 'rules' => 'required'],
             ];
         }
 
         return [
-            ['field' => 'tanggal_surat','label' => 'tanggal_surat', 'rules' => 'required'],
-            ['field' => 'sm_no','label' => 'sm_no', 'rules' => 'required'],
-            ['field' => 'sm_tgl','label' => 'sm_tgl', 'rules' => 'required'],
-            ['field' => 'sm_pengirim','label' => 'sm_pengirim', 'rules' => 'required'],
-            ['field' => 'sm_isi','label' => 'sm_isi', 'rules' => 'required'],
-            ['field' => 'sk_no','label' => 'sk_no', 'rules' => 'required'],
-            ['field' => 'sk_tgl','label' => 'sk_tgl', 'rules' => 'required'],
-            ['field' => 'sk_ditunjukkan','label' => 'sk_ditunjukkan', 'rules' => 'required'],
-            ['field' => 'sk_isi','label' => 'sk_isi', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'tanggal_surat','label' => 'Jenis Penerimaan/Pengiriman Surat', 'rules' => 'required'],
+            ['field' => 'sm_no','label' => 'Nomor Surat Masuk', 'rules' => 'required'],
+            ['field' => 'sm_tgl','label' => 'Tanggal Surat Masuk', 'rules' => 'required'],
+            ['field' => 'sm_pengirim','label' => 'Pengirim', 'rules' => 'required'],
+            ['field' => 'sm_isi','label' => 'Isi Singkat', 'rules' => 'required'],
+            ['field' => 'sk_no','label' => 'Nomor Surat Keluar', 'rules' => 'required'],
+            ['field' => 'sk_tgl','label' => 'Tanggal Surat Keluar', 'rules' => 'required'],
+            ['field' => 'sk_ditunjukkan','label' => 'Ditunjukkan Kepada', 'rules' => 'required'],
+            ['field' => 'sk_isi','label' => 'Isi Surat', 'rules' => 'required'],
         ];
         
     }

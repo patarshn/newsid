@@ -23,35 +23,35 @@ class Buku_peraturan_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'jenis_peraturan_desa','label' => 'jenis_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tgl_ditetapkan','label' => 'tanggal ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
-            ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'tgl_kesepakatan_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan','label' => 'no_dilaporkan', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan','label' => 'tgl_dilaporkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_lembaran_desa','label' => 'no_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_lembaran_desa','label' => 'tgl_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_berita_desa','label' => 'no_diundangkan_dalam_berita_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_berita_desa','label' => 'tgl_diundangkan_dalam_berita_desa', 'rules' => 'required'],
+            ['field' => 'jenis_peraturan_desa','label' => 'Jenis Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'no_ditetapkan','label' => 'Nomor Ditetapkan', 'rules' => 'required'],
+            ['field' => 'tgl_ditetapkan','label' => 'Tanggal Ditetapkan', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'Tanggal Kesepakatan Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'no_dilaporkan','label' => 'Nomor Dilaporkan', 'rules' => 'required'],
+            ['field' => 'tgl_dilaporkan','label' => 'Tanggal Dilaporkan', 'rules' => 'required'],
+            ['field' => 'no_diundangkan_dalam_lembaran_desa','label' => 'Nomor Diundangkan Dalam Lembaran Desa', 'rules' => 'required'],
+            ['field' => 'tgl_diundangkan_dalam_lembaran_desa','label' => 'Tanggal Diundangkan Dalam Lembaran Desa', 'rules' => 'required'],
+            ['field' => 'no_diundangkan_dalam_berita_desa','label' => 'Nomor Diundangkan Dalam Berita Desa', 'rules' => 'required'],
+            ['field' => 'tgl_diundangkan_dalam_berita_desa','label' => 'Tanggal Diundangkan Dalam Berita Desa', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'jenis_peraturan_desa','label' => 'jenis_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'no_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tgl_ditetapkan','label' => 'tgl_ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
-            ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'tgl_kesepakatan_peraturan_desa', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan','label' => 'no_dilaporkan', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan','label' => 'tgl_dilaporkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_lembaran_desa','label' => 'no_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_lembaran_desa','label' => 'tgl_diundangkan_dalam_lembaran_desa', 'rules' => 'required'],
-            ['field' => 'no_diundangkan_dalam_berita_desa','label' => 'no_diundangkan_dalam_berita_desa', 'rules' => 'required'],
-            ['field' => 'tgl_diundangkan_dalam_berita_desa','label' => 'tgl_diundangkan_dalam_berita_desa', 'rules' => 'required'],
+            ['field' => 'jenis_peraturan_desa','label' => 'Jenis Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'no_ditetapkan','label' => 'Nomor Ditetapkan', 'rules' => 'required'],
+            ['field' => 'tgl_ditetapkan','label' => 'Tanggal Ditetapkan', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'tgl_kesepakatan_peraturan_desa','label' => 'Tanggal Kesepakatan Peraturan Desa', 'rules' => 'required'],
+            ['field' => 'no_dilaporkan','label' => 'Nomor Dilaporkan', 'rules' => 'required'],
+            ['field' => 'tgl_dilaporkan','label' => 'Tanggal Dilaporkan', 'rules' => 'required'],
+            ['field' => 'no_diundangkan_dalam_lembaran_desa','label' => 'Nomor Diundangkan Dalam Lembaran Desa', 'rules' => 'required'],
+            ['field' => 'tgl_diundangkan_dalam_lembaran_desa','label' => 'Tanggal Diundangkan Dalam Lembaran Desa', 'rules' => 'required'],
+            ['field' => 'no_diundangkan_dalam_berita_desa','label' => 'Nomor Diundangkan Dalam Berita Desa', 'rules' => 'required'],
+            ['field' => 'tgl_diundangkan_dalam_berita_desa','label' => 'Tanggal Diundangkan Dalam Berita Desa', 'rules' => 'required'],
         ];
     }
 

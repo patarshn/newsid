@@ -21,23 +21,21 @@ class Buku_ekspedisi extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'no_surat', 'rules' => 'required'],
-            ['field' => 'tgl_surat','label' => 'tgl_surat', 'rules' => 'required'],
-            ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
-            ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'tgl_pengiriman','label' => 'Tanggal Pengiriman', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
+            ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
+            ['field' => 'isi_singkat_surat','label' => 'Isi Singkat Surat Yang Dikirim', 'rules' => 'required'],
+            ['field' => 'ditunjukkan_kpd','label' => 'Ditunjukkan Kepada', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'tgl_pengiriman','label' => 'tgl_pengiriman', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'no_surat', 'rules' => 'required'],
-            ['field' => 'tgl_surat','label' => 'tgl_surat', 'rules' => 'required'],
-            ['field' => 'isi_singkat_surat','label' => 'isi_singkat_surat', 'rules' => 'required'],
-            ['field' => 'ditunjukkan_kpd','label' => 'ditunjukkan_kpd', 'rules' => 'required'],
-            ['field' => 'ket','label' => 'ket', 'rules' => 'required'],
+            ['field' => 'tgl_pengiriman','label' => 'Tanggal Pengiriman', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
+            ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
+            ['field' => 'isi_singkat_surat','label' => 'Isi Singkat Surat Yang Dikirim', 'rules' => 'required'],
+            ['field' => 'ditunjukkan_kpd','label' => 'Ditunjukkan Kepada', 'rules' => 'required'],
         ];
     }
 

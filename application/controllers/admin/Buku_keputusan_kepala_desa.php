@@ -21,23 +21,23 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
  
     function rulesStore() {
         return [
-            ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_kepala_desa','label' => 'tgl_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan_kpd','label' => 'no_dilaporkan_kpd', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan_kpd','label' => 'tgl_dilaporkan_kpd', 'rules' => 'required'],
+            ['field' => 'no_keputusan_kepala_desa','label' => 'Nomor Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_kepala_desa','label' => 'Tanggal Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'no_dilaporkan_kpd','label' => 'Nomor Dilaporkan', 'rules' => 'required'],
+            ['field' => 'tgl_dilaporkan_kpd','label' => 'Tanggal Dilaporkan', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'no_keputusan_kepala_desa','label' => 'no_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_kepala_desa','label' => 'tgl_keputusan_kepala_desa', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'uraian_singkat', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan_kpd','label' => 'no_dilaporkan_kpd', 'rules' => 'required'],
-            ['field' => 'tgl_dilaporkan_kpd','label' => 'tgl_dilaporkan_kpd', 'rules' => 'required'],
+            ['field' => 'no_keputusan_kepala_desa','label' => 'Nomor Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_kepala_desa','label' => 'Tanggal Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
+            ['field' => 'no_dilaporkan_kpd','label' => 'Nomor Dilaporkan', 'rules' => 'required'],
+            ['field' => 'tgl_dilaporkan_kpd','label' => 'Tanggal Dilaporkan', 'rules' => 'required'],
         ];
     }
 
