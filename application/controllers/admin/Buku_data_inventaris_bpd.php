@@ -39,9 +39,9 @@ class Buku_data_inventaris_bpd extends Admin_Controller {
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'jenis_brng_bangunan','label' => 'Jenis Barang Bangunan', 'rules' => 'required'],
             ['field' => 'abb_apb_desa','label' => 'Asal Barang Bangunan APB Desa', 'rules' => 'required'],
-            ['field' => 'bantuan_pemerintah','label' => 'bantuan_pemerintah', 'rules' => 'required'],
-            ['field' => 'bantuan_prov','label' => 'bantuan_prov', 'rules' => 'required'],
-            ['field' => 'bantuan_kab_kota','label' => 'bantuan_kab_kota', 'rules' => 'required'],
+            ['field' => 'bantuan_pemerintah','label' => 'Bantuan Pemerintah', 'rules' => 'required'],
+            ['field' => 'bantuan_prov','label' => 'Bantuan Prov', 'rules' => 'required'],
+            ['field' => 'bantuan_kab_kota','label' => 'Bantuan Kab Kota', 'rules' => 'required'],
             ['field' => 'abb_sumbangan','label' => 'Asal Barang Bangunan Sumbangan', 'rules' => 'required'],
             ['field' => 'awalthn_baik','label' => 'Awal Tahun Baik', 'rules' => 'required'],
             ['field' => 'awalthn_rusak','label' => 'Awal Tahun Rusak', 'rules' => 'required'],
@@ -505,7 +505,8 @@ class Buku_data_inventaris_bpd extends Admin_Controller {
                 'tgl_hapus'=> $d->tgl_hapus,
                 'akhirthn_baik' => $d->akhirthn_baik,
                 'akhirthn_rusak' => $d->akhirthn_rusak,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

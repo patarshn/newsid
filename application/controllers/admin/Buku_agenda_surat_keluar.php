@@ -454,7 +454,8 @@ class Buku_agenda_surat_keluar extends Admin_Controller {
                 'tgl_surat_keluar' => $d->tgl_surat_keluar,
                 'uraian_singkat' => $d->uraian_singkat,
                 'tujuan' => $d->tujuan,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

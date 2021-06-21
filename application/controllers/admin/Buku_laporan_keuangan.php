@@ -460,7 +460,8 @@ class Buku_laporan_keuangan extends Admin_Controller {
                 'penerimaan' => $d->penerimaan,
                 'jml_penerimaan' => $d->jml_penerimaan,
                 'pengeluaran' => $d->pengeluaran,
-                'jml_pengeluaran' => $d->jml_pengeluaran
+                'jml_pengeluaran' => $d->jml_pengeluaran,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

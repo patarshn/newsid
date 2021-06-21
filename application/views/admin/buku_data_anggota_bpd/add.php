@@ -45,7 +45,7 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
-                        <input type="text" name="nip" id="nip" class="form-control border-left-primary" required>
+                        <input type="number" name="nip" id="nip" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
