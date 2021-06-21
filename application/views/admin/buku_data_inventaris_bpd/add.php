@@ -56,27 +56,27 @@
                       <label class="text-gray-900 font-weight-bold" >Asal Barang atau Bangunan</label>
                       <div class="form-row">
                         <div class="col-lg-2">
-                          <input type="text" name="abb_apb_desa" id="abb_apb_desa" class="form-control border-left-primary" required>
+                          <input type="number" name="abb_apb_desa" id="abb_apb_desa" class="form-control border-left-primary" required>
                           <small id="abb_apb_desa" class="text-gray-700">APB Desa</small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="text" name="bantuan_pemerintah" id="bantuan_pemerintah" class="form-control border-left-primary" required>
+                          <input type="number" name="bantuan_pemerintah" id="bantuan_pemerintah" class="form-control border-left-primary" required>
                           <small id="bantuan_pemerintah" class="text-gray-700">Bantuan Pemerintah</small>
                         </div>
 
                         <div class="col-lg-2">
-                          <input type="text" name="bantuan_prov" id="bantuan_prov" class="form-control border-left-primary" required>
+                          <input type="number" name="bantuan_prov" id="bantuan_prov" class="form-control border-left-primary" required>
                           <small id="bantuan_prov" class="text-gray-700">Bantuan Provinsi</small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="text" name="bantuan_kab_kota" id="bantuan_kab_kota" class="form-control border-left-primary" required>
+                          <input type="number" name="bantuan_kab_kota" id="bantuan_kab_kota" class="form-control border-left-primary" required>
                           <small id="bantuan_kab_kota" class="text-gray-700">Bantuan Kab/Kota</small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="text" name="abb_sumbangan" id="abb_sumbangan" class="form-control border-left-primary" required>
+                          <input type="number" name="abb_sumbangan" id="abb_sumbangan" class="form-control border-left-primary" required>
                           <small id="abb_sumbangan" class="text-gray-700">Sumbangan</small>
                         </div>
                       </div>
@@ -86,12 +86,12 @@
                       <label class="text-gray-900 font-weight-bold" >Keadaan Barang atau Bangunan Awal Tahun</label>
                       <div class="form-row">
                           <div class="col-lg-3">
-                              <input type="text" name="awalthn_baik" id="awalthn_baik" class="form-control border-left-primary" required>
+                              <input type="number" name="awalthn_baik" id="awalthn_baik" class="form-control border-left-primary" required>
                               <small id="awalthn_baik" class="text-gray-700">Baik</small>
                           </div>
                           
                           <div class="col-lg-3">
-                              <input type="text" name="awalthn_rusak" id="awalthn_rusak" class="form-control border-left-primary" required>
+                              <input type="number" name="awalthn_rusak" id="awalthn_rusak" class="form-control border-left-primary" required>
                               <small id="awalthn_rusak" class="text-gray-700">Rusak</small>
                           </div>
                       </div>
@@ -101,17 +101,17 @@
                       <label class="text-gray-900 font-weight-bold" >Penghapusan Barang dan Bangunan</label>
                       <div class="form-row">
                         <div class="col-lg-2">
-                        <input type="text" name="hps_rusak" id="hps_rusak" class="form-control border-left-primary" required>
+                        <input type="number" name="hps_rusak" id="hps_rusak" class="form-control border-left-primary" required>
                         <small id="hps_rusak" class="text-gray-700">Rusak</small>
                         </div>
                         
                         <div class="col-lg-2">
-                        <input type="text" name="hps_dijual" id="hps_dijual" class="form-control border-left-primary" required>
+                        <input type="number" name="hps_dijual" id="hps_dijual" class="form-control border-left-primary" required>
                         <small id="hps_dijual" class="text-gray-700">Dijual</small>
                         </div>
 
                         <div class="col-lg-2">
-                        <input type="text" name="hps_disumbangkan" id="hps_disumbangkan" class="form-control border-left-primary" required>
+                        <input type="number" name="hps_disumbangkan" id="hps_disumbangkan" class="form-control border-left-primary" required>
                         <small id="hps_disumbangkan" class="text-gray-700">Disumbangkan</small>
                         </div>
                         
@@ -128,12 +128,12 @@
                       <label class="text-gray-900 font-weight-bold" >Keadaan Barang atau Bangunan Akhir Tahun</label>
                       <div class="form-row">
                         <div class="col-lg-3">
-                          <input type="text" name="akhirthn_baik" id="akhirthn_baik" class="form-control border-left-primary" required>
+                          <input type="number" name="akhirthn_baik" id="akhirthn_baik" class="form-control border-left-primary" required>
                           <small id="akhirthn_baik" class="text-gray-700">Baik</small>
                         </div>
 
                         <div class="col-lg-3">                        
-                          <input type="text" name="akhirthn_rusak" id="akhirthn_rusak" class="form-control border-left-primary" required>
+                          <input type="number" name="akhirthn_rusak" id="akhirthn_rusak" class="form-control border-left-primary" required>
                           <small id="akhirthn_rusak" class="text-gray-700">Rusak</small>
                         </div>
                       </div>

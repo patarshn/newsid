@@ -452,6 +452,7 @@ class Buku_data_aspirasi_masyarakat extends Admin_Controller {
                 'phk_aspirasi' => $d->phk_aspirasi,
                 'aspirasi' => $d->aspirasi,
                 'tindak_lanjut' => $d->tindak_lanjut,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

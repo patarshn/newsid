@@ -535,7 +535,8 @@ class Buku_rapat_bpd extends Admin_Controller {
             $subvalues = array(
                 'no' => $no++,
                 'tgl' => $d->tgl,
-                'agenda' => $d->agenda
+                'agenda' => $d->agenda,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

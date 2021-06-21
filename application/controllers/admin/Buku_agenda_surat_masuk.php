@@ -456,7 +456,8 @@ class Buku_agenda_surat_masuk extends Admin_Controller {
                 'tgl_surat_masuk' => $d->tgl_surat_masuk,
                 'nama_pengirim' => $d->nama_pengirim,
                 'uraian_singkat' => $d->uraian_singkat,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

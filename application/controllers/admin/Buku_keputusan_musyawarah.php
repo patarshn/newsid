@@ -447,7 +447,8 @@ class Buku_keputusan_musyawarah extends Admin_Controller {
                 'tgl' => $d->tgl,
                 'ttg' => $d->ttg,
                 'ppk' => $d->ppk,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }
