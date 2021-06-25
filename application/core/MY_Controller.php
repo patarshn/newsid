@@ -53,7 +53,7 @@ class Frontend_Controller extends MY_Controller {
         #$config['file_name']        = $this->_folder.uniqid();
         $config['file_name']        = $file_name;
         $config['overwrite']        = true;
-        $config['max_size']         = 2000; // 2MB
+        $config['max_size']         = 15000; // 2MB
 
         $this->load->library('upload',$config);
         $this->upload->initialize($config);
