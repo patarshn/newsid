@@ -40,18 +40,18 @@
                 <div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control" placeholder="Tahun kegiatan, co: 2021" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control" placeholder="Nama Bidang"required>
+                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="Nama Bidang"required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <div class="form-group">
                             <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control" required>
+                            <select name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" required>
                                 <option>-</option>
                                 
                                 <?php   
@@ -66,7 +66,7 @@
                     
                     <div class="col-lg-3 mt-2">
                         <label for="waktu_pelaksanaan" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
-                        <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control" required>
+                        <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control border-left-primary" required>
                     </div>
 
 
@@ -93,19 +93,19 @@
                                     <tbody>
                                         <tr class="rab">
                                             <td width="15%">
-                                            <input type="text" name="uraian[]" id="uraian" class="form-control" required>
+                                            <input type="text" name="uraian[]" id="uraian" class="form-control border-left-primary" required>
                                             <small id="rab" class="text-gray-700">contoh : Kursi </small>
                                             </td>
                                             <td width="15%">
-                                            <input type="text" name="volume[]" onchange="jumlah_rp(0)" id="volume" class="form-control volume-0" required>
+                                            <input type="text" name="volume[]" onchange="jumlah_rp(0)" id="volume" class="form-control border-left-primary volume-0" required>
                                             <small id="rab" class="text-gray-700">contoh : 1 set </small>
                                             </td>
                                             <td width="15%">
-                                            <input type="number" name="harga_satuan[]" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control harga_satuan-0" required>
+                                            <input type="number" name="harga_satuan[]" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" required>
                                             <small id="rab" class="text-gray-700">contoh : 50000 </small>
                                             </td>
                                             <td width="10%">
-                                            <input type="text" name="jumlah[]" id="jumlah" class="form-control jumlah-0" readonly required>
+                                            <input type="text" name="jumlah[]" id="jumlah" class="form-control border-left-primary jumlah-0" readonly required>
                                             </td>
                                             <td width="5%">
                                                 <a class="deleteRow"></a>
@@ -154,6 +154,19 @@
 
 <script>
 
+function jumlah_rp(x){
+  var volume = $('.volume-'+x).val();
+  var harga_satuan = $('.harga_satuan-'+x).val();
+  if(volume == ""){
+    volume = 0;
+  }
+  if(harga_satuan == ""){
+    harga_satuan = 0;
+  }
+  var sum = parseInt(volume) * parseInt(harga_satuan);
+  $('.jumlah-'+x).val(sum);
+}
+
 function total_jumlah(){
   var jumlah = document.getElementsByName('jumlah[]');
   var sum_jumlah = 0;
@@ -170,28 +183,15 @@ function total_jumlah(){
   console.log('a');
 }
 
-function jumlah_rp(x){
-  var volume = $('.volume-'+x).val();
-  var harga_satuan = $('.harga_satuan-'+x).val();
-  if(volume == ""){
-    volume = 0;
-  }
-  if(harga_satuan == ""){
-    harga_satuan = 0;
-  }
-  var sum = parseInt(volume) * parseInt(harga_satuan);
-  $('.jumlah-'+x).val(sum);
-}
-
 $(document).ready(function () {
   var countadd = 1;
   $('#buttonadd').click(function () {
     
     $('#invoiceitems > tbody:last').append('<tr class="rab">\
-          <td><input type="text" name="uraian[]" class="form-control" /></td>\
-          <td><input type="text" name="volume[]" class="form-control volume-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
-          <td><input type="number" name="harga_satuan[]" class="form-control harga_satuan-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
-          <td><input type="text" name="jumlah[]" class="form-control jumlah-'+countadd+'" readonly/></td>\
+          <td><input type="text" name="uraian[]" class="form-control border-left-primary" /></td>\
+          <td><input type="text" name="volume[]" class="form-control border-left-primary volume-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
+          <td><input type="number" name="harga_satuan[]" class="form-control border-left-primary harga_satuan-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
+          <td><input type="text" name="jumlah[]" class="form-control border-left-primary jumlah-'+countadd+'" readonly/></td>\
           <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
     countadd = countadd + 1;
   });

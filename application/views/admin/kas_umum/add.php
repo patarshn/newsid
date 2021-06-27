@@ -61,27 +61,17 @@
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" placeholder="Jumlah Penerimaani" required>
+                        <input type="number" name="penerimaan" id="penerimaan" class="form-control border-left-primary" placeholder="Jumlah Penerimaani" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" placeholder="Jumlah Pengeluaran" required>
+                        <input type="number" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" placeholder="Jumlah Pengeluaran" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
                         <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" placeholder="Nomor Bukti" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-2">
-                        <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran Komulatif</label>
-                        <input type="text" name="jumlah_komulatif" id="jumlah_komulatif" class="form-control border-left-primary" placeholder="Jumlah Komulatif" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo" required>
                     </div>
 
                    

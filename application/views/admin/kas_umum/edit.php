@@ -75,16 +75,6 @@
                         <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" value="<?=$d->no_bukti?>" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                        <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Komulatif</label>
-                        <input type="text" name="jumlah_komulatif" id="jumlah_komulatif" class="form-control border-left-primary" value="<?=$d->jumlah_komulatif?>" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" value="<?=$d->saldo?>" required>
-                    </div>
-
                     <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
                         <br>

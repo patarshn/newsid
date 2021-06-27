@@ -489,8 +489,13 @@ class Apbd extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $values = array();
+        $jumlah_anggaran =0;
+
 
         foreach($data as $d){
+
+            $jumlah_anggaran = $jumlah_anggaran + $d->anggaran;
+
             $subvalues = array(
                 'kode_rekening1' => $d->kode_rekening1,
                 'kode_rekening2' => $d->kode_rekening2,
@@ -504,6 +509,7 @@ class Apbd extends Admin_Controller {
         }
 
         $templateProcessor->cloneRowAndSetValues('kode_rekening1', $values);
+        $templateProcessor->setValue('jumlah_anggaran', number_format($jumlah_anggaran,0,',','.'));
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');
