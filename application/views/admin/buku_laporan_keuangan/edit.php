@@ -60,16 +60,6 @@
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
                         <input type="number" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
                     </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="jml_penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
-                        <input type="number" name="jml_penerimaan" id="jml_penerimaan" class="form-control border-left-primary" value="<?=$d->jml_penerimaan?>" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="jml_pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
-                        <input type="number" name="jml_pengeluaran" id="jml_pengeluaran" class="form-control border-left-primary" value="<?=$d->jml_pengeluaran?>" required>
-                    </div>
                     
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas?>>

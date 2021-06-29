@@ -43,7 +43,7 @@
                 ?>
                 <input type="hidden" name="id" id="id" class="form-control border-left-primary" value="<?=$d->id?>" required>
                 
-                <h5>Data Penerima Kuasa (Pengaju)</h5>
+                <h5>Data Pemberi Kuasa (Pengaju)</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="nik_1">NIK</label>
@@ -93,7 +93,7 @@
                     </div>
                     
                 </div>
-                <h5>Data Pemberi Kuasa</h5>
+                <h5>Data Penerima Kuasa</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="nik_2">NIK</label>

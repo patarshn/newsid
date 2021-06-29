@@ -382,38 +382,6 @@ class Rab extends Admin_Controller {
         $this->load->view('admin/partials/footer');
     }
 
-    public function upload_file(){
-        $config['upload_path']      = "./uploads/".$this->_folder."/"; //lokasi
-        $config['allowed_types']    = 'pdf'; //file dizinka
-        $config['file_name']        = $this->_folder.uniqid();
-        $config['overwrite']        = true;
-        $config['max_size']         = 2000; // 2MB
-
-        $this->load->library('upload',$config);
-
-        if ($this->upload->do_upload('berkas')) {
-            return $this->upload->data("file_name");
-        }
-        else{
-            echo $this->upload->display_errors();
-        }    
-    }
-
-    private function destroy_file($id) {
-        $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
-        foreach ($berkas_id as $b_id) {
-            
-            if(empty($b_id->berkas)){
-                return true;
-            }
-
-            if (!unlink(FCPATH."uploads/".$this->_folder."/".$b_id->berkas)) {
-                return false;
-            }
-            
-        }
-        return true;
-    }
 
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
@@ -425,9 +393,13 @@ class Rab extends Admin_Controller {
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $values = array();
         $no=1;
+        $jumlah_total = 0;
 
 
         foreach($data as $d){
+
+            $jumlah_total = $jumlah_total + $d->jumlah;
+
             $subvalues = array(
                 'id' => $no++,
                 'uraian' => $d->uraian,
@@ -439,6 +411,7 @@ class Rab extends Admin_Controller {
         }
 
         $templateProcessor->cloneRowAndSetValues('id', $values);
+        $templateProcessor->setValue('jumlah_total', number_format($jumlah_total,0,',','.'));
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

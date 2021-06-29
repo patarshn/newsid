@@ -74,12 +74,12 @@
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan Dari Bendahara</label>
-                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" placeholder="Penerimaan dari Bendahara" required>
+                        <input type="number" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" placeholder="Penerimaan dari Bendahara" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
-                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" placeholder="Penerimaan Swadaya Masyarakat" required>
+                        <input type="number" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" placeholder="Penerimaan Swadaya Masyarakat" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
@@ -89,22 +89,22 @@
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa</label>
-                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" placeholder="Belanja Barang dan Jasa" required>
+                        <input type="number" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" placeholder="Belanja Barang dan Jasa" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
-                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" placeholder="Belanja Modal" required>
+                        <input type="number" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" placeholder="Belanja Modal" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian" required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo Kas" required>
+                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo Kas" required>
                     </div>
                     
                         <div class="d-flex mt-3">
