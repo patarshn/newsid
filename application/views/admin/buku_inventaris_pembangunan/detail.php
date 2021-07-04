@@ -48,7 +48,7 @@
                                                   <td><?=$d->volume?></td></tr> 
 
                                                   <tr><th>Biaya</th>
-                                                  <td>Rp. <?=number_format($p->biaya,0,',','.');?></td></tr>
+                                                  <td>Rp. <?=number_format($d->biaya,0,',','.');?></td></tr>
 
                                                   <tr><th>Lokasi</th>
                                                   <td><?=$d->lokasi?></td></tr>

@@ -51,7 +51,7 @@
                                                   <td><?=$d->tempat_lahir?></td></tr> 
 
                                                   <tr><th>Tanggal Lahir</th>
-                                                  <td><?= date("d-m-Y", strtotime($d->tgl_lahir))?></td></tr>
+                                                  <td><?=$d->tgl_lahir?></td></tr>
 
                                                   <tr><th>Jenis Kelamin</th>
                                                   <td><?=$d->jk?></td></tr> 
@@ -67,7 +67,7 @@
                                                   <td><?=$d->datang?></td></tr>
 
                                                   <tr><th>Tanggal Kedatangan</th>
-                                                  <td class="border-bottom-primary"><?= date("d-m-Y", strtotime($d->tgl_datang))?></td></tr> 
+                                                  <td class="border-bottom-primary"><?=$d->tgl_datang?></td></tr> 
                                                   </thead>  
                                                   <h5><b>Penambahan</b></h5>  
 
@@ -78,13 +78,13 @@
                                                   <td><?=$d->pindah?></td></tr>
 
                                                   <tr><th>Tanggal Pindah</th>
-                                                  <td><?= date("d-m-Y", strtotime($d->tgl_pindah))?></td></tr> 
+                                                  <td><?=$d->tgl_pindah?></td></tr> 
 
                                                   <tr><th>Meninggal (Tempat/Lokasi) </th>
                                                   <td><?=$d->meninggal?></td></tr>
 
                                                   <tr><th>Tanggal Meninggal</th>
-                                                  <td class="border-bottom-primary"><?= date("d-m-Y", strtotime($d->tgl_meninggal))?></td></tr> 
+                                                  <td class="border-bottom-primary"><?=$d->tgl_meninggal?></td></tr> 
                                                  </thead>        
                                                  <h5><b>Pengurangan</b></h>                               
                                               </table>

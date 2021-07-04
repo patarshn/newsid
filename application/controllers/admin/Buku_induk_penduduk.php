@@ -346,7 +346,7 @@ class Buku_induk_penduduk extends Admin_Controller {
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus data berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -354,7 +354,7 @@ class Buku_induk_penduduk extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus data gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',

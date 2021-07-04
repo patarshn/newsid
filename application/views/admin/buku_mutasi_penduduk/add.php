@@ -11,7 +11,7 @@
                   </h6>
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
 
           <!-- Content Row -->
@@ -88,25 +88,25 @@
                         <label class="text-gray-900 font-weight-bold" for="tgl_lahir">Tanggal Lahir</label>
                         <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" placeholder="Tanggal Lahir" required>
                     </div>
-                    </div>                    
+                    </div>     
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold"><br>Penambahan</h4>
+                    <h4 class="text-gray-900 font-weight-bold"> <br> Penambahan</h4>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="datang">Datang Dari (Tempat/Alamat Asal)</label>
-                        <input type="text" name="datang" id="datang" class="form-control border-left-primary" placeholder="Asal tempat dan alamat semula">
+                        <input type="text" name="datang" id="datang" class="form-control border-left-primary" placeholder="Asal tempat dan alamat semula" >
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_datang">Tanggal Datang</label>
-                        <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="Tanggal datang ke desa" >
+                        <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="Tanggal datang ke desa"  >
                     </div>
                     </div>
 
@@ -119,7 +119,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="pindah">Pindah Ke (Lokasi Tujuan)</label>
-                        <input type="text" name="pindah" id="pindah" class="form-control border-left-primary" placeholder="Lokasi tujuan pindah">
+                        <input type="text" name="pindah" id="pindah" class="form-control border-left-primary" placeholder="Lokasi tujuan pindah" >
                     </div>
                     </div>
 
@@ -127,7 +127,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="tgl_pindah">Tanggal Pindah</label>
-                          <input type="date" name="tgl_pindah" id="tgl_pindah" class="form-control border-left-primary" placeholder="Tanggal Kepindahan">
+                          <input type="date" name="tgl_pindah" id="tgl_pindah" class="form-control border-left-primary" placeholder="Tanggal Kepindahan" >
                       </div>
                       </div>
 
@@ -135,17 +135,16 @@
                       <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="meninggal">Tempat/Alamat Meninggal</label>
-                          <input type="text" name="meninggal" id="meninggal" class="form-control border-left-primary" placeholder="Tempat/Alamat Meninggal">
+                          <input type="text" name="meninggal" id="meninggal" class="form-control border-left-primary" placeholder="Tempat/Alamat Meninggal" >
                       </div>
                       </div>
 
                       <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="tgl_meninggal">Tanggal Meninggal</label>
-                          <input type="date" name="tgl_meninggal" id="tgl_meninggal" class="form-control border-left-primary" placeholder="">
+                          <input type="date" name="tgl_meninggal" id="tgl_meninggal" class="form-control border-left-primary" placeholder="" >
                       </div>
                       </div>
-
                 
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -176,4 +175,5 @@
 
       </div>
       <!-- End of Main Content -->
+
             

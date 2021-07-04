@@ -14,7 +14,7 @@
             </div>
           </div>
 
-          <!-- Content Row -->
+          <!-- Content Row --> 
 
           <div class="row">
           <?php if($this->session->flashdata('success_message')): ?>
