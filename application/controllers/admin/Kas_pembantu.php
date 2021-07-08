@@ -19,9 +19,6 @@ class Kas_pembantu extends Admin_Controller {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pajak','label' => 'pajak', 'rules' => 'required'],
-            ['field' => 'ret','label' => 'ret', 'rules' => 'required'],
-            ['field' => 'pl','label' => 'pl', 'rules' => 'required'],
             ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
             ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
             ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],

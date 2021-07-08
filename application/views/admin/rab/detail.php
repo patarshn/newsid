@@ -79,11 +79,6 @@
                                                   </tr>
 
                                                   <tr>
-                                                  <th>Verifikasi Kepala Desa</th>
-                                                  <td style="text-align:right"><?=$d->ver_kepala_desa?> <?=$d->ver_kepala_desa_at?></td>
-                                                  </tr >
-
-                                                  <tr>
                                                   <th>Terakhir diubah</th>
                                                   <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
                                                   </tr >

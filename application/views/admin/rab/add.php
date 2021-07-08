@@ -50,7 +50,7 @@
 
                     <div class="col-lg-3 mt-2">
                         <div class="form-group">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
+                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kegiatan</label>
                             <select name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" required>
                                 <option>-</option>
                                 
@@ -105,7 +105,7 @@
                                             <small id="rab" class="text-gray-700">contoh : 50000 </small>
                                             </td>
                                             <td width="10%">
-                                            <input type="text" name="jumlah[]" id="jumlah" class="form-control border-left-primary jumlah-0" readonly required>
+                                            <input type="text" name="jumlah[]" id="jumlah" onchange="total_jumlah()" class="form-control border-left-primary jumlah-0" readonly required>
                                             </td>
                                             <td width="5%">
                                                 <a class="deleteRow"></a>
@@ -154,34 +154,35 @@
 
 <script>
 
-function jumlah_rp(x){
-  var volume = $('.volume-'+x).val();
-  var harga_satuan = $('.harga_satuan-'+x).val();
-  if(volume == ""){
-    volume = 0;
+  function jumlah_rp(x){
+    var volume = $('.volume-'+x).val();
+    var harga_satuan = $('.harga_satuan-'+x).val();
+    if(volume == ""){
+      volume = 0;
+    }
+    if(harga_satuan == ""){
+      harga_satuan = 0;
+    }
+    var sum = parseInt(volume) * parseInt(harga_satuan);
+    $('.jumlah-'+x).val(sum);
+    total_jumlah();
   }
-  if(harga_satuan == ""){
-    harga_satuan = 0;
-  }
-  var sum = parseInt(volume) * parseInt(harga_satuan);
-  $('.jumlah-'+x).val(sum);
-}
 
-function total_jumlah(){
-  var jumlah = document.getElementsByName('jumlah[]');
-  var sum_jumlah = 0;
-  for (var i = 0; i < jumlah.length; i++){
-    if(jumlah[i].value == ""){
-      sub_total = 0;
+  function total_jumlah(){
+    var jumlah = document.getElementsByName('jumlah[]');
+    var sum_jumlah = 0;
+    for (var i = 0; i < jumlah.length; i++){
+      if(jumlah[i].value == ""){
+        sub_total = 0;
+      }
+      else {
+        sub_total = jumlah[i].value;
+      }
+      sum_jumlah = sum_jumlah + parseInt(sub_total);
     }
-    else {
-      sub_total = jumlah[i].value;
-    }
-    sum_jumlah = sum_jumlah + parseInt(sub_total);
+    $('.grandtotal').html(sum_jumlah)
+    console.log('a');
   }
-  $('.grandtotal').html(sum_jumlah)
-  console.log('a');
-}
 
 $(document).ready(function () {
   var countadd = 1;
@@ -194,6 +195,7 @@ $(document).ready(function () {
           <td><input type="text" name="jumlah[]" class="form-control border-left-primary jumlah-'+countadd+'" readonly/></td>\
           <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
     countadd = countadd + 1;
+    total_jumlah();
   });
   $('table#invoiceitems').on('click','.buttondelete',function () {
       if($('table#invoiceitems tbody tr').length==1){
@@ -203,6 +205,9 @@ $(document).ready(function () {
       $(this).closest('tr').remove();
       total_jumlah();
   });
+$('#jumlah').change(function(){
+  total_jumlah();
+});
 
 });
 

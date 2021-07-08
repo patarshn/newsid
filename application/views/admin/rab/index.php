@@ -95,31 +95,20 @@
                       <th>Bidang</th>
                       <th>Kegiatan</th>
                       <th>Uraian</th>
-                      <th>Tahun Anggaran</th>
                       <th>Volume</th>
+                      <th>Harga Satuan</th>
                       <th>Jumlah</th>
-                      <th width="10%">Verif Kepala Desa</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Bidang</th>
-                        <th>Kegiatan</th>
-                        <th>Uraian</th>
-                        <th>Tahun Anggaran</th>
-                        <th>Volume</th>
-                        <th>Jumlah</th>
-                        <th width="10%">Verif Kepala Desa</th>
-                      </tr>
-                  </tfoot>
+                  
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $jumlah_total =0;
+                  foreach ($data as $d): 
+                    $jumlah_total=$jumlah_total + $d->jumlah;
+                  ?>
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -140,33 +129,19 @@
                       <td><?=$d->bidang?></td>
                       <td><?=$d->kegiatan?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->tahun_anggaran?></td>
-                      <td><?=$d->volume?></td>
+                      <td><?=$d->volume?>
+                      </td><td><?=number_format($d->harga_satuan,0,',','.');?></td>
                       <td>Rp. <?=number_format($d->jumlah,0,',','.');?></td>
-
-                      </td>
-                      <td>
-                
-                      <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
-                    </tr>
                   <?php endforeach;?>
                   </tbody>
+
+                  <tfoot>
+                    <tr>
+                        <th colspan="8">Jumlah</th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_total,0,',','.');?></th>
+                      </tr>
+                  </tfoot>
+
                 </table>
                 </form>
               </div>
@@ -199,3 +174,23 @@
     </div>
   </div>
 </div>
+
+<script>
+
+function total_jumlah(){
+    var jumlah = document.getElementsByName('jumlah[]');
+    var sum_jumlah = 0;
+    for (var i = 0; i < jumlah.length; i++){
+      if(jumlah[i].value == ""){
+        sub_total = 0;
+      }
+      else {
+        sub_total = jumlah[i].value;
+      }
+      sum_jumlah = sum_jumlah + parseInt(sub_total);
+    }
+    $('.grandtotal').html(sum_jumlah)
+    console.log('a');
+  }
+
+</script>

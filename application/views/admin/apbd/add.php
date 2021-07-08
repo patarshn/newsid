@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label for="type" class="text-gray-900 font-weight-bold">Type</label>
                             <select name="type" id="type" class="form-control border-left-primary" onchange="kode_rekening()" required>
-                                <option selected>Silahkan pilih tipe</option>
+                                <option selected value="">- Pilih -</option>
                                 <option value="PENDAPATAN">Pendapatan</option>
                                 <option value="BELANJA">Belanja</option>
                             </select>
