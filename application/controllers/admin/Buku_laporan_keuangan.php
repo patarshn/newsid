@@ -21,8 +21,6 @@ class Buku_laporan_keuangan extends Admin_Controller {
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
             ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
             ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
-            ['field' => 'jml_penerimaan','label' => 'Jumlah Penerimaan', 'rules' => 'required'],
-            ['field' => 'jml_pengeluaran','label' => 'Jumlah Pengeluaran', 'rules' => 'required'],
         ];
     }
 
@@ -33,8 +31,6 @@ class Buku_laporan_keuangan extends Admin_Controller {
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
             ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
             ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
-            ['field' => 'jml_penerimaan','label' => 'Jumlah Penerimaan', 'rules' => 'required'],
-            ['field' => 'jml_pengeluaran','label' => 'Jumlah Pengeluaran', 'rules' => 'required'],
         ];
     }
 
@@ -118,8 +114,6 @@ class Buku_laporan_keuangan extends Admin_Controller {
                 'uraian' => $_POST['uraian'],
                 'penerimaan' => $_POST['penerimaan'],
                 'pengeluaran'=> $_POST['pengeluaran'],
-                'jml_penerimaan' => $_POST['jml_penerimaan'],
-                'jml_pengeluaran' => $_POST['jml_pengeluaran'],
                 'berkas' => $berkas,
                 'verif_bpd' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
@@ -210,8 +204,6 @@ class Buku_laporan_keuangan extends Admin_Controller {
                 'uraian' => $_POST['uraian'],
                 'penerimaan' => $_POST['penerimaan'],
                 'pengeluaran' => $_POST['pengeluaran'],
-                'jml_penerimaan' => $_POST['jml_penerimaan'],
-                'jml_pengeluaran' => $_POST['jml_pengeluaran'],
                 'berkas' => $berkas,
                 'verif_bpd' => $_POST['verif_bpd'], 
                 'updated_by' => $this->session->userdata('username'),
@@ -451,23 +443,27 @@ class Buku_laporan_keuangan extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_lain/'.$this->_docxName);
         $values = array();
+        $jml_penerimaan=0;
+        $jml_pengeluaran=0;
         $no = 1;
         foreach($data as $d){
+            $jml_penerimaan = $jml_penerimaan + $d->penerimaan;
+            $jml_pengeluaran = $jml_pengeluaran + $d->pengeluaran;
             $subvalues = array(
                 'no' => $no++,
                 'tgl' => $d->tgl,
                 'uraian' => $d->uraian,
-                'penerimaan' => $d->penerimaan,
-                'jml_penerimaan' => $d->jml_penerimaan,
-                'pengeluaran' => $d->pengeluaran,
-                'jml_pengeluaran' => $d->jml_pengeluaran,
+                'penerimaan' => number_format($d->penerimaan,0,',','.'),
+                'pengeluaran' =>number_format($d->pengeluaran,0,',','.'),
                 'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }
         $templateProcessor->cloneRowAndSetValues('no', $values);
+        $templateProcessor->setValue('jml_penerimaan', number_format($jml_penerimaan,0,',','.'));
+        $templateProcessor->setValue('jml_pengeluaran', number_format($jml_pengeluaran,0,',','.'));
         $temp_filename = $this->_docxName;
-        $templateProcessor->saveAs($temp_filename);
+        $templateProcessor->saveAs($temp_filename);      
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; filename='.$temp_filename);
