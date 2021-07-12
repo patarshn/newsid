@@ -101,11 +101,6 @@
                         <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian</label>
                         <input type="number" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian" required>
                     </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo Kas" required>
-                    </div>
                     
                         <div class="d-flex mt-3">
                         <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>

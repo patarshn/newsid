@@ -18,16 +18,12 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
-            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
-            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
-            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
+            ['field' => 'kode_rekening','label' => 'Kegiatan', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
         ];
     }
 
@@ -38,11 +34,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan_bendahara','label' => 'penerimaan_bendahara', 'rules' => 'required'],
-            ['field' => 'penerimaan_sdm','label' => 'penerimaan_sdm', 'rules' => 'required'],
             ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bbj','label' => 'pengeluaran_bbj', 'rules' => 'required'],
-            ['field' => 'pengeluaran_bm','label' => 'pengeluaran_bm', 'rules' => 'required'],
         ];
     }
 
@@ -101,6 +93,9 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     }
 
     public function store(){
+        $validation = $this->form_validation;
+        $validation->set_rules($this->rulesStore());
+        if($validation->run()){
         $_POST = $this->input->post();
         $data = array(
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
@@ -115,7 +110,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 'pengeluaran_bm' => $_POST['pengeluaran_bm'],
                 'jumlah' => $_POST['jumlah'],
                 'saldo' => $_POST['saldo'],
-                'ver_kepala_desa' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' =>  $this->session->userdata('username'),
             );
@@ -136,6 +130,14 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                     'message' => 'Mohon Maaf, Pengisian form gagal',
                 );
             }
+        }
+        else{
+            $this->session->set_flashdata('error_message', validation_errors());
+            $callback = array(
+                'status' => 'error',
+                'message' => validation_errors(),
+            );          
+        }
         echo json_encode($callback);
     }
 
@@ -187,15 +189,10 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 'pengeluaran_bm' => $_POST['pengeluaran_bm'],
                 'jumlah' => $_POST['jumlah'],
                 'saldo' => $_POST['saldo'],
-                'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
-
-            if($_POST['ver_kepala_desa'] != $_POST['ver_kepala_desa_old']){
-                $data['ver_kepala_desa_at'] = date('Y-m-d H:i:s');
-            }
 
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
@@ -279,83 +276,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
         echo json_encode($callback);
     }
 
-    public function setuju(){
-        $validation = $this->form_validation;
-        $validation->set_rules($this->rulesDestroy());
-        if ($validation->run()) {
-            $_POST = $this->input->post();
-            $where = $_POST['rowdelete'];
-            $data = array(              
-                'ver_kepala_desa' => "Disetujui",                             
-                'updated_by' => $this->session->userdata('username'),
-                'updated_at' => date('Y-m-d H:i:s'),
-                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
-            );
-
-            if($this->Main_m->setuju($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Setujui data berhasil, terimakasih');
-                $callback = array(
-                    'status' => 'success',
-                    'message' => 'Data berhasil diupdate',
-                    'redirect' => base_url().'admin/'.$this->_folder,
-                );
-            }
-            else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, Penyetujuan data gagal');
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Mohon Maaf, Penyetujuan data gagal',
-                );
-            }
-        }
-        else{
-            $this->session->set_flashdata('error_message', validation_errors());
-            $callback = array(
-                'status' => 'error',
-                'message' => validation_errors(),
-            );          
-        }
-        echo json_encode($callback);
-    }
-
-    public function tolak(){
-        $validation = $this->form_validation;
-        $validation->set_rules($this->rulesDestroy());
-        if($validation->run()){
-            $_POST = $this->input->post();
-            $where = $_POST['rowdelete'];
-            $data = array(              
-                'ver_kepala_desa' => "Ditolak",                             
-                'updated_by' => $this->session->userdata('username'),
-                'updated_at' => date('Y-m-d H:i:s'),
-                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
-            );
-
-            if($this->Main_m->setuju($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Tolak data berhasil, terimakasih');
-                $callback = array(
-                    'status' => 'success',
-                    'message' => 'Data berhasil diupdate',
-                    'redirect' => base_url().'admin/'.$this->_folder,
-                );
-            }
-            else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, Tolak data gagal');
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Mohon Maaf, Tolak data gagal',
-                );
-            }
-        }
-        else{
-            $this->session->set_flashdata('error_message', validation_errors());
-            $callback = array(
-                'status' => 'error',
-                'message' => validation_errors(),
-            );          
-        }
-        echo json_encode($callback);
-    }
 
     function detail($id){
         
