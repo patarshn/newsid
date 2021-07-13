@@ -26,7 +26,6 @@ class Bank_desa extends Admin_Controller {
             ['field' => 'pngl_penarikan','label' => 'pngl_penarikan', 'rules' => 'required'],
             ['field' => 'pngl_pajak','label' => 'pngl_pajak', 'rules' => 'required'],
             ['field' => 'pngl_biaya_adm','label' => 'pngl_biaya_adm', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'bulan','label' => 'bulan', 'rules' => 'required'],
             ['field' => 'bank_cabang','label' => 'bank_cabang', 'rules' => 'required'],
@@ -44,7 +43,6 @@ class Bank_desa extends Admin_Controller {
             ['field' => 'pngl_penarikan','label' => 'pngl_penarikan', 'rules' => 'required'],
             ['field' => 'pngl_pajak','label' => 'pngl_pajak', 'rules' => 'required'],
             ['field' => 'pngl_biaya_adm','label' => 'pngl_biaya_adm', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'bulan','label' => 'bulan', 'rules' => 'required'],
             ['field' => 'bank_cabang','label' => 'bank_cabang', 'rules' => 'required'],
@@ -137,7 +135,7 @@ class Bank_desa extends Admin_Controller {
                     'pngl_penarikan' => $_POST['pngl_penarikan'],
                     'pngl_pajak' => $_POST['pngl_pajak'],
                     'pngl_biaya_adm' => $_POST['pngl_biaya_adm'],
-                    'saldo' => $_POST['saldo'],
+
                     'tahun_anggaran' => $_POST['tahun_anggaran'],
                     'bulan' => $_POST['bulan'],
                     'bank_cabang' => $_POST['bank_cabang'],
@@ -215,11 +213,12 @@ class Bank_desa extends Admin_Controller {
                 'uraian_trans' => $_POST['uraian_trans'],
                 'bukti_trans' => $_POST['bukti_trans'],
                 'pmskn_setoran' => $_POST['pmskn_setoran'],
-                'pmskn_bungabank' => $_POST['pmskn_bungabank'],                    'pngl_penarikan' => $_POST['pngl_penarikan'],
+                'pmskn_bungabank' => $_POST['pmskn_bungabank'],                    
+                'pngl_penarikan' => $_POST['pngl_penarikan'],
                 'pngl_pajak' => $_POST['pngl_pajak'],
                 'pngl_biaya_adm' => $_POST['pngl_biaya_adm'],
-                'saldo' => $_POST['saldo'],
-                'tahun_anggaran' => $_POST['tahun_anggaran'],                    'bulan' => $_POST['bulan'],
+                'tahun_anggaran' => $_POST['tahun_anggaran'],                    
+                'bulan' => $_POST['bulan'],
                 'bank_cabang' => $_POST['bank_cabang'],
                 'rekening' => $_POST['rekening'],
                 'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
@@ -460,20 +459,36 @@ class Bank_desa extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $values = array();
+        $saldo =0;
         $no=1;
 
         foreach($data as $d){
+            if($d->pmskn_setoran !=0){
+                $saldo = $saldo + $d ->pmskn_setoran;
+            }
+            if($d->pmskn_bungabank !=0){
+                $saldo = $saldo + $d ->pmskn_bungabank;
+            }
+            if($d->pngl_penarikan !=0){
+                $saldo = $saldo + $d ->pngl_penarikan;
+            }
+            if($d->pngl_pajak !=0){
+                $saldo = $saldo + $d ->pngl_pajak;
+            }
+            if($d->pngl_biaya_adm !=0){
+                $saldo = $saldo + $d ->pngl_biaya_adm;
+            }
             $subvalues = array(
                 'id' => $no++,
                 'tgl_trans' => $d->tgl_trans,
                 'uraian_trans' => $d->uraian_trans,
                 'bukti_trans' => $d->bukti_trans,
-                'pmskn_setoran' => $d->pmskn_setoran,
-                'pmskn_bungabank' => $d->pmskn_bungabank,
-                'pngl_penarikan' => $d->pngl_penarikan,
-                'pngl_pajak' => $d->pngl_pajak,
-                'pngl_biaya_adm' => $d->pngl_biaya_adm,
-                'saldo' => $d->saldo
+                'pmskn_setoran' => number_format($d->pmskn_setoran,0,',','.'),
+                'pmskn_bungabank' => number_format($d->pmskn_bungabank,0,',','.'),
+                'pngl_penarikan' => number_format($d->pngl_penarikan,0,',','.'),
+                'pngl_pajak' => number_format($d->pngl_pajak,0,',','.'),
+                'pngl_biaya_adm' => number_format($d->pngl_biaya_adm,0,',','.'),
+                'saldo' => number_format($saldo,0,',','.')
             );
             $values[] = $subvalues;
         }

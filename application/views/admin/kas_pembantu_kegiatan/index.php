@@ -76,8 +76,6 @@
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Hapus</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
@@ -95,8 +93,6 @@
                       <th rowspan="2">Uraian</th>
                       <th colspan="2">Penerimaan (Rp.)</th>
                       <th colspan="2">Pengeluaran (Rp.)</th>
-                      <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
 
                     <tr>
@@ -107,23 +103,27 @@
                     </tr>
                     
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th width="5%">No Urut</th>
-                      <th width="3%"></th>
-                      <th>Tanggal</th>
-                      <th>Uraian</th>
-                      <th colspan="2">Penerimaan (Rp.)</th>
-                      <th colspan="2">Pengeluaran (Rp.)</th>
-                      <th>Tahun Anggaran</th>
-                      <th>Verif Kepala Desa</th></th>
-                      </tr>
-                  </tfoot>
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $saldo = 0;
+                  $jumlah_penerimaan_bendahara = 0;
+                  $jumlah_penerimaan_sdm = 0;
+                  $jumlah_pengeluaran_bbj = 0;
+                  $jumlah_pengeluaran_bm = 0;
+                  $total_penerimaan = 0;
+                  $total_pengeluaran = 0;
+
+                  foreach ($data as $d): 
+                    $saldo = $saldo + $d->penerimaan_bendahara +$d->penerimaan_sdm - $d->pengeluaran_bbj - $d->pengeluaran_bm;
+                    $jumlah_penerimaan_bendahara = $jumlah_penerimaan_bendahara + $d->penerimaan_bendahara;
+                    $jumlah_penerimaan_sdm = $jumlah_penerimaan_sdm + $d->penerimaan_sdm;
+                    $jumlah_pengeluaran_bbj = $jumlah_pengeluaran_bbj + $d->pengeluaran_bbj;
+                    $jumlah_pengeluaran_bm = $jumlah_pengeluaran_bm + $d->pengeluaran_bm;   
+                    $total_penerimaan =  $jumlah_penerimaan_bendahara + $jumlah_penerimaan_sdm;
+                    $total_pengeluaran = $jumlah_pengeluaran_bbj + $jumlah_pengeluaran_bm;                
+                  ?>
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -147,29 +147,28 @@
                       <td>Rp. <?=number_format($d->penerimaan_sdm,0,',','.');?></td>
                       <td>Rp. <?=number_format($d->pengeluaran_bbj,0,',','.');?></td>
                       <td>Rp. <?=number_format($d->pengeluaran_bm,0,',','.');?></td>
-                      <td><?=$d->tahun_anggaran?></td>
-                      </td>
-                      <td>
-                        <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
+                  <tfoot>
+                    <tr>
+                        <th colspan="4">Jumlah</th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_penerimaan_bendahara,0,',','.');?></th>
+                        <th colspan="1">Rp.<?=number_format($jumlah_penerimaan_sdm,0,',','.');?></th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_pengeluaran_bbj,0,',','.');?></th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_pengeluaran_bm,0,',','.');?></th>
+                      </tr>
+                    <tr>
+                        <th colspan="4">Total Penerimaan</th>
+                        <th colspan="2">Rp. <?=number_format($total_penerimaan,0,',','.');?> </th>
+                        <th colspan="2">Total Pengeluaran Rp. <?=number_format($total_pengeluaran,0,',','.');?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="4">Saldo Kas</th>
+                        <th colspan="4">Rp. <?=number_format($saldo,0,',','.');?></th>
+                    </tr>
+                  </tfoot>
+
                 </table>
                 </form>
               </div>

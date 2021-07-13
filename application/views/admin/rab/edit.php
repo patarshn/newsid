@@ -67,36 +67,18 @@
 
                     <div class="col-lg-3 mt-2">
                         <label for="volume" class="text-gray-900 font-weight-bold">Volume</label>
-                        <input type="text" name="volume" id="volume" class="form-control border-left-primary" value="<?=$d->volume?>" required>
+                        <input type="text" name="volume" id="volume" class="form-control border-left-primary volume-0" value="<?=$d->volume?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="harga_satuan" class="text-gray-900 font-weight-bold">Harga Satuan</label>
-                        <input type="text" name="harga_satuan" id="harga_satuan" class="form-control border-left-primary" value="<?=$d->harga_satuan?>" required>
-                    </div>
+                        <input type="number" name="harga_satuan" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" value="<?=$d->harga_satuan?>" required>
+                        </div>
 
                     <div class="col-lg-3 mt-2">
-                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" value="<?=$d->jumlah?>" required>
-                    </div>
-
-                    <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
-                        <br>
-                        <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
-                        </div>
-                    </div>                    
+                        <label for="jumlah" class="text-gray-900 font-weight-bold" >Jumlah</label>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary jumlah-0" value="<?=$d->jumlah?>" required>
+                    </div>           
                 </div>
                     
                 <?php
@@ -123,3 +105,18 @@
 
       </div>
       <!-- End of Main Content -->
+
+      <script>
+          function jumlah_rp(x){
+          var volume = $('.volume-'+x).val();
+          var harga_satuan = $('.harga_satuan-'+x).val();
+          if(volume == ""){
+            volume = 0;
+          }
+          if(harga_satuan == ""){
+            harga_satuan = 0;
+          }
+          var sum = parseInt(volume) * parseInt(harga_satuan);
+          $('.jumlah-'+x).val(sum);
+        }
+      </script>

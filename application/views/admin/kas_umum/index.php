@@ -40,7 +40,7 @@
                               <div class="modal-content">
                               <!-- heading modal -->
                               <div class="modal-header border-bottom-primary">
-                                  <h8 class="modal-title"><b>Cetak Buku Anggaran Pendapatan dan Belanja Desa</b></h8>
+                                  <h8 class="modal-title"><b>Cetak Buku Kas Umum</b></h8>
                               </div>
                               <!-- body modal -->
                               <div class="modal-body">
@@ -77,9 +77,7 @@
 
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
-										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
+                      <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
               </div>
@@ -97,31 +95,23 @@
                       <th>Kode Rekening</th>
                       <th>Uraian</th>
                       <th>Penerimaan (Rp.)</th>
-                      <th>Pengeluaran (Rp.)</th>
-                      <th>Tahun Anggaran</th>
-                      <th>Verif Kepala Desa</th>
+                      <th>Pengeluaran (Rp.)</th>                      
                     </tr>
                     
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Tanggal</th>
-                        <th>Kode Rekening</th>
-                        <th>Uraian</th>
-                        <th>Penerimaan (Rp.)</th>
-                        <th>Pengeluaran (Rp.)</th>
-                        <th>Tahun Anggaran</th>
-                        <th>Verif Kepala Desa</th>
-                    </tr>
-                  </tfoot>
+                  
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $jumlah_penerimaan =0;
+                  $jumlah_pengeluaran = 0;
+                  $saldo = 0;
+                  foreach ($data as $d): 
+                    $jumlah_penerimaan = $jumlah_penerimaan + $d->penerimaan;
+                    $jumlah_pengeluaran = $jumlah_pengeluaran + $d->pengeluaran;
+                    $saldo = $jumlah_penerimaan - $jumlah_pengeluaran;
+                    ?>
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -144,30 +134,22 @@
                       <td><?=$d->uraian?></td>
                       <td>Rp. <?=number_format($d->penerimaan,0,',','.');?></td>
                       <td>Rp. <?=number_format($d->pengeluaran,0,',','.');?></td>
-                      <td><?=$d->tahun_anggaran?></td>
-
-                      </td>
-                      <td>
-                        <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
+
+                  <tfoot>
+                  <tr>
+                        <th colspan="6">Jumlah</th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_penerimaan,0,',','.');?></th>
+                        <th colspan="1">Rp.<?=number_format($jumlah_pengeluaran,0,',','.');?></th>
+                      </tr>
+                  <tr>
+                  <th colspan="6">Jumlah Saldo</th>
+                  <th colspan="2">Rp. <?=number_format($saldo,0,',','.');?> </th>
+                  </tr>
+                  </tfoot>
+
                 </table>
                 </form>
               </div>
@@ -199,4 +181,5 @@
       </div>
     </div>
   </div>
-</div>s
+</div>
+

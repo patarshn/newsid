@@ -98,25 +98,7 @@
                     <div class="col-lg-4 mt-2">
                         <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas </label>
                         <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" value="<?=$d->saldo?>" required>
-                    </div>
-
-                    <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
-                        <br>
-                        <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
-                        </div>
-                    </div>                    
+                    </div>        
                 </div>
                     
                 <?php

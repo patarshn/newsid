@@ -97,11 +97,6 @@
                         <label for="pngl_biaya_adm" class="text-gray-900 font-weight-bold">Biaya Administrasi</label>
                         <input type="number" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" required>
                     </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" required>
-                    </div>
                 </div>
                 <?=form_close()?>
                 
