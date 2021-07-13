@@ -43,12 +43,12 @@
                 <div class="col-lg-6 ">
                 <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama_hasil">Jenis/Nama Hasil Pembangunan</label>
-                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder="Nama proyek/kegiatan yang dibangun di Desa" required>
+                        <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder="Nama proyek/kegiatan yang dibangun di Desa" size="50" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
-                        <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Besaran proyek/kegiatan" required>
+                        <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Besaran proyek/kegiatan" size="30" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
@@ -59,13 +59,13 @@
 
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="lokasi">Lokasi</label>
-                        <input type="text" name="lokasi" id="lokasi" class="form-control border-left-primary" placeholder="Lokasi proyek/kegiatan yang dibangun" rows="2" required>
-                    </div>
+                        <textarea class="form-control border-left-primary" name="lokasi" id="lokasi" rows="2" placeholder="Lokasi proyek/kegiatan yang dibangun"></textarea>
+                        </div>   
                 
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" placeholder="Catatan-catatan lain yang dianggap perlu"></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="2" placeholder="Catatan-catatan lain yang dianggap perlu"></textarea>
                         </div>                   
                     </div>
                 </div>

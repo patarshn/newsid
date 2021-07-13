@@ -46,9 +46,15 @@
                 <div class="form-row">
 
                 <div class="col-lg-12">
+                    <div class="form-group">
+                    <h4 class="text-gray-900 font-weight-bold">Deskripsi Kegiatan</h4>
+                    </div>
+                    </div>
+
+                <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" value="<?=$d->tahun?>" required>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" value="<?=$d->tahun?>" size="4" required>
                     </div>
                     </div>
 
@@ -68,13 +74,38 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
-                            <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Besaran proyek/kegiatan dimaksud" value="<?=$d->volume?>" required>
+                            <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Besaran proyek/kegiatan dimaksud" value="<?=$d->volume?>" size="30" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="waktu">Waktu Kegiatan</label>
+                            <input type="text" name="waktu" id="waktu" class="form-control border-left-primary " placeholder="Waktu lamanya proyek/kegiatan akan dilaksanakan" value="<?=$d->waktu?>" size="50" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="sifat_kegiatan">Sifat Kegiatan</label>
+                            <select name="sifat_kegiatan" id="sifat_kegiatan" class="form-control border-left-primary" placeholder=" " required>
+                            <option><?=$d->sifat_kegiatan?></option>
+                            <option value="Baru">Baru</option>
+                            <option value="Lanjutan">Lanjutan</option>
+                        </select>
+                        </div>
+                    </div>   
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
+                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="Pelaksana proyek/kegiatan dimaksud" value="<?=$d->pelaksana?>" size="30" required>
                         </div>
                     </div>
                     
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold">Besaran Perolehan Biaya</h4>
+                    <h5 class="text-gray-900 font-weight-bold"><br>Besaran Perolehan Biaya</h5>
                     <small class="text-gray-900 font-weight-bold">Catatan: Isi Nol (0) jika tidak ada biaya yg diperoleh. <br></small>
                     </div>
                     </div>
@@ -106,35 +137,9 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah_biaya">Jumlah Biaya</label>
-                        <input type="number" name="jumlah_biaya" id="jumlah_biaya" class="form-control jumlah_biaya-0" placeholder="Total biaya" value="<?=$d->jumlah_biaya?>" readonly required>
+                        <input type="number" name="jumlah_biaya" id="jumlah_biaya" class="form-control jumlah_biaya-0" placeholder="Total biaya" value="<?=$d->jumlah_biaya?>" readonly >
                         </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="waktu">Waktu Kegiatan</label>
-                            <input type="text" name="waktu" id="waktu" class="form-control border-left-primary " placeholder="Waktu lamanya proyek/kegiatan akan dilaksanakan" value="<?=$d->waktu?>" required>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="sifat_kegiatan">Sifat Kegiatan</label>
-                            <select name="sifat_kegiatan" id="sifat_kegiatan" class="form-control border-left-primary" placeholder=" " required>
-                            <option><?=$d->sifat_kegiatan?></option>
-                            <option value="Baru">Baru</option>
-                            <option value="Lanjutan">Lanjutan</option>
-                        </select>
-                        </div>
-                    </div>   
-
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
-                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="Pelaksana proyek/kegiatan dimaksud" value="<?=$d->pelaksana?>" required>
-                        </div>
-                    </div>
-
+                    </div>                
                    
                     <div class="col-lg-12">
                         <div class="form-group">

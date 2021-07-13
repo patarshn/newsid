@@ -26,16 +26,17 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
 
     function rulesStore() {
         return [
+            ['field' => 'tahun','label' => 'Tahun Rencana Pembangunan', 'rules' => 'required|min_length[4]|max_length[4]'],
             ['field' => 'id_rencana','label' => 'Nama Proyek/Kegiatan',  'rules' => 'required'],
-            ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
+            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|max_length[30]'],
+            ['field' => 'waktu','label' => 'Waktu Kegiatan', 'rules' => 'required|max_length[50]'],
+            ['field' => 'sifat_kegiatan','label' => 'Sifat Kegiatan', 'rules' => 'required'],
+            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|min_length[5]|max_length[30]'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
-            ['field' => 'jumlah_biaya','label' => 'Jumlah Biaya', 'rules' => 'required'],
-            ['field' => 'waktu','label' => 'Waktu Kegiatan', 'rules' => 'required'],
-            ['field' => 'sifat_kegiatan','label' => 'Sifat Kegiatan', 'rules' => 'required'],
-            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required'],
+            ['field' => 'jumlah_biaya','label' => 'Jumlah Biaya'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
@@ -43,16 +44,17 @@ class Buku_kegiatan_pembangunan extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
+            ['field' => 'tahun','label' => 'Tahun Rencana Pembangunan', 'rules' => 'required|min_length[4]|max_length[4]'],
             ['field' => 'id_rencana','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
-            ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
+            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|max_length[30]'],
+            ['field' => 'waktu','label' => 'Waktu Kegiatan', 'rules' => 'required|max_length[50]'],
+            ['field' => 'sifat_kegiatan','label' => 'Sifat Kegiatan', 'rules' => 'required'],
+            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|min_length[5]|max_length[30]'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
             ['field' => 'jumlah_biaya','label' => 'Jumlah Biaya', 'rules' => 'required'],
-            ['field' => 'waktu','label' => 'Waktu Kegiatan', 'rules' => 'required'],
-            ['field' => 'sifat_kegiatan','label' => 'Sifat Kegiatan', 'rules' => 'required'],
-            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
     }

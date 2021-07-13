@@ -24,7 +24,7 @@
             <!-- Area Chart -->
             <div class="col-xl-12 col-lg-12 ">
               <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
+                <!-- Card Header - Dropdown --> 
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary"> <?=$title?></h6>
                   <div>
@@ -48,21 +48,21 @@
                 <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Kedatangan Penduduk</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="" value="<?=$d->tahun?>" required>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="" value="<?=$d->tahun?>" size="4" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap</label>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama lengkap" value="<?=$d->nama?>" required>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama lengkap" value="<?=$d->nama?>" size="50" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Induk Penduduk (no_identitas)</label>
-                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor indentitas/tanda pengenal" value="<?=$d->no_identitas?>" required>
+                            <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Identitas/Tanda Pengenal)</label>
+                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor indentitas/tanda pengenal" value="<?=$d->no_identitas?>" size="16" required>
                         </div>
                     </div>
                     
@@ -80,7 +80,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir?>" required>
+                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir?>" size="50" required>
                     </div>
                     </div>
 
@@ -101,7 +101,7 @@
                     <div class="col-lg-12">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="pekerjaan">Pekerjaan</label>
-                          <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary " placeholder="Pekerjaan" value="<?=$d->pekerjaan?>" required>
+                          <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary " placeholder="Pekerjaan" value="<?=$d->pekerjaan?>" size="50" required>
                       </div>
                     </div>
 
@@ -119,7 +119,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="keturunan">Keturunan</label>
-                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-primary " placeholder="isi disini jika penduduk merupakan WNA" value="<?=$d->keturunan?>" >
+                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-primary " placeholder="isi disini jika penduduk merupakan WNA" value="<?=$d->keturunan?>" size="50">
                             <small id="jk" class="text-gray-700">note* : isi dengan nama negara asal</small>
                         </div>
                     </div>
@@ -127,28 +127,28 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="datang_dari">Datang Dari (Asal)</label>
-                          <input type="text" name="datang_dari" id="datang_dari" class="form-control border-left-primary " placeholder="Lokasi / Tempat Kedatangan / Asal" value="<?=$d->datang_dari?>" required>
+                          <input type="text" name="datang_dari" id="datang_dari" class="form-control border-left-primary " placeholder="Lokasi / Tempat Kedatangan / Asal" value="<?=$d->datang_dari?>" size="100" required>
                       </div>
                     </div>                
                  
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="maksud_tujuan">Maksud dan Tujuan</label>
-                        <textarea class="form-control border-left-primary" name="maksud_tujuan" id="maksud_tujuan" placeholder="Jelaskan maksud dan tujujuan kedatangan" rows="3" required><?=$d->maksud_tujuan?></textarea>
+                        <textarea class="form-control border-left-primary" name="maksud_tujuan" id="maksud_tujuan" placeholder="Jelaskan maksud dan tujujuan kedatangan" rows="3" size="150" required><?=$d->maksud_tujuan?></textarea>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_yg_didatangi">Nama Penduduk yang Didatangi</label>
-                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" value="<?=$d->nama_yg_didatangi?>"  placeholder="Nama penduduk desa yang didatangi" required>
+                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" value="<?=$d->nama_yg_didatangi?>" size="50" placeholder="Nama penduduk desa yang didatangi" required>
                         </div>  
                     </div>       
 
                     <div class="col-lg-6">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="alamat_yg_didatangi">Alamat Penduduk yang Didatangi</label>
-                            <textarea class="form-control border-left-primary" name="alamat_yg_didatangi" id="alamat_yg_didatangi"  placeholder="Alamat penduduk desa yang didatangi" rows="1" required><?=$d->alamat_yg_didatangi?></textarea>
+                            <textarea class="form-control border-left-primary" name="alamat_yg_didatangi" id="alamat_yg_didatangi"  placeholder="Alamat penduduk desa yang didatangi" size="100" rows="1" required><?=$d->alamat_yg_didatangi?></textarea>
                         </div>  
                     </div>                         
                     

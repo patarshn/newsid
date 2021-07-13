@@ -47,29 +47,49 @@
                 <div class="form-row">
 
                 <div class="col-lg-12">
+                    <div class="form-group">
+                    <h4 class="text-gray-900 font-weight-bold">Deskripsi Rencana Kegiatan</h4>
+                    </div>
+                    </div>
+
+                <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" value="<?=$p->tahun?>" required>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" value="<?=$p->tahun?>" size="4" required>
                     </div>
                     </div>
-                    
-                    <div class="col-lg-12">
+
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_proyek">Nama Proyek/Kegiatan</label>
-                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-primary" placeholder=" " value="<?=$p->nama_proyek?>" required>
+                            <input type="text" name="nama_proyek" id="nama_proyek" class="form-control border-left-primary" placeholder=" " value="<?=$p->nama_proyek?>" size="50" required>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
+                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="pelaksana" value="<?=$p->pelaksana?>" size="50" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="lokasi">Lokasi</label>
                             <textarea class="form-control border-left-primary" name="lokasi" id="lokasi" rows="2"><?=$p->lokasi?></textarea>
                         </div>
                     </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="manfaat">Manfaat Pembangunan</label>
+                            <textarea class="form-control border-left-primary" name="manfaat" id="manfaat" rows="3"><?=$p->manfaat?></textarea>
+                        </div>
+                    </div>                
                     
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold">Besaran Perolehan Biaya</h4>
+                    <h5 class="text-gray-900 font-weight-bold"><br>Besaran Perolehan Biaya</h5>
                     <small class="text-gray-900 font-weight-bold">Catatan: Isi Nol (0) jika tidak ada biaya yg diperoleh. <br></small>
                     </div>
                     </div>
@@ -101,24 +121,10 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jumlah">Jumlah Biaya</label>
-                        <input type="number" name="jumlah" id="jumlah" class="form-control jumlah-0" placeholder="Total biaya" value="<?=$p->jumlah?>" readonly required>
+                        <input type="number" name="jumlah" id="jumlah" class="form-control jumlah-0" placeholder="Total biaya" value="<?=$p->jumlah?>" readonly>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
-                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="pelaksana" value="<?=$p->pelaksana?>" required>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="manfaat">Manfaat Pembangunan</label>
-                            <textarea class="form-control border-left-primary" name="manfaat" id="manfaat" rows="3"><?=$p->manfaat?></textarea>
-                        </div>
-                    </div>
-                
+                                                        
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
