@@ -44,11 +44,13 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal Rapat</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="agenda" class="text-gray-900 font-weight-bold">Agenda Rapat</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="agenda" id="agenda" class="form-control border-left-primary" value="<?=$d->agenda?>" required>
                     </div>
                     
@@ -57,32 +59,32 @@
                     <label class="text-gray-900 font-weight-bold">Upload Berkas Daftar Hadir Rapat</label>
                       <div class="custom-file">
                           <label for="berkas1" class="custom-file-label border-left-primary">
-                          <?php if ($d->berkas1 !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas1)):?>
-                          <?=$d->berkas1?>
-                          <?php else :?>
-                          Berkas Tidak Ada
-                          <?php endif; ?>
+                            <?php if($d->berkas1 != null && file_exists(FCPATH."administrasilainnya/".$folder."/".$d->berkas1)):?>
+                              <?=$d->berkas1?>
+                              <?php else :?>
+                              Berkas Tidak Ada
+                              <?php endif; ?>
                           </label>
                           <input type="file" class="custom-file-input" id="berkas1" name="berkas1" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
+                          <small id="berkas1" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
-                    </div>
+                    </div> 
 
                     <div class="col-lg-6 mt-3">
                     <input type="hidden" name="old_file" value=<?=$d->berkas2?>>
                     <label class="text-gray-900 font-weight-bold">Upload Berkas Notulen Rapat</label>
                       <div class="custom-file">
-                      <label for="berkas2" class="custom-file-label border-left-primary">
-                          <?php if ($d->berkas2 !=null && file_exists (FCPATH. "administrasilainnya/".$folder."/".$d->berkas2)):?>
-                          <?=$d->berkas2?>
-                          <?php else :?>
-                          Berkas Tidak Ada
-                          <?php endif; ?>
+                          <label for="berkas2" class="custom-file-label border-left-primary">
+                            <?php if($d->berkas2 != null && file_exists(FCPATH."administrasilainnya/".$folder."/".$d->berkas2)):?>
+                              <?=$d->berkas2?>
+                              <?php else :?>
+                              Berkas Tidak Ada
+                              <?php endif; ?>
                           </label>
                           <input type="file" class="custom-file-input" id="berkas2" name="berkas2" accept=".pdf">
-                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
+                          <small id="berkas2" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
-                    </div>
+                    </div> 
 
                     <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Kepala BPD : </label>
@@ -108,7 +110,7 @@
                 <?php
                 endforeach;
                 echo form_close();?>
-                
+                <medium id="wajib" class="text-danger">* Wajib diisi</medium> <br>
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">

@@ -43,6 +43,7 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="jenis_brng_bangunan" class="text-gray-900 font-weight-bold">Jenis Barang atau Bangunan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="jenis_brng_bangunan" id="jenis_brng_bangunan" class="form-control border-left-primary" value="<?=$d->jenis_brng_bangunan?>" required>
                     </div>
 
@@ -64,6 +65,7 @@
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Asal Barang atau Bangunan</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-2">
                           <input type="number" name="abb_apb_desa" id="abb_apb_desa" class="form-control border-left-primary" value="<?=$d->abb_apb_desa?>" required>
@@ -94,6 +96,7 @@
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Keadaan Barang atau Bangunan Awal Tahun</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                           <div class="col-lg-3">
                               <input type="number" name="awalthn_baik" id="awalthn_baik" class="form-control border-left-primary" value="<?=$d->awalthn_baik?>" required>
@@ -109,6 +112,7 @@
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Penghapusan Barang dan Bangunan</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-2">
                         <input type="number" name="hps_rusak" id="hps_rusak" class="form-control border-left-primary" value="<?=$d->hps_rusak?>" required>
@@ -135,6 +139,7 @@
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Keadaan Barang atau Bangunan Akhir Tahun</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-3">
                           <input type="number" name="akhirthn_baik" id="akhirthn_baik" class="form-control border-left-primary" value="<?=$d->akhirthn_baik?>" required>
@@ -178,7 +183,7 @@
                 <?php
                 endforeach;
                 echo form_close();?>
-                
+                <medium id="wajib" class="text-danger">* Wajib diisi</medium> <br>
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">

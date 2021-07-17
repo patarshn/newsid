@@ -139,7 +139,7 @@
                   <thead>
                     <tr>
                       <th width="5%">No</th>
-                      <th>Jenis Aministrasi Umum</th>
+                      <th>Jenis Aministrasi Lainnya</th>
                       <th class="text-warning">dipending</th>
                       <th class="text-success">Disetujui</th>
                       <th class="text-danger">Ditolak</th>
@@ -148,7 +148,7 @@
                   <tfoot>
                     <tr>
                       <th width="5%">No</th>
-                      <th>Jenis Aministrasi Umum</th>
+                      <th>Jenis Aministrasi Lainnnya</th>
                       <th class="text-warning">dipending</th>
                       <th class="text-success">Disetujui</th>
                       <th class="text-danger">Ditolak</th>

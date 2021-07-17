@@ -18,7 +18,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
-            ['field' => 'nip','label' => 'NIP', 'rules' => 'required'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|max_length[18]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
@@ -36,7 +36,7 @@ class Buku_data_anggota_bpd extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
-            ['field' => 'nip','label' => 'NIP', 'rules' => 'required'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|max_length[18]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],

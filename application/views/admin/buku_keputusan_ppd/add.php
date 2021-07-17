@@ -40,6 +40,7 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
                     </div>
 
@@ -55,6 +56,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ppu" class="text-gray-900 font-weight-bold">Pokok-Pokok Usulan/Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <textarea class="form-control border-left-primary" name="ppu" id="ppu" rows="3" required></textarea>
                         </div>
                     </div>
@@ -68,7 +70,7 @@
                     </div>
                 </div>
                 <?=form_close()?>
-                
+                <medium id="wajib" class="text-danger">* Wajib diisi</medium> <br>
                 <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
