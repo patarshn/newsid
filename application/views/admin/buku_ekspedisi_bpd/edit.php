@@ -63,7 +63,7 @@
                       </div>
                     </div>
 
-                    <div class="col-lg-12 mt-3">
+                    <div class="col-lg-12">
                       <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat</label>
                       <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">

@@ -51,7 +51,7 @@
                         <small id="nip" class="text-gray-700">Diisi dengan nomor induk anggota </small>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-2">
                         <div class="form-group"> 
                             <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
                             <medium id="wajib" class="text-danger">*</medium>
@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-2">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
                         <medium id="wajib" class="text-danger">*</medium>

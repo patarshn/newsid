@@ -51,10 +51,11 @@
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="number" name="nip" id="nip" class="form-control border-left-primary" value="<?=$d->nip?>" size="18" required>
+                        <small id="nip" class="text-gray-700">Diisi dengan nomor induk anggota </small>
                     </div>
 
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-2">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
                             <medium id="wajib" class="text-danger">*</medium>
@@ -65,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 mt-2">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
                         <medium id="wajib" class="text-danger">*</medium>
@@ -80,13 +81,13 @@
                     </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6">
                         <label for="tempat_lahir" class="text-gray-900 font-weight-bold">Tempat Lahir</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" value="<?=$d->tempat_lahir?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6">
                         <label for="tgl_lahir" class="text-gray-900 font-weight-bold">Tanggal Lahir</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" value="<?=$d->tgl_lahir?>" required>
@@ -170,8 +171,7 @@
                             <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>
-                </div>
-
+                
                 <div class="col-lg-12 form-inline">
                         <label for="status" class="mr-sm-2">Verifikasi Kepala BPD : </label>
                         <br>
@@ -189,6 +189,7 @@
                           <label class="form-check-label" for="verif_bpd3">Ditolak</label>
                         </div>
                     </div>
+                </div>
 
                 <script>
                     var agama = "<?=$d->agama?>";
@@ -196,6 +197,8 @@
                         $('#agama').val(agama);
                     });
                 </script>
+
+
                     
                 <?php
                 endforeach;

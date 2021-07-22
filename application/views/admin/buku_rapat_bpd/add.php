@@ -77,6 +77,7 @@
                           <small id="berkas2" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
+          </div>
 
                 <?=form_close()?>
                 <medium id="wajib" class="text-danger">* Wajib diisi</medium>
