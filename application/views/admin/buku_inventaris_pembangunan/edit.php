@@ -48,22 +48,26 @@
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama_hasil">Jenis/Nama Hasil Pembangunan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="nama_hasil" id="nama_hasil" class="form-control border-left-primary" placeholder="Nama proyek/kegiatan yang dibangun di Desa" value="<?=$d->nama_hasil?>" size="50" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="volume" id="volume" class="form-control border-left-primary "  placeholder="Besaran proyek/kegiatan" value="<?=$d->volume?>" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya">Biaya</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="number" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" size="30" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="lokasi">Lokasi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <textarea class="form-control border-left-primary" name="lokasi" id="lokasi" rows="2" placeholder="Lokasi proyek/kegiatan yang dibangun"><?=$d->lokasi?></textarea>
                       </div>   
 

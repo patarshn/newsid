@@ -12,7 +12,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
     private $_mainTitle = 'Buku Penduduk Sementara';
     private $_docxName = 'buku_penduduk_sementara.docx';
     private $_exelName = 'buku_penduduk_sementara.xls';
-
+ 
     function __construct()
 	{
         parent::__construct();

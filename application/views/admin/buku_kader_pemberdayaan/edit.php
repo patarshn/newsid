@@ -48,16 +48,19 @@
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>"  size="50" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" value="<?=$d->umur?>" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jkelamin">Jenis Kelamin</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="jkelamin" id="jkelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
                             <option><?=$d->jkelamin?></option>
                             <option value="Laki-Laki">Laki-Laki</option>
@@ -67,6 +70,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="pendidikan" required>
                             <option><?=$d->pendidikan?></option> 
                             <option value="SD">SD</option>
@@ -83,12 +87,14 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="bidang">Bidang</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="bidang" value="<?=$d->bidang?>" size="50" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="2" placeholder="Alamat"><?=$d->alamat?></textarea>
                     </div> 
 

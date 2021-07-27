@@ -204,6 +204,18 @@ class Buku_ktp_kk extends Admin_Controller {
 
     public function store(){
         $validation = $this->form_validation;
+        $nik = $_POST['nik'];
+        $sql  = $this->db->query("SELECT nik FROM ktp_kk where nik='$nik'");
+        $cek_nik = $sql->num_rows();
+        if($cek_nik > 0){
+            $this->session->set_flashdata('error_message', 'NIK Sudah terdaftar sebelumnya');
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'NIK sudah terdaftar sebelumnya',
+                );
+           echo json_encode($callback);
+           exit();
+        }
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
             $_POST = $this->input->post();
@@ -236,19 +248,6 @@ class Buku_ktp_kk extends Admin_Controller {
                 'created_at' => date('Y-m-d H:i:s'),
                 
             );
-
-            $nik = $_POST['nik'];
-            $sql  = $this->db->query("SELECT nik FROM ktp_kk where nik='$nik'");
-            $cek_nik = $sql->num_rows();
-            if($cek_nik > 0){
-                $this->session->set_flashdata('error_message', 'NIK Sudah terdaftar sebelumnya');
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'NIK sudah terdaftar sebelumnya',
-                    );
-               echo json_encode($callback);
-               exit();
-            }
 
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

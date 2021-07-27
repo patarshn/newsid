@@ -48,6 +48,7 @@
                 <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="bulan_tahun">Bulan dan Tahun Mutasi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="month" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" value="<?=$d->bulan_tahun?>" required>
                     </div>
                     </div>
@@ -55,6 +56,7 @@
                 <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" value="<?=$d->nama?>" size="50" required>
                     </div>
                     </div>
@@ -62,6 +64,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="jk" id="jk" class="form-control border-left-primary" required>
                             <option><?=$d->jk?></option>
                             <option value="Laki-Laki">Laki-Laki</option>
@@ -73,6 +76,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
                             <option><?=$d->wn?></option>
                             <option value="WNI">WNI</option>
@@ -84,6 +88,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" value="<?=$d->tempat_lahir?>" size="50" required>
                     </div>
                     </div>
@@ -91,6 +96,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_lahir">Tanggal Lahir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" value="<?=$d->tgl_lahir?>" required>
                     </div>
                     </div>
