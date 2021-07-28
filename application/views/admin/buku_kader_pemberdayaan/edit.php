@@ -43,19 +43,22 @@
                  <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Kader Pembangunan : <?=$d->nama?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>"  size="50" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>"  size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" value="<?=$d->umur?>" required>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur" value="<?=$d->umur?>" size="2" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
@@ -128,3 +131,13 @@
       </div>
       <!-- End of Main Content -->
 
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

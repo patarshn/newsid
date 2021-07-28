@@ -43,6 +43,9 @@
                  <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Inventaris Hasil Pembangunan : <?=$d->nama_hasil?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 
                 <div class="form-row">
                     <div class="col-lg-6 ">
@@ -61,7 +64,7 @@
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya">Biaya</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="biaya" id="biaya" class="form-control border-left-primary" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" size="30" required>
+                        <input type="text" name="biaya" id="biaya" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" size="30" required>
                     </div>
                     </div>
 
@@ -102,3 +105,13 @@
       </div>
       <!-- End of Main Content -->
 
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

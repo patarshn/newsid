@@ -37,7 +37,9 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open(base_url('kegiatan_pembangunan/store'),'id="form"','enctype="multipart/form-data"')?>
                 <h3 class="text-gray-900"></h3>
-
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 <div class="form-row">
 
                 <div class="col-lg-12">
@@ -50,7 +52,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" size="4" required>
+                            <input type="text" name="tahun" id="tahun" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" size="4" required>
                     </div>
                     </div>
 
@@ -114,26 +116,26 @@
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  placeholder="Besaran biaya pemerintah" required>
+                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya pemerintah" required>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" placeholder="Besaran biaya provinsi"  required>
+                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya provinsi"  required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  placeholder="Besaran biaya kabupaten"  required>
+                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya kabupaten"  required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  placeholder="Besaran biaya swadaya"  required>
+                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya swadaya"  required>
                     </div>
                     <br>
 
@@ -173,6 +175,18 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
+
 <script>
       function sum() {
       var biaya_pemerintah = document.getElementById('biaya_pemerintah').value;

@@ -43,7 +43,10 @@
                 <h5 class="text-gray-900 font-weight-bold"><center>Data Penduduk Sementara : <?=$d->nama?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
-
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
+                
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
@@ -57,7 +60,7 @@
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" value="<?=$d->nama?>" size="50" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" value="<?=$d->nama?>" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                     </div>
                     </div>
 
@@ -187,4 +190,5 @@
 
       </div>
       <!-- End of Main Content -->
+
 

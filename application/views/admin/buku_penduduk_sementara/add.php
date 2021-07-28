@@ -37,21 +37,24 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open(base_url('buku_penduduk_sementara/store'),'id="form"')?>
                 <h3 class="text-gray-900"></h3>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Kedatangan Penduduk</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Tahun kedatangan penduduk, contoh: 2019" size="4" required>
+                            <input type="text" name="tahun" id="tahun" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Tahun kedatangan penduduk, contoh: 2019" size="4" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
+                            <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap" size="50" required>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                     </div>
 
@@ -59,7 +62,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Identitas / Tanda Pengenal</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor identitas / tanda pengenal" size="16" required>
+                            <input type="text" name="no_identitas" id="no_identitas" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Nomor identitas / tanda pengenal" size="16" required>
                         </div>
                     </div>                   
 
@@ -94,8 +97,7 @@
                     <div class="col-lg-1">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur </label>
-                        <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" required>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur, contoh : 22" size="3">
                     </div>
                     </div>
 
@@ -147,7 +149,7 @@
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_yg_didatangi">Nama Penduduk yang Didatangi</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" placeholder="Nama penduduk desa yang didatangi" size="50" required>
+                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" placeholder="Nama penduduk desa yang didatangi" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>  
                     </div>       
 
@@ -204,3 +206,14 @@
 
       </div>
       <!-- End of Main Content -->
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
+

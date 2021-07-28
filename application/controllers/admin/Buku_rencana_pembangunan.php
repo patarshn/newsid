@@ -48,7 +48,7 @@ class Buku_rencana_pembangunan extends Admin_Controller {
             ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
-            ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
+            ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required|numeric'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
             ['field' => 'jumlah','label' => 'Jumlah Biaya'],
