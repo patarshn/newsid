@@ -59,6 +59,7 @@
                             <label class="text-gray-900 font-weight-bold" for="nik">Nomor Induk Penduduk (NIK)</label>
                             <medium id="wajib" class="text-danger">*</medium>
                             <input type="number" name="nik" id="nik" class="form-control border-left-primary" placeholder="Masukan 16 digit nomoe NIK" size="16"  required>
+                            <medium id="wajib" class="text-danger">Pastikan NIK yang dimasukan sudah benar, Jika sudah disimpan tidak dapat diubah lagi</medium>
                         </div>
                     </div>
 
