@@ -202,7 +202,7 @@ class Buku_rapat_bpd extends Admin_Controller {
             //jika ada file yang baru
             if(!empty($_FILES["berkas1"]["name"])){
                 $berkas1 = $this->upload_file1();
-                if(!$berkas){
+                if(!$berkas1){
                     $callback = array(
                         'status' => 'error',
                         'message' => $this->upload->display_errors(),
@@ -210,7 +210,7 @@ class Buku_rapat_bpd extends Admin_Controller {
                     echo json_encode($callback);
                     exit;
                 }
-                $berkas1_lama = $this->destroy_file($where);
+                $berkas1_lama = $this->destroy_file1($where);
             }
 
             //jika tidak ada file baru
@@ -220,7 +220,7 @@ class Buku_rapat_bpd extends Admin_Controller {
 
             if(!empty($_FILES["berkas2"]["name"])){
                 $berkas2 = $this->upload_file2();
-                if(!$berkas){
+                if(!$berkas2){
                     $callback = array(
                         'status' => 'error',
                         'message' => $this->upload->display_errors(),
@@ -228,7 +228,7 @@ class Buku_rapat_bpd extends Admin_Controller {
                     echo json_encode($callback);
                     exit;
                 }
-                $berkas2_lama = $this->destroy_file($where);
+                $berkas2_lama = $this->destroy_file2($where);
             }
 
             //jika tidak ada file baru
@@ -492,7 +492,7 @@ class Buku_rapat_bpd extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b1_id->berkas1)){
                 return true;
             }
 
@@ -512,7 +512,7 @@ class Buku_rapat_bpd extends Admin_Controller {
                 return true;
             }
 
-            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b_id->berkas)){
+            if (!file_exists(FCPATH."administrasilainnya/" .$this->_folder."/".$b2_id->berkas2)){
                 return true;
             }
 
@@ -535,7 +535,8 @@ class Buku_rapat_bpd extends Admin_Controller {
             $subvalues = array(
                 'no' => $no++,
                 'tgl' => $d->tgl,
-                'agenda' => $d->agenda
+                'agenda' => $d->agenda,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

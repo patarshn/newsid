@@ -1,11 +1,12 @@
 <?php
 
-class Report_adm_penduduk_m extends MY_Model
+class Report_adm_penduduj_m extends MY_Model
 {
-    public function getReportAdm(){
-        $query = "SELECT* FROM ktp_kk
-        UNION SELECT* FROM mutasi_penduduk
-        UNION SELECT* FROM penduduk_sementara
+    public function getReportAdm2(){
+        $query = "SELECT COUNT(*) FROM buku_peraturan_desa
+        UNION SELECT id, ver_kepala_desa,'buku_keputusan_kepala_desa' as table_name FROM buku_keputusan_kepala_desa
+        UNION SELECT id, ver_kepala_desa,'buku_inventaris_kekayaan_desa' as table_name FROM buku_inventaris_kekayaan_desa
+        UNION SELECT id, ver_kepala_desa,'buku_lemdes_berdes' as table_name FROM buku_lemdes_berdes
         UNION SELECT id, ver_kepala_desa,'buku_aparat_pemerintah_desa' as table_name FROM buku_aparat_pemerintah_desa
         UNION SELECT id, ver_kepala_desa,'buku_tnh_kas_desa' as table_name FROM buku_tnh_kas_desa
         UNION SELECT id, ver_kepala_desa,'buku_tnh_desa' as table_name FROM buku_tnh_desa
@@ -16,34 +17,23 @@ class Report_adm_penduduk_m extends MY_Model
         return $status;
     }
 
-    public function countDataPenduduk($table){
+    public function countDataVerifForm($table){
         $status = $this->db->select('ver_kepala_desa, COUNT(ver_kepala_desa) as total')->group_by('ver_kepala_desa')->get($table);
         return $status;
     }
 
-    public function getCountKk_Ktp()
-    {
-       $this->db->select_sum('ktp_kk');
-       $query = $this->db->get('nik');
-       if($query->num_rows()>0)
-       {
-         return $query->row()->ktp_kk;
-       }
-       else
-       {
-         return 0;
-       }
+    public function countKtp_kk($table){
+      $status = $this->db->count_all('ktp_kk');
     }
 
-    public function getKk_ktp($table,$where){
-      if($where == null){
-          $status = $this->db->order_by('id','desc')->get($table);
-      }
-      else{
-          $status = $this->db->where($where)->order_by('id','desc')->get($table);
-      }
-      
+    public function getReportAdm(){
+      $query = "SELECT COUNT(*) FROM ktp_kk
+      UNION SELECT COUNT(*) FROM ktp_kk
+      UNION SELECT COUNT(*) FROM mutasi_penduduk
+      UNION SELECT COUNT(*) FROM rekap_penduduk
+      UNION SELECT COUNT(*) FROM penduduk_sementara
+      ";
+      $status = $this->db->query($query);    
       return $status;
   }
-
 }

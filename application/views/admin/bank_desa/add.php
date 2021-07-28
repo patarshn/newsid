@@ -55,7 +55,7 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="rekening" class="text-gray-900 font-weight-bold">Rekening. No</label>
-                        <input type="number" name="rekening" id="rekening" class="form-control border-left-primary" required>
+                        <input type="text" name="rekening" id="rekening" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -75,32 +75,27 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="pmskn_setoran" class="text-gray-900 font-weight-bold">Setoran</label>
-                        <input type="number" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" required>
+                        <input type="text" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pmskn_bungabank" class="text-gray-900 font-weight-bold">Bunga Bank</label>
-                        <input type="number" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" required>
+                        <input type="text" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_penarikan" class="text-gray-900 font-weight-bold">Penarikan</label>
-                        <input type="number" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" required>
+                        <input type="text" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_pajak" class="text-gray-900 font-weight-bold">Pajak</label>
-                        <input type="number" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" required>
+                        <input type="text" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_biaya_adm" class="text-gray-900 font-weight-bold">Biaya Administrasi</label>
-                        <input type="number" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" required>
-                    </div>
-
-                    <div class="col-lg-6 mt-3">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" required>
+                        <input type="text" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" required>
                     </div>
                 </div>
                 <?=form_close()?>
@@ -125,3 +120,14 @@
 
       </div>
       <!-- End of Main Content -->
+
+      <script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

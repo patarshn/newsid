@@ -24,17 +24,17 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     }
 
     function rulesStore() {
-        return [
-            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
-            ['field' => 'tahun','label' => 'Tahun Rencana Pembangunan', 'rules' => 'required'],
+        return [            
+            ['field' => 'tahun','label' => 'Tahun Rencana Kegiatan Dibuat', 'rules' => 'required|min_length[4]|max_length[4]'],
+            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
-            ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
+            ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required|'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
-            ['field' => 'jumlah','label' => 'Jumlah Biaya', 'rules' => 'required'],
-            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required'],
-            ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
+            ['field' => 'jumlah','label' => 'Jumlah Biaya'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
@@ -42,16 +42,16 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'tahun','label' => 'Tahun Rencana Pembangunan', 'rules' => 'required'],
-            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required'],
+            ['field' => 'tahun','label' => 'Tahun Rencana Pembangunan', 'rules' => 'required|min_length[4]|max_length[4]'],
+            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
-            ['field' => 'jumlah','label' => 'Jumlah Biaya', 'rules' => 'required'],
-            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required'],
-            ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
+            ['field' => 'jumlah','label' => 'Jumlah Biaya'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
     }
@@ -271,7 +271,7 @@ class Buku_rencana_pembangunan extends Admin_Controller {
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus data berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -279,7 +279,7 @@ class Buku_rencana_pembangunan extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus data gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',

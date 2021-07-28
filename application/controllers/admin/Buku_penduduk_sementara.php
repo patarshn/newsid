@@ -12,7 +12,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
     private $_mainTitle = 'Buku Penduduk Sementara';
     private $_docxName = 'buku_penduduk_sementara.docx';
     private $_exelName = 'buku_penduduk_sementara.xls';
-
+ 
     function __construct()
 	{
         parent::__construct();
@@ -22,20 +22,20 @@ class Buku_penduduk_sementara extends Admin_Controller {
     
     function rulesStore() {
         return [
-            ['field' => 'tahun','label' => 'Tahun Kedatangan', 'rules' => 'required'],
-            ['field' => 'no_identitas','label' => 'Nomor Identitas/Tanda Pengenal', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
+            ['field' => 'tahun','label' => 'Tahun Kedatangan', 'rules' => 'required|min_length[4]|max_length[4]'],
+            ['field' => 'no_identitas','label' => 'Nomor Identitas/Tanda Pengenal', 'rules' => 'required|max_length[16]'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'umur','label' => 'Umur'],
             ['field' => 'kebangsaan','label' => 'Kebangsaan'],
-            ['field' => 'keturunan','label' => 'Keturunan'],
-            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required'],
-            ['field' => 'datang_dari','label' => 'Datang Dari', 'rules' => 'required'],
-            ['field' => 'maksud_tujuan','label' => 'Maksud dan Tujuan', 'rules' => 'required'],
-            ['field' => 'nama_yg_didatangi','label' => 'Nama Penduduk yang Didatangi', 'rules' => 'required'],
-            ['field' => 'alamat_yg_didatangi','label' => 'Alamat Penduduk yang Didatangi', 'rules' => 'required'],
+            ['field' => 'keturunan','label' => 'Keturunan','rules' => 'max_length[50]'],
+            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required|max_length[50]'],
+            ['field' => 'datang_dari','label' => 'Datang Dari', 'rules' => 'required|max_length[100]'],
+            ['field' => 'maksud_tujuan','label' => 'Maksud dan Tujuan', 'rules' => 'required|max_length[150]'],
+            ['field' => 'nama_yg_didatangi','label' => 'Nama Penduduk yang Didatangi', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'alamat_yg_didatangi','label' => 'Alamat Penduduk yang Didatangi', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan', 'rules' => 'required'],
             ['field' => 'tgl_pergi','label' => 'Tanggal Kepergian'],
             ['field' => 'ket','label' => 'Keterangan'],
@@ -45,21 +45,21 @@ class Buku_penduduk_sementara extends Admin_Controller {
     function rulesUpdate(){
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'tahun','label' => 'Tahun Kedatangan', 'rules' => 'required'],
-            ['field' => 'no_identitas','label' => 'Nomor Identitas/Tanda Pengenal)', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
+            ['field' => 'tahun','label' => 'Tahun Kedatangan', 'rules' => 'required|min_length[4]|max_length[4]'],
+            ['field' => 'no_identitas','label' => 'Nomor Identitas/Tanda Pengenal', 'rules' => 'required|max_length[16]'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'umur','label' => 'Umur'],
             ['field' => 'kebangsaan','label' => 'Kebangsaan'],
-            ['field' => 'keturunan','label' => 'Keturunan'],
-            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required'],
-            ['field' => 'datang_dari','label' => 'Datang Dari', 'rules' => 'required'],
-            ['field' => 'maksud_tujuan','label' => 'Maksud dan Tujuan', 'rules' => 'required'],
-            ['field' => 'nama_yg_didatangi','label' => 'Nama Penduduk yang Didatangi', 'rules' => 'required'],
-            ['field' => 'alamat_yg_didatangi','label' => 'Alamat Penduduk yang Didatangi', 'rules' => 'required'],
-            ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan'],
+            ['field' => 'keturunan','label' => 'Keturunan','rules' => 'max_length[50]'],
+            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required|max_length[50]'],
+            ['field' => 'datang_dari','label' => 'Datang Dari', 'rules' => 'required|max_length[100]'],
+            ['field' => 'maksud_tujuan','label' => 'Maksud dan Tujuan', 'rules' => 'required|max_length[150]'],
+            ['field' => 'nama_yg_didatangi','label' => 'Nama Penduduk yang Didatangi', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'alamat_yg_didatangi','label' => 'Alamat Penduduk yang Didatangi', 'rules' => 'required|max_length[100]'],
+            ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan', 'rules' => 'required'],
             ['field' => 'tgl_pergi','label' => 'Tanggal Kepergian'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -312,7 +312,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus data berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -320,7 +320,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus data gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',

@@ -452,7 +452,8 @@ class Buku_data_peraturan_bpd extends Admin_Controller {
                 'tgl_peraturan' => $d->tgl_peraturan,
                 'tentang' => $d->tentang,
                 'uraian_singkat' => $d->uraian_singkat,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

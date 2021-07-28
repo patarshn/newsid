@@ -51,7 +51,7 @@
                                                 <form method="get" action="bank_desa/cetak">
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
                                                 <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                
+      
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
@@ -89,40 +89,31 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Bulan</th>
-                      <th>Bank Cabang</th>
-                      <th>Tanggal Transaksi</th>
-                      <th>Uraian Transaksi</th>
-                      <th>Bukti Transaksi</th>
-                      <th>Saldo</th>
-                      <th>Verif Kepala Desa</th>
+                      <th rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2">No</th>
+                      <th rowspan="2"></th>
+                      <th rowspan="2">Uraian</th>
+                      <th colspan="2">Pemasukan</th>
+                      <th colspan="3">Pengeluaran</th>
                     </tr>
-                    
-                  </thead>
-                  <tfoot>
                     <tr>
-                        <th width="5%"></th>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Bulan</th>
-                        <th>Bank Cabang</th>
-                        <th>Tanggal Transaksi</th>
-                        <th>Uraian Transaksi</th>
-                        <th>Bukti Transaksi</th>
-                        <th>Saldo</th>
-                        <th>Verif Kepala Desa</th>
+                      <th>Setoran (Rp.)</th>
+                      <th>Bunga Bank (Rp.)</th>
+                      <th>Penarikan (Rp.)</th>
+                      <th>Pajak (Rp.)</th>
+                      <th>Biaya Administrasi (Rp.)</th>
                     </tr>
-                  </tfoot>
+                  </thead>
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $total=0;
+                  foreach ($data as $d): 
+                    $total = $total + $d->pmskn_setoran +$d->pmskn_bungabank - $d->pngl_penarikan - $d->pngl_pajak - $d->pngl_biaya_adm;
+                  ?>
                     <tr>
-                    <td>
+                      <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
                         <td><?=$count++;?></td>
                       </td>
@@ -138,35 +129,21 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->bulan?></td>
-                      <td><?=$d->bank_cabang?></td>
-                      <td><?=$d->tgl_trans?></td>
                       <td><?=$d->uraian_trans?></td>
-                      <td><?=$d->bukti_trans?></td>
-                      <td><?=$d->saldo?></td>
-
-                      </td>
-                      <td>
-                        <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
+                      <td>Rp. <?=number_format($d->pmskn_setoran,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pmskn_bungabank,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pngl_penarikan,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pngl_pajak,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pngl_biaya_adm,0,',','.');?></td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
+                  <tfoot>
+                    <tr>
+                        <th colspan="4">Total Transaksi Bulan Ini</th>
+                        <th colspan="5">Rp. <?=number_format($total,0,',','.');?></th>
+                      </tr>
+                  </tfoot>
                 </table>
                 </form>
               </div>

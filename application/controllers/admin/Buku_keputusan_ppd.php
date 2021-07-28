@@ -442,7 +442,8 @@ class Buku_keputusan_ppd extends Admin_Controller {
                 'no' => $no++,
                 'tgl' => $d->tgl,
                 'ppu' => $d->ppu,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

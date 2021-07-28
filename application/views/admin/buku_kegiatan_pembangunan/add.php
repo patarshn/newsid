@@ -41,15 +41,23 @@
                 <div class="form-row">
 
                 <div class="col-lg-12">
+                    <div class="form-group">
+                    <h5 class="text-gray-900 font-weight-bold">Deskripsi Kegiatan</h5>
+                    </div>
+                    </div>
+
+                <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" size="4" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="id_rencana">Nama Proyek/Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="id_rencana" id="id_rencana" class="form-control border-left-primary">
                                 <option value=" ">- Pilih -</option> 
                                 
@@ -63,59 +71,24 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
-                            <input type="text" name="volume" id="volume" class="form-control border-left-primary " rows="3" placeholder="Besaran proyek/kegiatan dimaksud"  required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="volume" id="volume" class="form-control border-left-primary " rows="3" placeholder="Besaran proyek/kegiatan dimaksud" size="30" required>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-12">
-                    <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold">Besaran Perolehan Biaya</h4>
-                    <small class="text-gray-900 font-weight-bold">Catatan: Isi Nol (0) jika tidak ada biaya yg diperoleh. <br></small>
-                    </div>
-                    </div>
-                    
-                    <div class="col-lg-3">
-                    <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
-                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  placeholder="Besaran biaya pemerintah" required>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
-                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" placeholder="Besaran biaya provinsi"  required>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
-                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  placeholder="Besaran biaya kabupaten"  required>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
-                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  placeholder="Besaran biaya swadaya"  required>
-                    </div>
-                    <br>
-
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                        <label class="text-gray-900 font-weight-bold" for="jumlah_biaya">Jumlah Biaya</label>
-                        <input type="number" name="jumlah_biaya" id="jumlah_biaya" class="form-control jumlah_biaya-0" placeholder="Total biaya" readonly required>
-                        </div>
-                    </div>
-
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="waktu">Waktu Kegiatan</label>
-                            <input type="text" name="waktu" id="waktu" class="form-control border-left-primary " placeholder="Waktu lamanya proyek/kegiatan akan dilaksanakan"  required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="waktu" id="waktu" class="form-control border-left-primary " placeholder="Waktu lamanya proyek/kegiatan akan dilaksanakan" size="50" required>
                         </div>
                     </div>
  
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="sifat_kegiatan">Sifat Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="sifat_kegiatan" id="sifat_kegiatan" class="form-control border-left-primary" placeholder=" " required>
-                            <option>- Pilih - </option>
+                            <option selected value="">- Pilih - </option>
                             <option value="Baru">Baru</option>
                             <option value="Lanjutan">Lanjutan</option>
                         </select>
@@ -125,7 +98,49 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
-                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="Pelaksana proyek/kegiatan dimaksud"  required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="Pelaksana proyek/kegiatan dimaksud" size="30" required>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-12">
+                    <div class="form-group">
+                    <h5 class="text-gray-900 font-weight-bold"><br>Besaran Perolehan Biaya</h5>
+                    <small class="text-gray-900 font-weight-bold">Catatan: Isi Nol (0) jika tidak ada biaya yg diperoleh. <br></small>
+                    </div>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                    <div class="form-group">
+                        <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  placeholder="Besaran biaya pemerintah" required>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" placeholder="Besaran biaya provinsi"  required>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  placeholder="Besaran biaya kabupaten"  required>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  placeholder="Besaran biaya swadaya"  required>
+                    </div>
+                    <br>
+
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                        <label class="text-gray-900 font-weight-bold" for="jumlah_biaya">Jumlah Biaya</label>
+                        <input type="number" name="jumlah_biaya" id="jumlah_biaya" class="form-control jumlah_biaya-0" placeholder="Total biaya" readonly >
                         </div>
                     </div>
 

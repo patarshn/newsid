@@ -48,7 +48,7 @@
                                                   <td><?=$d->kegiatan?></td></tr>                                                                                      
 
                                                   <tr><th>Waktu Pelaksanaan</th>
-                                                  <td><?=$d->waktu_pelaksanaan?></td></tr>
+                                                  <td><?= date("d-m-Y", strtotime($d->waktu_pelaksanaan))?></td></tr>
 
                                                   <tr><th>Tahun Anggaran</th>
                                                   <td><?=$d->tahun_anggaran?></td></tr>
@@ -79,13 +79,8 @@
                                                   </tr>
 
                                                   <tr>
-                                                  <th>Verifikasi Kepala Desa</th>
-                                                  <td style="text-align:right"><?=$d->ver_kepala_desa?> <?=$d->ver_kepala_desa_at?></td>
-                                                  </tr >
-
-                                                  <tr>
                                                   <th>Terakhir diubah</th>
-                                                  <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                                  <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                                   </tr >
 
                                                  </thead>

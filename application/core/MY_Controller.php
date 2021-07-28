@@ -53,12 +53,102 @@ class Frontend_Controller extends MY_Controller {
         #$config['file_name']        = $this->_folder.uniqid();
         $config['file_name']        = $file_name;
         $config['overwrite']        = true;
-        $config['max_size']         = 2000; // 2MB
+        $config['max_size']         = 15*1024; // 2MB
 
         $this->load->library('upload',$config);
         $this->upload->initialize($config);
 
         if ($this->upload->do_upload($inputname)) {
+                $gbr = $this->upload->data();
+                $gbr_width = $gbr['image_width'];
+                $gbr_height = $gbr['image_height'];
+                #echo $gbr_height." ".$gbr_width;
+                $max_resolution = 1280; //720p = 1280 , 1080p = 1920
+                if($gbr_height > $max_resolution OR $gbr_width > $max_resolution){
+                    if($gbr_height >= $gbr_width){
+                        $config2['height'] = $max_resolution;
+                    }
+                    else{
+                        $config2['width'] = $max_resolution;
+                    }
+                    $config2['image_library']='gd2';
+                    $config2['source_image']=$upload_path.$gbr['file_name'];
+                    $config2['create_thumb']= FALSE;
+                    $config2['maintain_ratio']= TRUE;
+                    $config2['quality'] = '100%';
+                    #$config2['new_image']='./assets/images/'.$gbr['file_name'];
+    
+                    $this->load->library('image_lib', $config2);
+                    $this->image_lib->initialize($config2);
+                    try{
+                        $this->image_lib->resize();
+                    }
+                    catch(Exception $e){
+                        $callback = array(
+                            'status' => 'error',
+                            'message' => $e,
+                        );
+                        
+                        unlink($upload_path.$gbr['file_name']);
+                        echo json_encode($callback);
+                        exit();
+                    }
+                }
+
+
+                
+                
+
+
+                $original_file = $upload_path.$gbr['file_name'];
+                #$resized_file = $upload_path.'new/'.$gbr['file_name'];
+                $resized_file = $upload_path.$gbr['file_name'];
+                $max_file_size = '1000000'; // maximum file size, in bytes
+                $gbr = $this->upload->data();
+                $original_image = imagecreatefromjpeg($original_file);
+
+                $image_quality = 100;
+                $count = 0;
+                $original_filesize = $gbr['file_size'];
+                $quality_decrease = (int)($original_filesize/1000)*2;
+                if($quality_decrease > 20){
+                    $quality_decrease = 20;
+                }
+                try{
+                    do {
+                        $temp_stream = fopen('php://temp', 'w+');
+                        $saved = imagejpeg($original_image, $temp_stream, $image_quality-=$quality_decrease);
+                        rewind($temp_stream);
+                        $fstat = fstat($temp_stream);
+                        fclose($temp_stream);
+                        $file_size = $fstat['size'];
+                        $count++;
+                    }
+                    while (($file_size > $max_file_size));
+                    imagejpeg($original_image, $resized_file, $image_quality + 1);
+                }
+                catch(Exception $e){
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => $e,
+                    );
+                    
+                    unlink($upload_path.$gbr['file_name']);
+                    echo json_encode($callback);
+                    exit();
+                }
+                
+
+                /*
+                if (-1 == $image_quality) {
+                    echo "Unable to get the file that small. Best I could do was $file_size bytes at image quality 0.\n";
+                    }
+                else {
+                    echo "Successfully resized $original_file to $file_size bytes using image quality $image_quality. Resized file saved as $resized_file.\n";
+                    imagejpeg($original_image, $resized_file, $image_quality + 1);
+                }
+                */
+                #exit();
             return $this->upload->data("file_name");
         }
         else{

@@ -44,56 +44,63 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open(base_url('buku_induk_penduduk/store'),'id="form"')?>
                 <h3 class="text-gray-900"></h3>
-                
                 <div class="form-row">
-
-                <div class="col-lg-12">
+                
+                <div class="col-lg-12"> 
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tahun_ektp">Tahun Pembuatan E-KTP</label>
-                        <input type="number" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" placeholder="Tahun Pembuatan E-KTP"  required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" placeholder="Tahun Pembuatan E-KTP" size="4"  required>
                     </div>
                     </div>
                     
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nik">Nomor Induk Penduduk (NIK)</label>
-                            <input type="number" name="nik" id="nik" class="form-control border-left-primary" placeholder="Masukan 16 digit nomoe NIK"  required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="number" name="nik" id="nik" class="form-control border-left-primary" placeholder="Masukan 16 digit nomoe NIK" size="16"  required>
+                            <medium id="wajib" class="text-danger">Pastikan NIK yang dimasukan sudah benar, Jika sudah disimpan tidak dapat diubah lagi</medium>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nkk">Nomor Kartu Keluarga</label>
-                            <input type="text" name="nkk" id="nkk" class="form-control border-left-primary " placeholder="Masukan 16 digit nomor KK" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="number" name="nkk" id="nkk" class="form-control border-left-primary " placeholder="Masukan 16 digit nomor KK" size="16" required>
                         </div>
                         </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap/Panggilan</label>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan"  required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan" size="50"  required>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ayah">Nama Ayah</label>
-                            <input type="text" name="ayah" id="ayah" class="form-control border-left-primary" placeholder="Nama Ayah" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="ayah" id="ayah" class="form-control border-left-primary" placeholder="Nama Ayah" size="50"  required>
                         </div>
                         </div>
 
                         <div class="col-lg-3">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ibu">Nama Ibu</label>
-                            <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu"  required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu" size="50" required>
                         </div>
                         </div>
 
                     <div class="col-lg-6">
-                        <div class="form-group">
+                        <div class="form-group"> 
                             <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="LAKI-LAKI">LAKI-LAKI</option>
                             <option value="PEREMPUAN">PEREMPUAN</option>
                         </select>
@@ -103,13 +110,15 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" size="50" required>
                     </div>
                     </div>
 
                 <div class="col-lg-3">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tanggal_lahir">Tanggal Lahir</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control border-left-primary " placeholder="Tanggal Lahir"  required>
                         </div>
                         </div>
@@ -117,8 +126,9 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="goldar">Golongan Darah</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="goldar" id="goldar" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="AB">AB</option>
@@ -130,8 +140,9 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="agama" id="agama" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="Islam">Islam</option>
                             <option value="Kristen">Kristen</option>
                             <option value="Khatolik">Khatolik</option>
@@ -145,8 +156,9 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option> 
+                            <option selected value="">- Pilih -</option> 
                             <option value="SD">SD</option>
                             <option value="SMP">SMP/SLTP Sederajat</option>
                             <option value="SMA">SMA/STA Sederajat</option>
@@ -162,13 +174,15 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="pekerjaan">Pekerjaan</label>
-                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary" placeholder="Pekerjaan" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary" placeholder="Pekerjaan" size="30" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="2" placeholder="Alamat" required></textarea>
                      </div>
                      </div>
@@ -176,8 +190,22 @@
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="rt">RT</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="rt" id="rt" class="form-control border-left-primary" placeholder="" required>
                             <option>- Pilih -</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                        </select>
+                     </div>
+                     </div>
+
+                     <div class="col-lg-1">
+                    <div class="form-group">
+                            <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <select name="rw" id="rw" class="form-control border-left-primary" placeholder="" required>
+                            <option selected value="">- Pilih -</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
                             <option value="03">03</option>
@@ -186,34 +214,24 @@
                             <option value="06">06</option>
                             <option value="07">07</option>
                             <option value="08">08</option>
-                        </select>
-                     </div>
-                     </div>
-
-                     <div class="col-lg-1">
-                    <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
-                            <select name="rw" id="rw" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
-                            <option value="01">01</option>
-                            <option value="02">02</option>
-                            <option value="03">03</option>
-                        </select>
+                        </select>                            
                      </div>
                      </div>
 
                      <div class="col-lg-4">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="dusun">Nama Dusun</label>
-                            <input type="text" class="form-control border-left-primary" name="dusun" id="dusun" placeholder="Nama Dusun" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" class="form-control border-left-primary" name="dusun" id="dusun" placeholder="Nama Dusun" size="30" required>
                      </div>
                      </div>
 
                      <div class="col-lg-6">
                      <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="status_perkawinan">Status Perkawinan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="status_perkawinan" id="status_perkawinan" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="K">K</option>
                             <option value="BK">BK</option>
                             <option value="JD">JD</option>
@@ -227,28 +245,21 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="hub_keluarga">Status Hubungan Keluarga</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                             <select name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="Kepala Keluarga">Kepala Keluarga</option>
-                            <option value="Suami">Suami</option>
-                            <option value="Istri">Istri</option>
-                            <option value="Anak">Anak</option>
-                            <option value="Menantu">Menantu</option>
-                            <option value="Cucu">Cucu</option>
-                            <option value="Orang Tua">Orang Tua</option>
-                            <option value="Mertua">Mertua</option>
-                            <option value="Famili Lain">Famili Lain</option>
-                            <option value="Pembantu">Pembantu</option>
-                            <option value="Lainnya">Lainnya</option>
                         </select>
+                        <small id="abb_apb_desa" class="text-gray-700 t">Induk penduduk adalah penduduk yang berkedudukan di keluarga sebagai kepala keluarga</small>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="WNI">WNI</option>
                             <option value="WNA">WNA</option>
                         </select>
@@ -258,8 +269,9 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="baca_huruf">Dapat Baca Huruf</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="baca_huruf" id="baca_huruf" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="L">L</option>
                             <option value="D">D</option>
                             <option value="A">A</option>
@@ -274,27 +286,30 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_tinggal_desa">Tanggal Tinggal di Desa</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_tinggal_desa" id="tgl_tinggal_desa" class="form-control border-left-primary" placeholder=""  required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tmpt_ektp_dikeluarkan">Tempat Keluarnya E-KTP</label>
-                        <input type="text" name="tmpt_ektp_dikeluarkan" id="tmpt_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tempat Keluarnya E-KTP"  required>
+                        <label class="text-gray-900 font-weight-bold" for="tmpt_ektp_dikeluarkan">Tempat Keluarnya E-KTP</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tmpt_ektp_dikeluarkan" id="tmpt_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tempat Keluarnya E-KTP" size="30" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
-                        <label for="tgl_ektp_dikeluarkan">Tanggal Keluarnya E-KTP</label>
+                        <label class="text-gray-900 font-weight-bold" for="tgl_ektp_dikeluarkan">Tanggal Keluarnya E-KTP</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_ektp_dikeluarkan" id="tgl_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tanggal Keluarnya E-KTP"  required>
                     </div>
                     </div>                    
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="ket">Keterangan</label>
+                            <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="ket" id="ket" placeholder="Isi keterangan jika diperlukan" rows="3"></textarea>
                         </div>                   
                     </div>

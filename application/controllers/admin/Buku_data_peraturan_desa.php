@@ -462,7 +462,8 @@ class Buku_data_peraturan_desa extends Admin_Controller {
                 'uraian_singkat' => $d->uraian_singkat,
                 'no_kesepakatan' => $d->no_kesepakatan,
                 'tgl_kesepakatan'=> $d->tgl_kesepakatan,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

@@ -19,9 +19,6 @@ class Kas_pembantu extends Admin_Controller {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pajak','label' => 'pajak', 'rules' => 'required'],
-            ['field' => 'ret','label' => 'ret', 'rules' => 'required'],
-            ['field' => 'pl','label' => 'pl', 'rules' => 'required'],
             ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
             ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
             ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
@@ -32,12 +29,8 @@ class Kas_pembantu extends Admin_Controller {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pajak','label' => 'pajak', 'rules' => 'required'],
-            ['field' => 'ret','label' => 'ret', 'rules' => 'required'],
-            ['field' => 'pl','label' => 'pl', 'rules' => 'required'],
             ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
             ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
         ];
     }
 
@@ -100,22 +93,6 @@ class Kas_pembantu extends Admin_Controller {
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
 
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                if(!$berkas){
-                    echo $this->upload->display_errors();
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
-            }
-            else{
-                $berkas = "";
-            }
-
                 $_POST = $this->input->post();
                 $data = array(
                     'tahun_anggaran' => $_POST['tahun_anggaran'],
@@ -125,8 +102,6 @@ class Kas_pembantu extends Admin_Controller {
                     'pl' => $_POST['pl'],
                     'pemotongan' => $_POST['pemotongan'],
                     'penyetoran' => $_POST['penyetoran'],
-                    'saldo' => $_POST['saldo'],
-                    'ver_kepala_desa' => "Pending",
                     'created_at' => date('Y-m-d H:i:s'),
                     'created_by' =>  $this->session->userdata('username'),
                     
@@ -203,16 +178,11 @@ class Kas_pembantu extends Admin_Controller {
                 'pl' => $_POST['pl'],
                 'pemotongan' => $_POST['pemotongan'],
                 'penyetoran' => $_POST['penyetoran'],
-                'saldo' => $_POST['saldo'],
-                'ver_kepala_desa' => $_POST['ver_kepala_desa'], 
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
 
-            if($_POST['ver_kepala_desa'] != $_POST['ver_kepala_desa_old']){
-                $data['ver_kepala_desa_at'] = date('Y-m-d H:i:s');
-            }
 
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');

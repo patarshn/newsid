@@ -40,62 +40,84 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="nama" class="text-gray-900 font-weight-bold">Nama</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="nama" id="nama" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
-                        <input type="text" name="nip" id="nip" class="form-control border-left-primary" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="nip" id="nip" class="form-control border-left-primary" size="18" required>
+                        <small id="nip" class="text-gray-700">Diisi dengan nomor induk anggota </small>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <div class="form-group">
-                            <label for="jenis_kelamin" class="text-gray-900 font-weight-bold">Jenis Kelamin</label>
-                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" required>
-                                <option>-</option>
-                                <option value="LAKI-LAKI">Laki-Laki</option>
-                                <option value="PEREMPUAN">Perempuan</option>
-                            </select>
+                    <div class="col-lg-6 mt-2">
+                        <div class="form-group"> 
+                            <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
+                            <option selected value="">- Pilih -</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
                         </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
-                        <div class="form-group">
-                            <label for="agama" class="text-gray-900 font-weight-bold">Agama</label>
-                            <select name="agama" id="agama" class="form-control border-left-primary" placeholder="Agama" required>
-                                <option>-</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Katholik">Katholik</option>
-                                <option value="Buddha">Buddha</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Konghucu">Konghucu</option>
-                            </select>
-                        </div>
+                    <div class="col-lg-6 mt-2">
+                    <div class="form-group">
+                        <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <select name="agama" id="agama" class="form-control border-left-primary" placeholder="" required>
+                            <option selected value="">- Pilih -</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Kristen">Kristen</option>
+                            <option value="Khatolik">Khatolik</option>
+                            <option value="Budha">Budha</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="Konghuchu">Konghuchu</option>
+                        </select>
+                    </div>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6">
                         <label for="tempat_lahir" class="text-gray-900 font-weight-bold">Tempat Lahir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6">
                         <label for="tgl_lahir" class="text-gray-900 font-weight-bold">Tanggal Lahir</label>
-                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" placeholder="Tanggal Lahir" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="jabatan" class="text-gray-900 font-weight-bold">Jabatan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="jabatan" id="jabatan" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="pendidikan_terakhir" class="text-gray-900 font-weight-bold">Pendidikan Terakhir</label>
-                        <input type="text" name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control border-left-primary" required>
+                    <div class="form-group">
+                        <label class="text-gray-900 font-weight-bold" for="pendidikan_terakhir">Pendidikan Terakhir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <select name="pendidikan_terakhir" id="pendidikan_terakhir" class="form-control border-left-primary" placeholder="" required>
+                            <option selected value="">- Pilih -</option> 
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP/SLTP Sederajat</option>
+                            <option value="SMA">SMA/STA Sederajat</option>
+                            <option value="SMK">SMK</option>
+                            <option value="Sarjana (S1)">Sarjana (S1)</option>
+                            <option value="Magister (S2)">Magister (S2)</option>
+                            <option value="Doktor (S3)">Doktor (S3)</option>
+                            <option value="Tidak Sekolah"> Tidak Sekolah</option>
+                        </select>
+                    </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Pengangkatan</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-6">
                           <input type="text" name="no_keputusan_pengangkatan" id="no_keputusan_pengangkatan" class="form-control border-left-primary" required>
@@ -111,6 +133,7 @@
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Keputusan Pemberhentian</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-6">
                           <input type="text" name="no_keputusan_pemberhentian" id="no_keputusan_pemberhentian" class="form-control border-left-primary" required>
@@ -143,7 +166,7 @@
                     </div>
                 </div>
                 <?=form_close()?>
-                
+                <medium id="wajib" class="text-danger">* Wajib diisi</medium> <br>
                   <div class="d-flex mt-3">
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">

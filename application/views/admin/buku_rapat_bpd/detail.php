@@ -52,7 +52,7 @@
                                     <tr>
                                         <th>Berkas Daftar Hadir Rapat</th>
                                         <td>
-                                        <?php if($d->berkas1 != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas1)):?>
+                                        <?php if($d->berkas1 != null && file_exists(FCPATH."administrasilainnya/".$folder."/".$d->berkas1)):?>
                                         <?=$d->berkas1?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas1?>" target="_blank">Unduh Berkas</a>
@@ -66,7 +66,7 @@
                                     <tr>
                                         <th>Berkas Notulen Rapat</th>
                                         <td>
-                                        <?php if($d->berkas2 != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas2)):?>
+                                        <?php if($d->berkas2 != null && file_exists(FCPATH."administrasilainnya/".$folder."/".$d->berkas2)):?>
                                         <?=$d->berkas2?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas2?>" target="_blank">Unduh Berkas</a>

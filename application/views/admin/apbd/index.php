@@ -5,7 +5,7 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-12">
+            <<div class="col-xl-12 col-lg-12">
             
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -31,7 +31,6 @@
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
-                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
                     <a class="btn btn-warning"  data-toggle="modal" data-target="#myModal" >Cetak</a>
 <!-- Modal -->
                       <div id="myModal" class="modal fade" role="dialog">
@@ -76,8 +75,6 @@
 <!-- Modal -->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
@@ -89,16 +86,14 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th rowspan="5%">No</th>
+                      <th rowspan="2" width="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2" width="3%">No</th>
                       <th rowspan="2" width="3%"></th>
                       <th rowspan="2">Tahun Anggaran</th>
                       <th rowspan="2">Type</th>
                       <th colspan="4">Kode Rekening</th>
                       <th rowspan="2">Uraian</th>
                       <th rowspan="2">Anggaran</th>
-                      <th rowspan="2">Keterangan</th>
-                      <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
 
                     <tr>
@@ -109,25 +104,15 @@
                     </tr>
                     
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Tahun Anggaran</th>
-                        <th>Type</th>
-                        <th colspan="4">Kode Rekening</th>
-                        <th>Uraian</th>
-                        <th>Anggaran</th>
-                        <th>Keterangan</th>
-                        <th>Verif Kepala Desa</th>
-                      </tr>
-                  </tfoot>
+                 
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $jumlah=0;
+                  foreach ($data as $d): 
+                  $jumlah=$jumlah+$d->anggaran;
+                  ?>
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -151,32 +136,23 @@
                       <td><?=$d->kode_rekening2?></td>
                       <td><?=$d->kode_rekening3?></td>
                       <td><?=$d->kode_rekening4?></td>
-                      <td><?=$d->uraian?></td>
+                      <td><?=$d->uraian_apbd?></td>
                       <td>Rp. <?=number_format($d->anggaran,0,',','.');?></td>
-                      <td><?=$d->keterangan?></td>
 
                       </td>
-                      <td>
-                        <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
+
                     </tr>
                   <?php endforeach;?>
+
                   </tbody>
+
+                  <tfoot>
+                    <tr>
+                        <th colspan="10">Jumlah</th>
+                        <th colspan="2">Rp. <?=number_format($jumlah,0,',','.');?></th>
+                      </tr>
+                  </tfoot>
+
                 </table>
                 </form>
               </div>
@@ -209,3 +185,23 @@
     </div>
   </div>
 </div>
+
+<script>
+
+function total_anggaran(){
+  var anggaran = document.getElementsByName('anggaran[]');
+  var sum_anggaran = 0;
+  for (var i = 0; i < anggaran.length; i++){
+    if(anggaran[i].value == ""){
+      sub_total = 0;
+    }
+    else {
+      sub_total = anggaran[i].value;
+    }
+    sum_anggaran = sum_anggaran + parseInt(sub_total);
+  }
+  $('.grandtotal').html(sum_anggaran)
+  console.log('a');
+}
+
+</script>

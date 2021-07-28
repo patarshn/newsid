@@ -41,7 +41,7 @@
 
                                     <tr>
                                         <th width="50%">Tahun Anggaran</th>
-                                        <td style="text-align:right"><?= date("d-m-Y", strtotime($d->tahun_anggaran))?></td>
+                                        <td style="text-align:right"><?= $d->tahun_anggaran?></td>
                                     </tr >
 
                                     <tr>
@@ -75,23 +75,8 @@
                                     </tr >
 
                                     <tr>
-                                        <th>Jumlah Pengeluaran Komulatif</th>
-                                        <td style="text-align:right">Rp. <?=number_format($d->jumlah_komulatif,0,',','.');?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Saldo</th>
-                                        <td style="text-align:right">Rp. <?=number_format($d->saldo,0,',','.');?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Verifikasi Kepala Desa</th>
-                                        <td style="text-align:right"><?=$d->ver_kepala_desa?> <?=$d->ver_kepala_desa_at?></td>
-                                    </tr >
-
-                                    <tr>
                                         <th>Terakhir diubah</th>
-                                        <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                        <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                     </tr >
                                 </table>
                             </div>

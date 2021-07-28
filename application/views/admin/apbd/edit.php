@@ -47,15 +47,21 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="type" class="text-gray-900 font-weight-bold">Type</label>
-                        <input type="text" name="type" id="type" class="form-control border-left-primary" placeholder="type" value="<?=$d->type?>" required>
+                        <div class="form-group">
+                            <label for="type" class="text-gray-900 font-weight-bold">Type</label>
+                            <select name="type" id="type" class="form-control border-left-primary" onchange="kode_rekening()" required>
+                                <option><?=$d->type?></option>
+                                <option value="PENDAPATAN">Pendapatan</option>
+                                <option value="BELANJA">Belanja</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                       <label class="text-gray-900 font-weight-bold" >Kode Rekening</label>
                       <div class="form-row">
                         <div class="col-lg-2">
-                          <input type="text" name="kode_rekening1" id="kode_rekening1" class="form-control border-left-primary" value="<?=$d->kode_rekening1?>" required>
+                        <input type="text" id="kode_rekening1" name="kode_rekening1" class="form-control border-left-primary kode_rekening1" value="<?=$d->kode_rekening1?>" diseable />
                           <small id="kode_rekening1" class="text-gray-700"></small>
                         </div>
                         
@@ -77,13 +83,13 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
-                        <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
+                        <label for="uraian_apbd" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <input type="text" name="uraian_apbd" id="uraian_apbd" class="form-control border-left-primary" value="<?=$d->uraian_apbd?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="anggaran" class="text-gray-900 font-weight-bold">Anggaran</label>
-                        <input type="text" name="anggaran" id="anggaran" class="form-control border-left-primary" value="<?=$d->anggaran?>" required>
+                        <input type="text" name="anggaran" id="anggaran" class="form-control border-left-primary" value="<?=$d->anggaran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-12">
@@ -91,25 +97,7 @@
                             <label class="text-gray-900 font-weight-bold" for="keterangan">Keterangan</label>
                             <textarea class="form-control border-left-primary" name="keterangan" id="keterangan" rows="3"><?=$d->keterangan?></textarea>
                         </div>                   
-                    </div>
-
-                    <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
-                        <br>
-                        <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
-                        </div>
-                    </div>                    
+                    </div>               
                 </div>
                     
                 <?php
@@ -136,3 +124,25 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function kode_rekening(){
+      var selected = document.getElementById("type");
+      if(selected.selectedIndex == 1) {
+        $('.kode_rekening1').val(1);
+      }
+      else if(selected.selectedIndex == 2) {
+        $('.kode_rekening1').val(2);
+      }
+      
+      $('.kode_rekening1'). prop("readonly", true);
+    }
+
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    }
+</script>

@@ -40,6 +40,7 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-3">
                         <label for="tgl" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl" id="tgl" class="form-control border-left-primary" placeholder="mm/dd/yy"  required>
                     </div>
 
@@ -48,12 +49,13 @@
                       <div class="custom-file">
                           <label for="berkas" class="custom-file-label border-left-primary">Pilih Berkas</label>
                           <input type="file" class="custom-file-input" id="berkas" name="berkas" accept=".pdf">
- 
+                          <small id="berkas" class="text-gray-700">Berkas berformat .pdf</small>
                       </div>
                     </div>
 
                     <div class="col-lg-12">
                       <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Surat Keluar</label>
+                      <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-6">
                           <input type="text" name="no_surat_keluar" id="no_surat_keluar" class="form-control border-left-primary" required>
@@ -70,6 +72,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required></textarea>
                         </div>
                     </div>
@@ -77,6 +80,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="tujuan" class="text-gray-900 font-weight-bold">Tujuan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <textarea class="form-control border-left-primary" name="tujuan" id="Tujuan" rows="3" required></textarea>
                         </div>
                     </div>
@@ -90,8 +94,8 @@
                     </div>
                 </div>
                 <?=form_close()?>
-                
-                <div class="d-flex mt-3">
+                <medium id="wajib" class="text-danger">* Wajib diisi</medium> <br>
+                <div class="d-flex mt-3">                
                     <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/store','#form')">Simpan</button>
                         <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                             <span class="sr-only">Loading...</span>

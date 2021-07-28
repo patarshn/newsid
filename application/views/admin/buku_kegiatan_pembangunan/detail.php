@@ -41,7 +41,7 @@
                                           <div class="card-body">
                                               <table class="table table-bordered table-hover border-left-primary border-bottom-primary">
                                               <thead>
-                                                  <tr><th>Nama Kegiatan</th>
+                                                  <tr><th width="40%">Nama Kegiatan</th>
                                                   <td><?=$d->nama_kegiatan?></td></tr>
 
                                                   <tr><th>Volume</th>
@@ -51,7 +51,7 @@
                                                   <td><?=$d->waktu?></td></tr>
 
                                                   <tr><th>Sifat Proyek</th>
-                                                  <td><?=$d->sifat?></td></tr>
+                                                  <td><?=$d->sifat_kegiatan?></td></tr>
 
                                                   <tr><th>Pelaksana</th>
                                                   <td><?=$d->pelaksana?></td></tr>
@@ -65,20 +65,20 @@
                                               <h8><b> Sumber Dana / Besaran Biaya</b></h8>
                                               <table class="table table-bordered table-hover border-left-primary">
                                               <thead>
-                                              <tr><th>Pemerintah</th>
-                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_pemerintah,0,',','.');?></td></tr>
+                                              <tr><th width="40%">Pemerintah</th>
+                                                  <td style="text-align:left">Rp. <?=number_format($d->biaya_pemerintah,0,',','.');?></td></tr>
 
                                                   <tr><th>Provinsi</th>
-                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_prov,0,',','.');?></td></tr> 
+                                                  <td style="text-align:left">Rp. <?=number_format($d->biaya_prov,0,',','.');?></td></tr> 
 
                                                   <tr><th>Kabupaten/Kota</th>
-                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_kab,0,',','.');?></td></tr>
+                                                  <td style="text-align:left">Rp. <?=number_format($d->biaya_kab,0,',','.');?></td></tr>
 
                                                   <tr class="border-bottom-primary"><th>Swadaya</th>
-                                                  <td style="text-align:right">Rp. <?=number_format($d->biaya_swadaya,0,',','.');?></td></tr>
+                                                  <td style="text-align:left">Rp. <?=number_format($d->biaya_swadaya,0,',','.');?></td></tr>
 
                                                   <tr><th>Total Biaya</th>
-                                                  <td style="text-align:right">Rp. <?=number_format($d->jumlah_biaya,0,',','.');?></td></tr>
+                                                  <td style="text-align:left">Rp. <?=number_format($d->jumlah_biaya,0,',','.');?></td></tr>
                                                  </thead>
                                               </table>
                                         </div>

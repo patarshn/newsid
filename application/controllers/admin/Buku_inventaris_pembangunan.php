@@ -17,8 +17,8 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
     
     function rulesStore() {
         return [
-            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required'],
-            ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
+            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|min_length[5]|max_length[30]'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
@@ -28,8 +28,8 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required'],
-            ['field' => 'volume','label' => 'Volume', 'rules' => 'required'],
+            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|min_length[5]|max_length[30]'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
@@ -261,7 +261,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus data berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -269,7 +269,7 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus data gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',

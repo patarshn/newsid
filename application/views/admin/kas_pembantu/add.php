@@ -40,7 +40,7 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="date" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" required>
                     </div>
 
                     <div class="col-lg-6 mt-2">
@@ -50,36 +50,31 @@
                     
                         <div class="col-lg-4 mt-2">
                         <label class="text-gray-900 font-weight-bold" >Pajak</label>
-                          <input type="number" name="pajak" id="pajak" class="form-control border-left-primary" placeholder="Uraian Pajak" required>
+                          <input type="text" name="pajak" id="pajak" class="form-control border-left-primary" placeholder="Uraian Pajak" required>
                           <small id="pajak" class="text-gray-700"></small>
                         </div>
                         
                         <div class="col-lg-4 mt-2">
                         <label class="text-gray-900 font-weight-bold" >RET</label>
-                          <input type="number" name="ret" id="ret" class="form-control border-left-primary" placeholder="Uraian Retribusi" required>
+                          <input type="text" name="ret" id="ret" class="form-control border-left-primary" placeholder="Uraian Retribusi" required>
                           <small id="ret" class="text-gray-700"></small>
                         </div>
 
                         <div class="col-lg-4 mt-2">
                         <label class="text-gray-900 font-weight-bold" >PL</label>
-                          <input type="number" name="pl" id="pl" class="form-control border-left-primary" placeholder="Uraian Penerimaan Lainnya" required>
+                          <input type="text" name="pl" id="pl" class="form-control border-left-primary" placeholder="Uraian Penerimaan Lainnya" required>
                           <small id="pl" class="text-gray-700"></small>
                         </div>
                   
 
                     <div class="col-lg-4 mt-2">
                         <label for="pemotongan" class="text-gray-900 font-weight-bold">Pemotongan (Rp.)</label>
-                        <input type="number" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Jumlah Pemotongan" required>
+                        <input type="text" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Jumlah Pemotongan" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penyetoran" class="text-gray-900 font-weight-bold">Penyetoran (Rp.)</label>
-                        <input type="number" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Jumlah Penyetoran" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo (Rp.)</label>
-                        <input type="number" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo" required>
+                        <input type="text" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Jumlah Penyetoran" onkeypress="return onlyNumberKey(event)" required>
                     </div>
                 </div>
                 <?=form_close()?>
@@ -104,3 +99,14 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

@@ -28,19 +28,19 @@ class Buku_mutasi_penduduk extends Admin_Controller {
         ];
     }
 
-    function rulesStore() {
+    function rulesStore() { 
         return [
             ['field' => 'bulan_tahun','label' => 'Bulan dan Tahun Mutasi', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'wn','label' => 'Kewarganegaraan', 'rules' => 'required'],
-            ['field' => 'datang','label' => 'Datang Dari'],
+            ['field' => 'datang','label' => 'Datang Dari','rules' =>'max_length[100]'],
             ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan'],
-            ['field' => 'pindah','label' => 'Pindah Ke'],
+            ['field' => 'pindah','label' => 'Pindah Ke','rules' =>'max_length[100]'],
             ['field' => 'tgl_pindah','label' => 'Tanggal Pindah'],
-            ['field' => 'meninggal','label' => 'Tempat Meninggal'],
+            ['field' => 'meninggal','label' => 'Tempat Meninggal','rules' =>'max_length[100]'],
             ['field' => 'tgl_meninggal','label' => 'Tanggal Meninggal'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -50,16 +50,16 @@ class Buku_mutasi_penduduk extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'bulan_tahun','label' => 'Bulan dan Tahun Mutasi', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'wn','label' => 'Kewarganegaraan', 'rules' => 'required'],
-            ['field' => 'datang','label' => 'Datang Dari'],
+            ['field' => 'datang','label' => 'Datang Dari','rules' => 'max_length[100'],
             ['field' => 'tgl_datang','label' => 'Tanggal Kedatangan'],
-            ['field' => 'pindah','label' => 'Pindah Ke'],
+            ['field' => 'pindah','label' => 'Pindah Ke','rules' => 'max_length[100]'],
             ['field' => 'tgl_pindah','label' => 'Tanggal Pindah'],
-            ['field' => 'meninggal','label' => 'Tempat Meninggal'],
+            ['field' => 'meninggal','label' => 'Tempat Meninggal','rules' => 'max_length[100]'],
             ['field' => 'tgl_meninggal','label' => 'Tanggal Meninggal'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -236,7 +236,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
                 'ket' => $_POST['ket'],
                 'updated_at' => date('Y-m-d'),
             );
-                       
+
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
@@ -283,7 +283,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus data berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -291,7 +291,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, Hapus data gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',

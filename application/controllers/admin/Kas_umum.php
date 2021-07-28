@@ -20,12 +20,8 @@ class Kas_umum extends Admin_Controller {
             ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
-            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
-            ['field' => 'jumlah_komulatif','label' => 'Jumlah Pengeluaran Komulatif', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'Saldo', 'rules' => 'required'],
-            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+           
         ];
     }
 
@@ -35,12 +31,8 @@ class Kas_umum extends Admin_Controller {
             ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
-            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
-            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
-            ['field' => 'jumlah_komulatif','label' => 'Jumlah Pengeluaran Komulatif', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'Saldo', 'rules' => 'required'],
-            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+           
         ];
     }
 
@@ -101,23 +93,6 @@ class Kas_umum extends Admin_Controller {
         $validation = $this->form_validation;
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
-
-            if(!empty($_FILES["berkas"]["name"])){
-                $berkas = $this->upload_file();
-                if(!$berkas){
-                    echo $this->upload->display_errors();
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'Mohon Maaf, file gagal diupload',
-                    );
-                    echo json_encode($callback);
-                    exit;
-                }
-            }
-
-            else{
-                $berkas = "";
-            }
             $_POST = $this->input->post();
             $data = array(
                 'tanggal' => $_POST['tanggal'],
@@ -126,10 +101,7 @@ class Kas_umum extends Admin_Controller {
                 'penerimaan' => $_POST['penerimaan'],
                 'pengeluaran' => $_POST['pengeluaran'],
                 'no_bukti' => $_POST['no_bukti'],
-                'jumlah_komulatif' => $_POST['jumlah_komulatif'],
-                'saldo' => $_POST['saldo'],
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
-                'ver_kepala_desa' => "Pending",
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' =>  $this->session->userdata('username'),
                 
@@ -202,17 +174,10 @@ class Kas_umum extends Admin_Controller {
                 'penerimaan' => $_POST['penerimaan'],
                 'pengeluaran' => $_POST['pengeluaran'],
                 'no_bukti' => $_POST['no_bukti'],
-                'jumlah_komulatif' => $_POST['jumlah_komulatif'],
-                'saldo' => $_POST['saldo'],
-                'ver_kepala_desa' => $_POST['ver_kepala_desa'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 
             );
-
-            if($_POST['ver_kepala_desa'] != $_POST['ver_kepala_desa_old']){
-                $data['ver_kepala_desa_at'] = date('Y-m-d H:i:s');
-            }
                        
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
@@ -281,84 +246,6 @@ class Kas_umum extends Admin_Controller {
                 'status' => 'error',
                 'message' => validation_errors(),
                 'redirect' => base_url().'admin/'.$this->_folder,
-            );          
-        }
-        echo json_encode($callback);
-    }
-
-    public function setuju(){
-        $validation = $this->form_validation;
-        $validation->set_rules($this->rulesDestroy());
-        if ($validation->run()) {
-            $_POST = $this->input->post();
-            $where = $_POST['rowdelete'];
-            $data = array(              
-                'ver_kepala_desa' => "Disetujui",                             
-                'updated_by' => $this->session->userdata('username'),
-                'updated_at' => date('Y-m-d H:i:s'),
-                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
-            );
-
-            if($this->Main_m->setuju($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Setujui data berhasil, terimakasih');
-                $callback = array(
-                    'status' => 'success',
-                    'message' => 'Data berhasil diupdate',
-                    'redirect' => base_url().'admin/'.$this->_folder,
-                );
-            }
-            else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, Penyetujuan data gagal');
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Mohon Maaf, Penyetujuan data gagal',
-                );
-            }
-        }
-        else{
-            $this->session->set_flashdata('error_message', validation_errors());
-            $callback = array(
-                'status' => 'error',
-                'message' => validation_errors(),
-            );          
-        }
-        echo json_encode($callback);
-    }
-
-    public function tolak(){
-        $validation = $this->form_validation;
-        $validation->set_rules($this->rulesDestroy());
-        if($validation->run()){
-            $_POST = $this->input->post();
-            $where = $_POST['rowdelete'];
-            $data = array(              
-                'ver_kepala_desa' => "Ditolak",                             
-                'updated_by' => $this->session->userdata('username'),
-                'updated_at' => date('Y-m-d H:i:s'),
-                'ver_kepala_desa_at' => date('Y-m-d H:i:s'),
-            );
-
-            if($this->Main_m->setuju($data,$this->_table,$where)){
-                $this->session->set_flashdata('success_message', 'Tolak data berhasil, terimakasih');
-                $callback = array(
-                    'status' => 'success',
-                    'message' => 'Data berhasil diupdate',
-                    'redirect' => base_url().'admin/'.$this->_folder,
-                );
-            }
-            else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, Tolak data gagal');
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Mohon Maaf, Tolak data gagal',
-                );
-            }
-        }
-        else{
-            $this->session->set_flashdata('error_message', validation_errors());
-            $callback = array(
-                'status' => 'error',
-                'message' => validation_errors(),
             );          
         }
         echo json_encode($callback);
@@ -433,23 +320,40 @@ class Kas_umum extends Admin_Controller {
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $values = array();
         $no=1;
-
+        $jumlah_komulatif = 0;
+        $jumlah_penerimaan =0;
+        $jumlah_pengeluaran =0;
+        $saldo = 0;
         foreach($data as $d){
+            $jumlah_komulatif = $jumlah_komulatif + $d->pengeluaran;
+            if($d->penerimaan != 0){
+                $saldo = $saldo + $d->penerimaan;
+            }
+            if($d->pengeluaran != 0){
+                $saldo = $saldo - $d->pengeluaran;
+            }
+
+            $jumlah_penerimaan = $jumlah_penerimaan + $d->penerimaan;
+            $jumlah_pengeluaran = $jumlah_pengeluaran + $d->pengeluaran;
+
             $subvalues = array(
                 'id' => $no++,
-                'tanggal' => $d->tanggal,
+                'tanggal' => date("d-m-Y", strtotime($d->tanggal)),
                 'kode_rekening' => $d->kode_rekening,
                 'uraian' => $d->uraian,
-                'penerimaan' => number_format($d->penerimaan_sdm,0,',','.'),
-                'pengeluaran' => number_format($d->penerimaan_sdm,0,',','.'),
+                'penerimaan' => number_format($d->penerimaan,0,',','.'),
+                'pengeluaran' => number_format($d->pengeluaran,0,',','.'),
                 'no_bukti' => $d->no_bukti,
-                'jumlah_komulatif' => number_format($d->penerimaan_sdm,0,',','.'),
-                'saldo' => $d-> number_format($d->penerimaan_sdm,0,',','.'),
+                'jumlah_komulatif' => number_format($jumlah_komulatif,0,',','.'),
+                'saldo' => number_format($saldo,0,',','.'),
             );
+
             $values[] = $subvalues;
         }
 
         $templateProcessor->cloneRowAndSetValues('id', $values);
+        $templateProcessor->setValue('jumlah_penerimaan', number_format($jumlah_penerimaan,0,',','.'));
+        $templateProcessor->setValue('jumlah_pengeluaran', number_format($jumlah_pengeluaran,0,',','.'));
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

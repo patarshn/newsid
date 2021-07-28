@@ -51,7 +51,16 @@
                                                 <form method="get" action="rab/cetak">
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
                                                 <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                
+                                                <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
+                                <option>Pilih Kegiatan</option>
+                                
+                                <?php   
+                                foreach($data2 as $d2):
+                                    $kode = $d2->uraian_apbd;
+                                    echo "<option value='{$kode}'>{$kode}</option>"; 
+                                endforeach;
+                                ?>
+                            </select>
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
@@ -76,8 +85,6 @@
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
@@ -95,31 +102,20 @@
                       <th>Bidang</th>
                       <th>Kegiatan</th>
                       <th>Uraian</th>
-                      <th>Tahun Anggaran</th>
                       <th>Volume</th>
+                      <th>Harga Satuan</th>
                       <th>Jumlah</th>
-                      <th width="10%">Verif Kepala Desa</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                        <th width="3%"></th>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Bidang</th>
-                        <th>Kegiatan</th>
-                        <th>Uraian</th>
-                        <th>Tahun Anggaran</th>
-                        <th>Volume</th>
-                        <th>Jumlah</th>
-                        <th width="10%">Verif Kepala Desa</th>
-                      </tr>
-                  </tfoot>
+                  
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $jumlah_total =0;
+                  foreach ($data as $d): 
+                    $jumlah_total=$jumlah_total + $d->jumlah;
+                  ?>
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -140,33 +136,19 @@
                       <td><?=$d->bidang?></td>
                       <td><?=$d->kegiatan?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=$d->tahun_anggaran?></td>
-                      <td><?=$d->volume?></td>
+                      <td><?=$d->volume?>
+                      </td><td><?=number_format($d->harga_satuan,0,',','.');?></td>
                       <td>Rp. <?=number_format($d->jumlah,0,',','.');?></td>
-
-                      </td>
-                      <td>
-                
-                      <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
-                    </tr>
                   <?php endforeach;?>
                   </tbody>
+
+                  <tfoot>
+                    <tr>
+                        <th colspan="8">Jumlah</th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_total,0,',','.');?></th>
+                      </tr>
+                  </tfoot>
+
                 </table>
                 </form>
               </div>
@@ -199,3 +181,23 @@
     </div>
   </div>
 </div>
+
+<script>
+
+function total_jumlah(){
+    var jumlah = document.getElementsByName('jumlah[]');
+    var sum_jumlah = 0;
+    for (var i = 0; i < jumlah.length; i++){
+      if(jumlah[i].value == ""){
+        sub_total = 0;
+      }
+      else {
+        sub_total = jumlah[i].value;
+      }
+      sum_jumlah = sum_jumlah + parseInt(sub_total);
+    }
+    $('.grandtotal').html(sum_jumlah)
+    console.log('a');
+  }
+
+</script>

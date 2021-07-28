@@ -458,7 +458,8 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
                 'tgl_surat' => $d->tgl_surat,
                 'uraian_singkat' => $d->uraian_singkat,
                 'tujuan' => $d->tujuan,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

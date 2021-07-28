@@ -62,7 +62,7 @@
                                     <tr>
                                         <th>Berkas</th>
                                         <td>
-                                        <?php if($d->berkas != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas)):?>
+                                        <?php if($d->berkas != null && file_exists(FCPATH."administrasilainnya/".$folder."/".$d->berkas)):?>
                                         <?=$d->berkas?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>

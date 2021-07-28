@@ -94,8 +94,8 @@
                       </td>
                       <td><?= date("d-m-Y", strtotime($d->tgl))?></td>
                       <td><?=$d->uraian?></td>
-                      <td><?=number_format($d->penerimaan,0,',','.');?></td>
-                      <td><?=number_format($d->pengeluaran,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->penerimaan,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pengeluaran,0,',','.');?></td>
                       <td>
                         <?php 
                         if($d->verif_bpd_at == null){

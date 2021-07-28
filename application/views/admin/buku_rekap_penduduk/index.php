@@ -40,7 +40,7 @@
                               <div class="modal-content">
                               <!-- heading modal -->
                               <div class="modal-header border-bottom-primary">
-                                  <h8 class="modal-title"><b>Cetak Buku Mutasi Penduduk</b></h8>
+                                  <h8 class="modal-title"><b>Cetak Buku Rekapitulasi Jumlah Penduduk</b></h8>
                               </div>
                               <!-- body modal -->
                               <div class="modal-body">

@@ -457,7 +457,8 @@ class Buku_data_kegiatan extends Admin_Controller {
                 'kegiatan' => $d->kegiatan,
                 'pelaksana' => $d->pelaksana,
                 'agenda_hasil' => $d->agenda_hasil,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

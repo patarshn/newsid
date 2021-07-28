@@ -48,36 +48,56 @@
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>"  size="50" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
-                        <input type="text" name="umur" id="umur" class="form-control border-left-primary " placeholder="Umur" value="<?=$d->umur?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" value="<?=$d->umur?>" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jkelamin">Jenis Kelamin</label>
-                        <input type="text" name="jkelamin" id="jkelamin" class="form-control border-left-primary" placeholder="jkelamin" value="<?=$d->jkelamin?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <select name="jkelamin" id="jkelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
+                            <option><?=$d->jkelamin?></option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
-                        <input type="text" name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="pendidikan" value="<?=$d->pendidikan?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <select name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="pendidikan" required>
+                            <option><?=$d->pendidikan?></option> 
+                            <option value="SD">SD</option>
+                            <option value="SMP">SMP/SLTP Sederajat</option>
+                            <option value="SMA">SMA/STA Sederajat</option>
+                            <option value="SMK">SMK</option>
+                            <option value="Sarjana (S1)">Sarjana (S1)</option>
+                            <option value="Magister (S2)">Magister (S2)</option>
+                            <option value="Doktor (S3)">Doktor (S3)</option>
+                            <option value="Tidak Sekolah"> Tidak Sekolah</option>
+                        </select>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="bidang">Bidang</label>
-                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="bidang" value="<?=$d->bidang?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="bidang" value="<?=$d->bidang?>" size="50" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
-                        <input type="text" name="alamat" id="alamat" class="form-control border-left-primary" placeholder="alamat" value="<?=$d->alamat?>" required>
-                    </div>
-                
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="2" placeholder="Alamat"><?=$d->alamat?></textarea>
+                    </div> 
+
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ket">Keterangan</label>

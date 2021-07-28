@@ -51,28 +51,18 @@
 
                                     <tr>
                                         <th>Penerimaan</th>
-                                        <td><?=number_format($d->penerimaan,0,',','.');?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Jumlah Penerimaan</th>
-                                        <td><?=number_format($d->jml_penerimaan,0,',','.');?></td>
+                                        <td>Rp. <?=number_format($d->penerimaan,0,',','.');?></td>
                                     </tr >
                                     
                                     <tr>
                                         <th>Pengeluaran</th>
-                                        <td><?=number_format($d->pengeluaran,0,',','.');?></td>
-                                    </tr >
-
-                                    <tr>
-                                        <th>Jumlah Pengeluaran</th>
-                                        <td><?=number_format($d->jml_pengeluaran,0,',','.');?></td>
+                                        <td>Rp. <?=number_format($d->pengeluaran,0,',','.');?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Berkas</th>
                                         <td>
-                                        <?php if($d->berkas != null && file_exists(FCPATH. "administrasilainnya".$folder."/".$d->berkas)):?>
+                                        <?php if($d->berkas != null && file_exists(FCPATH."administrasilainnya/".$folder."/".$d->berkas)):?>
                                         <?=$d->berkas?>
                                         <br>
                                         <a class="btn btn-primary" href="<?=base_url().'administrasilainnya/'.$folder.'/'.$d->berkas?>" target="_blank">Unduh Berkas</a>

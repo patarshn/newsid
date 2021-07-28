@@ -38,48 +38,51 @@
                 <?=form_open_multipart(base_url('apbd/store'),'id="form"')?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
                         <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="Nama Bidang" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kegiatan</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" required>
+                    <div class="col-lg-6 mt-2">
+                        <div class="form-group">
+                            <label for="uraian_apbd" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <select name="uraian_apbd" id="uraian_apbd" class="form-control border-left-primary" required>
                                 <option>-</option>
-                                
                                 <?php   
                                 foreach($data as $d):
-                                    $kode = $d->kode_rekening1."-".$d->kode_rekening2."-".$d->kode_rekening3."-".$d->kode_rekening4;
+                                    $kode = $d->uraian_apbd;
                                     echo "<option value='$kode'>$kode</option>"; 
                                 endforeach;
                                 ?>
                             </select>
+                        </div>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
                         <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-12 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
                         <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" placeholder="Uraian Transaksi" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan Dari Bendahara</label>
-                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" placeholder="Penerimaan dari Bendahara" required>
+                        <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan Dari Bendahara </label>
+                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" placeholder="Penerimaan dari Bendahara Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu_kegiatan" class="text-gray-700">contoh : 20000 </small>
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
-                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" placeholder="Penerimaan Swadaya Masyarakat" required>
+                        <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat </label>
+                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" placeholder="Penerimaan Swadaya Masyarakat Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu_kegiatan" class="text-gray-700">contoh : 20000 </small>
                     </div>
 
                     <div class="col-lg-4 mt-2">
@@ -88,23 +91,21 @@
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa</label>
-                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" placeholder="Belanja Barang dan Jasa" required>
+                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa </label>
+                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" placeholder="Pengeluaran Belanja Barang dan Jasa Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu_kegiatan" class="text-gray-700">contoh : 20000 </small>
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
-                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" placeholder="Belanja Modal" required>
+                        <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal </label>
+                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" placeholder="Pengeluaran Belanja Modal Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu_kegiatan" class="text-gray-700">contoh : 20000 </small>
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" placeholder="Saldo Kas" required>
+                        <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian </label>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" placeholder="Jumlah Pengembalian Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu_kegiatan" class="text-gray-700">contoh : 20000 </small>
                     </div>
                     
                         <div class="d-flex mt-3">
@@ -120,3 +121,14 @@
     <!-- tutup side -->
 </div>
 </section>
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

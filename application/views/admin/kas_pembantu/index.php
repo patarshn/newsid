@@ -95,9 +95,7 @@
                       <th colspan="3">Uraian</th>
                       <th rowspan="2">Pemotongan (Rp.)</th>
                       <th rowspan="2">Penyetoran (Rp.)</th>
-                      <th rowspan="2">Saldo</th>
                       <th rowspan="2">Tahun Anggaran</th>
-                      <th rowspan="2">Verif Kepala Desa</th>
                     </tr>
 
                     <tr>
@@ -107,24 +105,18 @@
                     </tr>
                     
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Tanggal</th>
-                      <th colspan="3">Uraian</th>
-                      <th>Pemotongan (Rp.)</th>
-                      <th>Penyetoran (Rp.)</th>
-                      <th>Saldo</th>
-                      <th>Tahun Anggaran</th>
-                      <th>Verif Kepala Desa</th>
-                      </tr>
-                  </tfoot>
+      
                   <tbody>
-                  
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $jumlah_pemotongan =0;
+                  $jumlah_penyetoran =0;
+                  $saldo = 0;
+                  foreach ($data as $d): 
+                    $jumlah_pemotongan = $jumlah_pemotongan + $d->pemotongan;
+                    $jumlah_penyetoran = $jumlah_penyetoran + $d->penyetoran;
+                    $saldo = $saldo + $d->pemotongan - $d->penyetoran;
+                  ?>
                     <tr>
                     <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -142,37 +134,28 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tanggal?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tanggal))?></td>
                       <td><?=$d->pajak?></td>
                       <td><?=$d->ret?></td>
                       <td><?=$d->pl?></td>
                       <td>Rp. <?=number_format($d->pemotongan,0,',','.');?></td>
                       <td>Rp. <?=number_format($d->penyetoran,0,',','.');?></td>
-                      <td>Rp. <?=number_format($d->saldo,0,',','.');?></td>
                       <td><?=$d->tahun_anggaran?></td>
-
-                      </td>
-                      <td>
-                        <?php 
-                        if($d->ver_kepala_desa_at == null){
-                          $verif_time = "";
-                        }
-                        else{
-                          $ver_kepala_desa_at  = explode(" ",$d->ver_kepala_desa_at);
-                          $verif_time = "<br>".$ver_kepala_desa_at[0]."<br>".$ver_kepala_desa_at[1]."<br>";
-                        }
-                        ?>
-                        <?php if($d->ver_kepala_desa == 'Pending'):?>
-                            <div class="card bg-gradient-warning text-white text-center">Pending <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Disetujui'):?>
-                            <div class="card bg-gradient-success text-white text-center">Disetujui <?=$verif_time?></div>
-                        <?php elseif($d->ver_kepala_desa == 'Ditolak'):?>
-                            <div class="card bg-gradient-danger text-white text-center">Ditolak <?=$verif_time?></div>
-                        <?php endif;?>
-                      </td>
+                    </td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
+                  <tfoot>
+                    <tr>
+                        <th colspan="6">Jumlah</th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_pemotongan,0,',','.');?></th>
+                        <th colspan="1">Rp. <?=number_format($jumlah_penyetoran,0,',','.');?></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th colspan="6">Saldo</th>
+                        <th colspan="3">Rp. <?=number_format($saldo,0,',','.');?>
+                    </tr> 
                 </table>
                 </form>
               </div>

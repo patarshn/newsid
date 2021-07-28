@@ -18,17 +18,17 @@ class Buku_data_anggota_bpd extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
-            ['field' => 'nip','label' => 'nip', 'rules' => 'required'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|max_length[18]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
-            ['field' => 'agama','label' => 'agama', 'rules' => 'required'],
-            ['field' => 'jabatan','label' => 'jabatan', 'rules' => 'required'],
-            ['field' => 'pendidikan_terakhir','label' => 'pendidikan_terakhir', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pengangkatan','label' => 'no_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required'],
+            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pengangkatan','label' => 'No Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pengangkatan','label' => 'Tanggal Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pemberhentian','label' => 'No Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pemberhentian','label' => 'Tanggal Keputusan Pemberhentian', 'rules' => 'required'],
         ];
     }
 
@@ -36,17 +36,17 @@ class Buku_data_anggota_bpd extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
-            ['field' => 'nip','label' => 'nip', 'rules' => 'required'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|max_length[18]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
-            ['field' => 'agama','label' => 'agama', 'rules' => 'required'],
-            ['field' => 'jabatan','label' => 'jabatan', 'rules' => 'required'],
-            ['field' => 'pendidikan_terakhir','label' => 'pendidikan_terakhir', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pengangkatan','label' => 'no_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pengangkatan','label' => 'tgl_keputusan_pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pemberhentian','label' => 'no_keputusan_pemberhentian', 'rules' => 'required'],
-            ['field' => 'tgl_keputusan_pemberhentian','label' => 'tgl_keputusan_pemberhentian', 'rules' => 'required'],
+            ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required'],
+            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pengangkatan','label' => 'No Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pengangkatan','label' => 'Tanggal Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pemberhentian','label' => 'No Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'tgl_keputusan_pemberhentian','label' => 'Tanggal Keputusan Pemberhentian', 'rules' => 'required'],
         ];
     }
 
@@ -495,7 +495,8 @@ class Buku_data_anggota_bpd extends Admin_Controller {
                 'tgl_keputusan_pengangkatan' => $d->tgl_keputusan_pengangkatan,
                 'no_keputusan_pemberhentian' => $d->no_keputusan_pemberhentian,
                 'tgl_keputusan_pemberhentian' => $d->tgl_keputusan_pemberhentian,
-                'ket'=> $d->ket
+                'ket'=> $d->ket,
+                'verif_bpd' => $d->verif_bpd
             );
             $values[] = $subvalues;
         }

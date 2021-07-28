@@ -11,7 +11,7 @@
                   </h6>
                 </div>
               </div>
-            </div>
+            </div> 
           </div>
 
           <!-- Content Row -->
@@ -43,6 +43,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="bulan_tahun">Bulan dan Tahun Mutasi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="month" name="bulan_tahun" id="bulan_tahun" class="form-control border-left-primary" placeholder="" required>
                     </div>
                     </div>
@@ -50,15 +51,17 @@
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" size="50" required>
                     </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
-                        <select name="jk" id="jk" class="form-control" placeholder="Jenis Kelamin" required>
-                            <option>- Pilih -</option>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <select name="jk" id="jk" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
+                            <option selected value="">- Pilih -</option>
                             <option value="Laki-Laki">Laki-Laki</option>
                             <option value="Perempuan">Perempuan</option>
                         </select>
@@ -68,8 +71,9 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="wn" id="wn" class="form-control border-left-primary" placeholder="" required>
-                            <option>- Pilih -</option>
+                            <option selected value="">- Pilih -</option>
                             <option value="WNI">WNI</option>
                             <option value="WNA">WNA</option>
                         </select>
@@ -79,34 +83,36 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
-                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" size="50" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_lahir">Tanggal Lahir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" placeholder="Tanggal Lahir" required>
                     </div>
-                    </div>                    
+                    </div>     
 
                     <div class="col-lg-12">
                     <div class="form-group">
-                    <h4 class="text-gray-900 font-weight-bold"><br>Penambahan</h4>
+                    <h4 class="text-gray-900 font-weight-bold"> <br> Penambahan</h4>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="datang">Datang Dari (Tempat/Alamat Asal)</label>
-                        <input type="text" name="datang" id="datang" class="form-control border-left-primary" placeholder="Asal tempat dan alamat semula">
+                        <input type="text" name="datang" id="datang" class="form-control border-left-primary" placeholder="Asal tempat dan alamat semula" size="100">
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_datang">Tanggal Datang</label>
-                        <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="Tanggal datang ke desa" >
+                        <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="Tanggal datang ke desa"  >
                     </div>
                     </div>
 
@@ -119,7 +125,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="pindah">Pindah Ke (Lokasi Tujuan)</label>
-                        <input type="text" name="pindah" id="pindah" class="form-control border-left-primary" placeholder="Lokasi tujuan pindah">
+                        <input type="text" name="pindah" id="pindah" class="form-control border-left-primary" placeholder="Lokasi tujuan pindah" size="100" >
                     </div>
                     </div>
 
@@ -127,7 +133,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="tgl_pindah">Tanggal Pindah</label>
-                          <input type="date" name="tgl_pindah" id="tgl_pindah" class="form-control border-left-primary" placeholder="Tanggal Kepindahan">
+                          <input type="date" name="tgl_pindah" id="tgl_pindah" class="form-control border-left-primary" placeholder="Tanggal Kepindahan" >
                       </div>
                       </div>
 
@@ -135,17 +141,16 @@
                       <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="meninggal">Tempat/Alamat Meninggal</label>
-                          <input type="text" name="meninggal" id="meninggal" class="form-control border-left-primary" placeholder="Tempat/Alamat Meninggal">
+                          <input type="text" name="meninggal" id="meninggal" class="form-control border-left-primary" placeholder="Tempat/Alamat Meninggal" size="100" >
                       </div>
                       </div>
 
                       <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="tgl_meninggal">Tanggal Meninggal</label>
-                          <input type="date" name="tgl_meninggal" id="tgl_meninggal" class="form-control border-left-primary" placeholder="">
+                          <input type="date" name="tgl_meninggal" id="tgl_meninggal" class="form-control border-left-primary" placeholder="" >
                       </div>
                       </div>
-
                 
                     <div class="col-lg-12">
                         <div class="form-group">
@@ -176,4 +181,5 @@
 
       </div>
       <!-- End of Main Content -->
+
             

@@ -62,46 +62,19 @@
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
                         <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" value="<?=$d->no_bukti?>" required>
                     </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="jumlah_komulatif" class="text-gray-900 font-weight-bold">Jumlah Komulatif</label>
-                        <input type="text" name="jumlah_komulatif" id="jumlah_komulatif" class="form-control border-left-primary" value="<?=$d->jumlah_komulatif?>" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo</label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" value="<?=$d->saldo?>" required>
-                    </div>
-
-                    <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Kepala Desa : </label>
-                        <br>
-                        <input type="hidden" name="ver_kepala_desa_old" value="<?=$d->ver_kepala_desa?>">
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa1" value="Pending" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Pending"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa1">Pending</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa2" value="Disetujui" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Disetujui"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa2">Disetujui</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                          <input type="radio" name="ver_kepala_desa" id="ver_kepala_desa3" value="Ditolak" class="form-control border-left-primary" <?php if($d->ver_kepala_desa == "Ditolak"){echo "checked";}?>>
-                          <label class="form-check-label" for="ver_kepala_desa3">Ditolak</label>
-                        </div>
-                    </div>                    
+                                        
                 </div>
                     
                 <?php
@@ -128,3 +101,14 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

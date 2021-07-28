@@ -22,29 +22,29 @@ class Buku_induk_penduduk extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'nik','label' => 'Nomor Induk Penduduk (NIK)', 'rules' => 'required'],
-            ['field' => 'nkk','label' => 'Nomor Kartu Keluarga (KK)', 'rules' => 'required'],
-            ['field' => 'tahun_ektp','label' => 'Tahun Dikeluarkannya E_KTP', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
+            ['field' => 'nik','label' => 'Nomor Induk Penduduk (NIK)', 'rules' => 'required|min_length[16]|max_length[16]'],
+            ['field' => 'nkk','label' => 'Nomor Kartu Keluarga (KK)', 'rules' => 'required|min_length[16]|max_length[16]'],
+            ['field' => 'tahun_ektp','label' => 'Tahun Dikeluarkannya E_KTP', 'rules' => 'required|min_length[4]|max_length[4]'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tanggal_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'goldar','label' => 'Golongan Darah', 'rules' => 'required'],
             ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
-            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required'],
+            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required|max_length[30]'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
             ['field' => 'rt','label' => 'RT', 'rules' => 'required'],
             ['field' => 'rw','label' => 'RW', 'rules' => 'required'],
-            ['field' => 'dusun','label' => 'Nama Dusun', 'rules' => 'required'],
+            ['field' => 'dusun','label' => 'Nama Dusun', 'rules' => 'required|max_length[30]'],
             ['field' => 'baca_huruf','label' => 'Dapat Membaca Huruf', 'rules' => 'required'],
             ['field' => 'status_perkawinan','label' => 'Status Perkawinan', 'rules' => 'required'],
-            ['field' => 'tmpt_ektp_dikeluarkan','label' => 'Tempat di Keluarkannya E-KTP', 'rules' => 'required'],
+            ['field' => 'tmpt_ektp_dikeluarkan','label' => 'Tempat di Keluarkannya E-KTP', 'rules' => 'required|max_length[30]'],
             ['field' => 'tgl_ektp_dikeluarkan','label' => 'Tanggal di Keluarkannya E-KTP', 'rules' => 'required'],
             ['field' => 'hub_keluarga','label' => 'Hubungan Keluarga', 'rules' => 'required'],
             ['field' => 'wn','label' => 'Kewarganegaraan', 'rules' => 'required'],
-            ['field' => 'ayah','label' => 'Nama Ayah', 'rules' => 'required'],
-            ['field' => 'ibu','label' => 'Nama Ibu', 'rules' => 'required'],
+            ['field' => 'ayah','label' => 'Nama Ayah', 'rules' => 'required|max_length[50]'],
+            ['field' => 'ibu','label' => 'Nama Ibu', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_tinggal_desa','Tanggal Mulai Tinggal di Desa' => 'Tempat Lahir', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -53,29 +53,29 @@ class Buku_induk_penduduk extends Admin_Controller {
     function rulesUpdate(){
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'nik','label' => 'Nomor Induk Penduduk (NIK)', 'rules' => 'required'],
-            ['field' => 'nkk','label' => 'Nomor Kartu Keluarga (KK)', 'rules' => 'required'],
-            ['field' => 'tahun_ektp','label' => 'Tahun Dikeluarkannya E_KTP', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required'],
+            ['field' => 'nik','label' => 'Nomor Induk Penduduk (NIK)', 'rules' => 'required|min_length[16]|max_length[16]'],
+            ['field' => 'nkk','label' => 'Nomor Kartu Keluarga (KK)', 'rules' => 'required|min_length[16]|max_length[16]'],
+            ['field' => 'tahun_ektp','label' => 'Tahun Dikeluarkannya E_KTP', 'rules' => 'required|min_length[4]|max_length[4]'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tanggal_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'goldar','label' => 'Golongan Darah', 'rules' => 'required'],
             ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
-            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required'],
+            ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required|max_length[30]'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
             ['field' => 'rt','label' => 'RT', 'rules' => 'required'],
             ['field' => 'rw','label' => 'RW', 'rules' => 'required'],
-            ['field' => 'dusun','label' => 'Nama Dusun', 'rules' => 'required'],
+            ['field' => 'dusun','label' => 'Nama Dusun', 'rules' => 'required|max_length[30]'],
             ['field' => 'baca_huruf','label' => 'Dapat Membaca Huruf', 'rules' => 'required'],
             ['field' => 'status_perkawinan','label' => 'Status Perkawinan', 'rules' => 'required'],
-            ['field' => 'tmpt_ektp_dikeluarkan','label' => 'Tempat di Keluarkannya E-KTP', 'rules' => 'required'],
+            ['field' => 'tmpt_ektp_dikeluarkan','label' => 'Tempat di Keluarkannya E-KTP', 'rules' => 'required|max_length[30]'],
             ['field' => 'tgl_ektp_dikeluarkan','label' => 'Tanggal di Keluarkannya E-KTP', 'rules' => 'required'],
             ['field' => 'hub_keluarga','label' => 'Hubungan Keluarga', 'rules' => 'required'],
             ['field' => 'wn','label' => 'Kewarganegaraan', 'rules' => 'required'],
-            ['field' => 'ayah','label' => 'Nama Ayah', 'rules' => 'required'],
-            ['field' => 'ibu','label' => 'Nama Ibu', 'rules' => 'required'],
+            ['field' => 'ayah','label' => 'Nama Ayah', 'rules' => 'required|max_length[50]'],
+            ['field' => 'ibu','label' => 'Nama Ibu', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_tinggal_desa','Tanggal Mulai Tinggal di Desa' => 'Tempat Lahir', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -164,6 +164,30 @@ class Buku_induk_penduduk extends Admin_Controller {
 
     public function store(){
         $validation = $this->form_validation;
+        $nik = $_POST['nik'];
+        $sql  = $this->db->query("SELECT nik FROM ktp_kk where nik='$nik'");
+        $cek_nik = $sql->num_rows();
+        if($cek_nik > 0){
+            $this->session->set_flashdata('error_message', 'NIK Sudah terdaftar sebelumnya');
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'NIK sudah terdaftar sebelumnya',
+                );
+           echo json_encode($callback);
+           exit();
+        }
+        $nkk = $_POST['nkk'];
+        $sql  = $this->db->query("SELECT nkk FROM ktp_kk where nkk='$nkk'");
+        $cek_nkk = $sql->num_rows();
+        if($cek_nkk > 0){
+            $this->session->set_flashdata('error_message', 'Nomor KK Sudah diguanakan, satu kartu keluarga hanya ada satu Kepala Keluarga ');
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Nomor KK Sudah diguanakan, satu kartu keluarga hanya ada satu Kepala Keluarga',
+                );
+           echo json_encode($callback);
+           exit();
+        }
         $validation->set_rules($this->rulesStore());
         if($validation->run()){
             $_POST = $this->input->post();
@@ -196,19 +220,6 @@ class Buku_induk_penduduk extends Admin_Controller {
                 'created_at' => date('Y-m-d H:i:s'),
                 
             );
-
-            $nik = $_POST['nik'];
-            $sql  = $this->db->query("SELECT nik FROM ktp_kk where nik='$nik'");
-            $cek_nik = $sql->num_rows();
-            if($cek_nik > 0){
-                $this->session->set_flashdata('error_message', 'NIK Sudah terdaftar sebelumnya');
-                    $callback = array(
-                        'status' => 'error',
-                        'message' => 'NIK sudah terdaftar sebelumnya',
-                    );
-               echo json_encode($callback);
-               exit();
-            }
             
             if($this->Main_m->store($data,$this->_table)){
                 $this->session->set_flashdata('success_message', 'Pengisian form berhasil, terimakasih');
@@ -299,7 +310,7 @@ class Buku_induk_penduduk extends Admin_Controller {
                 
             );
 
-                       
+                                  
             if($this->Main_m->update($data,$this->_table,$where)){
                 $this->session->set_flashdata('success_message', 'Edit form berhasil, terimakasih');
                 $callback = array(
@@ -346,7 +357,7 @@ class Buku_induk_penduduk extends Admin_Controller {
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
-                $this->session->set_flashdata('success_message', 'Delete form berhasil, terimakasih');
+                $this->session->set_flashdata('success_message', 'Hapus data berhasil, terimakasih');
                 $callback = array(
                     'status' => 'success',
                     'message' => 'Data berhasil dihapus',
@@ -354,7 +365,7 @@ class Buku_induk_penduduk extends Admin_Controller {
                 );
             }
             else{
-                $this->session->set_flashdata('error_message', 'Mohon maaf, delete form gagal');
+                $this->session->set_flashdata('error_message', 'Mohon maaf, hapus data gagal');
                 $callback = array(
                     'status' => 'error',
                     'message' => 'Mohon Maaf, Pengisian form gagal',
