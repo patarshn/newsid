@@ -134,7 +134,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tanggal?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tanggal))?></td>
                       <td><?=$d->pajak?></td>
                       <td><?=$d->ret?></td>
                       <td><?=$d->pl?></td>

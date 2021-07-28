@@ -50,9 +50,20 @@
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" value="<?=$d->bidang?>" required>
                     </div>
                     
-                    <div class="col-lg-4 mt-2">
-                        <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
-                        <input type="text" name="kegiatan" id="kegiatan" class="form-control border-left-primary" value="<?=$d->kegiatan?>" required>
+                    <div class="col-lg-3 mt-2">
+                        <div class="form-group">
+                            <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
+                                <option><?=$d->kegiatan?></option>
+                                
+                                <?php   
+                                foreach($data2 as $d2):
+                                    $kode = $d2->uraian_apbd;
+                                    echo "<option value='{$kode}'>{$kode}</option>"; 
+                                endforeach;
+                                ?>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="col-lg-4 mt-2">
@@ -67,12 +78,12 @@
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan dari Bendahara</label>
-                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" value="<?=$d->penerimaan_bendahara?>" required>
+                        <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" value="<?=$d->penerimaan_bendahara?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
-                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" value="<?=$d->penerimaan_sdm?>" required>
+                        <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" value="<?=$d->penerimaan_sdm?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
@@ -81,23 +92,18 @@
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasat</label>
-                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" value="<?=$d->pengeluaran_bbj?>" required>
+                        <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa</label>
+                        <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" value="<?=$d->pengeluaran_bbj?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
-                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" value="<?=$d->pengeluaran_bm?>" required>
+                        <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" value="<?=$d->pengeluaran_bm?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian Ke Bendahara</label>
-                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" value="<?=$d->jumlah?>" required>
-                    </div>
-
-                    <div class="col-lg-4 mt-2">
-                        <label for="saldo" class="text-gray-900 font-weight-bold">Saldo Kas </label>
-                        <input type="text" name="saldo" id="saldo" class="form-control border-left-primary" value="<?=$d->saldo?>" required>
+                        <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" value="<?=$d->jumlah?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>        
                 </div>
                     
@@ -124,4 +130,15 @@
         <!-- /.container-fluid -->
 
       </div>
-      <!-- End of Main Content -->
+      <!-- End of Main Content -->\
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

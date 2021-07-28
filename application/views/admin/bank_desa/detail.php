@@ -63,7 +63,7 @@
                                               <thead>
                                                   <tr>
                                                   <th>Tanggal Transaksi</th>
-                                                  <td style="text-align:right"><?=$d->tgl_trans?></td>
+                                                  <td style="text-align:right"><?=date("d-m-Y", strtotime($d->tgl_trans))?></td>
                                                   </tr>
 
                                                   <tr>
@@ -103,7 +103,7 @@
 
                                                   <tr>
                                                   <th>Terakhir diubah</th>
-                                                  <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                                  <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                                   </tr >
                                                  </thead>
                                               </table>

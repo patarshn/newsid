@@ -50,13 +50,12 @@
 
                     <div class="col-lg-3 mt-2">
                         <div class="form-group">
-                            <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kegiatan</label>
-                            <select name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" required>
+                            <label for="uraian_apbd" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <select name="uraian_apbd" id="uraian_apbd" class="form-control border-left-primary" required>
                                 <option>-</option>
-                                
                                 <?php   
                                 foreach($data as $d):
-                                    $kode = $d->kode_rekening1."-".$d->kode_rekening2."-".$d->kode_rekening3."-".$d->kode_rekening4;
+                                    $kode = $d->uraian_apbd;
                                     echo "<option value='$kode'>$kode</option>"; 
                                 endforeach;
                                 ?>
@@ -101,7 +100,7 @@
                                             <small id="rab" class="text-gray-700">contoh : 1 set </small>
                                             </td>
                                             <td width="15%">
-                                            <input type="number" name="harga_satuan[]" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" required>
+                                            <input type="text" name="harga_satuan[]" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" onkeypress="return onlyNumberKey(event)" required>
                                             <small id="rab" class="text-gray-700">contoh : 50000 </small>
                                             </td>
                                             <td width="10%">
@@ -191,7 +190,7 @@ $(document).ready(function () {
     $('#invoiceitems > tbody:last').append('<tr class="rab">\
           <td><input type="text" name="uraian[]" class="form-control border-left-primary" /></td>\
           <td><input type="text" name="volume[]" class="form-control border-left-primary volume-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
-          <td><input type="number" name="harga_satuan[]" class="form-control border-left-primary harga_satuan-'+countadd+'" onchange="jumlah_rp('+countadd+')"/></td>\
+          <td><input type="text" name="harga_satuan[]" class="form-control border-left-primary harga_satuan-'+countadd+'" onchange="jumlah_rp('+countadd+')" onkeypress="return onlyNumberKey(event)"/></td>\
           <td><input type="text" name="jumlah[]" class="form-control border-left-primary jumlah-'+countadd+'" readonly/></td>\
           <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
     countadd = countadd + 1;
@@ -211,4 +210,14 @@ $('#jumlah').change(function(){
 
 });
 
+</script>
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    }
 </script>

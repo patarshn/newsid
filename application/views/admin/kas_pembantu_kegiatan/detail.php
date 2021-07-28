@@ -58,7 +58,7 @@
                                               <thead>
                                                   <tr>
                                                   <th>Tanggal</th>
-                                                  <td style="text-align:right"><?=$d->tanggal?></td>
+                                                  <td style="text-align:right"><?= date("d-m-Y", strtotime($d->tanggal))?></td>
                                                   </tr>
 
                                                   <tr>
@@ -101,7 +101,7 @@
                                                   
                                                   <tr>
                                                   <th>Terakhir diubah</th>
-                                                  <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                                  <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                                   </tr >
                                                  </thead>
                                               </table>

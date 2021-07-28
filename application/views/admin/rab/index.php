@@ -51,7 +51,16 @@
                                                 <form method="get" action="rab/cetak">
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
                                                 <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                
+                                                <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
+                                <option>Pilih Kegiatan</option>
+                                
+                                <?php   
+                                foreach($data2 as $d2):
+                                    $kode = $d2->uraian_apbd;
+                                    echo "<option value='{$kode}'>{$kode}</option>"; 
+                                endforeach;
+                                ?>
+                            </select>
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
@@ -76,8 +85,6 @@
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>

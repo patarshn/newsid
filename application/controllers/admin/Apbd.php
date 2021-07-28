@@ -11,6 +11,7 @@ class Apbd extends Admin_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Adm_keuangan_m');
         $this->load->library('breadcrumbcomponent');
         
     }
@@ -20,8 +21,8 @@ class Apbd extends Admin_Controller {
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'type','label' => 'type', 'rules' => 'required'],
             ['field' => 'kode_rekening1[]','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'uraian[]','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'anggaran[]','label' => 'anggaran', 'rules' => 'required'],
+            ['field' => 'uraian_apbd[]','label' => 'uraian', 'rules' => 'required'],
+            ['field' => 'anggaran[]','label' => 'anggaran', 'rules' => 'required|numeric'],
             ['field' => 'keterangan[]','label' => 'keterangan', 'rules' => 'required'],
         ];
     }
@@ -31,7 +32,7 @@ class Apbd extends Admin_Controller {
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'type','label' => 'type', 'rules' => 'required'],
             ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
+            ['field' => 'uraian_apbd','label' => 'uraian', 'rules' => 'required'],
             ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
             ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
         ];
@@ -107,7 +108,7 @@ class Apbd extends Admin_Controller {
                 'kode_rekening2' => $_POST['kode_rekening2'][$i],
                 'kode_rekening3' => $_POST['kode_rekening3'][$i],
                 'kode_rekening4' => $_POST['kode_rekening4'][$i],
-                'uraian' => $_POST['uraian'][$i],
+                'uraian_apbd' => $_POST['uraian_apbd'][$i],
                 'anggaran' => $_POST['anggaran'][$i],
                 'keterangan' => $_POST['keterangan'][$i],
                 'created_at' => date('Y-m-d H:i:s'),
@@ -254,7 +255,7 @@ class Apbd extends Admin_Controller {
                 'kode_rekening2' => $_POST['kode_rekening2'],
                 'kode_rekening3' => $_POST['kode_rekening3'],
                 'kode_rekening4' => $_POST['kode_rekening4'],
-                'uraian' => $_POST['uraian'],
+                'uraian_apbd' => $_POST['uraian_apbd'],
                 'anggaran' => $_POST['anggaran'],
                 'keterangan' => $_POST['keterangan'], 
                 'updated_by' => $this->session->userdata('username'),
@@ -305,15 +306,6 @@ class Apbd extends Admin_Controller {
                     $where.= "id = ".$r." OR ";
                 }
                 $count++;
-            }
-
-            if (!$this->destroy_file($where)) {
-                $callback = array(
-                    'status' => 'error',
-                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
-                );
-                echo json_encode($callback);
-                exit;
             }
 
             if($this->Main_m->destroy($this->_table,$where)){
@@ -451,7 +443,7 @@ class Apbd extends Admin_Controller {
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
         $where = ['tahun_anggaran'=>$tahun_anggaran];
-        $data=$this->Main_m->getAsc($this->_table,$where)->result();
+        $data=$this->Adm_keuangan_m->getkode_rekening($where)->result();
         #   echo var_dump($data);
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -469,7 +461,7 @@ class Apbd extends Admin_Controller {
                 'kode_rekening2' => $d->kode_rekening2,
                 'kode_rekening3' => $d->kode_rekening3,
                 'kode_rekening4' => $d->kode_rekening4,
-                'uraian' => $d->uraian,
+                'uraian_apbd' => $d->uraian_apbd,
                 'anggaran' => number_format($d->anggaran,0,',','.'),
                 'keterangan' => $d->keterangan
             );

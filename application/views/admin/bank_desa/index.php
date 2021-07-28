@@ -89,34 +89,29 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th width="5%">No</th>
-                      <th width="3%"></th>
-                      <th>Bulan</th>
-                      <th>Bank Cabang</th>
-                      <th>Tanggal Transaksi</th>
-                      <th>Uraian Transaksi</th>
-                      <th>Bukti Transaksi</th>
+                      <th rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2">No</th>
+                      <th rowspan="2"></th>
+                      <th rowspan="2">Uraian</th>
+                      <th colspan="2">Pemasukan</th>
+                      <th colspan="3">Pengeluaran</th>
                     </tr>
-                    
-                  </thead>
-                  <tfoot>
                     <tr>
-                        <th width="5%"></th>
-                        <th width="5%">No</th>
-                        <th width="3%"></th>
-                        <th>Bulan</th>
-                        <th>Bank Cabang</th>
-                        <th>Tanggal Transaksi</th>
-                        <th>Uraian Transaksi</th>
-                        <th>Bukti Transaksi</th>
+                      <th>Setoran (Rp.)</th>
+                      <th>Bunga Bank (Rp.)</th>
+                      <th>Penarikan (Rp.)</th>
+                      <th>Pajak (Rp.)</th>
+                      <th>Biaya Administrasi (Rp.)</th>
                     </tr>
-                  </tfoot>
+                  </thead>
                   <tbody>
                   
                   <?php 
                   $count = 1;
-                  foreach ($data as $d): ?>
+                  $total=0;
+                  foreach ($data as $d): 
+                    $total = $total + $d->pmskn_setoran +$d->pmskn_bungabank - $d->pngl_penarikan - $d->pngl_pajak - $d->pngl_biaya_adm;
+                  ?>
                     <tr>
                       <td>
                         <input type="checkbox" name="rowdelete[]" value="<?=$d->id?>" class="rowdelete">
@@ -134,14 +129,21 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->bulan?></td>
-                      <td><?=$d->bank_cabang?></td>
-                      <td><?=$d->tgl_trans?></td>
                       <td><?=$d->uraian_trans?></td>
-                      <td><?=$d->bukti_trans?></td>
+                      <td>Rp. <?=number_format($d->pmskn_setoran,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pmskn_bungabank,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pngl_penarikan,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pngl_pajak,0,',','.');?></td>
+                      <td>Rp. <?=number_format($d->pngl_biaya_adm,0,',','.');?></td>
                     </tr>
                   <?php endforeach;?>
                   </tbody>
+                  <tfoot>
+                    <tr>
+                        <th colspan="4">Total Transaksi Bulan Ini</th>
+                        <th colspan="5">Rp. <?=number_format($total,0,',','.');?></th>
+                      </tr>
+                  </tfoot>
                 </table>
                 </form>
               </div>

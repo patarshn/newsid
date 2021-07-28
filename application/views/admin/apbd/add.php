@@ -94,11 +94,12 @@
                                           </div>
                                             </td>
                                             <td width="25%">
-                                            <input type="text" name="uraian[]" id="uraian" class="form-control border-left-primary" required>
+                                            <input type="text" name="uraian_apbd[]" id="uraian_apbd" class="form-control border-left-primary" required>
                                             <small id="apbd" class="text-gray-700">contoh : Pendapatan Asli Desa </small>
                                             </td>
                                             <td width="15%">
-                                            <input type="number" name="anggaran[]" id="anggaran" class="form-control border-left-primary anggaran" onchange='total_anggaran()' required>
+                                            <input type="text" name="anggaran[]" id="anggaran" class="form-control border-left-primary anggaran" onchange='total_anggaran()'  
+                                            onkeypress="return onlyNumberKey(event)" required>
                                             <small id="apbd" class="text-gray-700">contoh : 20000 </small>
                                             </td>
                                             <td width="25%">
@@ -188,8 +189,8 @@ $(document).ready(function () {
           <div class="col-3"><input type="text" name="kode_rekening2[]" class="form-control border-left-primary" /></div>\
           <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control border-left-primary" /></div>\
           <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control border-left-primary" /></div></div>\
-          <td><input type="text" name="uraian[]" class="form-control border-left-primary" /></td>\
-          <td><input type="number" name="anggaran[]" class="form-control border-left-primary" onchange="total_anggaran()" /></td>\
+          <td><input type="text" name="uraian_apbd[]" class="form-control border-left-primary" /></td>\
+          <td><input type="text" name="anggaran[]" class="form-control border-left-primary" onchange="total_anggaran()" onkeypress="return onlyNumberKey(event)"/></td>\
           <td><input type="text" name="keterangan[]" class="form-control border-left-primary"/></td>\
           <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
     kode_rekening();
@@ -207,6 +208,18 @@ $(document).ready(function () {
 
 </script>
 
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
+
+
 <!--
 @section('js')
     {{-- <script src="{{asset('investasi/mitra/js/jquery.steps.js')}}"></script> --}}
@@ -222,7 +235,7 @@ $(document).ready(function () {
               <div class="col-3"><input type="text" name="kode_rekening1[]" class="form-control" /></div>\
               <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control" /></div>\
               <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control" /></div></div>\
-              <td><input type="text" name="uraian[]" class="form-control" /></td>\
+              <td><input type="text" name="uraian_apbd[]" class="form-control" /></td>\
               <td><input type="text" name="anggaran[]" class="form-control" /></td>\
               <td><input type="text" name="keterangan[]" class="form-control"/></td>\
               <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
