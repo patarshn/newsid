@@ -21,23 +21,25 @@ class Buku_lemdes_berdes extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'jns_peraturan_desa','label' => 'Jenis Peraturan di Desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'Nomor ditetapkan', 'rules' => 'required'],
+            ['field' => 'jns_peraturan_desa','label' => 'Jenis Peraturan di Desa', 'rules' => 'required|max_length[100]'],
+            ['field' => 'no_ditetapkan','label' => 'Nomor ditetapkan', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_ditetapkan','label' => 'Tanggal ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_diundangkan','label' => 'Tanggal Diundangkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan','label' => 'Nomor Diundangkan', 'rules' => 'required'],
+            ['field' => 'no_diundangkan','label' => 'Nomor Diundangkan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'jns_peraturan_desa','label' => 'Jenis Peraturan di Desa', 'rules' => 'required'],
-            ['field' => 'no_ditetapkan','label' => 'Nomor ditetapkan', 'rules' => 'required'],
+            ['field' => 'jns_peraturan_desa','label' => 'Jenis Peraturan di Desa', 'rules' => 'required|max_length[100]'],
+            ['field' => 'no_ditetapkan','label' => 'Nomor ditetapkan', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_ditetapkan','label' => 'Tanggal ditetapkan', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_diundangkan','label' => 'Tanggal Diundangkan', 'rules' => 'required'],
-            ['field' => 'no_diundangkan','label' => 'Nomor Diundangkan', 'rules' => 'required'],
+            ['field' => 'no_diundangkan','label' => 'Nomor Diundangkan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 

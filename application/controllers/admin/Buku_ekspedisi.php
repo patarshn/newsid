@@ -22,20 +22,22 @@ class Buku_ekspedisi extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'tgl_pengiriman','label' => 'Tanggal Pengiriman', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
-            ['field' => 'isi_singkat_surat','label' => 'Isi Singkat Surat Yang Dikirim', 'rules' => 'required'],
-            ['field' => 'ditunjukkan_kpd','label' => 'Ditunjukkan Kepada', 'rules' => 'required'],
+            ['field' => 'isi_singkat_surat','label' => 'Isi Singkat Surat Yang Dikirim', 'rules' => 'required|max_length[100]'],
+            ['field' => 'ditunjukkan_kpd','label' => 'Ditunjukkan Kepada', 'rules' => 'required|max_length[100]'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 
     function rulesUpdate() {
         return [
             ['field' => 'tgl_pengiriman','label' => 'Tanggal Pengiriman', 'rules' => 'required'],
-            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required'],
+            ['field' => 'no_surat','label' => 'Nomor Surat', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_surat','label' => 'Tanggal Surat', 'rules' => 'required'],
-            ['field' => 'isi_singkat_surat','label' => 'Isi Singkat Surat Yang Dikirim', 'rules' => 'required'],
-            ['field' => 'ditunjukkan_kpd','label' => 'Ditunjukkan Kepada', 'rules' => 'required'],
+            ['field' => 'isi_singkat_surat','label' => 'Isi Singkat Surat Yang Dikirim', 'rules' => 'required|max_length[100]'],
+            ['field' => 'ditunjukkan_kpd','label' => 'Ditunjukkan Kepada', 'rules' => 'required|max_length[100]'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 

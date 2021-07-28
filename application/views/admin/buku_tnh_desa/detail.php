@@ -50,7 +50,13 @@
 
                                 <tr>
                                     <th>Keterangan</th>
+                                    <td>
+                                    <?php if($d->ket != 0):?>
                                     <td><?=$d->ket?></td>
+                                    <?php else :?>
+                                    Tidak ada Keterangan
+                                    <?php endif; ?>
+                                    </td>
                                 </tr >
                             
                                 <tr>
