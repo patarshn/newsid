@@ -58,27 +58,27 @@
                       <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-2">
-                          <input type="number" name="abb_apb_desa" id="abb_apb_desa" class="form-control border-left-primary" required>
+                          <input type="number " name="abb_apb_desa" id="abb_apb_desa" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="abb_apb_desa" class="text-gray-700">APB Desa</small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="number" name="bantuan_pemerintah" id="bantuan_pemerintah" class="form-control border-left-primary" required>
+                        <input type="number " name="bantuan_pemerintah" id="bantuan_pemerintah" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="bantuan_pemerintah" class="text-gray-700">Bantuan Pemerintah</small>
                         </div>
 
                         <div class="col-lg-2">
-                          <input type="number" name="bantuan_prov" id="bantuan_prov" class="form-control border-left-primary" required>
+                        <input type="number " name="bantuan_prov" id="bantuan_prov" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="bantuan_prov" class="text-gray-700">Bantuan Provinsi</small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="number" name="bantuan_kab_kota" id="bantuan_kab_kota" class="form-control border-left-primary" required>
+                          <input type="number " name="bantuan_kab_kota" id="bantuan_kab_kota" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="bantuan_kab_kota" class="text-gray-700">Bantuan Kab/Kota</small>
                         </div>
                         
                         <div class="col-lg-2">
-                          <input type="number" name="abb_sumbangan" id="abb_sumbangan" class="form-control border-left-primary" required>
+                          <input type="number " name="abb_sumbangan" id="abb_sumbangan" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="abb_sumbangan" class="text-gray-700">Sumbangan</small>
                         </div>
                       </div>
@@ -89,12 +89,12 @@
                       <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                           <div class="col-lg-3">
-                              <input type="number" name="awalthn_baik" id="awalthn_baik" class="form-control border-left-primary" required>
+                              <input type="number " name="awalthn_baik" id="awalthn_baik" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                               <small id="awalthn_baik" class="text-gray-700">Baik</small>
                           </div>
                           
                           <div class="col-lg-3">
-                              <input type="number" name="awalthn_rusak" id="awalthn_rusak" class="form-control border-left-primary" required>
+                              <input type="number " name="awalthn_rusak" id="awalthn_rusak" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                               <small id="awalthn_rusak" class="text-gray-700">Rusak</small>
                           </div>
                       </div>
@@ -105,17 +105,17 @@
                       <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-2">
-                        <input type="number" name="hps_rusak" id="hps_rusak" class="form-control border-left-primary" required>
+                        <input type="number " name="hps_rusak" id="hps_rusak" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                         <small id="hps_rusak" class="text-gray-700">Rusak</small>
                         </div>
                         
                         <div class="col-lg-2">
-                        <input type="number" name="hps_dijual" id="hps_dijual" class="form-control border-left-primary" required>
+                        <input type="number " name="hps_dijual" id="hps_dijual" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                         <small id="hps_dijual" class="text-gray-700">Dijual</small>
                         </div>
 
                         <div class="col-lg-2">
-                        <input type="number" name="hps_disumbangkan" id="hps_disumbangkan" class="form-control border-left-primary" required>
+                        <input type="number " name="hps_disumbangkan" id="hps_disumbangkan" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                         <small id="hps_disumbangkan" class="text-gray-700">Disumbangkan</small>
                         </div>
                         
@@ -133,12 +133,12 @@
                       <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-3">
-                          <input type="number" name="akhirthn_baik" id="akhirthn_baik" class="form-control border-left-primary" required>
+                          <input type="number " name="akhirthn_baik" id="akhirthn_baik" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="akhirthn_baik" class="text-gray-700">Baik</small>
                         </div>
 
                         <div class="col-lg-3">                        
-                          <input type="number" name="akhirthn_rusak" id="akhirthn_rusak" class="form-control border-left-primary" required>
+                          <input type="number " name="akhirthn_rusak" id="akhirthn_rusak" class="form-control border-left-primary" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                           <small id="akhirthn_rusak" class="text-gray-700">Rusak</small>
                         </div>
                       </div>
@@ -161,17 +161,14 @@
                         </div>
                     </div>
                     
-                    
                 </div>
               </div>
             </div>
           </div>
           
 
-
         </div>
         <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
-

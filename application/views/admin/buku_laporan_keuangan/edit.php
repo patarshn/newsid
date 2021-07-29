@@ -56,13 +56,13 @@
                     <div class="col-lg-6 mt-3">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Jumlah Penerimaan</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
-                    </div>
+                        <input type="number " name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                      </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Jumlah Pengeluaran</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
+                        <input type="number " name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
                     </div>
                     
                     <div class="col-lg-6 mt-3">
