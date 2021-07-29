@@ -392,7 +392,6 @@ class Rab extends Admin_Controller {
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $templateProcessor->setValue('waktu_pelaksanaan', $tahun_anggaran);
         $templateProcessor->setValue('kegiatan', $kegiatan);
-        $templateProcessor->setValue('bidang', $bidang);
         $values = array();
         $no=1;
         $jumlah_total = 0;

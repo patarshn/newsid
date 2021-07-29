@@ -42,11 +42,13 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
                     <div class="col-lg-6 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-2">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" value="<?=$d->tanggal?>" required>
                     </div>
 
@@ -65,13 +67,15 @@
                         <input type="text" name="pl" id="pl" class="form-control border-left-primary" value="<?=$d->pl?>" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="pemotongan" class="text-gray-900 font-weight-bold">Pemotongan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pemotongan" id="pemotongan" class="form-control border-left-primary" value="<?=$d->pemotongan?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="penyetoran" class="text-gray-900 font-weight-bold">Penyetoran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="penyetoran" id="penyetoran" class="form-control border-left-primary" value="<?=$d->penyetoran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 

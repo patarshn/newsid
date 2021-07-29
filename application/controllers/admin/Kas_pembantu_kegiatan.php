@@ -20,21 +20,31 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
         return [
             ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
             ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
-            ['field' => 'kode_rekening','label' => 'Kegiatan', 'rules' => 'required'],
+            ['field' => 'uraian_apbd','label' => 'Kegiatan', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan_bendahara','label' => 'Penerimaan Dari Bendahara', 'rules' => 'required'],
+            ['field' => 'penerimaan_sdm','label' => 'Penerimaan Dari Swadaya Masyarakat', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bbj','label' => 'Pengeluaran Belanja Barang dan Jasa', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bm','label' => 'Pengeluaran Belanja Modal', 'rules' => 'required'],
+            ['field' => 'jumlah','label' => 'Jumlah Pengembalian Ke Bendahara', 'rules' => 'required'],
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
-            ['field' => 'kegiatan','label' => 'kegiatan', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'uraian','label' => 'uraian', 'rules' => 'required'],
-            ['field' => 'no_bukti','label' => 'no_bukti', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required'],
+            ['field' => 'kegiatan','label' => 'Kegiatan', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan_bendahara','label' => 'Penerimaan Dari Bendahara', 'rules' => 'required'],
+            ['field' => 'penerimaan_sdm','label' => 'Penerimaan Dari Swadaya Masyarakat', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bbj','label' => 'Pengeluaran Belanja Barang dan Jasa', 'rules' => 'required'],
+            ['field' => 'pengeluaran_bm','label' => 'Pengeluaran Belanja Modal', 'rules' => 'required'],
+            ['field' => 'jumlah','label' => 'Jumlah Pengembalian Ke Bendahara', 'rules' => 'required'],
+            ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
         ];
     }
 
@@ -337,12 +347,14 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
 
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
-        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $kegiatan = $this->input->get('kegiatan');
+        $where = ['tahun_anggaran'=>$tahun_anggaran , 'kegiatan'=>$kegiatan] ;
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
         #   echo var_dump($data);
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $templateProcessor->setValue('kegiatan', $kegiatan);
         $values = array();
         $no=1;
 

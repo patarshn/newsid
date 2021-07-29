@@ -42,17 +42,20 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" value="<?=$d->bidang?>" required>
                     </div>
                     
                     <div class="col-lg-3 mt-2">
                         <div class="form-group">
                             <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
                                 <option><?=$d->kegiatan?></option>
                                 
@@ -68,21 +71,25 @@
 
                     <div class="col-lg-3 mt-2">
                         <label for="waktu_pelaksanaan" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control border-left-primary" value="<?=$d->waktu_pelaksanaan?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="volume" class="text-gray-900 font-weight-bold">Volume</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="volume" id="volume" class="form-control border-left-primary volume-0" value="<?=$d->volume?>" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="harga_satuan" class="text-gray-900 font-weight-bold">Harga Satuan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="harga_satuan" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" value="<?=$d->harga_satuan?>" onkeypress="return onlyNumberKey(event)" required>
                         </div>
 

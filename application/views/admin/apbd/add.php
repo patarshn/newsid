@@ -36,16 +36,17 @@
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
                 <?=form_open_multipart(base_url('apbd/store'),'id="form"')?>
-                <h3 class="text-gray-900"><?=$title?></h3>
+                <h4 class="text-gray-900">Rincian Anggaran dan Belanja Desa</h4>
                 <div class="form-row">
                 <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran"  class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="numeric" maxlength="4" pattern="[0-9]" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" required>
+                        <input type="numeric" maxlength="4" pattern="[0-9]" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan tahun kegiatan, contoh: 2022" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="type" class="text-gray-900 font-weight-bold">Type</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="type" id="type" class="form-control border-left-primary" onchange="kode_rekening()" required>
                                 <option selected value="">- Pilih -</option>
                                 <option value="PENDAPATAN">Pendapatan</option>
@@ -83,13 +84,13 @@
                                               <input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control border-left-primary kode_rekening1" diseable />
                                             </div>
                                             <div class="col-3">
-                                              <input type="text" name="kode_rekening2[]" class="form-control border-left-primary" />
+                                              <input type="text" name="kode_rekening2[]" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" />
                                             </div>
                                             <div class="col-3">
-                                              <input type="text" name="kode_rekening3[]" class="form-control border-left-primary" />
+                                              <input type="text" name="kode_rekening3[]" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" />
                                             </div>
                                             <div class="col-3">
-                                              <input type="text" name="kode_rekening4[]" class="form-control border-left-primary" />
+                                              <input type="text" name="kode_rekening4[]" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" />
                                             </div>
                                           </div>
                                             </td>
@@ -99,7 +100,7 @@
                                             </td>
                                             <td width="15%">
                                             <input type="text" name="anggaran[]" id="anggaran" class="form-control border-left-primary anggaran" onchange='total_anggaran()'  
-                                            onkeypress="return onlyNumberKey(event)" required>
+                                            onkeypress="return onlyNumberKey(event)" placeholder="Rp." required>
                                             <small id="apbd" class="text-gray-700">contoh : 20000 </small>
                                             </td>
                                             <td width="25%">
@@ -186,11 +187,11 @@ $(document).ready(function () {
   $('#buttonadd').click(function () {
     $('#invoiceitems > tbody:last').append('<tr><td><div class="row">\
           <div class="col-3"><input type="text" id="kode_rekening1" name="kode_rekening1[]" class="form-control border-left-primary kode_rekening1" disable /></div>\
-          <div class="col-3"><input type="text" name="kode_rekening2[]" class="form-control border-left-primary" /></div>\
-          <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control border-left-primary" /></div>\
-          <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control border-left-primary" /></div></div>\
+          <div class="col-3"><input type="text" name="kode_rekening2[]" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening3[]" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" /></div>\
+          <div class="col-3"><input type="text" name="kode_rekening4[]" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" /></div></div>\
           <td><input type="text" name="uraian_apbd[]" class="form-control border-left-primary" /></td>\
-          <td><input type="text" name="anggaran[]" class="form-control border-left-primary" onchange="total_anggaran()" onkeypress="return onlyNumberKey(event)"/></td>\
+          <td><input type="text" name="anggaran[]" class="form-control border-left-primary" onchange="total_anggaran()" onkeypress="return onlyNumberKey(event)" placeholder="Rp."/></td>\
           <td><input type="text" name="keterangan[]" class="form-control border-left-primary"/></td>\
           <td><input type="button" class="buttondelete btn btn-md btn-danger "  value="Hapus"></td></tr>');
     kode_rekening();

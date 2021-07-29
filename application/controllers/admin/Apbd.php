@@ -23,7 +23,6 @@ class Apbd extends Admin_Controller {
             ['field' => 'kode_rekening1[]','label' => 'kode_rekening1', 'rules' => 'required'],
             ['field' => 'uraian_apbd[]','label' => 'uraian', 'rules' => 'required'],
             ['field' => 'anggaran[]','label' => 'anggaran', 'rules' => 'required|numeric'],
-            ['field' => 'keterangan[]','label' => 'keterangan', 'rules' => 'required'],
         ];
     }
 
@@ -34,7 +33,6 @@ class Apbd extends Admin_Controller {
             ['field' => 'kode_rekening1','label' => 'kode_rekening1', 'rules' => 'required'],
             ['field' => 'uraian_apbd','label' => 'uraian', 'rules' => 'required'],
             ['field' => 'anggaran','label' => 'anggaran', 'rules' => 'required'],
-            ['field' => 'keterangan','label' => 'keterangan', 'rules' => 'required'],
         ];
     }
 

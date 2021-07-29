@@ -40,11 +40,13 @@
                 <div class="form-row">
                     <div class="col-lg-6 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" required>
                     </div>
 
                     <div class="col-lg-6 mt-2">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
                     </div>
                     
@@ -67,14 +69,18 @@
                         </div>
                   
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="pemotongan" class="text-gray-900 font-weight-bold">Pemotongan (Rp.)</label>
-                        <input type="text" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Jumlah Pemotongan" onkeypress="return onlyNumberKey(event)" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="pemotongan" id="pemotongan" class="form-control border-left-primary" placeholder="Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu" class="text-gray-700">contoh : 20000 </small>
                     </div>
 
-                    <div class="col-lg-4 mt-2">
+                    <div class="col-lg-6 mt-2">
                         <label for="penyetoran" class="text-gray-900 font-weight-bold">Penyetoran (Rp.)</label>
-                        <input type="text" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Jumlah Penyetoran" onkeypress="return onlyNumberKey(event)" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="penyetoran" id="penyetoran" class="form-control border-left-primary" placeholder="Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_pembantu" class="text-gray-700">contoh : 20000 </small>
                     </div>
                 </div>
                 <?=form_close()?>

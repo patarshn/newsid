@@ -17,20 +17,19 @@ class Kas_pembantu extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'pemotongan','label' => 'Pemotongan', 'rules' => 'required'],
             ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
-            ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'pemotongan','label' => 'Pemotongan', 'rules' => 'required'],
+            ['field' => 'penyetoran','label' => 'Penyetoran', 'rules' => 'required'],
         ];
     }
 

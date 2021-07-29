@@ -50,8 +50,17 @@
                                               <div class="form-group">
                                                 <form method="get" action="kas_pembantu_kegiatan/cetak">
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
-                                                <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
-                                                
+                                                <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019" onkeypress="return onlyNumberKey(event)" required>
+                                                <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
+                                <option>Pilih Kegiatan</option>
+                                
+                                <?php   
+                                foreach($data2 as $d2):
+                                    $kode = $d2->uraian_apbd;
+                                    echo "<option value='{$kode}'>{$kode}</option>"; 
+                                endforeach;
+                                ?>
+                            </select>
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
@@ -201,3 +210,14 @@
     </div>
   </div>
 </div>
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

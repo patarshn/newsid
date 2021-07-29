@@ -18,35 +18,35 @@ class Bank_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tgl_trans','label' => 'tgl_trans', 'rules' => 'required'],
-            ['field' => 'uraian_trans','label' => 'uraian_trans', 'rules' => 'required'],
-            ['field' => 'bukti_trans','label' => 'bukti_trans', 'rules' => 'required'],
-            ['field' => 'pmskn_setoran','label' => 'pmskn_setoran', 'rules' => 'required'],
-            ['field' => 'pmskn_bungabank','label' => 'pmskn_bungabank', 'rules' => 'required'],
-            ['field' => 'pngl_penarikan','label' => 'pngl_penarikan', 'rules' => 'required'],
-            ['field' => 'pngl_pajak','label' => 'pngl_pajak', 'rules' => 'required'],
-            ['field' => 'pngl_biaya_adm','label' => 'pngl_biaya_adm', 'rules' => 'required'],
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'bulan','label' => 'bulan', 'rules' => 'required'],
-            ['field' => 'bank_cabang','label' => 'bank_cabang', 'rules' => 'required'],
-            ['field' => 'rekening','label' => 'rekening', 'rules' => 'required'],
+            ['field' => 'tgl_trans','label' => 'Tanggal Transaksi', 'rules' => 'required'],
+            ['field' => 'uraian_trans','label' => 'Uraian Transaksi', 'rules' => 'required'],
+            ['field' => 'bukti_trans','label' => 'Bukti Transaksi', 'rules' => 'required'],
+            ['field' => 'pmskn_setoran','label' => 'Pemasukan Setoran', 'rules' => 'required'],
+            ['field' => 'pmskn_bungabank','label' => 'Pemasukan Bunga Bank', 'rules' => 'required'],
+            ['field' => 'pngl_penarikan','label' => 'Pengeluaran Penarikan', 'rules' => 'required'],
+            ['field' => 'pngl_pajak','label' => 'Pengeluaran Pajak', 'rules' => 'required'],
+            ['field' => 'pngl_biaya_adm','label' => 'Pengeluaran Biaya Admin', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'bulan','label' => 'Bulan', 'rules' => 'required'],
+            ['field' => 'bank_cabang','label' => 'Bank Cabang', 'rules' => 'required'],
+            ['field' => 'rekening','label' => 'Rekening', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'tgl_trans','label' => 'tgl_trans', 'rules' => 'required'],
-            ['field' => 'uraian_trans','label' => 'uraian_trans', 'rules' => 'required'],
-            ['field' => 'bukti_trans','label' => 'bukti_trans', 'rules' => 'required'],
-            ['field' => 'pmskn_setoran','label' => 'pmskn_setoran', 'rules' => 'required'],
-            ['field' => 'pmskn_bungabank','label' => 'pmskn_bungabank', 'rules' => 'required'],
-            ['field' => 'pngl_penarikan','label' => 'pngl_penarikan', 'rules' => 'required'],
-            ['field' => 'pngl_pajak','label' => 'pngl_pajak', 'rules' => 'required'],
-            ['field' => 'pngl_biaya_adm','label' => 'pngl_biaya_adm', 'rules' => 'required'],
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'bulan','label' => 'bulan', 'rules' => 'required'],
-            ['field' => 'bank_cabang','label' => 'bank_cabang', 'rules' => 'required'],
-            ['field' => 'rekening','label' => 'rekening', 'rules' => 'required'],
+            ['field' => 'tgl_trans','label' => 'Tanggal Transaksi', 'rules' => 'required'],
+            ['field' => 'uraian_trans','label' => 'Uraian Transaksi', 'rules' => 'required'],
+            ['field' => 'bukti_trans','label' => 'Bukti Transaksi', 'rules' => 'required'],
+            ['field' => 'pmskn_setoran','label' => 'Pemasukan Setoran', 'rules' => 'required'],
+            ['field' => 'pmskn_bungabank','label' => 'Pemasukan Bunga Bank', 'rules' => 'required'],
+            ['field' => 'pngl_penarikan','label' => 'Pengeluaran Penarikan', 'rules' => 'required'],
+            ['field' => 'pngl_pajak','label' => 'Pengeluaran Pajak', 'rules' => 'required'],
+            ['field' => 'pngl_biaya_adm','label' => 'Pengeluaran Biaya Admin', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'bulan','label' => 'Bulan', 'rules' => 'required'],
+            ['field' => 'bank_cabang','label' => 'Bank Cabang', 'rules' => 'required'],
+            ['field' => 'rekening','label' => 'Rekening', 'rules' => 'required'],
             
         ];
     }
@@ -369,13 +369,13 @@ class Bank_desa extends Admin_Controller {
                 $saldo = $saldo + $d ->pmskn_bungabank;
             }
             if($d->pngl_penarikan !=0){
-                $saldo = $saldo + $d ->pngl_penarikan;
+                $saldo = $saldo - $d ->pngl_penarikan;
             }
             if($d->pngl_pajak !=0){
-                $saldo = $saldo + $d ->pngl_pajak;
+                $saldo = $saldo - $d ->pngl_pajak;
             }
             if($d->pngl_biaya_adm !=0){
-                $saldo = $saldo + $d ->pngl_biaya_adm;
+                $saldo = $saldo - $d ->pngl_biaya_adm;
             }
             $subvalues = array(
                 'id' => $no++,
