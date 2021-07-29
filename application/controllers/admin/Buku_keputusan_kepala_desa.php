@@ -21,23 +21,25 @@ class Buku_keputusan_kepala_desa extends Admin_Controller {
  
     function rulesStore() {
         return [
-            ['field' => 'no_keputusan_kepala_desa','label' => 'Nomor Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'no_keputusan_kepala_desa','label' => 'Nomor Keputusan Kepala Desa', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_keputusan_kepala_desa','label' => 'Tanggal Keputusan Kepala Desa', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan_kpd','label' => 'Nomor Dilaporkan', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required|max_length[100]'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required|max_length[100]'],
+            ['field' => 'no_dilaporkan_kpd','label' => 'Nomor Dilaporkan', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_dilaporkan_kpd','label' => 'Tanggal Dilaporkan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'no_keputusan_kepala_desa','label' => 'Nomor Keputusan Kepala Desa', 'rules' => 'required'],
+            ['field' => 'no_keputusan_kepala_desa','label' => 'Nomor Keputusan Kepala Desa', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_keputusan_kepala_desa','label' => 'Tanggal Keputusan Kepala Desa', 'rules' => 'required'],
-            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required'],
-            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required'],
-            ['field' => 'no_dilaporkan_kpd','label' => 'Nomor Dilaporkan', 'rules' => 'required'],
+            ['field' => 'tentang','label' => 'Tentang', 'rules' => 'required|max_length[100]'],
+            ['field' => 'uraian_singkat','label' => 'Uraian Singkat', 'rules' => 'required|max_length[100]'],
+            ['field' => 'no_dilaporkan_kpd','label' => 'Nomor Dilaporkan', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_dilaporkan_kpd','label' => 'Tanggal Dilaporkan', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 

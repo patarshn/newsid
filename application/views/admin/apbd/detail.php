@@ -51,7 +51,7 @@
 
                                     <tr>
                                         <th>Uraian</th>
-                                        <td><?=$d->uraian?></td>
+                                        <td><?=$d->uraian_apbd?></td>
                                     </tr >
 
                                     <tr>
@@ -66,7 +66,7 @@
 
                                     <tr>
                                         <th>Terakhir diubah</th>
-                                        <td><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                        <td><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                     </tr >
                                 </table>
                             </div>

@@ -58,7 +58,7 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="rekening" class="text-gray-900 font-weight-bold">Rekening. No</label>
-                        <input type="text" name="rekening" id="rekening" class="form-control border-left-primary" value="<?=$d->rekening?>" required>
+                        <input type="text" name="rekening" id="rekening" class="form-control border-left-primary" value="<?=$d->rekening?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -78,27 +78,27 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="pmskn_setoran" class="text-gray-900 font-weight-bold">Setoran</label>
-                        <input type="text" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" value="<?=$d->pmskn_setoran?>" required>
+                        <input type="text" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" value="<?=$d->pmskn_setoran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pmskn_bungabank" class="text-gray-900 font-weight-bold">Bunga Bank</label>
-                        <input type="text" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" value="<?=$d->pmskn_bungabank?>" required>
+                        <input type="text" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" value="<?=$d->pmskn_bungabank?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_penarikan" class="text-gray-900 font-weight-bold">Penarikan</label>
-                        <input type="text" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" value="<?=$d->pngl_penarikan?>" required>
+                        <input type="text" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" value="<?=$d->pngl_penarikan?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_pajak" class="text-gray-900 font-weight-bold">Pajak</label>
-                        <input type="text" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" value="<?=$d->pngl_pajak?>" required>
+                        <input type="text" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" value="<?=$d->pngl_pajak?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="pngl_biaya_adm" class="text-gray-900 font-weight-bold">Biaya Administrasi</label>
-                        <input type="text" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" value="<?=$d->pngl_biaya_adm?>" required>
+                        <input type="text" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" value="<?=$d->pngl_biaya_adm?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
                             
                 </div>
@@ -127,3 +127,14 @@
 
       </div>
       <!-- End of Main Content -->
+
+      <script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

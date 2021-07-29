@@ -129,7 +129,7 @@
                           </div>
                         </div>
                       </td>
-                      <td><?=$d->tanggal?></td>
+                      <td><?= date("d-m-Y", strtotime($d->tanggal))?></td>
                       <td><?=$d->kode_rekening?></td>
                       <td><?=$d->uraian?></td>
                       <td>Rp. <?=number_format($d->penerimaan,0,',','.');?></td>

@@ -12,7 +12,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
     private $_mainTitle = 'Buku Penduduk Sementara';
     private $_docxName = 'buku_penduduk_sementara.docx';
     private $_exelName = 'buku_penduduk_sementara.xls';
-
+ 
     function __construct()
 	{
         parent::__construct();
@@ -28,7 +28,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
-            ['field' => 'umur','label' => 'Umur'],
+            ['field' => 'umur','label' => 'Umur', 'rules' => 'required|max_length[3]'],
             ['field' => 'kebangsaan','label' => 'Kebangsaan'],
             ['field' => 'keturunan','label' => 'Keturunan','rules' => 'max_length[50]'],
             ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required|max_length[50]'],
@@ -51,7 +51,7 @@ class Buku_penduduk_sementara extends Admin_Controller {
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
-            ['field' => 'umur','label' => 'Umur'],
+            ['field' => 'umur','label' => 'Umur','rules' => 'required|max_length[3]'],
             ['field' => 'kebangsaan','label' => 'Kebangsaan'],
             ['field' => 'keturunan','label' => 'Keturunan','rules' => 'max_length[50]'],
             ['field' => 'pekerjaan','label' => 'Pekerjaan', 'rules' => 'required|max_length[50]'],

@@ -19,7 +19,7 @@ class Rab extends Admin_Controller {
         return [
             ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
             ['field' => 'bidang','label' => 'bidang', 'rules' => 'required'],
-            ['field' => 'kode_rekening','label' => 'kegiatan', 'rules' => 'required'],
+            ['field' => 'uraian_apbd','label' => 'kegiatan', 'rules' => 'required'],
             ['field' => 'waktu_pelaksanaan','label' => 'waktu_pelaksanaan', 'rules' => 'required'],
             ['field' => 'uraian[]','label' => 'uraian', 'rules' => 'required'],
             ['field' => 'volume[]','label' => 'volume', 'rules' => 'required'],
@@ -61,6 +61,7 @@ class Rab extends Admin_Controller {
             'title' => $this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data2' => $this->Main_m->get("apbd",null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -107,7 +108,7 @@ class Rab extends Admin_Controller {
             $subdata = array(
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'bidang' => $_POST['bidang'],
-                'kegiatan' => $_POST['kode_rekening'],
+                'uraian_apbd' => $_POST['kegiatan'],
                 'waktu_pelaksanaan' => $_POST['waktu_pelaksanaan'][$i],
                 'uraian' => $_POST['uraian'][$i],
                 'volume' => $_POST['volume'][$i],
@@ -168,6 +169,7 @@ class Rab extends Admin_Controller {
             'title' => "Edit ".$this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data2' => $this->Main_m->get("apbd",null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -381,12 +383,16 @@ class Rab extends Admin_Controller {
 
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
-        $where = ['tahun_anggaran'=>$tahun_anggaran];
+        $kegiatan = $this->input->get('kegiatan');
+        $where = ['tahun_anggaran'=>$tahun_anggaran , 'kegiatan'=>$kegiatan] ;
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
         #   echo var_dump($data);
         $today = date('Y-m-d');
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
+        $templateProcessor->setValue('waktu_pelaksanaan', $tahun_anggaran);
+        $templateProcessor->setValue('kegiatan', $kegiatan);
+        $templateProcessor->setValue('bidang', $bidang);
         $values = array();
         $no=1;
         $jumlah_total = 0;

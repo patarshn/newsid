@@ -100,7 +100,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
         $data = array(
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'bidang' => $_POST['bidang'],
-                'kegiatan' => $_POST['kode_rekening'],
+                'kegiatan' => $_POST['uraian_apbd'],
                 'tanggal' => $_POST['tanggal'],
                 'uraian' => $_POST['uraian'],
                 'penerimaan_bendahara' => $_POST['penerimaan_bendahara'],
@@ -109,7 +109,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],                    
                 'pengeluaran_bm' => $_POST['pengeluaran_bm'],
                 'jumlah' => $_POST['jumlah'],
-                'saldo' => $_POST['saldo'],
                 'created_at' => date('Y-m-d H:i:s'),
                 'created_by' =>  $this->session->userdata('username'),
             );
@@ -157,6 +156,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             'title' => "Edit ".$this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data2' => $this->Main_m->get("apbd",null)->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -188,7 +188,6 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
                 'pengeluaran_bbj' => $_POST['pengeluaran_bbj'],
                 'pengeluaran_bm' => $_POST['pengeluaran_bm'],
                 'jumlah' => $_POST['jumlah'],
-                'saldo' => $_POST['saldo'],
                 'updated_by' => $this->session->userdata('username'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 

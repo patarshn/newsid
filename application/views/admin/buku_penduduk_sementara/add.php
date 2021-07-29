@@ -37,32 +37,39 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open(base_url('buku_penduduk_sementara/store'),'id="form"')?>
                 <h3 class="text-gray-900"></h3>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Kedatangan Penduduk</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Tahun kedatangan penduduk, contoh: 2019" size="4" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="tahun" id="tahun" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Tahun kedatangan penduduk, contoh: 2019" size="4" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap" size="50" required>
+                            <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap</label>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Induk Penduduk (no_identitas)</label>
-                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor identitas / tanda pengenal" size="16" required>
+                            <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Identitas / Tanda Pengenal</label>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="no_identitas" id="no_identitas" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Nomor identitas / tanda pengenal" size="16" required>
                         </div>
                     </div>                   
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="jk">Jenis Kelamin</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="jk" id="jk" class="form-control border-left-primary"  required>
                             <option selected value="">- Pilih -</option>
                             <option value="Laki-Laki">Laki-Laki</option>
@@ -74,6 +81,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary" placeholder="Tempat Lahir" size="50" required>
                     </div>
                     </div>
@@ -81,6 +89,7 @@
                     <div class="col-lg-2">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_lahir">Tanggal Lahir </label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control border-left-primary" placeholder=""  required>
                     </div>
                     </div>
@@ -88,13 +97,14 @@
                     <div class="col-lg-1">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur </label>
-                        <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" required>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur, contoh : 22" size="3">
                     </div>
                     </div>
 
                     <div class="col-lg-12">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="pekerjaan">Pekerjaan</label>
+                          <medium id="wajib" class="text-danger">*</medium>
                           <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary " placeholder="Pekerjaan penduduk" size="50" required>
                       </div>
                     </div>
@@ -121,6 +131,7 @@
                     <div class="col-lg-6">
                       <div class="form-group">
                           <label class="text-gray-900 font-weight-bold" for="datang_dari">Datang Dari (Asal)</label>
+                          <medium id="wajib" class="text-danger">*</medium>
                           <input type="text" name="datang_dari" id="datang_dari" class="form-control border-left-primary " placeholder="Lokasi / Tempat Kedatangan / Asal " size="100" required>
                           
                       </div>
@@ -129,6 +140,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="maksud_tujuan">Maksud dan Tujuan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <textarea class="form-control border-left-primary" name="maksud_tujuan" id="maksud_tujuan" placeholder="Jelaskan maksud dan tujujuan kedatangan" size="150" rows="3"></textarea>
                     </div>
                     </div>
@@ -136,13 +148,15 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_yg_didatangi">Nama Penduduk yang Didatangi</label>
-                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" placeholder="Nama penduduk desa yang didatangi" size="50" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" placeholder="Nama penduduk desa yang didatangi" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>  
                     </div>       
 
                     <div class="col-lg-6">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="alamat_yg_didatangi">Alamat Penduduk yang Didatangi</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <textarea class="form-control border-left-primary" name="alamat_yg_didatangi" id="alamat_yg_didatangi" placeholder="Alamat penduduk desa yang didatangi" rows="1" size="100" required></textarea>
                         </div>  
                     </div>                         
@@ -150,6 +164,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_datang">Tanggal Kedaatangan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_datang" id="tgl_datang" class="form-control border-left-primary" placeholder="" required>
                     </div>
                     </div>                  
@@ -157,6 +172,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_pergi">Tanggal Kepergian</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_pergi" id="tgl_pergi" class="form-control border-left-primary" placeholder="" required>
                     </div>
                     </div>
@@ -190,3 +206,14 @@
 
       </div>
       <!-- End of Main Content -->
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
+

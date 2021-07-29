@@ -51,8 +51,19 @@
                     </div>
                     
                     <div class="col-lg-3 mt-2">
-                        <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
-                        <input type="text" name="kegiatan" id="kegiatan" class="form-control border-left-primary" value="<?=$d->kegiatan?>" required>
+                        <div class="form-group">
+                            <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
+                                <option><?=$d->kegiatan?></option>
+                                
+                                <?php   
+                                foreach($data2 as $d2):
+                                    $kode = $d2->uraian_apbd;
+                                    echo "<option value='{$kode}'>{$kode}</option>"; 
+                                endforeach;
+                                ?>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="col-lg-3 mt-2">
@@ -72,7 +83,7 @@
 
                     <div class="col-lg-3 mt-2">
                         <label for="harga_satuan" class="text-gray-900 font-weight-bold">Harga Satuan</label>
-                        <input type="number" name="harga_satuan" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" value="<?=$d->harga_satuan?>" required>
+                        <input type="text" name="harga_satuan" id="harga_satuan" onchange="jumlah_rp(0)" class="form-control border-left-primary harga_satuan-0" value="<?=$d->harga_satuan?>" onkeypress="return onlyNumberKey(event)" required>
                         </div>
 
                     <div class="col-lg-3 mt-2">
@@ -120,3 +131,14 @@
           $('.jumlah-'+x).val(sum);
         }
       </script>
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

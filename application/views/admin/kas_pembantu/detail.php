@@ -41,7 +41,7 @@
 
                                     <tr>
                                         <th width="50%">Tahun Anggaran</th>
-                                        <td style="text-align:right"><?= date("d-m-Y", strtotime($d->tahun_anggaran))?></td>
+                                        <td style="text-align:right"><?= $d->tahun_anggaran?></td>
                                     </tr >
 
                                     <tr>
@@ -51,32 +51,32 @@
 
                                     <tr>
                                         <th>Pajak</th>
-                                        <td style="text-align:right">Rp. <?=$d->pajak?></td>
+                                        <td style="text-align:right"><?=$d->pajak?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Retribusi</th>
-                                        <td style="text-align:right">Rp. <?=$d->ret?></td>
+                                        <td style="text-align:right"><?=$d->ret?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Penerimaan Lainnya</th>
-                                        <td style="text-align:right">Rp. <?=$d->pl?></td>
+                                        <td style="text-align:right"><?=$d->pl?></td>
                                     </tr >
 
                                     <tr>
                                         <th>Pemotongan</th>
-                                        <td style="text-align:right">Rp. <?=$d->pemotongan?></td>
+                                        <td style="text-align:right">Rp. <?=number_format($d->pemotongan,0,',','.');?></td>
                                     </tr >
                                     
                                     <tr>
                                         <th>Penyetoran</th>
-                                        <td style="text-align:right">Rp. <?=$d->penyetoran?></td>
+                                        <td style="text-align:right">Rp. <?=number_format($d->penyetoran,0,',','.');?></td>
                                     </tr >
                                     
                                     <tr>
                                         <th>Terakhir diubah</th>
-                                        <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                        <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                     </tr >
                                 </table>
                             </div>

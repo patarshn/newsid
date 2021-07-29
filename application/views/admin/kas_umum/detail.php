@@ -41,7 +41,7 @@
 
                                     <tr>
                                         <th width="50%">Tahun Anggaran</th>
-                                        <td style="text-align:right"><?= date("d-m-Y", strtotime($d->tahun_anggaran))?></td>
+                                        <td style="text-align:right"><?= $d->tahun_anggaran?></td>
                                     </tr >
 
                                     <tr>
@@ -76,7 +76,7 @@
 
                                     <tr>
                                         <th>Terakhir diubah</th>
-                                        <td style="text-align:right"><?=$d->updated_at?> oleh <?=$d->updated_by?></td>
+                                        <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
                                     </tr >
                                 </table>
                             </div>

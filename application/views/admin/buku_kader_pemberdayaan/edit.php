@@ -43,21 +43,27 @@
                  <h5  class="text-gray-900 font-weight-bold" class="modal-title"><center>Data Kader Pembangunan : <?=$d->nama?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>"  size="50" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama?>"  size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
-                        <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" value="<?=$d->umur?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur" value="<?=$d->umur?>" size="2" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="jkelamin">Jenis Kelamin</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="jkelamin" id="jkelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
                             <option><?=$d->jkelamin?></option>
                             <option value="Laki-Laki">Laki-Laki</option>
@@ -67,6 +73,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="pendidikan" id="pendidikan" class="form-control border-left-primary" placeholder="pendidikan" required>
                             <option><?=$d->pendidikan?></option> 
                             <option value="SD">SD</option>
@@ -83,12 +90,14 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="bidang">Bidang</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="bidang" value="<?=$d->bidang?>" size="50" required>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <textarea class="form-control border-left-primary" name="alamat" id="alamat" rows="2" placeholder="Alamat"><?=$d->alamat?></textarea>
                     </div> 
 
@@ -122,3 +131,13 @@
       </div>
       <!-- End of Main Content -->
 
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

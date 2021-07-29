@@ -40,20 +40,21 @@
                 ?>
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
+                <span class = "text-danger font-weight-bold">*</span> <small class="text-gray-900 font-weight-bold">Wajib Diisi</small> 
                 <div class="form-row">
                   <div class="col-lg-6 mt-3">
-                        <label for="jenis_peraturan_desa" class="text-gray-900 font-weight-bold">Jenis Peraturan Desa</label>
-                        <input type="text" name="jenis_peraturan_desa" id="jenis_peraturan_desa" class="form-control border-left-primary" value="<?=$d->jenis_peraturan_desa?>" required>
+                        <label for="jenis_peraturan_desa" class="text-gray-900 font-weight-bold">Jenis Peraturan Desa <span class = "text-danger">*</span></label>
+                        <input type="text" name="jenis_peraturan_desa" id="jenis_peraturan_desa" class="form-control border-left-primary" value="<?=$d->jenis_peraturan_desa?>" maxlength="100" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang</label>
-                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" value="<?=$d->tentang?>" required>
+                        <label for="tentang" class="text-gray-900 font-weight-bold">Tentang <span class = "text-danger">*</span></label>
+                        <input type="text" name="tentang" id="tentang" class="form-control border-left-primary" value="<?=$d->tentang?>" maxlength="100" required>
                         <small id="tentang" class="text-gray-700">Diisi dengan judul/ penamaan Peraturan Desa</small>
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                        <label for="tgl_kesepakatan_peraturan_desa" class="text-gray-900 font-weight-bold">Tanggal Kesepakatan Peraturan Desa</label>
+                        <label for="tgl_kesepakatan_peraturan_desa" class="text-gray-900 font-weight-bold">Tanggal Kesepakatan Peraturan Desa <span class = "text-danger">*</span></label>
                         <input type="date" name="tgl_kesepakatan_peraturan_desa" id="tgl_kesepakatan_peraturan_desa" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl_kesepakatan_peraturan_desa?>" required>
                     </div>
 
@@ -74,10 +75,10 @@
                     </div>                    
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal ditetapkan</label>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal ditetapkan <span class = "text-danger">*</span></label>
                       <div class="form-row">
                         <div class="col-lg-6">
-                          <input type="text" name="no_ditetapkan" id="no_ditetapkan" class="form-control border-left-primary" value="<?=$d->no_ditetapkan?>" required>
+                          <input type="text" name="no_ditetapkan" id="no_ditetapkan" class="form-control border-left-primary" value="<?=$d->no_ditetapkan?>" maxlength="100" required>
                           <small id="no_ditetapkan" class="text-gray-700">Nomor Ditetapkan</small>
                         </div>
 
@@ -89,10 +90,10 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Dilaporkan</label>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Dilaporkan <span class = "text-danger">*</span></label>
                       <div class="form-row">
                         <div class="col-lg-6">
-                          <input type="text" name="no_dilaporkan" id="no_dilaporkan" class="form-control border-left-primary" value="<?=$d->no_dilaporkan?>" required>
+                          <input type="text" name="no_dilaporkan" id="no_dilaporkan" class="form-control border-left-primary" value="<?=$d->no_dilaporkan?>" maxlength="100" required>
                           <small id="no_dilaporkan" class="text-gray-700">Nomor Dilaporkan</small>
                         </div>
 
@@ -104,10 +105,10 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</label>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Diundangkan Dalam Lembaran Desa <span class = "text-danger">*</span></label>
                       <div class="form-row">
                         <div class="col-lg-6">
-                          <input type="text" name="no_diundangkan_dalam_lembaran_desa" id="no_diundangkan_dalam_lembaran_desa" class="form-control border-left-primary" value="<?=$d->no_diundangkan_dalam_lembaran_desa?>" required>
+                          <input type="text" name="no_diundangkan_dalam_lembaran_desa" id="no_diundangkan_dalam_lembaran_desa" class="form-control border-left-primary" value="<?=$d->no_diundangkan_dalam_lembaran_desa?>" maxlength="100" required>
                           <small id="no_diundangkan_dalam_lembaran_desa" class="text-gray-700">Nomor Diundangkan Dalam Lembaran Desa</small>
                         </div>
 
@@ -119,10 +120,10 @@
                     </div>
 
                     <div class="col-lg-6 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Diundangkan Dalam Berita Desa</label>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Diundangkan Dalam Berita Desa <span class = "text-danger">*</span></label>
                       <div class="form-row">
                         <div class="col-lg-6">
-                          <input type="text" name="no_diundangkan_dalam_berita_desa" id="no_diundangkan_dalam_berita_desa" class="form-control border-left-primary" value="<?=$d->no_diundangkan_dalam_berita_desa?>" required>
+                          <input type="text" name="no_diundangkan_dalam_berita_desa" id="no_diundangkan_dalam_berita_desa" class="form-control border-left-primary" value="<?=$d->no_diundangkan_dalam_berita_desa?>" maxlength="100" required>
                           <small id="no_diundangkan_dalam_berita_desa" class="text-gray-700">Nomor Diundangkan Dalam Berita Desa</small>
                         </div>
 
@@ -135,8 +136,8 @@
 
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
-                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat</label>
-                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" required><?=$d->uraian_singkat?></textarea>
+                            <label for="uraian_singkat" class="text-gray-900 font-weight-bold">Uraian Singkat <span class = "text-danger">*</span></label>
+                            <textarea class="form-control border-left-primary" name="uraian_singkat" id="uraian_singkat" rows="3" maxlength="100" required><?=$d->uraian_singkat?></textarea>
                             <small id="uraian_singkat" class="text-gray-700">Diisi secara jelas dan singkat tentang materi pokok pada Peraturan Desa yang telah ditetapkan</small>
                         </div>
                     </div>
@@ -144,7 +145,7 @@
                     <div class="col-lg-12 mt-3">
                         <div class="form-group">
                             <label for="ket" class="text-gray-900 font-weight-bold">Keterangan</label>
-                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" required><?=$d->ket?></textarea>
+                            <textarea class="form-control border-left-primary" name="ket" id="ket" rows="3" maxlength="255" required><?=$d->ket?></textarea>
                             <small id="ket" class="text-gray-700">Diisi dengan catatan-catatan lain yang dianggap perlu</small>
                         </div>
                     </div>

@@ -5,7 +5,7 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-12 col-lg-12">
+            <<div class="col-xl-12 col-lg-12">
             
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -31,7 +31,6 @@
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a class="btn btn-success" href="<?=base_url('admin/'.$uri[2].'/add/');?>">Tambah Data</a>
-                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Hapus</button>-->
                     <a class="btn btn-warning"  data-toggle="modal" data-target="#myModal" >Cetak</a>
 <!-- Modal -->
                       <div id="myModal" class="modal fade" role="dialog">
@@ -87,8 +86,8 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th rowspan="5%">No</th>
+                      <th rowspan="2" width="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2" width="3%">No</th>
                       <th rowspan="2" width="3%"></th>
                       <th rowspan="2">Tahun Anggaran</th>
                       <th rowspan="2">Type</th>
@@ -137,7 +136,7 @@
                       <td><?=$d->kode_rekening2?></td>
                       <td><?=$d->kode_rekening3?></td>
                       <td><?=$d->kode_rekening4?></td>
-                      <td><?=$d->uraian?></td>
+                      <td><?=$d->uraian_apbd?></td>
                       <td>Rp. <?=number_format($d->anggaran,0,',','.');?></td>
 
                       </td>

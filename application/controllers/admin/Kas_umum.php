@@ -338,7 +338,7 @@ class Kas_umum extends Admin_Controller {
 
             $subvalues = array(
                 'id' => $no++,
-                'tanggal' => $d->tanggal,
+                'tanggal' => date("d-m-Y", strtotime($d->tanggal)),
                 'kode_rekening' => $d->kode_rekening,
                 'uraian' => $d->uraian,
                 'penerimaan' => number_format($d->penerimaan,0,',','.'),

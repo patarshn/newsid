@@ -43,53 +43,62 @@
                   <h5 class="text-gray-900 font-weight-bold" ><center>Data Penduduk : <?=$d->nama?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
-
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
+                
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tahun_ektp">Tahun Pembuatan E-KTP</label>
-                        <input type="number" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary"  placeholder="Tahun Pembuatan E-KTP"   value="<?=$d->tahun_ektp?>" size="4" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Tahun Pembuatan E-KTP"   value="<?=$d->tahun_ektp?>" size="4" required>
                     </div>
                     </div>
                     
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nik">Nomor Induk Penduduk (NIK)</label>
-                            <input type="number" name="nik" id="nik" class="form-control border-left-primary" placeholder="Masukan 16 digit nomoe NIK" value="<?=$d->nik?>" size="16" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="nik" id="nik" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Masukan 16 digit nomoe NIK" value="<?=$d->nik?>" size="16" required>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nkk">Nomor Kartu Keluarga</label>
-                            <input type="number" name="nkk" id="nkk" class="form-control border-left-primary"  placeholder="Masukan 16 digit nomor KK" value="<?=$d->nkk?>" size="16" required>
+                            <input type="text" name="nkk" id="nkk" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)"  placeholder="Masukan 16 digit nomor KK" value="<?=$d->nkk?>" size="16" readonly>
                         </div>
                         </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap/Panggilan</label>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan" value="<?=$d->nama?>" size="50" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan" value="<?=$d->nama?>" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ayah">Nama Ayah</label>
-                            <input type="text" name="ayah" id="ayah" class="form-control border-left-primary"  placeholder="Nama Ayah" value="<?=$d->ayah?>" size="50" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="ayah" id="ayah" class="form-control border-left-primary"  placeholder="Nama Ayah" value="<?=$d->ayah?>" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                         </div>
 
                         <div class="col-lg-3">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ibu">Nama Ibu</label>
-                            <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu"  value="<?=$d->ibu?>" size="50" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu"  value="<?=$d->ibu?>" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                         </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="jenis_kelamin">Jenis Kelamin</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="jenis_kelamin" id="jenis_kelamin" class="form-control border-left-primary" placeholder="Jenis Kelamin" required>
                             <option><?=$d->jenis_kelamin?></option>
                             <option value="LAKI-LAKI">LAKI-LAKI</option>
@@ -101,6 +110,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tempat_lahir">Tempat Lahir</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control border-left-primary"  placeholder="Tempat Lahir" value="<?=$d->tempat_lahir?>" size="50" required>
                     </div>
                     </div>
@@ -108,6 +118,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tanggal_lahir">Tanggal Lahir</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control border-left-primary"  placeholder="Tanggal Lahir" value="<?=$d->tanggal_lahir?>" required>
                         </div>
                         </div>
@@ -115,6 +126,7 @@
                 <div class="col-lg-3">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="goldar">Golongan Darah</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="goldar" id="goldar" class="form-control border-left-primary" required>
                             <option><?=$d->goldar?></option>
                             <option value="A">A</option>
@@ -128,6 +140,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="agama">Agama</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="agama" id="agama" class="form-control border-left-primary" required>
                             <option><?=$d->agama?></option>
                             <option value="Islam">Islam</option>
@@ -143,6 +156,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="pendidikan">Pendidikan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="pendidikan" id="pendidikan" class="form-control border-left-primary" required>
                             <option><?=$d->pendidikan?></option> 
                             <option value="SD">SD</option>
@@ -160,6 +174,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="pekerjaan">Pekerjaan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pekerjaan" id="pekerjaan" class="form-control border-left-primary" placeholder="Pekerjaan" value="<?=$d->pekerjaan?>" size="30" required>
                     </div>
                     </div>
@@ -167,6 +182,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="alamat">Alamat</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <textarea class="form-control border-left-primary" name="alamat" placeholder="Alamat" id="alamat" rows="2" required><?=$d->alamat?></textarea>
                      </div>
                      </div>
@@ -174,6 +190,7 @@
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="rt">RT</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="rt" id="rt" class="form-control border-left-primary" placeholder="" required>
                             <option><?=$d->rt?></option>
                             <option value="01">01</option>
@@ -186,6 +203,7 @@
                      <div class="col-lg-1">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="rw">RW</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="rw" id="rw" class="form-control border-left-primary" placeholder="" required>
                             <option><?=$d->rw?></option>
                             <option value="01">01</option>
@@ -203,6 +221,7 @@
                      <div class="col-lg-4">
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="dusun">Nama Dusun</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <input type="text" class="form-control border-left-primary" name="dusun" id="dusun" placeholder="Nama Dusun"  value="<?=$d->dusun?>" size="30" required>
                      </div>
                      </div>
@@ -210,6 +229,7 @@
                      <div class="col-lg-6">
                      <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="status_perkawinan">Status Perkawinan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="status_perkawinan" id="status_perkawinan" class="form-control border-left-primary" value="<?=$d->status_perkawinan?>" required>
                             <option><?=$d->status_perkawinan?></option>
                             <option value="K">K</option>
@@ -225,6 +245,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="hub_keluarga">Status Hubungan Keluarga</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                             <select name="hub_keluarga" id="hub_keluarga" class="form-control border-left-primary" placeholder="" value="<?=$d->hub_keluarga?>" required>
                             <option><?=$d->hub_keluarga?></option>
                             <option value="Kepala Keluarga">Kepala Keluarga</option>
@@ -245,6 +266,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="wn">Kewarganegaraan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="wn" id="wn" class="form-control border-left-primary" required>
                             <option><?=$d->wn?></option>
                             <option value="WNI">WNI</option>
@@ -256,6 +278,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="baca_huruf">Dapat Baca Huruf</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <select name="baca_huruf" id="baca_huruf" class="form-control border-left-primary" required>
                             <option><?=$d->baca_huruf?></option>
                             <option value="L">L</option>
@@ -272,6 +295,7 @@
                     <div class="col-lg-6">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_tinggal_desa">Tanggal Tinggal di Desa</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_tinggal_desa" id="tgl_tinggal_desa" class="form-control border-left-primary" value="<?=$d->tgl_tinggal_desa?>" required>
                     </div>
                     </div>
@@ -279,6 +303,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tmpt_ektp_dikeluarkan">Tempat Keluarnya E-KTP</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tmpt_ektp_dikeluarkan" id="tmpt_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tempat Keluarnya E-KTP" value="<?=$d->tmpt_ektp_dikeluarkan?>" size="30"  required>
                     </div>
                     </div>
@@ -286,6 +311,7 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tgl_ektp_dikeluarkan">Tanggal Keluarnya E-KTP</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_ektp_dikeluarkan" id="tgl_ektp_dikeluarkan" class="form-control border-left-primary" placeholder="Tanggal Keluarnya E-KTP" value="<?=$d->tgl_ektp_dikeluarkan?>" required>
                     </div>
                     </div>      
@@ -321,3 +347,13 @@
       </div>
       <!-- End of Main Content -->
 
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

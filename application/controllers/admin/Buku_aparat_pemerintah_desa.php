@@ -21,39 +21,41 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'nama','label' => 'Nama', 'rules' => 'required'],
-            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required'],
-            ['field' => 'nip','label' => 'NIP', 'rules' => 'required'],
-            ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama', 'rules' => 'required|max_length[100]'],
+            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required|min_length[18]|max_length[18]'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|min_length[18]|max_length[18]'],
+            ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required|max_length[100]'],
+            ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl','label' => 'Tanggal Lahir', 'rules' => 'required'],
-            ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
-            ['field' => 'pangkat_golongan','label' => 'Pangkat Golongan', 'rules' => 'required'],
-            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required'],
-            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pengangkatan','label' => 'Nomor Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'agama','label' => 'Agama', 'rules' => 'required|max_length[100]'],
+            ['field' => 'pangkat_golongan','label' => 'Pangkat Golongan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required|max_length[100]'],
+            ['field' => 'no_keputusan_pengangkatan','label' => 'Nomor Keputusan Pengangkatan', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_keputusan_pengangkatan','label' => 'Tanggal Keputusan Pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pemberhentian','label' => 'Nomor Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pemberhentian','label' => 'Nomor Keputusan Pemberhentian', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_keputusan_pemberhentian','label' => 'Tanggal Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'nama','label' => 'Nama', 'rules' => 'required'],
-            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required'],
-            ['field' => 'nip','label' => 'NIP', 'rules' => 'required'],
-            ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
-            ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama', 'rules' => 'required|max_length[100]'],
+            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required|min_length[18]|max_length[18]'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|min_length[18]|max_length[18]'],
+            ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required|max_length[100]'],
+            ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl','label' => 'Tanggal Lahir', 'rules' => 'required'],
-            ['field' => 'agama','label' => 'Agama', 'rules' => 'required'],
-            ['field' => 'pangkat_golongan','label' => 'Pangkat Golongan', 'rules' => 'required'],
-            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required'],
-            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pengangkatan','label' => 'Nomor Keputusan Pengangkatan', 'rules' => 'required'],
+            ['field' => 'agama','label' => 'Agama', 'rules' => 'required|max_length[100]'],
+            ['field' => 'pangkat_golongan','label' => 'Pangkat Golongan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'jabatan','label' => 'Jabatan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'pendidikan_terakhir','label' => 'Pendidikan Terakhir', 'rules' => 'required|max_length[100]'],
+            ['field' => 'no_keputusan_pengangkatan','label' => 'Nomor Keputusan Pengangkatan', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_keputusan_pengangkatan','label' => 'Tanggal Keputusan Pengangkatan', 'rules' => 'required'],
-            ['field' => 'no_keputusan_pemberhentian','label' => 'Nomor Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'no_keputusan_pemberhentian','label' => 'Nomor Keputusan Pemberhentian', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl_keputusan_pemberhentian','label' => 'Tanggal Keputusan Pemberhentian', 'rules' => 'required'],
+            ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
         ];
     }
 

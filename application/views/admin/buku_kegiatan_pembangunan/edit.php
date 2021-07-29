@@ -42,6 +42,9 @@
                 ?>
                 <h5 class="text-gray-900 font-weight-bold"><center>Data Kegiatan Pembangunan : <?=$d->nama_kegiatan?></h5>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 
                 <div class="form-row">
 
@@ -54,13 +57,15 @@
                 <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Pelaksanaan Kegiatan</label>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" value="<?=$d->tahun?>" size="4" required>
+                            <medium id="wajib" class="text-danger">*</medium>
+                            <input type="text" name="tahun" id="tahun" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Masukan kapan tahun pelaksanaan kegiatan, contoh: 2022" value="<?=$d->tahun?>" size="4" required>
                     </div>
                     </div>
 
                 <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="id_rencana">Nama Proyek/Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="id_rencana" id="id_rencana" class="form-control">
                                 <option><?=$d->nama_kegiatan?></option> 
                                 
@@ -74,6 +79,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="volume">Volume</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <input type="text" name="volume" id="volume" class="form-control border-left-primary " placeholder="Besaran proyek/kegiatan dimaksud" value="<?=$d->volume?>" size="30" required>
                         </div>
                     </div>
@@ -81,6 +87,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="waktu">Waktu Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <input type="text" name="waktu" id="waktu" class="form-control border-left-primary " placeholder="Waktu lamanya proyek/kegiatan akan dilaksanakan" value="<?=$d->waktu?>" size="50" required>
                         </div>
                     </div>
@@ -88,6 +95,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="sifat_kegiatan">Sifat Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="sifat_kegiatan" id="sifat_kegiatan" class="form-control border-left-primary" placeholder=" " required>
                             <option><?=$d->sifat_kegiatan?></option>
                             <option value="Baru">Baru</option>
@@ -99,6 +107,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="pelaksana">Pelaksana Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <input type="text" name="pelaksana" id="pelaksana" class="form-control border-left-primary " placeholder="Pelaksana proyek/kegiatan dimaksud" value="<?=$d->pelaksana?>" size="30" required>
                         </div>
                     </div>
@@ -114,23 +123,27 @@
                     <div class="col-lg-3">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
-                        <input type="number" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  placeholder="Besaran biaya pemerintah" value="<?=$d->biaya_pemerintah?>"  required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya pemerintah" value="<?=$d->biaya_pemerintah?>"  required>
                         </div>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
-                        <input type="number" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" placeholder="Besaran biaya provinsi" value="<?=$d->biaya_prov?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya provinsi" value="<?=$d->biaya_prov?>" required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
-                        <input type="number" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  placeholder="Besaran biaya kabupaten" value="<?=$d->biaya_kab?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya kabupaten" value="<?=$d->biaya_kab?>" required>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
-                        <input type="number" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  placeholder="Besaran biaya swadaya" value="<?=$d->biaya_swadaya?>"  required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya swadaya" value="<?=$d->biaya_swadaya?>"  required>
                     </div>
                     <br>
 
@@ -178,6 +191,17 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
 
 <script>
       function sum() {

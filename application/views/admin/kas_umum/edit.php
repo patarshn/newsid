@@ -62,12 +62,12 @@
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" required>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" value="<?=$d->penerimaan?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" required>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" value="<?=$d->pengeluaran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
@@ -101,3 +101,14 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
