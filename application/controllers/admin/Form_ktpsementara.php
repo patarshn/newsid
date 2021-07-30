@@ -93,7 +93,7 @@ class Form_ktpsementara extends Admin_Controller{
             if(!empty($_FILES["file_ktp"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
-                $berkas_tmp = $this->upload_file('file_ktp',$upload_path,$file_name);
+                $berkas_tmp = $this->upload_image('file_ktp',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     echo $this->upload->display_errors();
                     $callback = array(
@@ -104,7 +104,7 @@ class Form_ktpsementara extends Admin_Controller{
                     exit;
                 }
                 $berkas['file_ktp'] = $berkas_tmp;
-                if(!$this->destroy_file($where,'file_ktp')){
+                if(!$this->destroy_file_json($where,'file_ktp')){
                     $berkas['file_ktp'] = $_POST['file_kk_old'];
                 }
             }
@@ -116,7 +116,7 @@ class Form_ktpsementara extends Admin_Controller{
             if(!empty($_FILES["file_kk"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'kk_'.$nik.'_'.date('YmdHis').'_'.uniqid();
-                $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
+                $berkas_tmp = $this->upload_image('file_kk',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     echo $this->upload->display_errors();
                     $callback = array(
@@ -127,7 +127,7 @@ class Form_ktpsementara extends Admin_Controller{
                     exit;
                 }
                 $berkas['file_kk'] = $berkas_tmp;
-                if(!$this->destroy_file($where,'file_kk')){
+                if(!$this->destroy_file_json($where,'file_kk')){
                     $berkas['file_kk'] = $_POST['file_kk_old'];
                 }
             }
@@ -230,6 +230,14 @@ class Form_ktpsementara extends Admin_Controller{
                     $where.= "id = ".$r." OR ";
                 }
                 $count++;
+            }
+            if (!$this->destroy_file_json($where)) {
+                $callback = array(
+                    'status' => 'error',
+                    'message' => 'Mohon Maaf, Pengisian file gagal dihapus',
+                );
+                echo json_encode($callback);
+                exit;
             }
             if($this->Main_m->destroy($this->_table,$where)){
                 
@@ -378,38 +386,34 @@ class Form_ktpsementara extends Admin_Controller{
         exit;    
     }
 
-    public function upload_file($inputname,$upload_path,$file_name){
-        
-        #$config['upload_path']      = "./uploads/".$this->_folder."/"; //lokasi
-        $config['upload_path']      = $upload_path;
-        $config['allowed_types']    = 'jpg|png|jpeg'; //file dizinka
-        #$config['file_name']        = $this->_folder.uniqid();
-        $config['file_name']        = $file_name;
-        $config['overwrite']        = true;
-        $config['max_size']         = 2000; // 2MB
+   
 
-        $this->load->library('upload',$config);
-        $this->upload->initialize($config);
-
-        if ($this->upload->do_upload($inputname)) {
-            return $this->upload->data("file_name");
-        }
-        else{
-            echo $this->upload->display_errors();
-        }    
-    }
-
-    private function destroy_file($where,$file_json_key) {
+    protected function destroy_file_json($where,$file_json_key = NULL) {
         $berkas_id =  $this->Main_m->get($this->_table,$where)->result();
         foreach ($berkas_id as $b_id) {
-            $berkas = json_decode($b_id->berkas,true);
-            if($berkas[$file_json_key] == ""){
-                return true;
+            if($file_json_key == NULL){
+                $berkas = json_decode($b_id->berkas);
+                if($b_id->berkas == NULL OR $b_id->berkas == "") continue;
+                foreach($berkas as $b){
+                    if(file_exists(FCPATH."uploads/".$this->_folder."/".$b)){
+                        if (!unlink(FCPATH."uploads/".$this->_folder."/".$b)) {
+                            continue;
+                        }
+                    }
+                    
+                }   
             }
-            if (!unlink(FCPATH."uploads/".$this->_folder."/".$berkas[$file_json_key])) {
-                return false;
+            else{
+                $berkas = json_decode($b_id->berkas,true);
+                if($berkas[$file_json_key] == ""){
+                    continue;
+                }
+                if(file_exists(FCPATH."uploads/".$this->_folder."/".$berkas[$file_json_key])){
+                    if (!unlink(FCPATH."uploads/".$this->_folder."/".$berkas[$file_json_key])) {
+                        return false;
+                    }
+                }
             }
-            
         }
         return true;
     }

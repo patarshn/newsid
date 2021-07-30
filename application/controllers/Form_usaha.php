@@ -79,7 +79,7 @@ class Form_usaha extends Frontend_Controller{
             if(!empty($_FILES["file_ktp"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
-                $berkas_tmp = $this->upload_file('file_ktp',$upload_path,$file_name);
+                $berkas_tmp = $this->upload_image('file_ktp',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     #echo $this->upload->display_errors();
                     $callback = array(
@@ -99,7 +99,7 @@ class Form_usaha extends Frontend_Controller{
             if(!empty($_FILES["file_kk"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
-                $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
+                $berkas_tmp = $this->upload_image('file_kk',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     #echo $this->upload->display_errors();
                     $callback = array(

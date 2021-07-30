@@ -25,7 +25,7 @@ class Form_belummenikah extends Frontend_Controller{
 
     function rulesStore(){
         return [
-            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required'],
+            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required|numeric'],
             ['field' => 'nama', 'label' => 'NAMA', 'rules' => 'required'],
             ['field' => 'tempat_lahir', 'label' => 'TEMPAT LAHIR', 'rules' => 'required'],
             ['field' => 'tanggal_lahir', 'label' => 'TANGGAL LAHIR', 'rules' => 'required'],
@@ -68,7 +68,7 @@ class Form_belummenikah extends Frontend_Controller{
             if(!empty($_FILES["file_ktp"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
-                $berkas_tmp = $this->upload_file('file_ktp',$upload_path,$file_name);
+                $berkas_tmp = $this->upload_image('file_ktp',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     #echo $this->upload->display_errors();
                     $callback = array(
@@ -88,7 +88,7 @@ class Form_belummenikah extends Frontend_Controller{
             if(!empty($_FILES["file_kk"]["name"])){
                 $upload_path = "./uploads/".$this->_folderUpload."/"; //lokasi upload
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
-                $berkas_tmp = $this->upload_file('file_kk',$upload_path,$file_name);
+                $berkas_tmp = $this->upload_image('file_kk',$upload_path,$file_name);
                 if(!$berkas_tmp){
                     #echo $this->upload->display_errors();
                     $callback = array(
