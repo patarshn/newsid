@@ -65,6 +65,7 @@
                         <label class="text-gray-900 font-weight-bold" for="biaya">Biaya</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="biaya" id="biaya" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Besaran dukungan biaya atas proyek/kegiatan dimaksud" value="<?=$d->biaya?>" size="30" required>
+                        <small class="text-gray-900 font-weight-bold">Contoh: 1000000 <br></small>
                     </div>
                     </div>
 

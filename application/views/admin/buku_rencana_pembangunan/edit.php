@@ -107,6 +107,7 @@
                         <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya pemerintah" value="<?=$p->biaya_pemerintah?>"  required>
+                        <small class="text-gray-900 font-weight-bold">Contoh: 1000000 <br></small>
                         </div>
                     </div>
 
@@ -114,18 +115,21 @@
                         <label class="text-gray-900 font-weight-bold" for="biaya_prov">Biaya Provinsi</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="biaya_prov" id="biaya_prov" class="form-control biaya_prov-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya provinsi" value="<?=$p->biaya_prov?>" required>
+                        <small class="text-gray-900 font-weight-bold">Contoh: 1000000 <br></small>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_kab">Biaya Kabupaten</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="biaya_kab" id="biaya_kab" class="form-control biaya_kab-0" onkeyup="sum();"  onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya kabupaten" value="<?=$p->biaya_kab?>" required>
+                        <small class="text-gray-900 font-weight-bold">Contoh: 1000000 <br></small>
                     </div>
 
                     <div class="col-lg-3">
                         <label class="text-gray-900 font-weight-bold" for="biaya_swadaya">Biaya Swadaya</label>
                         <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="biaya_swadaya" id="biaya_swadaya" class="form-control biaya_swadaya-0" onkeyup="sum();"  onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya swadaya" value="<?=$p->biaya_swadaya?>"  required>
+                        <small class="text-gray-900 font-weight-bold">Contoh: 1000000 <br></small>
                     </div>
                     <br>
 

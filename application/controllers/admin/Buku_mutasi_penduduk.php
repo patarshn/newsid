@@ -31,7 +31,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
     function rulesStore() { 
         return [
             ['field' => 'bulan_tahun','label' => 'Bulan dan Tahun Mutasi', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|max_length[50]'],
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
@@ -50,7 +50,7 @@ class Buku_mutasi_penduduk extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'bulan_tahun','label' => 'Bulan dan Tahun Mutasi', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'nama','label' => 'Nama Lengkap', 'rules' => 'required|max_length[50]'],
             ['field' => 'jk','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'tempat_lahir','label' => 'Tempat Lahir', 'rules' => 'required|max_length[50]'],
             ['field' => 'tgl_lahir','label' => 'Tanggal Lahir', 'rules' => 'required'],
