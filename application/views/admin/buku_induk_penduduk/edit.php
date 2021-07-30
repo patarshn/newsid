@@ -237,7 +237,7 @@
                             <option value="JD">JD</option>
                             <option value="DD">DD</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700 t">K = Kawin ; JD = Janda ; BK = Belum Kawin ; DD = Duda</small>
+                        <small class="text-gray-900 font-weight-bold" id="abb_apb_desa" class="text-gray-700 t">K = Kawin ; JD = Janda ; BK = Belum Kawin ; DD = Duda</small>
                         
                     </div>
                     </div>
@@ -250,7 +250,7 @@
                             <option><?=$d->hub_keluarga?></option>
                             <option value="Kepala Keluarga">Kepala Keluarga</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700 t">Induk penduduk adalah penduduk yang berkedudukan di keluarga sebagai kepala keluarga</small>
+                        <small class="text-gray-900 font-weight-bold" id="abb_apb_desa" class="text-gray-700 t">Induk penduduk adalah penduduk yang berkedudukan di keluarga sebagai kepala keluarga</small>
                         </div>
                     </div>
 
@@ -279,7 +279,7 @@
                             <option value="AD">AD</option>
                             <option value="ALD">ALD</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700 t">L = Latin ; D = Daerah ; A = Arab ; AL = Arab, Latin ; <br> AD = Arab, Daerah ; ALD = Arab, Latin, Daerah</small>
+                        <small class="text-gray-900 font-weight-bold" id="abb_apb_desa" class="text-gray-700 t">L = Latin ; D = Daerah ; A = Arab ; AL = Arab, Latin ; <br> AD = Arab, Daerah ; ALD = Arab, Latin, Daerah</small>
                     </div>
                    </div>
 

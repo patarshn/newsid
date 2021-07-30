@@ -103,7 +103,7 @@
                     <div class="col-lg-1">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur </label>
-                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur, contoh: 29" size="3" value="<?=$d->umur?>" >
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur" size="3" value="<?=$d->umur?>" >
                     </div>
                     </div>
 
@@ -122,15 +122,15 @@
                             <option><?=$d->kebangsaan?></option>
                             <option value="WNI">WNI</option>
                         </select>
-                        <small id="jk" class="text-gray-700">note* : isi disini jika penduduk adalah WNI</small>
+                        <medium id="jk" class="text-gray-700">note* : isi disini jika penduduk adalah WNI</medium>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                       <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="keturunan">Keturunan</label>
-                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-primary " placeholder="isi disini jika penduduk merupakan WNA" value="<?=$d->keturunan?>" size="50">
-                            <small id="jk" class="text-gray-700">note* : isi dengan nama negara asal</small>
+                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-primary " placeholder="Isi dengan nama negara asal" value="<?=$d->keturunan?>" size="50">
+                            <medium id="jk" class="text-gray-700">note* : isi disini jika penduduk merupakan WNA </medium>
                         </div>
                     </div>
                                     

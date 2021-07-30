@@ -11,7 +11,7 @@ class Penduduk_m extends MY_Model
         $this->db->select('*');
         $this->db->from('ktp_kk');
         $this->db->where('hub_keluarga', 'kepala keluarga');
-        $status = $this->db->get();
+        $status = $this->db->order_by('id','desc')->get();
         #print_r($status->result());
         return $status;
     }
