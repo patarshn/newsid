@@ -86,9 +86,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th rowspan="2" width="3%">No</th>
-                      <th rowspan="2" width="3%"></th>
+                      <th rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2">No</th>
+                      <th rowspan="2"></th>
                       <th rowspan="2">Tahun Anggaran</th>
                       <th rowspan="2">Type</th>
                       <th colspan="4">Kode Rekening</th>

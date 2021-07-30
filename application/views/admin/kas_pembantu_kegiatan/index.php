@@ -61,6 +61,16 @@
                                                     endforeach;
                                                     ?>
                                                 </select>
+                                                <select name="bidang" id="bidang" class="form-control border-left-primary" required>
+                                                    <option>Pilih Bidang</option>
+                                                    
+                                                    <?php   
+                                                    foreach($data3 as $d3):
+                                                        $kode = $d3->bidang;
+                                                        echo "<option value='{$kode}'>{$kode}</option>"; 
+                                                    endforeach;
+                                                    ?>
+                                                </select>
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
