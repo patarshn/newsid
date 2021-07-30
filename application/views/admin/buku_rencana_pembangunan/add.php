@@ -103,7 +103,7 @@
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="biaya_pemerintah">Biaya Pemerintah</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();" onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya pemerintah" required>
+                        <input type="text" name="biaya_pemerintah" id="biaya_pemerintah" class="form-control biaya_pemerntah-0" onkeyup="sum();"  onkeypress="return onlyNumberKey(event)" placeholder="Besaran biaya pemerintah"  required>
                         <small class="text-gray-900 font-weight-bold">Contoh: 1000000 <br></small>
                         </div>
                     </div>
