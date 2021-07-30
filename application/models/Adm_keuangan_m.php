@@ -15,15 +15,16 @@ class Adm_keuangan_m extends MY_Model
 
     public function getbidang(){
         $table = 'rab';
+        $table = 'kas_pembantu_kegiatan';
         $status = $this->db->select('bidang')->from($table)->group_by('bidang')->get();
        
         return $status;
     }
     
-    // public function getbidang(){
-    //     $table = 'rab';
-    //     $status = $this->db->select('bidang')->from($table)->group_by('bidang')->get();
+    public function getbidangkegiatan(){
+        $table = 'kas_pembantu_kegiatan';
+        $status = $this->db->select('bidang')->from($table)->group_by('bidang')->get();
        
-    //     return $status;
-    // }
+        return $status;
+    }
 }

@@ -12,6 +12,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Adm_keuangan_m');
         $this->load->library('breadcrumbcomponent');
         
     }
@@ -69,6 +70,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
             'data2' => $this->Main_m->get("apbd",null)->result(),
+            'data3' => $this->Adm_keuangan_m->getbidang()->result(),
 
         );
 
@@ -350,6 +352,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
         $kegiatan = $this->input->get('kegiatan');
+        $bidang = $this->input->get('bidang');
         $where = ['tahun_anggaran'=>$tahun_anggaran , 'kegiatan'=>$kegiatan] ;
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
         #   echo var_dump($data);
@@ -357,6 +360,7 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $templateProcessor->setValue('kegiatan', $kegiatan);
+        $templateProcessor->setValue('bidang', $bidang);
         $values = array();
         $no=1;
 

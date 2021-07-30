@@ -93,12 +93,7 @@
                                                   <th>Jumlah</th>
                                                   <td style="text-align:right">Rp. <?=number_format($d->jumlah,0,',','.');?></td>
                                                   </tr>
-
-                                                  <tr>
-                                                  <th>saldo</th>
-                                                  <td style="text-align:right">Rp. <?=number_format($d->saldo,0,',','.');?></td>
-                                                  </tr>
-                                                  
+                                     
                                                   <tr>
                                                   <th>Terakhir diubah</th>
                                                   <td style="text-align:right"><?= date("d-m-Y H:i:s", strtotime($d->updated_at))?> oleh <?=$d->updated_by?></td>
