@@ -12,4 +12,18 @@ class Adm_keuangan_m extends MY_Model
         
         return $status;
     }
+
+    public function getbidang(){
+        $table = 'rab';
+        $status = $this->db->select('bidang')->from($table)->group_by('bidang')->get();
+       
+        return $status;
+    }
+    
+    // public function getbidang(){
+    //     $table = 'rab';
+    //     $status = $this->db->select('bidang')->from($table)->group_by('bidang')->get();
+       
+    //     return $status;
+    // }
 }

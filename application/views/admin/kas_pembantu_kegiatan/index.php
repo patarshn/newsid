@@ -52,15 +52,15 @@
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
                                                 <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019" onkeypress="return onlyNumberKey(event)" required>
                                                 <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
-                                <option>Pilih Kegiatan</option>
-                                
-                                <?php   
-                                foreach($data2 as $d2):
-                                    $kode = $d2->uraian_apbd;
-                                    echo "<option value='{$kode}'>{$kode}</option>"; 
-                                endforeach;
-                                ?>
-                            </select>
+                                                    <option>Pilih Kegiatan</option>
+                                                    
+                                                    <?php   
+                                                    foreach($data2 as $d2):
+                                                        $kode = $d2->uraian_apbd;
+                                                        echo "<option value='{$kode}'>{$kode}</option>"; 
+                                                    endforeach;
+                                                    ?>
+                                                </select>
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
                                                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">

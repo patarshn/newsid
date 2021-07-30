@@ -41,7 +41,7 @@
                     <div class="col-lg-6 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-6 mt-2">

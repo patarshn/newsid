@@ -68,6 +68,8 @@ class Kas_pembantu_kegiatan extends Admin_Controller {
             'title' => $this->_mainTitle,
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
+            'data2' => $this->Main_m->get("apbd",null)->result(),
+
         );
 
         $this->load->view('admin/partials/header');
