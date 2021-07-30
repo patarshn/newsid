@@ -149,7 +149,7 @@
                   <tfoot>
                     <tr>
                         <th colspan="10">Jumlah</th>
-                        <th colspan="2">Rp. <?=number_format($jumlah,0,',','.');?></th>
+                        <th colspan="1">Rp. <?=number_format($jumlah,0,',','.');?></th>
                       </tr>
                   </tfoot>
 

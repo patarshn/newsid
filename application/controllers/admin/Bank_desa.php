@@ -358,6 +358,9 @@ class Bank_desa extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $values = array();
+        $jumlah_pemasukan =0;
+        $jumlah_pengeluaran =0;
+        $jumlah_komulatif =0;
         $saldo =0;
         $no=1;
 
@@ -377,9 +380,13 @@ class Bank_desa extends Admin_Controller {
             if($d->pngl_biaya_adm !=0){
                 $saldo = $saldo - $d ->pngl_biaya_adm;
             }
+
+            $jumlah_pemasukan = $jumlah_pemasukan + $d->pmskn_setoran + $d->pmskn_bungabank;
+            $jumlah_pengeluaran = $jumlah_pengeluaran + $d->pngl_penarikan + $d->pngl_pajak + $d->pngl_biaya_adm ;
+            $jumlah_komulatif = $jumlah_komulatif + $jumlah_pengeluaran;
             $subvalues = array(
                 'id' => $no++,
-                'tgl_trans' => $d->tgl_trans,
+                'tgl_trans' => date("d-m-Y", strtotime($d->tgl_trans)),
                 'uraian_trans' => $d->uraian_trans,
                 'bukti_trans' => $d->bukti_trans,
                 'pmskn_setoran' => number_format($d->pmskn_setoran,0,',','.'),
@@ -393,6 +400,9 @@ class Bank_desa extends Admin_Controller {
         }
 
         $templateProcessor->cloneRowAndSetValues('id', $values);
+        $templateProcessor->setValue('jumlah_pemasukan', number_format($jumlah_pemasukan,0,',','.'));
+        $templateProcessor->setValue('jumlah_pengeluaran', number_format($jumlah_pengeluaran,0,',','.'));
+        $templateProcessor->setValue('jumlah_komulatif', number_format($jumlah_komulatif,0,',','.'));
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

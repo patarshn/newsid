@@ -419,10 +419,10 @@ class Kas_pembantu extends Admin_Controller {
         foreach($data as $d){
 
             if($d->pemotongan != 0){
-                $saldo = $saldo + $d->pemotongan;
+                $saldo = $saldo + $d ->pemotongan;
             }
             if($d->penyetoran != 0){
-                $saldo = $saldo - $d->penyetoran;
+                $saldo = $saldo - $d ->penyetoran;
             }
 
             $jumlah_pemotongan = $jumlah_pemotongan + $d->pemotongan;
@@ -434,9 +434,9 @@ class Kas_pembantu extends Admin_Controller {
                 'pajak' => $d->pajak,
                 'ret' => $d->ret,
                 'pl' => $d->pl,
-                'pemotongan' => number_format($pemotongan,0,',','.'),
-                'penyetoran' => number_format($penyetoran,0,',','.'),
-                'saldo' => number_format($saldo,0,',','.'),
+                'pemotongan' => number_format($d->pemotongan,0,',','.'),
+                'penyetoran' => number_format($d->penyetoran,0,',','.'),
+                'saldo' => number_format($saldo,0,',','.')
             );
             $values[] = $subvalues;
         }
