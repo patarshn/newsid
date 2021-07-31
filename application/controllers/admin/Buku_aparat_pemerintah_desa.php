@@ -22,8 +22,8 @@ class Buku_aparat_pemerintah_desa extends Admin_Controller {
     function rulesStore() {
         return [
             ['field' => 'nama','label' => 'Nama', 'rules' => 'required|max_length[100]'],
-            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required|min_length[18]|max_length[18]'],
-            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|min_length[18]|max_length[18]'],
+            ['field' => 'niap','label' => 'NIAP', 'rules' => 'required|numeric|min_length[18]|max_length[18]'],
+            ['field' => 'nip','label' => 'NIP', 'rules' => 'required|numeric|min_length[18]|max_length[18]'],
             ['field' => 'jenis_kelamin','label' => 'Jenis Kelamin', 'rules' => 'required|max_length[100]'],
             ['field' => 'tempat','label' => 'Tempat Lahir', 'rules' => 'required|max_length[100]'],
             ['field' => 'tgl','label' => 'Tanggal Lahir', 'rules' => 'required'],
