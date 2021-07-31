@@ -11,6 +11,7 @@ class Rab extends Admin_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Main_m');
+        $this->load->model('Adm_keuangan_m');
         $this->load->library('breadcrumbcomponent');
         
     }
@@ -62,6 +63,7 @@ class Rab extends Admin_Controller {
             'uri' => $this->uri->segment_array(),
             'folder' => $this->_folder,
             'data2' => $this->Main_m->get("apbd",null)->result(),
+            'data3' => $this->Adm_keuangan_m->getbidang()->result(),
         );
 
         $this->load->view('admin/partials/header');
@@ -384,7 +386,8 @@ class Rab extends Admin_Controller {
     function cetak(){
         $tahun_anggaran = $this->input->get('tahun_anggaran');
         $kegiatan = $this->input->get('kegiatan');
-        $where = ['tahun_anggaran'=>$tahun_anggaran , 'kegiatan'=>$kegiatan] ;
+        $bidang = $this->input->get('bidang');
+        $where = ['tahun_anggaran'=>$tahun_anggaran , 'kegiatan'=>$kegiatan , 'bidang'=>$bidang] ;
         $data=$this->Main_m->getAsc($this->_table,$where)->result();
         #   echo var_dump($data);
         $today = date('Y-m-d');

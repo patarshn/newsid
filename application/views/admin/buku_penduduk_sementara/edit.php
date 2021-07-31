@@ -43,13 +43,16 @@
                 <h5 class="modal-title"><center>Data Penduduk Sementara : <?=$d->nama?></h5>
                 <br>
                 <input type="hidden" name="id" id="id" class="form-control" value="<?=$d->id?>" required>
-
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
+                
                 <div class="form-row">
                 <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="tahun">Tahun Kedatangan Penduduk</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="tahun" id="tahun" class="form-control border-left-primary" placeholder="" value="<?=$d->tahun?>" size="4" required>
+                            <input type="text" name="tahun" id="tahun" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Masukan tahun kedatangan penduduk, contoh: 2022" value="<?=$d->tahun?>" size="4" required>
                         </div>
                     </div>
 
@@ -57,7 +60,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama lengkap" value="<?=$d->nama?>" size="50" required>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama lengkap" value="<?=$d->nama?>" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                     </div>
 
@@ -65,7 +68,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="no_identitas">Nomor Identitas/Tanda Pengenal)</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="no_identitas" id="no_identitas" class="form-control border-left-primary" placeholder="Nomor indentitas/tanda pengenal" value="<?=$d->no_identitas?>" size="16" required>
+                            <input type="text" name="no_identitas" id="no_identitas" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Nomor indentitas/tanda pengenal" value="<?=$d->no_identitas?>" size="16" required>
                         </div>
                     </div>
                     
@@ -100,8 +103,7 @@
                     <div class="col-lg-1">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur </label>
-                        <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="umur" id="umur" class="form-control border-left-primary" placeholder="Umur" value="<?=$d->umur?>" required>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur" size="3" value="<?=$d->umur?>" >
                     </div>
                     </div>
 
@@ -120,15 +122,15 @@
                             <option><?=$d->kebangsaan?></option>
                             <option value="WNI">WNI</option>
                         </select>
-                        <small id="jk" class="text-gray-700">note* : isi disini jika penduduk adalah WNI</small>
+                        <medium id="jk" class="text-gray-700">note* : isi disini jika penduduk adalah WNI</medium>
                     </div>
                     </div>
 
                     <div class="col-lg-6">
                       <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="keturunan">Keturunan</label>
-                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-primary " placeholder="isi disini jika penduduk merupakan WNA" value="<?=$d->keturunan?>" size="50">
-                            <small id="jk" class="text-gray-700">note* : isi dengan nama negara asal</small>
+                            <input type="text" name="keturunan" id="keturunan" class="form-control border-left-primary " placeholder="Isi dengan nama negara asal" value="<?=$d->keturunan?>" size="50">
+                            <medium id="jk" class="text-gray-700">note* : isi disini jika penduduk merupakan WNA </medium>
                         </div>
                     </div>
                                     
@@ -152,7 +154,7 @@
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama_yg_didatangi">Nama Penduduk yang Didatangi</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" value="<?=$d->nama_yg_didatangi?>" size="50" placeholder="Nama penduduk desa yang didatangi" required>
+                            <input typr="text" class="form-control border-left-primary" name="nama_yg_didatangi" id="nama_yg_didatangi" value="<?=$d->nama_yg_didatangi?>" size="50" placeholder="Nama penduduk desa yang didatangi" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>  
                     </div>       
 
@@ -210,3 +212,13 @@
       </div>
       <!-- End of Main Content -->
 
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

@@ -26,11 +26,11 @@ class Buku_rencana_pembangunan extends Admin_Controller {
     function rulesStore() {
         return [            
             ['field' => 'tahun','label' => 'Tahun Rencana Kegiatan Dibuat', 'rules' => 'required|min_length[4]|max_length[4]'],
-            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
-            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required|max_length[50]'],
+            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|max_length[50]'],
             ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
-            ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required|'],
+            ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],
             ['field' => 'biaya_prov','label' => 'Biaya Provinsi', 'rules' => 'required'],
             ['field' => 'biaya_kab','label' => 'Biaya Kabupaten', 'rules' => 'required'],
             ['field' => 'biaya_swadaya','label' => 'Biaya Swadaya', 'rules' => 'required'],
@@ -43,8 +43,8 @@ class Buku_rencana_pembangunan extends Admin_Controller {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'tahun','label' => 'Tahun Rencana Pembangunan', 'rules' => 'required|min_length[4]|max_length[4]'],
-            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
-            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|min_length[5]|max_length[50]'],
+            ['field' => 'nama_proyek','label' => 'Nama Proyek/Kegiatan', 'rules' => 'required|max_length[50]'],
+            ['field' => 'pelaksana','label' => 'Pelaksana Kegiatan', 'rules' => 'required|max_length[50]'],
             ['field' => 'manfaat','label' => 'Manfaat Pembangunan', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'biaya_pemerintah','label' => 'Biaya Pemerintah', 'rules' => 'required'],

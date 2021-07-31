@@ -36,21 +36,24 @@
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
                 <?=form_open_multipart(base_url('rab/store'),'id="form"')?>
-                <h3 class="text-gray-900"><?=$title?></h3>
+                <h4 class="text-gray-900">Rincian Anggaran Biaya</h4>
                 <div class="form-row">
                     <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Tahun kegiatan, co: 2021" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" placeholder="Nama Bidang"required>
                     </div>
 
                     <div class="col-lg-3 mt-2">
                         <div class="form-group">
                             <label for="uraian_apbd" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="uraian_apbd" id="uraian_apbd" class="form-control border-left-primary" required>
                                 <option>-</option>
                                 <?php   
@@ -65,6 +68,7 @@
                     
                     <div class="col-lg-3 mt-2">
                         <label for="waktu_pelaksanaan" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan" class="form-control border-left-primary" required>
                     </div>
 

@@ -50,7 +50,7 @@
                                               <div class="form-group">
                                                 <form method="get" action="bank_desa/cetak">
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
-                                                <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
+                                                <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019" onkeypress="return onlyNumberKey(event)" required>
       
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
@@ -76,8 +76,6 @@
                     <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
-                      <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
-										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
 										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
@@ -176,3 +174,14 @@
     </div>
   </div>
 </div>
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

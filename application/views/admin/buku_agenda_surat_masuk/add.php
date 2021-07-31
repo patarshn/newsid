@@ -47,7 +47,7 @@
                     <div class="col-lg-6 mt-3">
                         <label for="nama_pengirim" class="text-gray-900 font-weight-bold">Nama Instansi Pengirim</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" required>
+                        <input type="text" name="nama_pengirim" id="nama_pengirim" class="form-control border-left-primary" required onkeypress='return harusHuruf(event)'>
                     </div>
 
                     <div class="col-lg-6 mt-3">
@@ -107,7 +107,15 @@
             </div>
           </div>
           
-
+          <script>
+ 
+          function harusHuruf(evt){
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if ((charCode < 65 || charCode > 90)&&(charCode < 97 || charCode > 122)&&charCode>32)
+             return false;
+         return true;
+        }
+        </script>
 
         </div>
         <!-- /.container-fluid -->

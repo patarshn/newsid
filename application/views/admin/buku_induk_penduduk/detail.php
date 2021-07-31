@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="modal-header  border-bottom">
-                    <h5 class="modal-title" class="text-gray-900 font-weight-bold">Data Induk Penduduk: <?=$d->nama?></h5>
+                    <h5 class="text-gray-900 font-weight-bold">Data Induk Penduduk: <?=$d->nama?></h5></center>
                     </div>
                                   <div class="row">
                                       <div class="col-lg-12">

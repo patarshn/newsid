@@ -116,21 +116,27 @@
 $('#nik').keyup(function(){
     var timer = null;
     var nik = $('#nik').val();
-    clearTimeout(timer); 
+    if(nik.length != 16) return false;
     timer = setTimeout($.get(base_url+'kependudukan/nik/'+nik, function(data){
         var obj = JSON.parse(data);
-        $('#nama').val(obj['data']['nama']);
-        $('#alamat').html(obj['data']['alamat']);
-        $('#tempat_lahir').val(obj['data']['tempat_lahir']);
-        $('#tanggal_lahir').val(obj['data']['tanggal_lahir']);
-        $('#agama').val(obj['data']['agama']);
-        $('#jenis_kelamin').val(obj['data']['jenis_kelamin']);
-        $('#pekerjaan').val(obj['data']['pekerjaan']);
-        $('#pendidikan').val(obj['data']['pendidikan']);
-        $('#status_perkawinan').val(obj['data']['status_perkawinan']);
-        $('#rt').val(obj['data']['rt']);
-        $('#rw').val(obj['data']['rw']);
+        if(obj.status == "error"){
+            console.log(obj.message)
+        }
+        else if(obj.status == "success"){
+            $('#nama').val(obj['data']['nama']);
+            $('#alamat').html(obj['data']['alamat']);
+            $('#tempat_lahir').val(obj['data']['tempat_lahir']);
+            $('#tanggal_lahir').val(obj['data']['tanggal_lahir']);
+            $('#agama').val(obj['data']['agama']);
+            $('#jenis_kelamin').val(obj['data']['jenis_kelamin']);
+            $('#pekerjaan').val(obj['data']['pekerjaan']);
+            $('#pendidikan').val(obj['data']['pendidikan']);
+            $('#status_perkawinan').val(obj['data']['status_perkawinan']);
+            $('#rt').val(obj['data']['rt']);
+            $('#rw').val(obj['data']['rw']);
+        }
     }), 3000);
+    clearTimeout(timer);    
 });
 
 

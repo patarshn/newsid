@@ -44,13 +44,16 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open(base_url('buku_induk_penduduk/store'),'id="form"')?>
                 <h3 class="text-gray-900"></h3>
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
                 <div class="form-row">
                 
                 <div class="col-lg-12"> 
                         <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="tahun_ektp">Tahun Pembuatan E-KTP</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" placeholder="Tahun Pembuatan E-KTP" size="4"  required>
+                        <input type="text" name="tahun_ektp" id="tahun_ektp" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Tahun Pembuatan E-KTP" size="4"  required>
                     </div>
                     </div>
                     
@@ -58,7 +61,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nik">Nomor Induk Penduduk (NIK)</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="nik" id="nik" class="form-control border-left-primary" placeholder="Masukan 16 digit nomoe NIK" size="16"  required>
+                            <input type="text" name="nik" id="nik" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Masukan 16 digit angka nomor NIK" size="16"  required>
                             <medium id="wajib" class="text-danger">Pastikan NIK yang dimasukan sudah benar, Jika sudah disimpan tidak dapat diubah lagi</medium>
                         </div>
                     </div>
@@ -67,7 +70,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nkk">Nomor Kartu Keluarga</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="number" name="nkk" id="nkk" class="form-control border-left-primary " placeholder="Masukan 16 digit nomor KK" size="16" required>
+                            <input type="text" name="nkk" id="nkk" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Masukan 16 digit angka nomor KK" size="16" required>
                         </div>
                         </div>
 
@@ -75,7 +78,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="nama">Nama Lengkap/Panggilan</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan" size="50"  required>
+                            <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap atau panggilan" size="50"  onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                     </div>
 
@@ -83,7 +86,7 @@
                     <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ayah">Nama Ayah</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="text" name="ayah" id="ayah" class="form-control border-left-primary" placeholder="Nama Ayah" size="50"  required>
+                            <input type="text" name="ayah" id="ayah" class="form-control border-left-primary" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" placeholder="Nama Ayah" size="50"  required>
                         </div>
                         </div>
 
@@ -91,7 +94,7 @@
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="ibu">Nama Ibu</label>
                             <medium id="wajib" class="text-danger">*</medium>
-                            <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu" size="50" required>
+                            <input type="text" name="ibu" id="ibu" class="form-control border-left-primary" placeholder="Nama Ibu" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                         </div>
                         </div>
 
@@ -237,7 +240,7 @@
                             <option value="JD">JD</option>
                             <option value="DD">DD</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700 t">K = Kawin ; JD = Janda ; BK = Belum Kawin ; DD = Duda</small>
+                        <small class="text-gray-900 font-weight-bold" id="abb_apb_desa" class="text-gray-700 t">K = Kawin ; JD = Janda ; BK = Belum Kawin ; DD = Duda</small>
                         
                     </div>
                     </div>
@@ -250,7 +253,7 @@
                             <option selected value="">- Pilih -</option>
                             <option value="Kepala Keluarga">Kepala Keluarga</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700 t">Induk penduduk adalah penduduk yang berkedudukan di keluarga sebagai kepala keluarga</small>
+                        <small class="text-gray-900 font-weight-bold" id="abb_apb_desa" class="text-gray-700 t">Induk penduduk adalah penduduk yang berkedudukan di keluarga sebagai kepala keluarga</small>
                         </div>
                     </div>
 
@@ -279,7 +282,7 @@
                             <option value="AD">AD</option>
                             <option value="ALD">ALD</option>
                         </select>
-                        <small id="abb_apb_desa" class="text-gray-700 t">L = Latin ; D = Daerah ; A = Arab ; AL = Arab, Latin ; <br> AD = Arab, Daerah ; ALD = Arab, Latin, Daerah</small>
+                        <small class="text-gray-900 font-weight-bold" id="abb_apb_desa" class="text-gray-700 t">L = Latin ; D = Daerah ; A = Arab ; AL = Arab, Latin ; <br> AD = Arab, Daerah ; ALD = Arab, Latin, Daerah</small>
                     </div>
                    </div>
 
@@ -336,3 +339,15 @@
 
       </div>
       <!-- End of Main Content -->
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>
+
+

@@ -36,41 +36,50 @@
                 <!-- Card Body -->
                 <div class="card-body border-bottom-primary">
                 <?=form_open_multipart(base_url('kas_umum/store'),'id="form"')?>
-                <h3 class="text-gray-900"><?=$title?></h3>
+                <h4 class="text-gray-900"><?=$title?></h4>
                 <div class="form-row">
 
                     <div class="col-lg-4 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="Masukan Tahun Kegiatan, Co: 2021" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="kode_rekening" class="text-gray-900 font-weight-bold">Kode Rekening</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="kode_rekening" id="kode_rekening" class="form-control border-left-primary" placeholder="Masukan Kode Rekening" required>
                     </div>
 
                     <div class="col-lg-12 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" placeholder="Uraian" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan" class="text-gray-900 font-weight-bold">Penerimaan</label>
-                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" placeholder="Jumlah Penerimaani" onkeypress="return onlyNumberKey(event)" required>
-                    </div>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="penerimaan" id="penerimaan" class="form-control border-left-primary" placeholder="Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_umum" class="text-gray-700">contoh : 20000 </small>
+                      </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran" class="text-gray-900 font-weight-bold">Pengeluaran</label>
-                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" placeholder="Jumlah Pengeluaran" onkeypress="return onlyNumberKey(event)" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="pengeluaran" id="pengeluaran" class="form-control border-left-primary" placeholder="Rp." onkeypress="return onlyNumberKey(event)" required>
+                        <small id="kas_umum" class="text-gray-700">contoh : 20000 </small>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">No Bukti</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" placeholder="Nomor Bukti" required>
                     </div>
 

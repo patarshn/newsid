@@ -17,9 +17,12 @@ class Kas_umum extends Admin_Controller {
 
     function rulesStore() {
         return [
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
+            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
            
         ];
@@ -27,10 +30,13 @@ class Kas_umum extends Admin_Controller {
 
     function rulesUpdate() {
         return [
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
             ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
             ['field' => 'kode_rekening','label' => 'Kode Rekening', 'rules' => 'required'],
             ['field' => 'uraian','label' => 'Uraian', 'rules' => 'required'],
+            ['field' => 'penerimaan','label' => 'Penerimaan', 'rules' => 'required'],
+            ['field' => 'pengeluaran','label' => 'Pengeluaran', 'rules' => 'required'],
             ['field' => 'no_bukti','label' => 'No Bukti', 'rules' => 'required'],
            
         ];

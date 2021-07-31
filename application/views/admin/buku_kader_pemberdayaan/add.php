@@ -37,19 +37,22 @@
                 <div class="card-body border-bottom-primary">
                 <?=form_open(base_url('kader_pemberdayaan/store'),'id="form"')?>
                 <h3 class="text-gray-900"></h3>
-
+                <span class="text-danger font-weight-bold">*</span>
+                <small class="text-gray-900 font-weight-bold">Wajib Diisi<br></small>
+                <br>
+                
                 <div class="form-row">
                     <div class="col-lg-6 ">
                     <div class="form-group">
                         <label class="text-gray-900 font-weight-bold" for="nama">Nama</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" size="50" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" placeholder="Nama Lengkap Anda" size="50" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
                     </div>
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="umur">Umur</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="umur" id="umur" class="form-control border-left-primary " placeholder="Umur Anda" required>
+                        <input type="text" name="umur" id="umur" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" placeholder="Umur Anda, contoh: 29" size="2" required>
                     </div>
                     <div class="col-lg-6">
                     <div class="form-group">
@@ -121,3 +124,14 @@
 
       </div>
       <!-- End of Main Content -->
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
+</script>

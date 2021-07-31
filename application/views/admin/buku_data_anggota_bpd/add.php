@@ -41,13 +41,13 @@
                     <div class="col-lg-6 mt-3">
                         <label for="nama" class="text-gray-900 font-weight-bold">Nama</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" required>
+                        <input type="text" name="nama" id="nama" class="form-control border-left-primary" required onkeypress='return harusHuruf(event)'>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="nip" class="text-gray-900 font-weight-bold">NIP</label>
                         <medium id="wajib" class="text-danger">*</medium>
-                        <input type="number" name="nip" id="nip" class="form-control border-left-primary" size="18" required>
+                        <input type="number " name="nip" id="nip" class="form-control border-left-primary" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57" required>
                         <small id="nip" class="text-gray-700">Diisi dengan nomor induk anggota </small>
                     </div>
 
@@ -180,7 +180,17 @@
             </div>
           </div>
           
-
+          <script>
+ 
+ function harusHuruf(evt){
+         var charCode = (evt.which) ? evt.which : event.keyCode
+         if ((charCode < 65 || charCode > 90)&&(charCode < 97 || charCode > 122)&&charCode>32)
+             return false;
+         return true;
+ }
+  
+  
+ </script>
 
         </div>
         <!-- /.container-fluid -->

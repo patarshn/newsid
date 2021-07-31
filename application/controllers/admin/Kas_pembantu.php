@@ -17,20 +17,19 @@ class Kas_pembantu extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'pemotongan','label' => 'Pemotongan', 'rules' => 'required'],
             ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
-            ['field' => 'saldo','label' => 'saldo', 'rules' => 'required'],
         ];
     }
 
     function rulesUpdate() {
         return [
-            ['field' => 'tahun_anggaran','label' => 'tahun_anggaran', 'rules' => 'required'],
-            ['field' => 'tanggal','label' => 'tanggal', 'rules' => 'required'],
-            ['field' => 'pemotongan','label' => 'pemotongan', 'rules' => 'required'],
-            ['field' => 'penyetoran','label' => 'penyetoran', 'rules' => 'required'],
+            ['field' => 'tahun_anggaran','label' => 'Tahun Anggaran', 'rules' => 'required'],
+            ['field' => 'tanggal','label' => 'Tanggal', 'rules' => 'required'],
+            ['field' => 'pemotongan','label' => 'Pemotongan', 'rules' => 'required'],
+            ['field' => 'penyetoran','label' => 'Penyetoran', 'rules' => 'required'],
         ];
     }
 
@@ -412,23 +411,39 @@ class Kas_pembantu extends Admin_Controller {
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $templateProcessor = $phpWord->loadTemplate('./assets/buku_adm_keuangan/'.$this->_docxName);
         $values = array();
+        $jumlah_pemotongan =0;
+        $jumlah_penyetoran =0;
+        $saldo =0;
         $no=1;
 
         foreach($data as $d){
+
+            if($d->pemotongan != 0){
+                $saldo = $saldo + $d ->pemotongan;
+            }
+            if($d->penyetoran != 0){
+                $saldo = $saldo - $d ->penyetoran;
+            }
+
+            $jumlah_pemotongan = $jumlah_pemotongan + $d->pemotongan;
+            $jumlah_penyetoran = $jumlah_penyetoran + $d->penyetoran;
+
             $subvalues = array(
                 'id' => $no++,
-                'tanggal' => $d->tanggal,
+                'tanggal' => date("d-m-Y", strtotime($d->tanggal)),
                 'pajak' => $d->pajak,
                 'ret' => $d->ret,
                 'pl' => $d->pl,
-                'pemotongan' => $d->pemotongan,
-                'penyetoran' => $d->penyetoran,
-                'saldo' => $d->saldo
+                'pemotongan' => number_format($d->pemotongan,0,',','.'),
+                'penyetoran' => number_format($d->penyetoran,0,',','.'),
+                'saldo' => number_format($saldo,0,',','.')
             );
             $values[] = $subvalues;
         }
 
         $templateProcessor->cloneRowAndSetValues('id', $values);
+        $templateProcessor->setValue('jumlah_pemotongan', number_format($jumlah_pemotongan,0,',','.'));
+        $templateProcessor->setValue('jumlah_penyetoran', number_format($jumlah_penyetoran,0,',','.'));
         $temp_filename = $this->_docxName;
         $templateProcessor->saveAs($temp_filename);
         header('Content-Description: File Transfer');

@@ -43,12 +43,13 @@
                 <div class="form-row">
                 <div class="col-lg-6 mt-3">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" onkeypress="return onlyNumberKey(event)" value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <div class="form-group">
                             <label for="type" class="text-gray-900 font-weight-bold">Type</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="type" id="type" class="form-control border-left-primary" onchange="kode_rekening()" required>
                                 <option><?=$d->type?></option>
                                 <option value="PENDAPATAN">Pendapatan</option>
@@ -84,11 +85,13 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="uraian_apbd" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="uraian_apbd" id="uraian_apbd" class="form-control border-left-primary" value="<?=$d->uraian_apbd?>" required>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="anggaran" class="text-gray-900 font-weight-bold">Anggaran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="anggaran" id="anggaran" class="form-control border-left-primary" value="<?=$d->anggaran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 

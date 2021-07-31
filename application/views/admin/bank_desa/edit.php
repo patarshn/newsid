@@ -41,63 +41,75 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>">
                 <div class="form-row">
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
-                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" required>
+                        <medium id="wajib" class="text-danger">*</medium>
+                        <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" value="<?=$d->tahun_anggaran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
                         <label for="bulan" class="text-gray-900 font-weight-bold">Bulan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bulan" id="bulan" class="form-control border-left-primary" value="<?=$d->bulan?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
                         <label for="bank_cabang" class="text-gray-900 font-weight-bold">Bank Cabang</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bank_cabang" id="bank_cabang" class="form-control border-left-primary" value="<?=$d->bank_cabang?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
                         <label for="rekening" class="text-gray-900 font-weight-bold">Rekening. No</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="rekening" id="rekening" class="form-control border-left-primary" value="<?=$d->rekening?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-3 mt-2">
                         <label for="tgl_trans" class="text-gray-900 font-weight-bold">Tanggal Transaksi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tgl_trans" id="tgl_trans" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tgl_trans?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-9 mt-2">
                         <label for="uraian_trans" class="text-gray-900 font-weight-bold">Uraian Transaksi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="uraian_trans" id="uraian_trans" class="form-control border-left-primary" value="<?=$d->uraian_trans?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-4 mt-2">
                         <label for="bukti_trans" class="text-gray-900 font-weight-bold">Bukti Transaksi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bukti_trans" id="bukti_trans" class="form-control border-left-primary" value="<?=$d->bukti_trans?>" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-4 mt-2">
                         <label for="pmskn_setoran" class="text-gray-900 font-weight-bold">Setoran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pmskn_setoran" id="pmskn_setoran" class="form-control border-left-primary" value="<?=$d->pmskn_setoran?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-4 mt-2">
                         <label for="pmskn_bungabank" class="text-gray-900 font-weight-bold">Bunga Bank</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pmskn_bungabank" id="pmskn_bungabank" class="form-control border-left-primary" value="<?=$d->pmskn_bungabank?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-4 mt-2">
                         <label for="pngl_penarikan" class="text-gray-900 font-weight-bold">Penarikan</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pngl_penarikan" id="pngl_penarikan" class="form-control border-left-primary" value="<?=$d->pngl_penarikan?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-4 mt-2">
                         <label for="pngl_pajak" class="text-gray-900 font-weight-bold">Pajak</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pngl_pajak" id="pngl_pajak" class="form-control border-left-primary" value="<?=$d->pngl_pajak?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-4 mt-2">
                         <label for="pngl_biaya_adm" class="text-gray-900 font-weight-bold">Biaya Administrasi</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pngl_biaya_adm" id="pngl_biaya_adm" class="form-control border-left-primary" value="<?=$d->pngl_biaya_adm?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
                             

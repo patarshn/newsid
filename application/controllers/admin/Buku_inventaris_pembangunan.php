@@ -17,8 +17,8 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
     
     function rulesStore() {
         return [
-            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required|min_length[5]|max_length[50]'],
-            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|min_length[5]|max_length[30]'],
+            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|max_length[30]'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
@@ -28,8 +28,8 @@ class Buku_inventaris_pembangunan extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required|min_length[5]|max_length[50]'],
-            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|min_length[5]|max_length[30]'],
+            ['field' => 'nama_hasil','label' => 'Jenis/Nama Hasil Pembangunan', 'rules' => 'required|max_length[100]'],
+            ['field' => 'volume','label' => 'Volume', 'rules' => 'required|max_length[30]'],
             ['field' => 'biaya','label' => 'Biaya', 'rules' => 'required'],
             ['field' => 'lokasi','label' => 'Lokasi', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],

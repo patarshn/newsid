@@ -25,11 +25,11 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
 
     function rulesStore() {
         return [
-            ['field' => 'nama','label' => 'Nama', 'rules' => 'required|min_length[5]|max_length[50]'],
-            ['field' => 'umur','label' => 'Umur', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama', 'rules' => 'required|max_length[50]'],
+            ['field' => 'umur','label' => 'Umur', 'rules' => 'required|min_length[2]|max_length[2]'],
             ['field' => 'jkelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
-            ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required|min_length[3]|max_length[50]'],
+            ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required|max_length[50]'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];
@@ -38,11 +38,11 @@ class Buku_kader_pemberdayaan extends Admin_Controller {
     function rulesUpdate() {
         return [
             ['field' => 'id','label' => 'id', 'rules' => 'required'],
-            ['field' => 'nama','label' => 'Nama', 'rules' => 'required|min_length[5]|max_length[50]'],
-            ['field' => 'umur','label' => 'Umur', 'rules' => 'required'],
+            ['field' => 'nama','label' => 'Nama', 'rules' => 'required|max_length[50]'],
+            ['field' => 'umur','label' => 'Umur', 'rules' => 'required|min_length[2]|max_length[2]'],
             ['field' => 'jkelamin','label' => 'Jenis Kelamin', 'rules' => 'required'],
             ['field' => 'pendidikan','label' => 'Pendidikan', 'rules' => 'required'],
-            ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required|min_length[3]|max_length[50]'],
+            ['field' => 'bidang','label' => 'Bidang', 'rules' => 'required|max_length[50]'],
             ['field' => 'alamat','label' => 'Alamat', 'rules' => 'required'],
             ['field' => 'ket','label' => 'Keterangan'],
            ];

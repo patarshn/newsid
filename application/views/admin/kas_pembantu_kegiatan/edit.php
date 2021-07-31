@@ -42,17 +42,20 @@
                 <input type="hidden" name="id" id="id" value="<?=$d->id?>"><div class="form-row">
                     <div class="col-lg-4 mt-2">
                         <label for="tahun_anggaran" class="text-gray-900 font-weight-bold">Tahun Anggaran</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary " value="<?=$d->tahun_anggaran?>" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="bidang" class="text-gray-900 font-weight-bold">Bidang</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="bidang" id="bidang" class="form-control border-left-primary" value="<?=$d->bidang?>" required>
                     </div>
                     
-                    <div class="col-lg-3 mt-2">
+                    <div class="col-lg-4 mt-2">
                         <div class="form-group">
                             <label for="kegiatan" class="text-gray-900 font-weight-bold">Kegiatan</label>
+                            <medium id="wajib" class="text-danger">*</medium>
                             <select name="kegiatan" id="kegiatan" class="form-control border-left-primary" required>
                                 <option><?=$d->kegiatan?></option>
                                 
@@ -67,42 +70,50 @@
                     </div>
 
                     <div class="col-lg-4 mt-2">
-                        <label for="tanggal" class="text-gray-900 font-weight-bold">Waktu Pelaksanaan</label>
+                        <label for="tanggal" class="text-gray-900 font-weight-bold">Tanggal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="date" name="tanggal" id="tanggal" class="form-control border-left-primary" value="<?=$d->tanggal?>" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="uraian" class="text-gray-900 font-weight-bold">Uraian</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="uraian" id="uraian" class="form-control border-left-primary" value="<?=$d->uraian?>" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_bendahara" class="text-gray-900 font-weight-bold">Penerimaan dari Bendahara</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="penerimaan_bendahara" id="penerimaan_bendahara" class="form-control border-left-primary" value="<?=$d->penerimaan_bendahara?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="penerimaan_sdm" class="text-gray-900 font-weight-bold">Penerimaan Swadaya Masyarakat</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="penerimaan_sdm" id="penerimaan_sdm" class="form-control border-left-primary" value="<?=$d->penerimaan_sdm?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="no_bukti" class="text-gray-900 font-weight-bold">Nomor Bukti</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="no_bukti" id="no_bukti" class="form-control border-left-primary" value="<?=$d->no_bukti?>" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran_bbj" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Barang dan Jasa</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pengeluaran_bbj" id="pengeluaran_bbj" class="form-control border-left-primary" value="<?=$d->pengeluaran_bbj?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="pengeluaran_bm" class="text-gray-900 font-weight-bold">Pengeluaran Belanja Modal</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="pengeluaran_bm" id="pengeluaran_bm" class="form-control border-left-primary" value="<?=$d->pengeluaran_bm?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>
 
                     <div class="col-lg-4 mt-2">
                         <label for="jumlah" class="text-gray-900 font-weight-bold">Jumlah Pengembalian Ke Bendahara</label>
+                        <medium id="wajib" class="text-danger">*</medium>
                         <input type="text" name="jumlah" id="jumlah" class="form-control border-left-primary" value="<?=$d->jumlah?>" onkeypress="return onlyNumberKey(event)" required>
                     </div>        
                 </div>

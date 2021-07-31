@@ -50,7 +50,7 @@
                                               <div class="form-group">
                                                 <form method="get" action="apbd/cetak">
                                                 <label for="tahun_anggaran"><b>Masukan Periode Tahun</b></label>
-                                                <input type="number" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019"  required>
+                                                <input type="text" name="tahun_anggaran" id="tahun_anggaran" class="form-control border-left-primary" placeholder="contoh: 2019" onkeypress="return onlyNumberKey(event)" required>
                                                 
                                                 <div class="d-flex mt-3">
                                                 <button type="submit" class="btn btn-success active-button align-self-center">Cetak</button>
@@ -86,9 +86,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="text-align:center">
                   <thead>
                     <tr>
-                      <th rowspan="2" width="3%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
-                      <th rowspan="2" width="3%">No</th>
-                      <th rowspan="2" width="3%"></th>
+                      <th rowspan="2"><input type="checkbox" class="rowdelete" id="selectAll"></th>
+                      <th rowspan="2">No</th>
+                      <th rowspan="2"></th>
                       <th rowspan="2">Tahun Anggaran</th>
                       <th rowspan="2">Type</th>
                       <th colspan="4">Kode Rekening</th>
@@ -149,7 +149,7 @@
                   <tfoot>
                     <tr>
                         <th colspan="10">Jumlah</th>
-                        <th colspan="2">Rp. <?=number_format($jumlah,0,',','.');?></th>
+                        <th colspan="1">Rp. <?=number_format($jumlah,0,',','.');?></th>
                       </tr>
                   </tfoot>
 
@@ -204,4 +204,15 @@ function total_anggaran(){
   console.log('a');
 }
 
+</script>
+
+<script>
+    function onlyNumberKey(evt) {
+      //Only ASCII character in that range allowed
+      var ASCIICode = (evt.which)? evt.which : evt.keycode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+        return false;
+        return true;     
+    
+    }
 </script>
