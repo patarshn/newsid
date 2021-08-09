@@ -68,7 +68,13 @@
 
         								<tr>
         									<th>NIP</th>
-        									<td><?=$d->nip?></td>
+        									<td>
+												<?php if($d->nip != NULL):?>
+        										<?=$d->nip?>
+        										<?php else :?>
+        										Belum Memiliki NIP
+        										<?php endif; ?>
+        									</td>
         								</tr>
 
         								<tr>
@@ -101,11 +107,11 @@
         								<tr>
         									<th>Keterangan</th>
         									<td>
-        										<?php if($d->ket != 0):?>
-        									<td><?=$d->ket?></td>
-        									<?php else :?>
-        									Tidak ada Keterangan
-        									<?php endif; ?>
+        										<?php if($d->ket != NULL):?>
+        										<?=$d->ket?>
+        										<?php else :?>
+        										Tidak ada Keterangan
+        										<?php endif; ?>
         									</td>
         								</tr>
 

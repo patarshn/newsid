@@ -75,13 +75,12 @@
         						</div>
 
         						<div class="col-lg-6 mt-3">
-        							<label for="nip" class="text-gray-900 font-weight-bold">NIP <span
-        									class="text-danger">*</span></label>
+        							<label for="nip" class="text-gray-900 font-weight-bold">NIP</label><br>
         							<input type="text" name="nip" id="nip" class="form-control border-left-primary"
         								onkeypress="return onlyNumberKey(event)" maxlength="18"
-        								placeholder="contoh: 1986xxxxxx" required>
-        							<small id="nip" class="text-gray-700">Diisi dengan 18 digit Nomor Induk
-        								Pegawai</small>
+        								placeholder="contoh: 1986xxxxxx">
+        							<small id="nip" class="text-gray-700">Jika Tidak Mempunyai NIP boleh untuk Tidak
+        								Diisi</small>
         						</div>
 
         						<div class="col-lg-6 mt-3">
