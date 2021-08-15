@@ -62,7 +62,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten">Kabupaten</label>
-                        <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
                         <label for="rt">RT</label>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten_usaha">Kabupaten</label>
-                        <input type="text" name="kabupaten_usaha" id="kabupaten_usaha" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten_usaha" id="kabupaten_usaha" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
                         <label for="rt_usaha">RT</label>

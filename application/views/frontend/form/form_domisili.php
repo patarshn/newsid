@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten">Kabupaten</label>
-                        <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="Pringsewu">
                     </div>
                     
                     <div class="col-lg-3">

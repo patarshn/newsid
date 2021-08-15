@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten_1">Kabupaten</label>
-                        <input type="text" name="kabupaten_1" id="kabupaten_1" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten_1" id="kabupaten_1" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
                         <label for="rt_1">RT</label>
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten_2">Kabupaten</label>
-                        <input type="text" name="kabupaten_2" id="kabupaten_2" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten_2" id="kabupaten_2" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
                         <label for="rt_2">RT</label>

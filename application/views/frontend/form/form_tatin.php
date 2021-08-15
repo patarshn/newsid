@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten_p">Kabupaten</label>
-                        <input type="text" name="kabupaten_p" id="kabupaten_p" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten_p" id="kabupaten_p" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
                         <label for="rt_p">RT</label>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-lg-6">
                         <label for="kabupaten_l">Kabupaten</label>
-                        <input type="text" name="kabupaten_l" id="kabupaten_l" class="form-control" value="Pringsewiu">
+                        <input type="text" name="kabupaten_l" id="kabupaten_l" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
                         <label for="rt_l">RT</label>
