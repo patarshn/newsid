@@ -65,6 +65,8 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Asal Barang atau Bangunan <span
         									class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada jumlah barang dan
+        									bangunan</small></p>
         							<div class="form-row">
         								<div class="col-lg-2">
         									<input type="text" name="abb_dibeli_sendiri" id="abb_dibeli_sendiri"
@@ -107,6 +109,8 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Penghapusan Barang dan Bangunan <span
         									class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Penghapusan Barang dan
+        									Bangunan</small></p>
         							<div class="form-row">
         								<div class="col-lg-2">
         									<input type="text" name="rusak_hps" id="rusak_hps"
@@ -140,6 +144,8 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Keadaan Barang atau Bangunan Awal
         								Tahun <span class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Keadaan Barang atau Bangunan Awal
+        									Tahun</small></p>
         							<div class="form-row">
         								<div class="col-lg-3">
         									<input type="text" name="baik_awalthn" id="baik_awalthn"
@@ -160,6 +166,8 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Keadaan Barang atau Bangunan Akhir
         								Tahun <span class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Keadaan Barang atau Bangunan Akhir
+        									Tahun</small></p>
         							<div class="form-row">
         								<div class="col-lg-3">
         									<input type="text" name="baik_akhirthn" id="baik_akhirthn"

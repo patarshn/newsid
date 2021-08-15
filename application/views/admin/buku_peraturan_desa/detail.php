@@ -34,7 +34,8 @@
 
         					<?php foreach($data as $d):?>
         					<div class="border-bottom-primary mb-4">
-        						<h5 class="text-gray-600 font-weight-bold">Buku Peraturan Desa: <?=$d->jenis_peraturan_desa?></h5>
+        						<h5 class="text-gray-600 font-weight-bold">Buku Peraturan Desa:
+        							<?=$d->jenis_peraturan_desa?></h5>
         					</div>
         					<div class="card mb-4 py-3 border-bottom-primary">
         						<div class="col-lg-12">
@@ -67,13 +68,15 @@
 
         								<tr>
         									<th>Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</th>
-        									<td><?=$d->no_diundangkan_dalam_lembaran_desa?>, <?=$d->tgl_diundangkan_dalam_lembaran_desa?>
+        									<td><?=$d->no_diundangkan_dalam_lembaran_desa?>,
+        										<?=$d->tgl_diundangkan_dalam_lembaran_desa?>
         									</td>
         								</tr>
 
         								<tr>
         									<th>Nomor dan Tanggal Diundangkan Dalam Lembaran Desa</th>
-        									<td><?=$d->no_diundangkan_dalam_berita_desa?>, <?=$d->tgl_diundangkan_dalam_berita_desa?></td>
+        									<td><?=$d->no_diundangkan_dalam_berita_desa?>,
+        										<?=$d->tgl_diundangkan_dalam_berita_desa?></td>
         								</tr>
 
         								<tr>
@@ -84,11 +87,11 @@
         								<tr>
         									<th>Keterangan</th>
         									<td>
-        										<?php if($d->ket != 0):?>
-        									<td><?=$d->ket?></td>
-        									<?php else :?>
-        									Tidak ada Keterangan
-        									<?php endif; ?>
+        										<?php if($d->ket != NULL):?>
+        										<?=$d->ket?>
+        										<?php else :?>
+        										Tidak ada Keterangan
+        										<?php endif; ?>
         									</td>
         								</tr>
 
@@ -98,7 +101,8 @@
         										<?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
         										<?=$d->berkas?>
         										<br>
-        										<a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>"
+        										<a class="btn btn-primary"
+        											href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>"
         											target="_blank">Unduh Berkas</a>
         										<?php else :?>
         										berkas Tidak ada

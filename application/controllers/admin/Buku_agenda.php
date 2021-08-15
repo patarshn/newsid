@@ -33,10 +33,10 @@ class Buku_agenda extends Admin_Controller {
         else if($this->input->post('status_surat') == "PENGIRIMAN"){
             return [
                 ['field' => 'tanggal_surat','label' => 'Tanggal Penerimaan Surat', 'rules' => 'required'],
-                ['field' => 'sm_no','label' => 'Nomor Surat Masuk', 'rules' => 'required|max_length[100]'],
-                ['field' => 'sm_tgl','label' => 'Tanggal Surat Masuk', 'rules' => 'required'],
-                ['field' => 'sm_pengirim','label' => 'Pengirim', 'rules' => 'required|max_length[100]'],
-                ['field' => 'sm_isi','label' => 'Isi Singkat', 'rules' => 'required|max_length[100]'],
+                ['field' => 'sk_no','label' => 'Nomor Surat Masuk', 'rules' => 'required|max_length[100]'],
+                ['field' => 'sk_tgl','label' => 'Tanggal Surat Masuk', 'rules' => 'required'],
+                ['field' => 'sk_ditunjukkan','label' => 'Pengirim', 'rules' => 'required|max_length[100]'],
+                ['field' => 'sk_isi','label' => 'Isi Singkat', 'rules' => 'required|max_length[100]'],
                 ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
             ];
         }
@@ -62,10 +62,10 @@ class Buku_agenda extends Admin_Controller {
         else if($this->input->post('status_surat') == "PENGIRIMAN"){
             return [
                 ['field' => 'tanggal_surat','label' => 'Tanggal Penerimaan Surat', 'rules' => 'required'],
-                ['field' => 'sm_no','label' => 'Nomor Surat Masuk', 'rules' => 'required|max_length[100]'],
-                ['field' => 'sm_tgl','label' => 'Tanggal Surat Masuk', 'rules' => 'required'],
-                ['field' => 'sm_pengirim','label' => 'Pengirim', 'rules' => 'required|max_length[100]'],
-                ['field' => 'sm_isi','label' => 'Isi Singkat', 'rules' => 'required|max_length[100]'],
+                ['field' => 'sk_no','label' => 'Nomor Surat Masuk', 'rules' => 'required|max_length[100]'],
+                ['field' => 'sk_tgl','label' => 'Tanggal Surat Masuk', 'rules' => 'required'],
+                ['field' => 'sk_ditunjukkan','label' => 'Pengirim', 'rules' => 'required|max_length[100]'],
+                ['field' => 'sk_isi','label' => 'Isi Singkat', 'rules' => 'required|max_length[100]'],
                 ['field' => 'ket','label' => 'Keterangan', 'rules' => 'max_length[255]'],
             ];
         }

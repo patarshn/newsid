@@ -78,6 +78,7 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Perolehan TKD <span
         									class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Perolehan TKD</small></p>
         							<div class="form-row">
         								<div class="col-lg-3">
         									<input type="text" name="peroleh_asli_milik_desa"
@@ -127,6 +128,7 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Jenis TKD <span
         									class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Jenis TKD</small></p>
         							<div class="form-row">
         								<div class="col-lg-3">
         									<input type="text" name="jenis_sawah" id="jenis_sawah"
@@ -168,6 +170,7 @@
         						<div class="col-lg-6 mt-3">
         							<label class="text-gray-900 font-weight-bold">Patok Tanda Batas <span
         									class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Patok Tanda Batas</small></p>
         							<div class="form-row">
         								<div class="col-lg-3">
         									<input type="text" name="patok_ada" id="patok_ada"
@@ -186,8 +189,9 @@
         						</div>
 
         						<div class="col-lg-6 mt-3">
-        							<label class="text-gray-900 font-weight-bold">Papan Nama <span
+        							<label class="text-gray-900 font-weight-bold">Papan Nama<span
         									class="text-danger">*</span></label>
+        							<p><small>Catatan : Isikan (0) jika tidak ada Papan Nama</small></p>
         							<div class="form-row">
         								<div class="col-lg-3">
         									<input type="text" name="papan_ada" id="papan_ada"
