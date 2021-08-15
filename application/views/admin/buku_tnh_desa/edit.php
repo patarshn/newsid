@@ -82,17 +82,15 @@
     						<div class="col-lg-6 mt-3">
     							<label class="text-gray-900 font-weight-bold">Status Hak Tanah Belum Bersertifikat <span
     									class="text-danger">*</span></label>
-    							<p><small>Catatan : Isikan (0) jika tidak ada Status Hak Tanah Belum
-    									Bersertifikat</small></p>
     							<div class="form-row">
-    								<div class="col-lg-4">
+    								<div class="col-lg-3">
     									<input type="text" name="blm_serti_ma" id="blm_serti_ma"
     										class="form-control border-left-primary" value="<?=$d->blm_serti_ma?>"
     										onkeypress="return onlyNumberKey(event)" required>
     									<small id="blm_serti_ma" class="text-gray-700">Luas Hak Milik Adat</small>
     								</div>
 
-    								<div class="col-lg-4">
+    								<div class="col-lg-3">
     									<input type="text" name="blm_serti_vi" id="blm_serti_vi"
     										class="form-control border-left-primary" value="<?=$d->blm_serti_vi?>"
     										onkeypress="return onlyNumberKey(event)" required>
@@ -100,7 +98,7 @@
     										Indonesia</small>
     								</div>
 
-    								<div class="col-lg-4">
+    								<div class="col-lg-3">
     									<input type="text" name="blm_serti_tn" id="blm_serti_tn"
     										class="form-control border-left-primary" value="<?=$d->blm_serti_tn?>"
     										onkeypress="return onlyNumberKey(event)" required>
@@ -112,8 +110,6 @@
     						<div class="col-lg-6 mt-3">
     							<label class="text-gray-900 font-weight-bold">Status Hak Tanah Sudah Bersertifikat <span
     									class="text-danger">*</span></label>
-    							<p><small>Catatan : Isikan (0) jika tidak ada Status Hak Tanah Sudah
-    									Bersertifikat</small></p>
     							<div class="form-row">
     								<div class="col-lg-3">
     									<input type="text" name="sdh_serti_hm" id="sdh_serti_hm"
@@ -155,7 +151,6 @@
     						<div class="col-lg-6 mt-3">
     							<label class="text-gray-900 font-weight-bold">Penggunaan Tanah Non Pertanian <span
     									class="text-danger">*</span></label>
-    							<p><small>Catatan : Isikan (0) jika tidak ada Penggunaan Tanah Non Pertanian</small></p>
     							<div class="form-row">
     								<div class="col-lg-3">
     									<input type="text" name="non_pertanian_perumahan" id="non_pertanian_perumahan"
@@ -204,7 +199,6 @@
     						<div class="col-lg-12 mt-4">
     							<label class="text-gray-900 font-weight-bold">Penggunaan Tanah Pertanian <span
     									class="text-danger">*</span></label>
-    							<p><small>Catatan : Isikan (0) jika tidak ada Penggunaan Tanah Pertanian</small></p>
     							<div class="form-row">
     								<div class="col-lg-2">
     									<input type="text" name="pertanian_sawah" id="pertanian_sawah"

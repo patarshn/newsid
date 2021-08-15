@@ -110,8 +110,8 @@ class Rab extends Admin_Controller {
             $subdata = array(
                 'tahun_anggaran' => $_POST['tahun_anggaran'],
                 'bidang' => $_POST['bidang'],
-                'kegiatan' => $_POST['uraian_apbd'],
-                'waktu_pelaksanaan' => $_POST['waktu_pelaksanaan'],
+                'uraian_apbd' => $_POST['kegiatan'],
+                'waktu_pelaksanaan' => $_POST['waktu_pelaksanaan'][$i],
                 'uraian' => $_POST['uraian'][$i],
                 'volume' => $_POST['volume'][$i],
                 'harga_satuan' => $_POST['harga_satuan'][$i],

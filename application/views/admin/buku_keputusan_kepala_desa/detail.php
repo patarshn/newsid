@@ -43,8 +43,7 @@
 
         								<tr>
         									<th width="50%">Nomor dan Tanggal Keputusan Kepala Desa</th>
-        									<td><?=$d->no_keputusan_kepala_desa?>, <?=$d->tgl_keputusan_kepala_desa?>
-        									</td>
+        									<td><?=$d->no_keputusan_kepala_desa?>, <?=$d->tgl_keputusan_kepala_desa?></td>
         								</tr>
 
         								<tr>
@@ -65,11 +64,11 @@
         								<tr>
         									<th>Keterangan</th>
         									<td>
-        										<?php if($d->ket != NULL):?>
-        										<?=$d->ket?>
-        										<?php else :?>
-        										Tidak ada Keterangan
-        										<?php endif; ?>
+        										<?php if($d->ket != 0):?>
+        									<td><?=$d->ket?></td>
+        									<?php else :?>
+        									Tidak ada Keterangan
+        									<?php endif; ?>
         									</td>
         								</tr>
 
@@ -79,8 +78,7 @@
         										<?php if($d->berkas != null && file_exists(FCPATH."uploads/".$folder."/".$d->berkas)):?>
         										<?=$d->berkas?>
         										<br>
-        										<a class="btn btn-primary"
-        											href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>"
+        										<a class="btn btn-primary" href="<?=base_url().'uploads/'.$folder.'/'.$d->berkas?>"
         											target="_blank">Unduh Berkas</a>
         										<?php else :?>
         										berkas Tidak ada
