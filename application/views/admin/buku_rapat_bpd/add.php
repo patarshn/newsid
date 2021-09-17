@@ -52,12 +52,12 @@
 
                     <div class="col-lg-6 mt-3">
                         <label for="buku_daftar_hadir" class="text-gray-900 font-weight-bold">Buku Daftar Hadir Rapat</label>
-                        <a href="<?=base_url('administrasilainnya\buku_rapat_bpd/BUKU DAFTAR HADIR RAPAT BPD.docx')?>" class="btn btn-primary" role="button">Unduh</a>
+                        <a href="<?=base_url('administrasilainnya\buku_rapat_bpd/BUKU DAFTAR HADIR RAPAT BHP.docx')?>" class="btn btn-primary" role="button">Unduh</a>
                     </div>
 
                     <div class="col-lg-6 mt-3">
                         <label for="buku_notulen" class="text-gray-900 font-weight-bold">Buku Notulen Rapat</label>
-                        <a href="<?=base_url('administrasilainnya\buku_rapat_bpd/BUKU NOTULEN RAPAT BPD.docx')?>" class="btn btn-primary" role="button">Unduh</a>
+                        <a href="<?=base_url('administrasilainnya\buku_rapat_bpd/BUKU NOTULEN RAPAT BHP.docx')?>" class="btn btn-primary" role="button">Unduh</a>
                     </div>
 
                     <div class="col-lg-6 mt-3">

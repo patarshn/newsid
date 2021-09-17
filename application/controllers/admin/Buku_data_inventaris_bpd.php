@@ -5,7 +5,7 @@ class Buku_data_inventaris_bpd extends Admin_Controller {
 
     private $_table = 'buku_data_inventaris_bpd';
     private $_folder = 'buku_data_inventaris_bpd';
-    private $_mainTitle = 'Buku Data Inventaris BPD';
+    private $_mainTitle = 'Buku Data Inventaris BHP';
     private $_docxName = 'buku_data_inventaris_bpd.docx';
 
     function __construct() {

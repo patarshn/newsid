@@ -53,7 +53,7 @@
                       <th>Tanggal</th>
                       <th>Nomor dan Tanggal Surat Keluar</th>
                       <th>Uraian Singkat</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -64,7 +64,7 @@
                     <th>Tanggal</th>
                     <th>Nomor dan Tanggal Surat Keluar</th>
                     <th>Uraian Singkat</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

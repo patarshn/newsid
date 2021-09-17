@@ -74,7 +74,7 @@
                                     </tr >
                                     
                                     <tr>
-                                        <th>Verifikasi Kepala BPD</th>
+                                        <th>Verifikasi Kepala BHP</th>
                                         <td><?=$d->verif_bpd?> <?=$d->verif_bpd_at?></td>
                                     </tr >
 

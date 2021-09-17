@@ -5,7 +5,7 @@ class Buku_agenda_surat_masuk extends Admin_Controller {
 
     private $_table = 'buku_agenda_surat_masuk';
     private $_folder = 'buku_agenda_surat_masuk';
-    private $_mainTitle = 'Buku Agenda Surat Masuk BPD';
+    private $_mainTitle = 'Buku Agenda Surat Masuk BHP';
     private $_docxName = 'buku_agenda_surat_masuk.docx';
 
     function __construct() {

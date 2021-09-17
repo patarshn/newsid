@@ -5,7 +5,7 @@ class Buku_laporan_keuangan extends Admin_Controller {
 
     private $_table = 'buku_laporan_keuangan';
     private $_folder = 'buku_laporan_keuangan';
-    private $_mainTitle = 'Buku Laporan Keuangan BPD';
+    private $_mainTitle = 'Buku Laporan Keuangan BHP';
     private $_docxName = 'buku_laporan_keuangan.docx';
 
     function __construct() {

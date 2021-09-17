@@ -54,7 +54,7 @@
                       <th>Nomor dan Tanggal Peraturan Desa</th>
                       <th>Tentang</th>
                       <th>Nomor dan Tanggal Kesepakatan</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -65,7 +65,7 @@
                     <th>Nomor dan Tanggal Peraturan Desa</th>
                     <th>Tentang</th>
                     <th>Nomor dan Tanggal Kesepakatan</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

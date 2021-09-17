@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="col-lg-12 form-inline">
-                        <label for="status" class="mr-sm-2">Verifikasi Kepala BPD : </label>
+                        <label for="status" class="mr-sm-2">Verifikasi Kepala BHP : </label>
                         <br>
                         <input type="hidden" name="verif_bpd_old" value="<?=$d->verif_bpd?>">
                         <div class="form-check form-check-inline">

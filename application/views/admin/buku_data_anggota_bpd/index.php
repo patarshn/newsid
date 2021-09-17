@@ -54,7 +54,7 @@
                       <th>Nama</th>
                       <th>NIP</th>
                       <th>Jabatan</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -65,7 +65,7 @@
                       <th>Nama</th>
                       <th>NIP</th>
                       <th>Jabatan</th>
-                      <th>Verif Kepala BPD</th>
+                      <th>Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

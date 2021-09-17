@@ -55,7 +55,7 @@
                       <th>Nomor dan Tanggal Surat Masuk</th>
                       <th>Nama Instansi Pengirim</th>
                       <th>Uraian Singkat</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -67,7 +67,7 @@
                     <th>Nomor dan Tanggal Surat Masuk</th>
                     <th>Nama Instansi Pengirim</th>
                     <th>Uraian Singkat</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

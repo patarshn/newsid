@@ -39,17 +39,17 @@
                 <h3 class="text-gray-900"><?=$title?></h3>
                 <div class="form-row">
                     <div class="col-lg-12 mt-3">
-                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Peraturan/Keputusan BPD</label>
+                      <label class="text-gray-900 font-weight-bold" >Nomor dan Tanggal Peraturan/Keputusan BHP</label>
                       <medium id="wajib" class="text-danger">*</medium>
                       <div class="form-row">
                         <div class="col-lg-6">
                           <input type="text" name="no_peraturan" id="no_peraturan" class="form-control border-left-primary" required>
-                          <small id="no_peraturan" class="text-gray-700">Nomor Peraturan/Keputusan BPD</small>
+                          <small id="no_peraturan" class="text-gray-700">Nomor Peraturan/Keputusan BHP</small>
                         </div>
 
                         <div class="col-lg-6">                        
                           <input type="date" name="tgl_peraturan" id="tgl_peraturan" class="form-control border-left-primary" placeholder="mm/dd/yyyy" required>
-                          <small id="tgl_peraturan" class="text-gray-700">Tanggal Peraturan/Keputusan BPD</small>
+                          <small id="tgl_peraturan" class="text-gray-700">Tanggal Peraturan/Keputusan BHP</small>
                         </div>
                       </div>
                     </div>

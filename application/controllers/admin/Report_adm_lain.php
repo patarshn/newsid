@@ -22,37 +22,37 @@ class Report_adm_lain extends Admin_Controller{
         
         $formdata['buku_agenda_surat_keluar'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_agenda_surat_keluar')->result_array(),
-            "form_name" => "Buku Agenda Surat Keluar BPD",
+            "form_name" => "Buku Agenda Surat Keluar BHP",
         );
 
         $formdata['buku_agenda_surat_masuk'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_agenda_surat_masuk')->result_array(),
-            "form_name" => "Buku Agenda Surat Masuk BPD",
+            "form_name" => "Buku Agenda Surat Masuk BHP",
         );
 
         $formdata['buku_ekspedisi_bpd'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_ekspedisi_bpd')->result_array(),
-            "form_name" => "Buku Ekspedisi BPD",
+            "form_name" => "Buku Ekspedisi BHP",
         );
 
         $formdata['buku_data_inventaris_bpd'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_data_inventaris_bpd')->result_array(),
-            "form_name" => "Buku Data Inventaris BPD",
+            "form_name" => "Buku Data Inventaris BHP",
         );
 
         $formdata['buku_laporan_keuangan'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_laporan_keuangan')->result_array(),
-            "form_name" => "Buku Laporan Keuangan BPD",
+            "form_name" => "Buku Laporan Keuangan BHP",
         );
 
         $formdata['buku_data_anggota_bpd'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_data_anggota_bpd')->result_array(),
-            "form_name" => "Buku Data Anggota BPD",
+            "form_name" => "Buku Data Anggota BHP",
         );
 
         $formdata['buku_data_kegiatan'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_data_kegiatan')->result_array(),
-            "form_name" => "Buku Data Kegiatan BPD",
+            "form_name" => "Buku Data Kegiatan BHP",
         );
 
         $formdata['buku_data_aspirasi_masyarakat'] = array(
@@ -62,7 +62,7 @@ class Report_adm_lain extends Admin_Controller{
 
         $formdata['buku_data_peraturan_bpd'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_data_peraturan_bpd')->result_array(),
-            "form_name" => "Buku Data Peraturan/Keputusan BPD",
+            "form_name" => "Buku Data Peraturan/Keputusan BHP",
         );
 
         $formdata['buku_data_peraturan_desa'] = array(
@@ -82,7 +82,7 @@ class Report_adm_lain extends Admin_Controller{
 
         $formdata['buku_rapat_bpd'] = array(
             "countdata" => $this->Report_adm_lain_m->countDataVerifForm('buku_rapat_bpd')->result_array(),
-            "form_name" => "Buku Rapat BPD",
+            "form_name" => "Buku Rapat BHP",
         );
 
 

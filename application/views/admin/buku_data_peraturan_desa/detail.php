@@ -40,7 +40,7 @@
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
 
                                     <tr>
-                                        <th width="50%">Nomor dan Tanggal Peraturan/Keputusan BPD</th>
+                                        <th width="50%">Nomor dan Tanggal Peraturan/Keputusan BHP</th>
                                         <td><?=$d->no_peraturan_desa?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan_desa))?></td>
                                     </tr >
 
@@ -79,7 +79,7 @@
                                     </tr >
                                     
                                     <tr>
-                                        <th>Verifikasi Kepala BPD</th>
+                                        <th>Verifikasi Kepala BHP</th>
                                         <td><?=$d->verif_bpd?> <?=$d->verif_bpd_at?></td>
                                     </tr >
 

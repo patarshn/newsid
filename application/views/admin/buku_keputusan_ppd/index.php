@@ -53,7 +53,7 @@
                       <th width="3%">Aksi</th>
                       <th>Tanggal</th>
                       <th>Pokok-Pokok Usulan/Kegiatan</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -63,7 +63,7 @@
                     <th width="3%">Aksi</th>
                     <th>Tanggal</th>
                     <th>Pokok-Pokok Usulan/Kegiatan</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

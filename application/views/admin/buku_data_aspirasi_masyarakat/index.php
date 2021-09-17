@@ -54,7 +54,7 @@
                       <th>Tanggal</th>
                       <th>Nama/Lembaga Pihak Penyampai Aspirasi</th>
                       <th>Aspirasi yang Disampaikan</th>
-                      <th>Verif Kepala BPD</th>
+                      <th>Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -65,7 +65,7 @@
                     <th>Tanggal</th>
                     <th>Nama/Lembaga Pihak Penyampai Aspirasi</th>
                     <th>Aspirasi yang Disampaikan</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>
