@@ -9,72 +9,73 @@
                 <div class="alert alert-danger col d-none" id="error-message"></div>
             <?=form_open(base_url('form_belummenikah/store'),'id="form"')?>
                 <h3><?=$title?></h3>
+                <span class="text-danger font-weight-bold">*</span> <small class="text-gray-900 font-weight-bold">Wajib Diisi</small>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label for="nik">NIK</label>
+                        <label for="nik">NIK<span class="text-danger">*</span></label>
                         <input type="text" name="nik" id="nik" class="form-control" placeholder="NIK" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="nama">Nama</label>
+                        <label for="nama">Nama<span class="text-danger">*</span></label>
                         <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir">Tempat Lahir</label>
+                        <label for="tempat_lahir">Tempat Lahir<span class="text-danger">*</span></label>
                         <input type="text" name="tempat_lahir" id="tempat_lahir" class="form-control" placeholder="Tempat Lahir" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                        <label for="tanggal_lahir">Tanggal Lahir<span class="text-danger">*</span></label>
                         <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekerjaan">Pekerjaan</label>
+                        <label for="pekerjaan">Pekerjaan<span class="text-danger">*</span></label>
                         <input type="text" name="pekerjaan" id="pekerjaan" class="form-control" placeholder="Pekerjaan" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
+                            <label for="alamat">Alamat<span class="text-danger">*</span></label>
                             <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekon">Pekon</label>
+                        <label for="pekon">Pekon<span class="text-danger">*</span></label>
                         <input type="text" name="pekon" id="pekon" class="form-control" value="Wonodadi">
                     </div>
                     <div class="col-lg-6">
-                        <label for="kecamatan">Kecamatan</label>
+                        <label for="kecamatan">Kecamatan<span class="text-danger">*</span></label>
                         <input type="text" name="kecamatan" id="kecamatan" class="form-control" value="Gadingrejo">
                     </div>
                     <div class="col-lg-6">
-                        <label for="kabupaten">Kabupaten</label>
+                        <label for="kabupaten">Kabupaten<span class="text-danger">*</span></label>
                         <input type="text" name="kabupaten" id="kabupaten" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
-                        <label for="rt">RT</label>
+                        <label for="rt">RT<span class="text-danger">*</span></label>
                         <input type="text" name="rt" id="rt" class="form-control" placeholder="RT">
                     </div>
                     <div class="col-lg-3">
-                        <label for="rw">RW</label>
+                        <label for="rw">RW<span class="text-danger">*</span></label>
                         <input type="text" name="rw" id="rw" class="form-control" placeholder="RW">
                     </div>
 
                     <div class="col-lg-6">
-                        <label for="persyaratan">Resepsi</label>
+                        <label for="persyaratan">Resepsi<span class="text-danger">*</span></label>
                         <input type="text" name="persyaratan" id="persyaratan" class="form-control" placeholder="Resepsi">
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_acara">Lokasi Acara</label>
+                        <label for="tempat_acara">Lokasi Acara<span class="text-danger">*</span></label>
                         <input type="text" name="tempat_acara" id="tempat_acara" class="form-control" placeholder="Lokasi">
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_acara">Tanggal Acara</label>
+                        <label for="tanggal_acara">Tanggal Acara<span class="text-danger">*</span></label>
                         <input type="date" name="tanggal_acara" id="tanggal_acara" class="form-control" placeholder="mm/dd/yy">
                     </div>
                     <div class="col-lg-6">
-                        <label for="waktu_acara">Waktu Acara</label>
+                        <label for="waktu_acara">Waktu Acara<span class="text-danger">*</span></label>
                         <input type="time" name="waktu_acara" id="waktu_acara" class="form-control">
                     </div>
                     <div class="col-lg-6">
-                        <label for="notelp">No Telp/WA</label>
+                        <label for="notelp">No Telp/WA<span class="text-danger">*</span></label>
                         <input type="text" name="notelp" id="notelp" class="form-control" placeholder="6281245586699">
                     </div>
                     <div class="col-lg-12">

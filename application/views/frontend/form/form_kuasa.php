@@ -9,107 +9,108 @@
                 <div class="alert alert-danger col d-none" id="error-message"></div>
             <?=form_open(base_url('form_belummenikah/store'),'id="form"')?>
                 <h3><?=$title?></h3>
+                <span class="text-danger font-weight-bold">*</span> <small class="text-gray-900 font-weight-bold">Wajib Diisi</small>
                 <h5>Data Pemberi Kuasa (Pengaju)</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label for="nik_1">NIK</label>
+                        <label for="nik_1">NIK<span class="text-danger">*</span></label>
                         <input type="text" name="nik_1" id="nik_1" class="form-control" placeholder="NIK" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="nama_1">Nama</label>
+                        <label for="nama_1">Nama<span class="text-danger">*</span></label>
                         <input type="text" name="nama_1" id="nama_1" class="form-control" placeholder="Nama" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir_1">Tempat Lahir</label>
+                        <label for="tempat_lahir_1">Tempat Lahir<span class="text-danger">*</span></label>
                         <input type="text" name="tempat_lahir_1" id="tempat_lahir_1" class="form-control" placeholder="Tempat Lahir" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_lahir_1">Tanggal Lahir</label>
+                        <label for="tanggal_lahir_1">Tanggal Lahir<span class="text-danger">*</span></label>
                         <input type="date" name="tanggal_lahir_1" id="tanggal_lahir_1" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekerjaan_1">Pekerjaan</label>
+                        <label for="pekerjaan_1">Pekerjaan<span class="text-danger">*</span></label>
                         <input type="text" name="pekerjaan_1" id="pekerjaan_1" class="form-control" placeholder="Pekerjaan">
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat_1">Alamat</label>
+                            <label for="alamat_1">Alamat<span class="text-danger">*</span></label>
                             <textarea class="form-control" name="alamat_1" id="alamat_1" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekon_1">Pekon</label>
+                        <label for="pekon_1">Pekon<span class="text-danger">*</span></label>
                         <input type="text" name="pekon_1" id="pekon_1" class="form-control" value="Wonodadi">
                     </div>
                     <div class="col-lg-6">
-                        <label for="kecamatan_1">Kecamatan</label>
+                        <label for="kecamatan_1">Kecamatan<span class="text-danger">*</span></label>
                         <input type="text" name="kecamatan_1" id="kecamatan_1" class="form-control" value="Gadingrejo">
                     </div>
                     <div class="col-lg-6">
-                        <label for="kabupaten_1">Kabupaten</label>
+                        <label for="kabupaten_1">Kabupaten<span class="text-danger">*</span></label>
                         <input type="text" name="kabupaten_1" id="kabupaten_1" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
-                        <label for="rt_1">RT</label>
+                        <label for="rt_1">RT<span class="text-danger">*</span></label>
                         <input type="text" name="rt_1" id="rt_1" class="form-control" placeholder="RT">
                     </div>
                     <div class="col-lg-3">
-                        <label for="rw_1">RW</label>
+                        <label for="rw_1">RW<span class="text-danger">*</span></label>
                         <input type="text" name="rw_1" id="rw_1" class="form-control" placeholder="RW">
                     </div>
                 </div>
                 <h5>Data Penerima Kuasa</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label for="nik_2">NIK</label>
+                        <label for="nik_2">NIK<span class="text-danger">*</span></label>
                         <input type="text" name="nik_2" id="nik_2" class="form-control" placeholder="NIK" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="nama_2">Nama</label>
+                        <label for="nama_2">Nama<span class="text-danger">*</span></label>
                         <input type="text" name="nama_2" id="nama_2" class="form-control" placeholder="Nama" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tempat_lahir_2">Tempat Lahir</label>
+                        <label for="tempat_lahir_2">Tempat Lahir<span class="text-danger">*</span></label>
                         <input type="text" name="tempat_lahir_2" id="tempat_lahir_2" class="form-control" placeholder="Tempat Lahir" required>
                     </div>
                     <div class="col-lg-6">
-                        <label for="tanggal_lahir_2">Tanggal Lahir</label>
+                        <label for="tanggal_lahir_2">Tanggal Lahir<span class="text-danger">*</span></label>
                         <input type="date" name="tanggal_lahir_2" id="tanggal_lahir_2" class="form-control" placeholder="mm/dd/yy" required>
                     </div>
                     
                     <div class="col-lg-6">
-                        <label for="pekerjaan_2">Pekerjaan</label>
+                        <label for="pekerjaan_2">Pekerjaan<span class="text-danger">*</span></label>
                         <input type="text" name="pekerjaan_2" id="pekerjaan_2" class="form-control" placeholder="Pekerjaan">
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="alamat_2">Alamat</label>
+                            <label for="alamat_2">Alamat<span class="text-danger">*</span></label>
                             <textarea class="form-control" name="alamat_2" id="alamat_2" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="pekon_2">Pekon</label>
+                        <label for="pekon_2">Pekon<span class="text-danger">*</span></label>
                         <input type="text" name="pekon_2" id="pekon_2" class="form-control" value="Wonodadi">
                     </div>
                     <div class="col-lg-6">
-                        <label for="kecamatan_2">Kecamatan</label>
+                        <label for="kecamatan_2">Kecamatan<span class="text-danger">*</span></label>
                         <input type="text" name="kecamatan_2" id="kecamatan_2" class="form-control" value="Gadingrejo">
                     </div>
                     <div class="col-lg-6">
-                        <label for="kabupaten_2">Kabupaten</label>
+                        <label for="kabupaten_2">Kabupaten<span class="text-danger">*</span></label>
                         <input type="text" name="kabupaten_2" id="kabupaten_2" class="form-control" value="Pringsewu">
                     </div>
                     <div class="col-lg-3">
-                        <label for="rt_2">RT</label>
+                        <label for="rt_2">RT<span class="text-danger">*</span></label>
                         <input type="text" name="rt_2" id="rt_2" class="form-control" placeholder="RT">
                     </div>
                     <div class="col-lg-3">
-                        <label for="rw_2">RW</label>
+                        <label for="rw_2">RW<span class="text-danger">*</span></label>
                         <input type="text" name="rw_2" id="rw_2" class="form-control" placeholder="RW">
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="keterangan">Keterangan</label>
+                            <label for="keterangan">Keterangan<span class="text-danger">*</span></label>
                             <?php
 $keterangan = "Contoh
 Untuk pembayaran Pajak :
@@ -125,7 +126,7 @@ No. Mesin : ABCDE-1234567
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label for="notelp">No Telp/WA</label>
+                        <label for="notelp">No Telp/WA<span class="text-danger">*</span></label>
                         <input type="text" name="notelp" id="notelp" class="form-control" placeholder="6281245586699">
                     </div>
                     <div class="col-lg-12">
@@ -148,7 +149,7 @@ No. Mesin : ABCDE-1234567
             <?=form_close()?>
                 
             <div class="d-flex">
-            <button type="button" class="btn btn-primary active-button align-self-center" onclick="store(base_url+'<?=$filename?>/store','#form')">Simpan</button>
+            <button type="button" id="submit" class="btn btn-primary active-button align-self-center" onclick="store(base_url+'<?=$filename?>/store','#form')">Simpan</button>
                 <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
                     <span class="sr-only">Loading...</span>
                 </div>
