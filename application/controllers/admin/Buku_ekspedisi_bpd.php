@@ -5,7 +5,7 @@ class Buku_ekspedisi_bpd extends Admin_Controller {
 
     private $_table = 'buku_ekspedisi_bpd';
     private $_folder = 'buku_ekspedisi_bpd';
-    private $_mainTitle = 'Buku Ekspedisi BPD';
+    private $_mainTitle = 'Buku Ekspedisi BHP';
     private $_docxName = 'buku_ekspedisi_bpd.docx';
 
     function __construct() {

@@ -33,7 +33,7 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Agenda Surat Masuk BPD : <?= date("d-m-Y", strtotime($d->tgl))?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Agenda Surat Masuk BHP : <?= date("d-m-Y", strtotime($d->tgl))?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
@@ -79,7 +79,7 @@
                                     </tr >
                                     
                                     <tr>
-                                        <th>Verifikasi Kepala BPD</th>
+                                        <th>Verifikasi Kepala BHP</th>
                                         <td><?=$d->verif_bpd?> <?=$d->verif_bpd_at?></td>
                                     </tr >
 

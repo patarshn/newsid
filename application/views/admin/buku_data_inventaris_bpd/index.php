@@ -53,7 +53,7 @@
                       <th rowspan="3" width="3%">Aksi</th>
                       <th rowspan="3">Jenis Barang atau Bangunan</th>
                       <th colspan="5">Asal Barang dan Bangunan</th>
-                      <th rowspan="3">Verif Kepala BPD</th>
+                      <th rowspan="3">Verif Kepala BHP</th>
                     </tr>
 
                     <tr>
@@ -77,7 +77,7 @@
                         <th width="3%">Aksi</th>
                         <th>Jenis Barang atau Bangunan</th>
                         <th colspan="5">Asal Barang dan Bangunan</th>
-                        <th>Verif Kepala BPD</th>
+                        <th>Verif Kepala BHP</th>
                       </tr>
                   </tfoot>
                   <tbody>

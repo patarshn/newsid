@@ -55,7 +55,7 @@
                       <th>Uraian</th>
                       <th>Penerimaan</th>
                       <th>Pengeluaran</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -67,7 +67,7 @@
                     <th>Uraian</th>
                     <th>Penerimaan</th>
                     <th>Pengeluaran</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

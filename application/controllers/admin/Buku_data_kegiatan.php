@@ -5,7 +5,7 @@ class Buku_data_kegiatan extends Admin_Controller {
 
     private $_table = 'buku_data_kegiatan';
     private $_folder = 'buku_data_kegiatan';
-    private $_mainTitle = 'Buku Data Kegiatan BPD';
+    private $_mainTitle = 'Buku Data Kegiatan BHP';
     private $_docxName = 'buku_data_kegiatan.docx';
 
     function __construct() {

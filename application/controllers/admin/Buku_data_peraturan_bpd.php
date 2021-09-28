@@ -5,7 +5,7 @@ class Buku_data_peraturan_bpd extends Admin_Controller {
 
     private $_table = 'buku_data_peraturan_bpd';
     private $_folder = 'buku_data_peraturan_bpd';
-    private $_mainTitle = 'Buku Data Peraturan/Keputusan BPD';
+    private $_mainTitle = 'Buku Data Peraturan/Keputusan BHP';
     private $_docxName = 'buku_data_peraturan_bpd.docx';
 
     function __construct() {

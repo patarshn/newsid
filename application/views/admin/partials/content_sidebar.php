@@ -181,20 +181,20 @@
         <div id="administrasi_lainnya" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda_surat_keluar')?>">Buku Agenda Surat Keluar BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda_surat_masuk')?>">Buku Agenda Surat Masuk BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ekspedisi_bpd')?>">Buku Ekspedisi BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_inventaris_bpd')?>">Buku Data Inventaris BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_laporan_keuangan')?>">Buku Laporan Keuangan BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_anggota_bpd')?>">Buku Data Anggota BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_kegiatan')?>">Buku Data Kegiatan BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda_surat_keluar')?>">Buku Agenda Surat Keluar BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_agenda_surat_masuk')?>">Buku Agenda Surat Masuk BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_ekspedisi_bpd')?>">Buku Ekspedisi BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_inventaris_bpd')?>">Buku Data Inventaris BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_laporan_keuangan')?>">Buku Laporan Keuangan BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_anggota_bpd')?>">Buku Data Anggota BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_kegiatan')?>">Buku Data Kegiatan BHP</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_aspirasi_masyarakat')?>">Buku Data Aspirasi Masyarakat</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_peraturan_bpd')?>">Buku Data Peraturan/Keputusan BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_peraturan_bpd')?>">Buku Data Peraturan/Keputusan BHP</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_data_peraturan_desa')?>">Buku Data Peraturan Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_musyawarah')?>">Buku Keputusan Musyawarah Desa</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_keputusan_ppd')?>">Buku Keputusan Musyawarah Perencanaan Pembangunan Desa</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_rapat_bpd')?>">Buku Rapat BPD</a>
-          <a class="collapse-item text-wrap" href="<?=base_url('administrasilainnya\buku_tamu_bpd/BUKU TAMU BPD.docx')?>">Unduh Buku Tamu BPD</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/buku_rapat_bpd')?>">Buku Rapat BHP</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('administrasilainnya\buku_tamu_bpd/BUKU TAMU BHP.docx')?>">Unduh Buku Tamu BHP</a>
           </div>
         </div>
       </li>

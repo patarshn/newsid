@@ -33,14 +33,14 @@
                   
                   <?php foreach($data as $d):?>
                     <div class="border-bottom-primary mb-4">
-                        <h5 class = "text-gray-600 font-weight-bold">Buku Data Peraturan/Keputusan BPD : <?=$d->no_peraturan?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan))?></h5>
+                        <h5 class = "text-gray-600 font-weight-bold">Buku Data Peraturan/Keputusan BHP : <?=$d->no_peraturan?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan))?></h5>
                     </div>
                         <div class="card mb-4 py-3 border-bottom-primary">
                             <div class="col-lg-12">
                                 <table class="table table-bordered table-hover border-left-primary mt-3">
 
                                     <tr>
-                                        <th width="50%">Nomor dan Tanggal Peraturan/Keputusan BPD</th>
+                                        <th width="50%">Nomor dan Tanggal Peraturan/Keputusan BHP</th>
                                         <td><?=$d->no_peraturan?> , <?= date("d-m-Y", strtotime($d->tgl_peraturan))?></td>
                                     </tr >
 
@@ -74,7 +74,7 @@
                                     </tr >
                                     
                                     <tr>
-                                        <th>Verifikasi Kepala BPD</th>
+                                        <th>Verifikasi Kepala BHP</th>
                                         <td><?=$d->verif_bpd?> <?=$d->verif_bpd_at?></td>
                                     </tr >
 

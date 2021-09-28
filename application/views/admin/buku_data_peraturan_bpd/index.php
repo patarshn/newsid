@@ -51,10 +51,10 @@
                     <th width="5%"><input type="checkbox" class="rowdelete" id="selectAll"></th>
                       <th>No</th>
                       <th width="3%">Aksi</th>
-                      <th>Nomor dan Tanggal Peraturan/Keputusan BPD</th>
+                      <th>Nomor dan Tanggal Peraturan/Keputusan BHP</th>
                       <th>Tentang</th>
                       <th>Uraian Singkat</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -62,10 +62,10 @@
                     <th width="5%"></th>
                     <th>No</th>
                     <th width="3%">Aksi</th>
-                    <th>Nomor dan Tanggal Peraturan/Keputusan BPD</th>
+                    <th>Nomor dan Tanggal Peraturan/Keputusan BHP</th>
                     <th>Tentang</th>
                     <th>Uraian Singkat</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

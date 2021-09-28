@@ -54,7 +54,7 @@
                       <th>Tanggal</th>
                       <th>Jenis Kegiatan</th>
                       <th>Pelaksana</th>
-                      <th width="10%">Verif Kepala BPD</th>
+                      <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </thead>
                   <tfoot>
@@ -65,7 +65,7 @@
                     <th>Tanggal</th>
                     <th>Jenis Kegiatan</th>
                     <th>Pelaksana</th>
-                    <th width="10%">Verif Kepala BPD</th>
+                    <th width="10%">Verif Kepala BHP</th>
                     </tr>
                   </tfoot>
                   <tbody>

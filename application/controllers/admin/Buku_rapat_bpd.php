@@ -5,7 +5,7 @@ class Buku_rapat_bpd extends Admin_Controller {
 
     private $_table = 'buku_rapat_bpd';
     private $_folder = 'buku_rapat_bpd';
-    private $_mainTitle = 'Buku Rapat BPD';
+    private $_mainTitle = 'Buku Rapat BHP';
     private $_docxName = 'buku_rapat_bpd.docx';
 
     function __construct() {
