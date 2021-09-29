@@ -18,9 +18,31 @@ class Form_jualbelihewan extends Admin_Controller{
     
     function rulesUpdate(){
         return [
-            ['field' => 'id',
-            'label' => 'id',
-            'rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required'],
+            ['field' => 'nik_1', 'label' => 'NIK Pembeli', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_1', 'label' => 'Nama Pembeli', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_1', 'label' => 'Tempat Lahir Pembeli', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_1', 'label' => 'Tanggal Lahir Pembeli', 'rules' => 'required'],
+            ['field' => 'pekerjaan_1', 'label' => 'Pekerjaan Pembeli', 'rules' => 'required'],
+            ['field' => 'alamat_1', 'label' => 'Alamat Pembeli', 'rules' => 'required'],
+            ['field' => 'rt_1', 'label' => 'RT Pembeli', 'rules' => 'required|numeric'],
+            ['field' => 'rw_1', 'label' => 'RW Pembeli', 'rules' => 'required|numeric'],
+            ['field' => 'pekon_1', 'label' => 'Pekon Pembeli', 'rules' => 'required'],
+            ['field' => 'kecamatan_1', 'label' => 'Kecamatan Pembeli', 'rules' => 'required'],
+            ['field' => 'kabupaten_1', 'label' => 'Kabupaten Pembeli', 'rules' => 'required'],
+            ['field' => 'nik_2', 'label' => 'NIK Penjual', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_2', 'label' => 'Nama Penjual', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_2', 'label' => 'Tempat Lahir Penjual', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_2', 'label' => 'Tanggal Lahir Penjual', 'rules' => 'required'],
+            ['field' => 'pekerjaan_2', 'label' => 'Pekerjaan Penjual', 'rules' => 'required'],
+            ['field' => 'alamat_2', 'label' => 'Alamat Penjual', 'rules' => 'required'],
+            ['field' => 'rt_2', 'label' => 'RT Penjual', 'rules' => 'required|numeric'],
+            ['field' => 'rw_2', 'label' => 'RW Penjual', 'rules' => 'required|numeric'],
+            ['field' => 'pekon_2', 'label' => 'Pekon Penjual', 'rules' => 'required'],
+            ['field' => 'kecamatan_2', 'label' => 'Kecamatan Penjual', 'rules' => 'required'],
+            ['field' => 'kabupaten_2', 'label' => 'Kabupaten Penjual', 'rules' => 'required'],
+            ['field' => 'keterangan', 'label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],
         ];  
     }
 

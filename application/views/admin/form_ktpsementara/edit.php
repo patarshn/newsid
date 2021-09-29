@@ -124,7 +124,7 @@
                     </div>
                     <div class="col-lg-12">
                         <label class="text-gray-900 font-weight-bold" for="masa_berlaku">Masa Berlaku</label>
-                        <input type="text" name="masa_berlaku" id="masa_berlaku" class="form-control border-left-primary" placeholder="Masa Berlaku" value="<?=$d->masa_berlaku?>">
+                        <input type="date" name="masa_berlaku" id="masa_berlaku" class="form-control border-left-primary" placeholder="Masa Berlaku" value="<?=$d->masa_berlaku?>">
                     </div>
                     <div class="col-lg-6">
                         <label class="text-gray-900 font-weight-bold" for="notelp">No Telp/WA</label>

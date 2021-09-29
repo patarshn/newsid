@@ -113,7 +113,7 @@
                         <div class="form-group">
                             <label for="persyaratan">Peruntukkan</label>
                             <select name="persyaratan" id="persyaratan" class="form-control border-left-primary" placeholder="Pilih Jenis Form" required>
-                            <option>Pilih Jenis Form</option>
+                            <option value="">Pilih Jenis Form</option>
                             <option value="Warga Permanen">Warga Permanen</option>
                             <option value="Warga Non Permanen">Warga Non Permanen</option>
                         </select>

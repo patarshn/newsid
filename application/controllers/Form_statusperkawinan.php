@@ -24,21 +24,22 @@ class Form_statusperkawinan extends Frontend_Controller{
 
     function rulesStore(){
         return [
-            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required'],
-            ['field' => 'nama', 'label' => 'NAMA', 'rules' => 'required'],
-            ['field' => 'jenis_kelamin', 'label' => 'JENIS_KELAMIN', 'rules' => 'required'],
-            ['field' => 'tempat_lahir', 'label' => 'TEMPAT_LAHIR', 'rules' => 'required'],
-            ['field' => 'tanggal_lahir', 'label' => 'TANGGAL_LAHIR', 'rules' => 'required'],
-            ['field' => 'kewarganegaraan', 'label' => 'KEWARGANEGARAAN', 'rules' => 'required'],
-            ['field' => 'agama', 'label' => 'AGAMA', 'rules' => 'required'],
-            ['field' => 'pekerjaan', 'label' => 'PEKERJAAN', 'rules' => 'required'],
-            ['field' => 'alamat', 'label' => 'ALAMAT', 'rules' => 'required'],
-            ['field' => 'rt', 'label' => 'RT', 'rules' => 'required'],
-            ['field' => 'rw', 'label' => 'RW', 'rules' => 'required'],
-            ['field' => 'pekon', 'label' => 'PEKON', 'rules' => 'required'],
-            ['field' => 'kecamatan', 'label' => 'KECAMATAN', 'rules' => 'required'],
-            ['field' => 'kabupaten', 'label' => 'KABUPATEN', 'rules' => 'required'],
-            ['field' => 'persyaratan', 'label' => 'PERSYARATAN', 'rules' => 'required'],
+            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama', 'label' => 'Nama', 'rules' => 'required'],
+            ['field' => 'jenis_kelamin', 'label' => 'Jenis Kelamin', 'rules' => 'required'],
+            ['field' => 'tempat_lahir', 'label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir', 'label' => 'Tanggal Lahir', 'rules' => 'required'],
+            ['field' => 'kewarganegaraan', 'label' => 'Kewarganegaraan', 'rules' => 'required'],
+            ['field' => 'agama', 'label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'pekerjaan', 'label' => 'Pekerjaan', 'rules' => 'required'],
+            ['field' => 'alamat', 'label' => 'Alamat', 'rules' => 'required'],
+            ['field' => 'rt', 'label' => 'RT', 'rules' => 'required|numeric'],
+            ['field' => 'rw', 'label' => 'RW', 'rules' => 'required|numeric'],
+            ['field' => 'pekon', 'label' => 'Pekon', 'rules' => 'required'],
+            ['field' => 'kecamatan', 'label' => 'Kecamatan', 'rules' => 'required'],
+            ['field' => 'kabupaten', 'label' => 'Kabupaten', 'rules' => 'required'],
+            ['field' => 'persyaratan', 'label' => 'Peruntukkan', 'rules' => 'required'],
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],  
         ];
     }
 

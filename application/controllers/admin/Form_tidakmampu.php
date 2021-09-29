@@ -18,9 +18,29 @@ class Form_tidakmampu extends Admin_Controller{
     
     function rulesUpdate(){
         return [
-            ['field' => 'id',
-            'label' => 'id',
-            'rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required'],
+            ['field' => 'nik_orangtua', 'label' => 'NIK Orangtua', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_orangtua', 'label' => 'Nama Orangtua', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_orangtua', 'label' => 'Tempat Lahir Orangtua', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_orangtua', 'label' => 'Tanggal Lahir Orangtua', 'rules' => 'required'],
+            ['field' => 'kewarganegaraan_orangtua', 'label' => 'Kewarganegaraan Orangtua', 'rules' => 'required'],
+            ['field' => 'agama_orangtua', 'label' => 'Agama Orangtua', 'rules' => 'required'],
+            ['field' => 'pekerjaan_orangtua', 'label' => 'Pekerjaan Orangtua', 'rules' => 'required'],
+            ['field' => 'nik_anak', 'label' => 'NIK Anak', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_anak', 'label' => 'Nama Anak', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_anak', 'label' => 'Tempat Lahir Anak', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_anak', 'label' => 'Tanggal Lahir Anak', 'rules' => 'required'],
+            ['field' => 'kewarganegaraan_anak', 'label' => 'Kewarganegaraan Anak', 'rules' => 'required'],
+            ['field' => 'agama_anak', 'label' => 'Agama Anak', 'rules' => 'required'],
+            ['field' => 'pekerjaan_anak', 'label' => 'Pekerjaan Anak', 'rules' => 'required'],
+            ['field' => 'alamat', 'label' => 'Alamat', 'rules' => 'required'],
+            ['field' => 'rt', 'label' => 'RT', 'rules' => 'required|numeric'],
+            ['field' => 'rw', 'label' => 'RW', 'rules' => 'required|numeric'],
+            ['field' => 'pekon', 'label' => 'Pekon', 'rules' => 'required'],
+            ['field' => 'kecamatan', 'label' => 'Kecamatan', 'rules' => 'required'],
+            ['field' => 'kabupaten', 'label' => 'Kabupaten', 'rules' => 'required'],
+            ['field' => 'persyaratan', 'label' => 'Peruntukkan', 'rules' => 'required'],
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'], 
         ];  
     }
 

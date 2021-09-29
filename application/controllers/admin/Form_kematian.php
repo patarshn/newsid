@@ -18,9 +18,25 @@ class Form_kematian extends Admin_Controller{
     
     function rulesUpdate(){
         return [
-            ['field' => 'id',
-            'label' => 'id',
-            'rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required'],
+            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama', 'label' => 'Nama', 'rules' => 'required'],
+            ['field' => 'usia', 'label' => 'Usia', 'rules' => 'required'],
+            ['field' => 'agama', 'label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'alamat', 'label' => 'Alamat', 'rules' => 'required'],
+            ['field' => 'rt', 'label' => 'RT', 'rules' => 'required|numeric'],
+            ['field' => 'rw', 'label' => 'RW', 'rules' => 'required|numeric'],
+            ['field' => 'pekon', 'label' => 'Pekon', 'rules' => 'required'],
+            ['field' => 'kecamatan', 'label' => 'Kecamatan', 'rules' => 'required'],
+            ['field' => 'kabupaten', 'label' => 'Kabupaten', 'rules' => 'required'],
+            ['field' => 'tanggal_kematian', 'label' => 'Tanggal Kematian', 'rules' => 'required'],
+            ['field' => 'tempat_kematian', 'label' => 'Tempat Kematian', 'rules' => 'required'],
+            ['field' => 'waktu_kematian', 'label' => 'Waktu Kematian', 'rules' => 'required'],
+            ['field' => 'penyebab_kematian', 'label' => 'Penyebab Kematian', 'rules' => 'required'],
+            ['field' => 'tanggal_pemakaman', 'label' => 'Tanggal Pemakaman', 'rules' => 'required'],
+            ['field' => 'waktu_pemakaman', 'label' => 'Waktu Pemakaman', 'rules' => 'required'],
+            ['field' => 'tempat_pemakaman', 'label' => 'Tempat Pemakaman', 'rules' => 'required'],
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],
         ];  
     }
 

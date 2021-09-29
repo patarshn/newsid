@@ -18,9 +18,23 @@ class Form_covid extends Admin_Controller{
     
     function rulesUpdate(){
         return [
-            ['field' => 'id',
-            'label' => 'id',
-            'rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required'],
+            ['field' => 'nik', 'label' => 'NIK', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama', 'label' => 'Nama', 'rules' => 'required'],
+            ['field' => 'tempat_lahir', 'label' => 'Tempat Lahir', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir', 'label' => 'Tanggal Lahir', 'rules' => 'required'],
+            ['field' => 'pekerjaan', 'label' => 'Pekerjaan', 'rules' => 'required'],
+            ['field' => 'alamat', 'label' => 'Alamat', 'rules' => 'required'],
+            ['field' => 'rt', 'label' => 'RT', 'rules' => 'required|numeric'],
+            ['field' => 'rw', 'label' => 'RW', 'rules' => 'required|numeric'],
+            ['field' => 'pekon', 'label' => 'Pekon', 'rules' => 'required'],
+            ['field' => 'kecamatan', 'label' => 'Kecamatan', 'rules' => 'required'],
+            ['field' => 'kabupaten', 'label' => 'Kabupaten', 'rules' => 'required'],
+            ['field' => 'tanggal_acara', 'label' => 'Tanggal Acara', 'rules' => 'required'],
+            ['field' => 'waktu_acara', 'label' => 'Waktu Acara', 'rules' => 'required'],
+            ['field' => 'tempat_acara', 'label' => 'Tempat Acara', 'rules' => 'required'],
+            ['field' => 'persyaratan', 'label' => 'Resepsi', 'rules' => 'required'],  
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],
         ];  
     }
 

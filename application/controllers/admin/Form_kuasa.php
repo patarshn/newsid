@@ -18,9 +18,31 @@ class Form_kuasa extends Admin_Controller{
     
     function rulesUpdate(){
         return [
-            ['field' => 'id',
-            'label' => 'id',
-            'rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required'],
+            ['field' => 'nik_1', 'label' => 'NIK Pemberi Kuasa', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_1', 'label' => 'Nama Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_1', 'label' => 'Tempat Lahir Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_1', 'label' => 'Tanggal Lahir Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'pekerjaan_1', 'label' => 'Pekerjaan Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'alamat_1', 'label' => 'Alamat Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'rt_1', 'label' => 'RT Pemberi Kuasa', 'rules' => 'required|numeric'],
+            ['field' => 'rw_1', 'label' => 'RW Pemberi Kuasa', 'rules' => 'required|numeric'],
+            ['field' => 'pekon_1', 'label' => 'Pekon Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'kecamatan_1', 'label' => 'Kecamatan Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'kabupaten_1', 'label' => 'Kabupaten Pemberi Kuasa', 'rules' => 'required'],
+            ['field' => 'nik_2', 'label' => 'NIK Penerima Kuasa', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_2', 'label' => 'Nama Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_2', 'label' => 'Tempat Lahir Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_2', 'label' => 'Tanggal Lahir Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'pekerjaan_2', 'label' => 'Pekerjaan Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'alamat_2', 'label' => 'Alamat Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'rt_2', 'label' => 'RT Penerima Kuasa', 'rules' => 'required|numeric'],
+            ['field' => 'rw_2', 'label' => 'RW Penerima Kuasa', 'rules' => 'required|numeric'],
+            ['field' => 'pekon_2', 'label' => 'Pekon Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'kecamatan_2', 'label' => 'Kecamatan Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'kabupaten_2', 'label' => 'Kabupaten Penerima Kuasa', 'rules' => 'required'],
+            ['field' => 'keterangan', 'label' => 'Keterangan', 'rules' => 'required'],
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],
         ];  
     }
 

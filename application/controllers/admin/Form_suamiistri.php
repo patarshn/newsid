@@ -18,9 +18,32 @@ class Form_suamiistri extends Admin_Controller{
     
     function rulesUpdate(){
         return [
-            ['field' => 'id',
-            'label' => 'id',
-            'rules' => 'required'],
+            ['field' => 'id','label' => 'id','rules' => 'required'],
+            ['field' => 'nik_p', 'label' => 'NIK Istri', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_p', 'label' => 'Nama Istri', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_p', 'label' => 'Tempat Lahir Istri', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_p', 'label' => 'Tanggal Lahir Istri', 'rules' => 'required'],
+            ['field' => 'agama_p', 'label' => 'Agama Istri', 'rules' => 'required'],
+            ['field' => 'pekerjaan_p', 'label' => 'Pekerjaan Istri', 'rules' => 'required'],
+            ['field' => 'alamat_p', 'label' => 'Alamat Istri', 'rules' => 'required'],
+            ['field' => 'rt_p', 'label' => 'RT Istri', 'rules' => 'required|numeric'],
+            ['field' => 'rw_p', 'label' => 'RW Istri', 'rules' => 'required|numeric'],
+            ['field' => 'pekon_p', 'label' => 'Pekon Istri', 'rules' => 'required'],
+            ['field' => 'kecamatan_p', 'label' => 'Kecamatan Istri', 'rules' => 'required'],
+            ['field' => 'kabupaten_p', 'label' => 'Kabupaten Istri', 'rules' => 'required'],
+            ['field' => 'nik_l', 'label' => 'NIK Suami', 'rules' => 'required|numeric|min_length[16]|max_length[16]'],
+            ['field' => 'nama_l', 'label' => 'Nama Suami', 'rules' => 'required'],
+            ['field' => 'tempat_lahir_l', 'label' => 'Tempat Lahir Suami', 'rules' => 'required'],
+            ['field' => 'tanggal_lahir_l', 'label' => 'Tanggal Lahir Suami', 'rules' => 'required'],
+            ['field' => 'agama_l', 'label' => 'Agama Suami', 'rules' => 'required'],
+            ['field' => 'pekerjaan_l', 'label' => 'Pekerjaan Suami', 'rules' => 'required'],
+            ['field' => 'alamat_l', 'label' => 'Alamat Suami', 'rules' => 'required'],
+            ['field' => 'rt_l', 'label' => 'RT Suami', 'rules' => 'required|numeric'],
+            ['field' => 'rw_l', 'label' => 'RW Suami', 'rules' => 'required|numeric'],
+            ['field' => 'pekon_l', 'label' => 'Pekon Suami', 'rules' => 'required'],
+            ['field' => 'kecamatan_l', 'label' => 'Kecamatan Suami', 'rules' => 'required'],
+            ['field' => 'kabupaten_l', 'label' => 'Kabupaten Suami', 'rules' => 'required'],
+            ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],      
         ];  
     }
 
