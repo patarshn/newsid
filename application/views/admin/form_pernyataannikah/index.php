@@ -30,13 +30,13 @@
               <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
               <div>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')">Add</button>
-                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Delete</button>-->
+                    <button type="button" class="btn btn-success" onclick="window.open('<?=base_url($uri[2])?>','_blank')">Tambah</button>
+                    <!--<button type="button" id="`deletebtn`" class="btn btn-danger">Hapus</button>-->
 										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="aksibtn" aria-haspopup="true" aria-expanded="false">Aksi</button>
 										<div class="dropdown-menu">
 										  <button type="button" id="setujubtn" class="dropdown-item btn btn-success">Setujui</button>
 										  <button type="button" id="tolakbtn" class="dropdown-item btn btn-warning">Tolak</button>
-										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Delete</button>
+										  <button type="button" id="deletebtn" class="dropdown-item btn btn-danger">Hapus</button>
 										</div>
                 </div>
               </div>
@@ -147,7 +147,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="deleteModalLabel">Delete Modal</h5>
+        <h5 class="modal-title" id="deleteModalLabel">Hapus Modal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -156,7 +156,7 @@
         Data yang akan dihapus tidak dapat dikembalikan lagi, konfirmasi untuk menghapus data.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Delete</button>
+        <button type="button" class="btn btn-danger" onclick="store(base_url+'admin/<?=$uri[2]?>/destroy','#formdelete')">Hapus</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       </div>
     </div>
