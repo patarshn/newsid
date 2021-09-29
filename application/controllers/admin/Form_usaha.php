@@ -5,7 +5,7 @@ class Form_usaha extends Admin_Controller{
 
     private $_table = 'form_usaha';
     private $_folder = 'form_usaha';
-    private $_folderUpload = 'form_tatin';
+    private $_folderUpload = 'form_usaha';
     private $_docxName = 'form_usaha.docx';
     private $_mainTitle = 'Form Usaha';
 

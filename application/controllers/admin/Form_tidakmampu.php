@@ -5,7 +5,7 @@ class Form_tidakmampu extends Admin_Controller{
 
     private $_table = 'form_tidakmampu';
     private $_folder = 'form_tidakmampu';
-    private $_folderUpload = 'form_tatin';
+    private $_folderUpload = 'form_tidakmampu';
     private $_docxName = 'form_tidakmampu.docx';
     private $_mainTitle = 'Form Keterangan Tidak Mampu';
 

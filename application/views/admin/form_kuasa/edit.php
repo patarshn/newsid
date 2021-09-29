@@ -26,16 +26,17 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Edit <?=$title?></h6>
+                  <h6 class="m-0 font-weight-bold text-primary"><?=$title?></h6>
                   <div>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-warning">Cancel</button>
+                        <a href="<?=base_url('admin/'.$folder);?>" class="btn btn-warning">Batal</a>
                     </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                 <h3><?=$title?></h3>
+                <span class="text-danger font-weight-bold">*</span> <small class="text-gray-900 font-weight-bold">Wajib Diisi</small>
                 <?php 
                   echo form_open(base_url($folder.'/update'),'id="form"');
                   foreach($data as $d):
@@ -46,49 +47,49 @@
                 <h5>Data Pemberi Kuasa (Pengaju)</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="nik_1">NIK</label>
+                        <label class="text-gray-900 font-weight-bold" for="nik_1">NIK<span class="text-danger">*</span></label>
                         <input type="text" name="nik_1" id="nik_1" class="form-control border-left-primary" placeholder="NIK" value="<?=$d->nik_1?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="nama_1">Nama</label>
+                        <label class="text-gray-900 font-weight-bold" for="nama_1">Nama<span class="text-danger">*</span></label>
                         <input type="text" name="nama_1" id="nama_1" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama_1?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_1">Tempat Lahir</label>
+                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_1">Tempat Lahir<span class="text-danger">*</span></label>
                         <input type="text" name="tempat_lahir_1" id="tempat_lahir_1" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_1?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_1">Tanggal Lahir</label>
+                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_1">Tanggal Lahir<span class="text-danger">*</span></label>
                         <input type="date" name="tanggal_lahir_1" id="tanggal_lahir_1" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_1?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="pekerjaan_1">Pekerjaan</label>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan_1">Pekerjaan<span class="text-danger">*</span></label>
                         <input type="text" name="pekerjaan_1" id="pekerjaan_1" class="form-control border-left-primary" placeholder="Pekerjaan" value="<?=$d->pekerjaan_1?>" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="alamat_1">Alamat</label>
+                            <label class="text-gray-900 font-weight-bold" for="alamat_1">Alamat<span class="text-danger">*</span></label>
                             <textarea class="form-control border-left-primary" name="alamat_1" id="alamat_1" rows="3"><?=$d->alamat_1?></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="pekon_1">Pekon</label>
+                        <label class="text-gray-900 font-weight-bold" for="pekon_1">Pekon<span class="text-danger">*</span></label>
                         <input type="text" name="pekon_1" id="pekon_1" class="form-control border-left-primary" value="Wonodadi" value="<?=$d->pekon_1?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="kecamatan_1">Kecamatan</label>
+                        <label class="text-gray-900 font-weight-bold" for="kecamatan_1">Kecamatan<span class="text-danger">*</span></label>
                         <input type="text" name="kecamatan_1" id="kecamatan_1" class="form-control border-left-primary" value="Gadingrejo" value="<?=$d->kecamatan_1?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="kabupaten_1">Kabupaten</label>
+                        <label class="text-gray-900 font-weight-bold" for="kabupaten_1">Kabupaten<span class="text-danger">*</span></label>
                         <input type="text" name="kabupaten_1" id="kabupaten_1" class="form-control border-left-primary" value="Pringsewiu" value="<?=$d->kabupaten_1?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="rt_1">RT</label>
+                        <label class="text-gray-900 font-weight-bold" for="rt_1">RT<span class="text-danger">*</span></label>
                         <input type="text" name="rt_1" id="rt_1" class="form-control border-left-primary" placeholder="RT" value="<?=$d->rt_1?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="rw_1">RW</label>
+                        <label class="text-gray-900 font-weight-bold" for="rw_1">RW<span class="text-danger">*</span></label>
                         <input type="text" name="rw_1" id="rw_1" class="form-control border-left-primary" placeholder="RW" value="<?=$d->rw_1?>" required>
                     </div>
                     
@@ -96,59 +97,59 @@
                 <h5>Data Penerima Kuasa</h5>
                 <div class="form-row">
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="nik_2">NIK</label>
+                        <label class="text-gray-900 font-weight-bold" for="nik_2">NIK<span class="text-danger">*</span></label>
                         <input type="text" name="nik_2" id="nik_2" class="form-control border-left-primary" placeholder="NIK" value="<?=$d->nik_2?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="nama_2">Nama</label>
+                        <label class="text-gray-900 font-weight-bold" for="nama_2">Nama<span class="text-danger">*</span></label>
                         <input type="text" name="nama_2" id="nama_2" class="form-control border-left-primary" placeholder="Nama" value="<?=$d->nama_2?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_2">Tempat Lahir</label>
+                        <label class="text-gray-900 font-weight-bold" for="tempat_lahir_2">Tempat Lahir<span class="text-danger">*</span></label>
                         <input type="text" name="tempat_lahir_2" id="tempat_lahir_2" class="form-control border-left-primary" placeholder="Tempat Lahir" value="<?=$d->tempat_lahir_2?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_2">Tanggal Lahir</label>
+                        <label class="text-gray-900 font-weight-bold" for="tanggal_lahir_2">Tanggal Lahir<span class="text-danger">*</span></label>
                         <input type="date" name="tanggal_lahir_2" id="tanggal_lahir_2" class="form-control border-left-primary" placeholder="mm/dd/yy" value="<?=$d->tanggal_lahir_2?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="pekerjaan_2">Pekerjaan</label>
+                        <label class="text-gray-900 font-weight-bold" for="pekerjaan_2">Pekerjaan<span class="text-danger">*</span></label>
                         <input type="text" name="pekerjaan_2" id="pekerjaan_2" class="form-control border-left-primary" placeholder="Pekerjaan" value="<?=$d->pekerjaan_2?>" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="alamat_2">Alamat</label>
+                            <label class="text-gray-900 font-weight-bold" for="alamat_2">Alamat<span class="text-danger">*</span></label>
                             <textarea class="form-control border-left-primary" name="alamat_2" id="alamat_2" rows="3"><?=$d->alamat_2?></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="pekon_2">Pekon</label>
+                        <label class="text-gray-900 font-weight-bold" for="pekon_2">Pekon<span class="text-danger">*</span></label>
                         <input type="text" name="pekon_2" id="pekon_2" class="form-control border-left-primary" value="Wonodadi" value="<?=$d->pekon_2?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="kecamatan_2">Kecamatan</label>
+                        <label class="text-gray-900 font-weight-bold" for="kecamatan_2">Kecamatan<span class="text-danger">*</span></label>
                         <input type="text" name="kecamatan_2" id="kecamatan_2" class="form-control border-left-primary" value="Gadingrejo" value="<?=$d->kecamatan_2?>" required>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="kabupaten_2">Kabupaten</label>
+                        <label class="text-gray-900 font-weight-bold" for="kabupaten_2">Kabupaten<span class="text-danger">*</span></label>
                         <input type="text" name="kabupaten_2" id="kabupaten_2" class="form-control border-left-primary" value="Pringsewiu" value="<?=$d->kabupaten_2?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="rt_2">RT</label>
+                        <label class="text-gray-900 font-weight-bold" for="rt_2">RT<span class="text-danger">*</span></label>
                         <input type="text" name="rt_2" id="rt_2" class="form-control border-left-primary" placeholder="RT" value="<?=$d->rt_2?>" required>
                     </div>
                     <div class="col-lg-3">
-                        <label class="text-gray-900 font-weight-bold" for="rw_2">RW</label>
+                        <label class="text-gray-900 font-weight-bold" for="rw_2">RW<span class="text-danger">*</span></label>
                         <input type="text" name="rw_2" id="rw_2" class="form-control border-left-primary" placeholder="RW" value="<?=$d->rw_2?>" required>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label class="text-gray-900 font-weight-bold" for="keterangan">Keterangan</label>
+                            <label class="text-gray-900 font-weight-bold" for="keterangan">Keterangan<span class="text-danger">*</span></label>
                             <textarea class="form-control border-left-primary" name="keterangan" id="keterangan" rows="3"><?=$d->keterangan?></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <label class="text-gray-900 font-weight-bold" for="notelp">No Telp/WA</label>
+                        <label class="text-gray-900 font-weight-bold" for="notelp">No Telp/WA<span class="text-danger">*</span></label>
                         <input type="text" name="notelp" id="notelp" class="form-control border-left-primary" placeholder="6281245586699" value="<?=$d->notelp?>">
                     </div>
                     <div class="col-lg-12">
