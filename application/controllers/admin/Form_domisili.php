@@ -28,6 +28,8 @@ class Form_domisili extends Admin_Controller{
             ['field' => 'tanggal_lahir', 'label' => 'Tanggal Lahir', 'rules' => 'required'],
             ['field' => 'kewarganegaraan', 'label' => 'Kewarganegaraan', 'rules' => 'required'],
             ['field' => 'agama', 'label' => 'Agama', 'rules' => 'required'],
+            ['field' => 'status_perkawinan', 'label' => 'Status Perkawinan', 'rules' => 'required'],
+            ['field' => 'pekerjaan', 'label' => 'Pekerjaan', 'rules' => 'required'],
             ['field' => 'alamat', 'label' => 'Alamat', 'rules' => 'required'],
             ['field' => 'rt', 'label' => 'RT', 'rules' => 'required|numeric'],
             ['field' => 'rw', 'label' => 'RW', 'rules' => 'required|numeric'],
