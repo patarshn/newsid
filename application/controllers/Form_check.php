@@ -23,8 +23,8 @@ class Form_check extends Frontend_Controller{
     }    
     
 
-    function index($id = null){
-
+    function index(){
+        $id = null;
         $data = array(
             "jumbotron" => "",
             "title" => $this->_mainTitle,
@@ -41,20 +41,35 @@ class Form_check extends Frontend_Controller{
     }
 
     function nik($id = null){
-
-        $data = array(
-            "jumbotron" => "",
-            "title" => $this->_mainTitle,
-            "filename" => $this->_fileName,
+        $idRules = [
+            ['field' => 'id', 'label' => 'NIK', 'rules' => 'required|numeric|min_length[16]|max_length[16]']
+        ];
+        $dataToValidate = array(
             'id' => $id,
         );
-        $data = array(
-            "jumbotron" => "",
-            "title" => $this->_mainTitle,
-            'data' => $this->Main_m->getReport($id)->result(),
-            'id' => $id,
-
-        );
+        $this->form_validation->set_data($dataToValidate);
+        $this->form_validation->set_rules($idRules);
+        if(!$this->form_validation->run()){
+            $data = array(
+                "jumbotron" => "",
+                "title" => $this->_mainTitle,
+                'id' => null,
+                "filename" => $this->_fileName,
+                'status' => 'error',
+                'message' => validation_errors(),
+            );
+        }
+        else{
+            $data = array(
+                "jumbotron" => "",
+                "title" => $this->_mainTitle,
+                'data' => $this->Main_m->getReport($id)->result(),
+                'id' => $id,
+                'status' => "",
+                "message" => ""
+            );
+        }
+       
 
         $this->load->view('frontend/partials/header');
         $this->load->view('frontend/partials/content_navbar');

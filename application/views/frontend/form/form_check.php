@@ -1,10 +1,12 @@
 <!-- CONTENT -->
 <div class="container mt-3">
     <div class="row">
-                    
+    <?php if($status != ""):?>
+      <div class="alert alert-danger col-12" id="error-message"><?=$message?></div>
+    <?php endif;?>
     <div class="col-6">
     <h3>Masukkan NIK</h3>
-        <input type="number" class="form-control col-12" name="nik" id="nik">
+        <input type="text" class="form-control col-12" name="nik" id="nik">
         
         <button type="button" class="btn btn-primary active-button" onclick="checknik()">Check</button>
     </div>

@@ -162,10 +162,15 @@ class Frontend_Controller extends MY_Controller {
         $config['file_name']        = $file_name;
         $config['overwrite']        = true;
         $config['max_size']         = 15*1024; // 2MB
+        
+        #$ext = pathinfo($_FILES[$inputname]['name'],PATHINFO_EXTENSION);
+        $mime = mime_content_type($_FILES[$inputname]['tmp_name']);
+        #echo var_dump($mime);
+        #exit();
 
         $this->load->library('upload',$config);
         $this->upload->initialize($config);
-
+        
         if ($this->upload->do_upload($inputname)) {
                 $gbr = $this->upload->data();
                 $gbr_width = $gbr['image_width'];
@@ -208,7 +213,24 @@ class Frontend_Controller extends MY_Controller {
                 $resized_file = $upload_path.$gbr['file_name'];
                 $max_file_size = '500000'; // maximum file size, in bytes
                 $gbr = $this->upload->data();
-                $original_image = imagecreatefromjpeg($original_file);
+                #$original_image = imagecreatefromjpeg($original_file);
+                if($mime == "image/jpeg"){
+                    $original_image = imagecreatefromjpeg($original_file);
+                }
+                else if($mime == "image/png"){
+                    $original_image = imagecreatefrompng($original_file);
+                }
+                else{
+                    $callback = array(
+                        'status' => 'error',
+                        'message' => 'File harus berekstensi png/jpg/jpeg',
+                    );
+                    
+                    unlink($upload_path.$gbr['file_name']);
+                    echo json_encode($callback);
+                    exit();
+                }
+                
 
                 $image_quality = 100;
                 $count = 0;
@@ -217,7 +239,7 @@ class Frontend_Controller extends MY_Controller {
                 if($quality_decrease > 20){
                     $quality_decrease = 20;
                 }
-                $quality_decrease = 20;
+                #$quality_decrease = 20;
                 try{
                     do {
                         $temp_stream = fopen('php://temp', 'w+');

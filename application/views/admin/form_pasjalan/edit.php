@@ -178,11 +178,11 @@
                 endforeach;
                 form_close();
               ?>
-                  <div class="d-flex mt-3">
-                    <button type="button" class="btn btn-success active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>
-                        <div class="spinner-border m-1 align-self-center text-primary d-none" role="status" id="loading">
-                            <span class="sr-only">Loading...</span>
-                        </div>
+                <div class="d-flex mt-3">
+                    <button type="button" id="btn-submit" class="btn btn-primary active-button align-self-center" onclick="store(base_url+'admin/<?=$uri[2]?>/update','#form')">Simpan</button>
+                    <div id="loading" class="d-none">
+                        <div class="spinner-border m-1 align-self-center text-primary" role="status" ></div>  
+                        <span>Loading...</span>
                     </div>
                     
                     
