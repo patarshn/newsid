@@ -39,13 +39,9 @@ function getCookie(cname) {
 
 function store(url,formID){
     //$('#loading').removeClass('d-none');
-    if($('#loading').length){
-      $('#loading').removeClass('d-none');
-      $('#loading').addClass('d-flex align-items-center');
-      if($('#btn-submit').length){
-        $('#btn-submit').attr('disabled', 'disabled');
-      }
-    }
+    
+
+    
     $.ajax({
         type: "POST",
         url: url,
@@ -55,6 +51,15 @@ function store(url,formID){
         contentType: false,
         processData: false,
         cache:false,
+        beforeSend:function(){
+          if($('#loading').length){
+            $('#loading').removeClass('d-none');
+            $('#loading').addClass('d-flex align-items-center');
+            if($('#btn-submit').length){
+              $('#btn-submit').attr('disabled', 'disabled');
+            }
+          }
+        },
         success: function(data){
            if(data.status == 'error'){
                 $('#error-message').removeClass('d-none');
