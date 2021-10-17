@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <label class="text-gray-900 font-weight-bold" for="waktu_kematian">Waktu Kematian<span class="text-danger">*</span></label>
-                                <input type="time" name="waktu_kematian" id="waktu_kematian" class="form-control mb-0 time" value="<?=$d->waktu_kematian?>" required >
+                                <input type="time" name="waktu_kematian" id="waktu_kematian" class="form-control mb-0 time" step="2" value="<?=$d->waktu_kematian?>" required >
                                 <small class="timeinfo d-none">00.00-11.59 AM = 00.00-11.59<br>00.00-11.59 PM = 12.00-23.59</small>
                             </div>
                             <div class="col-lg-6">
@@ -130,7 +130,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <label class="text-gray-900 font-weight-bold" for="waktu_pemakaman">Waktu Pemakaman<span class="text-danger">*</span></label>
-                                <input type="time" name="waktu_pemakaman" id="waktu_pemakaman" class="form-control mb-0 time" value="<?=$d->waktu_pemakaman?>" required >
+                                <input type="time" name="waktu_pemakaman" id="waktu_pemakaman" class="form-control mb-0 time" step="2" value="<?=$d->waktu_pemakaman?>" required >
                                 <small class="timeinfo d-none">00.00-11.59 AM = 00.00-11.59<br>00.00-11.59 PM = 12.00-23.59</small>
                             </div>
                             <div class="col-lg-6">
