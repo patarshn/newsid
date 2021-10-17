@@ -38,7 +38,7 @@
         <div id="report" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           
-          <a class="collapse-item text-wrap" href="<?=base_url('admin/report')?>">Data Pengajuan</a>
+          <a class="collapse-item text-wrap" href="<?=base_url('admin/report')?>">Surat Keterangan</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/report_adm_umum')?>">Adm. Umum</a>
           <a class="collapse-item text-wrap" href="<?=base_url('admin/report_adm_lain')?>">Adm. Lainnya</a>
 
@@ -65,7 +65,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dataPengajuan" aria-expanded="true" aria-controls="dataPengajuan">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Data Pengajuan</span>
+          <span>Surat Keterangan</span>
         </a>
         <div id="dataPengajuan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
