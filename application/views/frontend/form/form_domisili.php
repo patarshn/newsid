@@ -107,7 +107,7 @@
                             <img id="file_kk_preview" src="#" alt="your image" width="200" />
                         </div>
                     </div>
-                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>?<?= date('l jS \of F Y h:i:s A'); ?>"></script>
                 </div>
             <?=form_close()?>
                 

@@ -140,7 +140,7 @@
                             <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
                         </div>
                     </div>
-                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>"></script>
+                    <script src="<?=base_url('assets/my/show_ktpkkimage.js');?>?<?= date('l jS \of F Y h:i:s A'); ?>"></script>
                     <div class="col-lg-12 form-inline">
                         <label class="text-gray-900 font-weight-bold" for="status" class="mr-sm-2">Verifikasi Lurah : </label>
                         <br>

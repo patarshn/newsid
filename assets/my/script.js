@@ -61,6 +61,9 @@ function store(url,formID){
         cache:false,
         success: function(data){
            if(data.status == 'error'){
+                if($('#success-message').length){
+                  $('#success-message').hide();
+                }
                 $('#error-message').removeClass('d-none');
                 $('#error-message').html(data.message);
                 $("html, body").animate({scrollTop:$("#error-message").offset().top - 50}, 500);
