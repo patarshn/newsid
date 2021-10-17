@@ -107,10 +107,9 @@ class Form_belummenikah extends Admin_Controller{
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
                 $berkas_tmp = $this->upload_image('file_ktp',$upload_path,$file_name);
                 if(!$berkas_tmp){
-                    echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
-                        'message' => 'Mohon Maaf, file ktp gagal diupload',
+                        'message' => 'Mohon Maaf, file ktp gagal diupload <br>'.$this->upload->display_errors(),
                     );
                     echo json_encode($callback);
                     exit;

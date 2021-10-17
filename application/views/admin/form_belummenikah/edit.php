@@ -115,7 +115,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="file_ktp">Upload KTP Pengaju</label>
-                            <input type="file" class="form-control-file" id="file_ktp" name="file_ktp">
+                            <input type="file" accept="image/jpeg,image/jpg,image/png" class="form-control-file" id="file_ktp" name="file_ktp">
                             <img id="file_ktp_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_ktp)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_ktp_old" name="file_ktp_old" value="<?=$berkas->file_ktp?>">
                         </div>
@@ -123,7 +123,7 @@
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label class="text-gray-900 font-weight-bold" for="file_kk">Upload KK Pengaju</label>
-                            <input type="file" class="form-control-file" id="file_kk" name="file_kk">
+                            <input type="file" accept="image/jpeg,image/jpg,image/png" class="form-control-file" id="file_kk" name="file_kk">
                             <img id="file_kk_preview" src="<?=base_url('uploads/'.$folder.'/'.$berkas->file_kk)?>" width="200px">
                             <input type="hidden" class="form-control-file" id="file_kk_old" name="file_kk_old" value="<?=$berkas->file_kk?>">
                         </div>
