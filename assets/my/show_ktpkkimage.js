@@ -5,7 +5,7 @@ $('#file_ktp').change(function(){
             alert("File harus lebih kecil dari 15 mb");
             this.value = "";
         }
-        else if(file_ktp_mime != "image/jpeg" || file_ktp_mime != "image/png"){
+        else if(file_ktp_mime != "image/jpeg" && file_ktp_mime != "image/png"){
             alert("File harus berekstensi jpeg/jpg/png");
             this.value = "";
         }
