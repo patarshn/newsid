@@ -40,7 +40,6 @@ class Form_ktpsementara extends Frontend_Controller{
             ['field' => 'pekon', 'label' => 'Pekon', 'rules' => 'required'],
             ['field' => 'kecamatan', 'label' => 'Kecamatan', 'rules' => 'required'],
             ['field' => 'kabupaten', 'label' => 'Kabupaten', 'rules' => 'required'],
-            ['field' => 'masa_berlaku', 'label' => 'Masa Berlaku', 'rules' => 'required'],
             ['field' => 'notelp', 'label' => 'No Telp/WA', 'rules' => 'required|numeric'],
             
         ];
