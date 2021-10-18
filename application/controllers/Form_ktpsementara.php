@@ -116,6 +116,7 @@ class Form_ktpsementara extends Frontend_Controller{
                 'jenis_kelamin' => $_POST['jenis_kelamin'],
                 'kewarganegaraan' => $_POST['kewarganegaraan'],
                 'agama' => $_POST['agama'],
+                'pekerjaan' => $_POST['pekerjaan'],
                 'status_perkawinan' => $_POST['status_perkawinan'],
                 'golongan_darah' => $_POST['golongan_darah'],
                 'alamat' => $_POST['alamat'],
