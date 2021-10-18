@@ -91,7 +91,7 @@
                         <tr>
                             <td>Pekerjaan</td>
                             <td>:</td>
-                            <td><?=$d->agama?></td>
+                            <td><?=$d->pekerjaan?></td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
