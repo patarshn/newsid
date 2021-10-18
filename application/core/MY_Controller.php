@@ -239,7 +239,7 @@ class Frontend_Controller extends MY_Controller {
                 if($quality_decrease > 20){
                     $quality_decrease = 20;
                 }
-                #$quality_decrease = 20;
+                $quality_decrease = 20;
                 try{
                     do {
                         $temp_stream = fopen('php://temp', 'w+');
