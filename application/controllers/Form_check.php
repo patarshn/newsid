@@ -30,6 +30,8 @@ class Form_check extends Frontend_Controller{
             "title" => $this->_mainTitle,
             "filename" => $this->_fileName,
             'id' => $id,
+            'status' => "",
+            "message" => ""
         );
 
         $this->load->view('frontend/partials/header');
