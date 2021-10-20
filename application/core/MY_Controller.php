@@ -155,7 +155,7 @@ class MY_Controller extends CI_Controller {
         }    
     }
 
-    public function destroy_file($id) {
+    private function destroy_file($id) {
         $berkas_id =  $this->Main_m->get($this->_table,$id)->result();  
         foreach ($berkas_id as $b_id) {
             
