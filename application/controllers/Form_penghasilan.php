@@ -76,7 +76,6 @@ class Form_penghasilan extends Frontend_Controller{
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
                 $berkas_tmp = $this->upload_image('file_ktp',$upload_path,$file_name);
                 if(!$berkas_tmp){
-                    #echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
                         'message' => 'Mohon Maaf, file ktp gagal diupload'. $this->upload->display_errors(),
@@ -96,7 +95,6 @@ class Form_penghasilan extends Frontend_Controller{
                 $file_name = 'ktp_'.$nik.'_'.date('YmdHis').'_'.uniqid();
                 $berkas_tmp = $this->upload_image('file_kk',$upload_path,$file_name);
                 if(!$berkas_tmp){
-                    #echo $this->upload->display_errors();
                     $callback = array(
                         'status' => 'error',
                         'message' => 'Mohon Maaf, file ktp gagal diupload'. $this->upload->display_errors(),
